@@ -4,9 +4,14 @@ Analysis of Syscall Attack Sequence from Exploit Codes
 
 ## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+```
+apt install udpate
+apt install make
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+git clone https://gitlab.com/sominsong97/syscall-attack-sequence.git
+cd syscall-attack-sequence
+make build
+```
 
 ## Add your files
 
