@@ -4,18 +4,19 @@ Analysis of Syscall Attack Sequence from Exploit Codes
 
 ## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+```
+apt install udpate
+apt install make
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+git clone https://gitlab.com/sominsong97/syscall-attack-sequence.git
+cd syscall-attack-sequence
+make build
+```
 
-## Add your files
-
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:9d8f5800ac35c2b50894260a4b1ebd9e?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:9d8f5800ac35c2b50894260a4b1ebd9e?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:9d8f5800ac35c2b50894260a4b1ebd9e?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Develop under the branch
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/sominsong97/syscall-attack-sequence.git
+cd syscall-attack-sequence
 git branch -M main
 git push -uf origin main
 ```
