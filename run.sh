@@ -15,11 +15,12 @@ function help() {
 /bin/cat << EOF
 
 Usage : 
-    ./run.sh [-h -A -P -S -M]
+    ./run.sh [-h -A -C -P -S -M]
 
 Options :
     -h,     print help message
     -A,     run all
+    -C,     crawling exploit codes
     -P,     path generation
     -S,     syscall generation
     -M,     CVE-syscall mapping
@@ -27,11 +28,14 @@ EOF
 }
 
 
-while getopts "hAPSM" opt; do
+while getopts "hCAPSM" opt; do
     case $opt in
         h)
             help
             exit 0
+            ;;
+        C)
+            echo Crawling Exploit Codes
             ;;
         A)
             echo Path Generation
