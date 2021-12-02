@@ -6,8 +6,6 @@ Analysis of Syscall Attack Sequence from Exploit Codes
 
 This project is managed on the [Notion](https://flame-appeal-2c5.notion.site/064b5204333944b7bcbcf6da2aa50c92?v=562fac4f80634990a9aed0fde193c9fe).
 
-The detailed schedule of the project progress can be found in [Notion](https://flame-appeal-2c5.notion.site/064b5204333944b7bcbcf6da2aa50c92?v=562fac4f80634990a9aed0fde193c9fe).
-
 Also, the progress of the project can be checked on the [Milestones](https://gitlab.com/sominsong97/syscall-attack-sequence/-/issues).
 
 
