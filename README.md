@@ -2,6 +2,13 @@
 
 Analysis of Syscall Attack Sequence from Exploit Codes
 
+## Notion
+
+This project is managed on the [Notion](https://flame-appeal-2c5.notion.site/064b5204333944b7bcbcf6da2aa50c92?v=562fac4f80634990a9aed0fde193c9fe).
+
+Also, the progress of the project can be checked on the [Milestones](https://gitlab.com/sominsong97/syscall-attack-sequence/-/issues).
+
+
 ## Getting started
 
 ```
@@ -33,7 +40,8 @@ Each execution command and process are as follows.
 sudo bash run.sh -C
 ```
 
-After this process, The exploit code for each source is collected in each source folder under the 'exploit' folder of the project folder. Also, 'exploit.json' with information about the exploit collected under the '/opt/output/perm/' folder is created.
+After this process, The exploit code for each source is collected in each source folder under the 'exploit' folder of the project folder. 
+Also, 'exploit.json' with information about the exploit collected under the '/opt/output/perm/' folder is created.
 
 2. Generate library function path from each exploit codes collected (in progress)
 
