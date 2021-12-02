@@ -4,8 +4,8 @@ set -e
 
 # option error handling
 if [[ $# -lt 1 ]]; then
-    echo "run.sh: must have OPTS [ARGS]"
-    echo "Try 'bash run.sh -h' for more information."
+    echo "run.sh must have OPTS [ARGS]"
+    echo "Try bash run.sh -h for more information."
 	exit 1
 fi
 
@@ -36,6 +36,7 @@ while getopts "hCAPSM" opt; do
             ;;
         C)
             echo Crawling Exploit Codes
+            bash ${EXPLOIT_DIR}exploit.sh
             ;;
         A)
             echo Path Generation
