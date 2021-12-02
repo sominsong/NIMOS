@@ -34,14 +34,14 @@ while getopts "hCAPSM" opt; do
             help
             exit 0
             ;;
-        C)
-            echo Crawling Exploit Codes
-            bash ${EXPLOIT_DIR}exploit.sh
-            ;;
         A)
             echo Path Generation
             echo Syscall Generation
             echo CVE-syscall mapping
+            ;;
+        C)
+            echo Crawling Exploit Codes
+            bash ${EXPLOIT_DIR}exploit.sh
             ;;
         P)
             echo Path Generation
