@@ -64,8 +64,3 @@ sudo bash run.sh -M
 ## Integrate with your tools
 
 - [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:9d8f5800ac35c2b50894260a4b1ebd9e?https://gitlab.com/sominsong97/syscall-attack-sequence/-/settings/integrations)
-
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:9d8f5800ac35c2b50894260a4b1ebd9e?https://www.makeareadme.com/) for this template.
