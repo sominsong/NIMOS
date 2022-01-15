@@ -12,6 +12,10 @@ Todo:
 
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+import re
+from functools import reduce
+import operator
+import copy
 
 from tool import Logging
 log = Logging.Logging("info")
@@ -71,7 +75,7 @@ def make_edge(backContent, G):
             break
 
 
-def find_loop(backContent, G):
+def find_loop(loop_info, G):
     """find loop and vertexs in the loop. 
 
     Args:
@@ -79,10 +83,8 @@ def find_loop(backContent, G):
         G(class Graph): Graph class instance of function
     """
 
-    for line in backContent:
-        if ";;  header" in line:
-            start, end = line.split()[2], line.split()[4]
-            G.add_loop(start, end)
+    start = loop_info.split()[2]     # end = line.split()[4]
+    G.add_loop(start)
 
 
 def make_graph(EID):
@@ -121,7 +123,7 @@ def make_graph(EID):
         # find loop
         if ";; Loop" in line and not ";; Loop 0" in line:
             G = graphList[len(graphList)-1]
-            find_loop(content[i+1:], G)
+            find_loop(content[i+1], G)
 
         # find basic block
         if "<bb" in line and not "goto <bb" in line:
@@ -147,9 +149,90 @@ def search_graph(G):
 
     log.info(f"Searching the execution pathes of function {G.funcNm}...")
     G.DFS()
-    log.info(f"Finished Searching the execution pathes of function {G.funcNm}")
-    log.info(f"path list: {G.path}")
+    log.info(f"Finished Searching the execution pathes of function {G.funcNm} - path #: {len(G.path)}")
+    log.debug(f"path list: {G.path}")
 
+    log.info(f"making the library function execution pathes of function {G.funcNm}...")
+    G.make_libpath()
+    log.debug(f"libpath list: {G.libpath}")
+    log.info(f"Finished making the library function execution pathes of function {G.funcNm}")
+
+
+def existInName(line, name):
+    for n in name:
+        if n == '':
+            continue
+        nm = n + '('
+        if nm in line:
+            return n
+    return False
+
+def merge(node, idx, cur, origin, result, graph, name):
+    res = []
+    temp = cur.copy()
+    if origin == '':
+        for i, x in enumerate(graph[name[node]]):
+            cur = temp.copy()
+            for j, y in enumerate(x):
+                if existInName(y, name):
+                    t = cur.copy()
+                    for z in result[existInName(y, name)]:
+                        cur = t.copy()
+                        cur.extend(z)
+                        merge(node, (i,j), cur, node, result, graph, name)
+                    if i == len(graph[name[node]])-1:
+                        return
+                    else:
+                        cur = []
+                        break
+                else:
+                    cur.append(y)
+            res.append(cur)
+    else:
+        x = graph[name[node]][idx[0]]
+        cur = temp.copy()
+        for j, y in enumerate(x):
+            if j <= idx[1]:
+                continue
+            if existInName(y, name):
+                t = cur.copy()
+                for z in result[existInName(y,name)]:
+                    cur = t.copy()
+                    cur.extend(z)
+                    merge(node, (idx[0], j), cur, node, result, graph, name)
+                return
+            else:
+                cur.append(y)
+        res.append(cur)
+
+    result[name[node]].extend(res)
+                   
+
+
+def merge_graph(graphList):
+    # Neet to do Topology Sort?
+
+    result = {'':[]}
+    graph = dict()
+    name = ['']
+    order = []
+    for i, G in enumerate(graphList):
+        result[G.funcNm] = []
+        graph[G.funcNm] = G.libpath
+        name.append(G.funcNm)
+        order.append(i+1)
+
+    log.debug(f"result - {result}")
+    log.debug(f"graph - {graph}")
+    log.debug(f"name - {name}")
+    log.debug(f"order - {order}")
+
+    for i in order:
+        merge(i, (0,0), [], '', result, graph, name)
+    for G in graphList:   
+        result[G.funcNm] = list(filter(None, result[G.funcNm]))  # delete empty element
+        G.newlibpath = result[G.funcNm]
+        log.debug(f"{G.funcNm}:\t{G.newlibpath}")
 
 def search_path(EID):
     """search execution path of exploit code(EID)
@@ -164,6 +247,13 @@ def search_path(EID):
     # search graph for EID
     for G in graphList:
         search_graph(G)
+    # # merge graph into main function
+    log.info(f"Merging the execution pathes of EID {EID}...")
+    if len(graphList) == 1:
+        graphList[0].newlibpath = graphList[0].libpath
+    else:
+        merge_graph(graphList)
+    log.info(f"Finished Merging the execution pathes of EID {EID} - total path #: {len(graphList[-1].newlibpath)}")
 
 def save_path(EID):
     """save path into json file
@@ -190,7 +280,7 @@ if __name__ == "__main__":
     # CFG
     eList = get_exploits()
     ############## [START]DEBUG #################
-    eList = [('test','exploitdb'), ('2004','exploitdb'), ('718','exploitdb'), ('2006','exploitdb'),]  
+    eList = [('test','exploitdb')]  
     ############## [END]DEBUG ###################
     make_cfg(eList)
     

@@ -6,7 +6,7 @@ Graph.py
 Thie class is for graph representation.
 
 Todo:
-  * 
+  * more than 2 Loop processing
 """
 
 import sys, os
@@ -23,10 +23,12 @@ class Graph:
         self.funcNm = funcNm
         self.V = []
         self.E = [(0,2)]
-        self.vList = vList
+        self.vList = vList.copy()
         self.vNum = 2
         self.loop = []
-        self.path = []
+        self.path = []  # bb path
+        self.libpath = []
+        self.newlibpath = []
 
     def add_vertex(self, v):
         self.V.append(v.bbNum)
@@ -36,8 +38,8 @@ class Graph:
     def add_edge(self, e):
         self.E.append(e)
 
-    def add_loop(self, start, end):
-        self.loop = [start, end]
+    def add_loop(self, start):
+        self.loop.append(start)
 
     def find_edge(self, V, visited):
         eList = []
@@ -50,7 +52,7 @@ class Graph:
             return eList
         else:            
             for E in eList:
-                if E in visited and not E == self.loop[0]:
+                if E in visited and not E in self.loop:
                     eList.remove(E)
                 else:
                     continue
@@ -102,3 +104,15 @@ class Graph:
                                 break
                             else:
                                 done.remove(V)
+
+    def make_libpath(self):
+        libpath = []
+        for path in self.path:
+            for bb in path:
+                for v in self.vList:
+                    if v.bbNum == bb:
+                        libpath.extend(v.funcList.copy())
+            
+            libpath = list(filter(None, libpath)) # empty list delete
+            self.libpath.append(libpath.copy())
+            libpath = []

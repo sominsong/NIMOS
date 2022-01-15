@@ -58,7 +58,7 @@ def make_cfg(eList):
         * Save only *.013t.cfg file in temp output directory
     """
     ############## [START]DEBUG #################
-    eList = [('test','exploitdb'), ('2004','exploitdb'), ('2006','exploitdb'), ('718','exploitdb')]  
+    eList = [('test','exploitdb')]  
     ############## [END]DEBUG ###################
     cwd = os.getcwd()
     os.system('mkdir /tmp/cfg/')
