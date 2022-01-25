@@ -19,6 +19,10 @@ git clone https://gitlab.com/sominsong97/syscall-attack-sequence.git
 cd syscall-attack-sequence
 make build
 ```
+if you meet `make:execvp *.sh: Permission denied` error, please enter below command first.
+```
+chmod 777 -R configure.sh && chmod 777 -R setup.sh
+```
 
 ## How to run
 
