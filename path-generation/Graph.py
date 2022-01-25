@@ -41,18 +41,18 @@ class Graph:
     def add_loop(self, start):
         self.loop.append(start)
 
-    def find_edge(self, V, visited):
+    def find_edge(self, Vfrom, done):
         eList = []
     
         for frm, to in self.E:
-            if frm == V:
+            if frm == Vfrom:
                 eList.append(to)
         eList.sort()
         if len(eList) == 1:
             return eList
         else:            
             for E in eList:
-                if E in visited and not E in self.loop:
+                if E in done and not E in self.loop:
                     eList.remove(E)
                 else:
                     continue
@@ -63,7 +63,7 @@ class Graph:
     def DFS(self):
         to = []      # vertex list to visit
         done = []    # vertex list already visited
-        path = []           # vertex path
+        path = []    # vertex path
 
         to.append(0)
 

@@ -11,7 +11,6 @@ Todo:
   * extract only basic block with library function
 """
 
-import os
 import json
 import subprocess
 
@@ -20,6 +19,8 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 from tool import Logging
 log = Logging.Logging("info")
+
+from compile_option import coption
 
 PERM_OUTPUT_PATH = "/opt/output/perm/"
 TEMP_OTUPUT_PATH = "/opt/output/temp/"
@@ -57,33 +58,41 @@ def make_cfg(eList):
     Note:
         * Save only *.013t.cfg file in temp output directory
     """
-    ############## [START]DEBUG #################
-    eList = [('test','exploitdb')]  
-    ############## [END]DEBUG ###################
+
     cwd = os.getcwd()
     os.system('mkdir /tmp/cfg/')
     os.chdir('/tmp/cfg/')
+    opt = ""
      
     for EID, src in eList:
+
+        if not os.path.isfile(f"{cwd}{EXPLOITDB_PATH}{EID}.c"):
+            log.warning(f"{EID} file is not c file. Maybe .sh/.txt/.md/.rb etc.")
+            continue
+
+        # get gcc compile option
+        if coption.get(EID): opt = coption.get(EID) 
         # gcc -fdump-tree-cfg-all <target.c>
-        if src == "exploitdb":  cmd = f'gcc -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c'
-        elif src == "git":      cmd =  f'gcc -fdump-tree-all -w {cwd}{PROJZ_PATH}{EID}.c'
-        elif src == "projz":    cmd =  f'gcc -fdump-tree-all -w {cwd}{GIT_PATH}{EID}.c'
-        fdump_result = subprocess.check_output(cmd,shell=True).decode()
-        if fdump_result == None:
-            log.error(f"gcc error - {EID}.c")
-            return
+        if src == "exploitdb":  cmd = f'gcc -static -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} 2>/tmp/error.txt'
+        elif src == "git":      cmd =  f'gcc -static -fdump-tree-all -w {cwd}{PROJZ_PATH}{EID}.c {opt} 2>/tmp/error.txt'
+        elif src == "projz":    cmd =  f'gcc -static -fdump-tree-all -w {cwd}{GIT_PATH}{EID}.c {opt} 2>/tmp/error.txt'
+        opt = ""
+        try:
+            fdump_result = subprocess.check_output(cmd,shell=True).decode()
+        except Exception as e:
+            log.error(f"Compile Error - {EID}")
+            continue
 
         cmd = f'cp {EID}.c.012t.cfg {TEMP_OTUPUT_PATH}'
         mv_result = subprocess.check_output(cmd,shell=True).decode().strip("\n")
-        if fdump_result == None:
+        if mv_result == None:
             log.error(f"move file error - maybe there is no {EID}.c.012t.cfg")
-            return
+            continue
 
         rm_result = subprocess.check_output('rm *',shell=True).decode().strip("\n")
-        if fdump_result == None:
+        if rm_result == None:
             log.error(f"remove error - maybe there is no a.out")
-            return
+            continue
 
         log.info(f"made CFG file({EID}.c.012t.cfg) for {EID}.c")
     
