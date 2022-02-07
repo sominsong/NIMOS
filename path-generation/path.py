@@ -306,10 +306,11 @@ if __name__ == "__main__":
 
     # CFG
     eList = get_exploits()
+
+    ###############
+    # eList = [['1397','exploitdb']]
     ###############
 
-    eList = [['1397','exploitdb']]
-    ###############
     make_cfg(eList)
     
     # Path
