@@ -60,7 +60,6 @@ class Graph:
 
         if not v in self.edge:  # if END
             self.path.append(self.stack.copy())
-            print(self.stack)
             self.stack.pop()
             return
         
@@ -81,7 +80,6 @@ class Graph:
                 loop_count += 1
         if loop_count == next_vertex_count:
             self.path.append(self.stack.copy())
-            print(self.stack)
 
         self.stack.pop()
         

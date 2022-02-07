@@ -150,9 +150,6 @@ def search_graph(G):
 
     log.info(f"Searching the execution pathes of function {G.funcNm}...")
     G.prepare_DFS()
-
-    print(f"Vertex: {G.V}\nVisit: {G.visit}\nEdge: {G.E}\nLoop:{G.loop}")
-
     G.DFS(0)
     log.info(f"Finished Searching the execution pathes of function {G.funcNm} - path #: {len(G.path)}")
     log.debug(f"path list: {G.path}")
@@ -233,11 +230,12 @@ def merge_graph(graphList):
     log.debug(f"order - {order}")
 
     for i in order:
-        # if name[i] == "main":
-        #     continue    # pass main merging
-        log.info(f"Start Merging - {name[i]}")
+        if name[i] == "main":
+            result[name[i]] = graph[name[i]]
+            continue    # pass main merging
+        log.info(f"Start Merging - {name[i]} - {len(graph[name[i]])}")
         merge(i, (0,0), [], '', result, graph, name)
-        log.info(f"Finish Merging - {name[i]}")
+        log.info(f"Finish Merging - {name[i]} - {len(result[name[i]])}")
     for G in graphList:   
         result[G.funcNm] = list(filter(None, result[G.funcNm]))  # delete empty element
         G.newlibpath = result[G.funcNm]
@@ -257,11 +255,12 @@ def search_path(EID):
         search_graph(G)
     # merge graph into main function
     log.info(f"Merging the execution pathes of EID {EID}...")
-    if len(graphList) == 1:
+    if len(graphList) == 1: # only main
         graphList[0].newlibpath = graphList[0].libpath
     else:
         merge_graph(graphList)
-    log.info(f"Finished Merging the execution pathes of EID {EID} - total path #: {len(graphList[-1].newlibpath)}")
+    # log.info(f"Finished Merging the execution pathes of EID {EID} - total path #: {len(graphList[-1].newlibpath)}")
+    log.info(f"Finished Merging the execution pathes of EID {EID}")
 
     return graphList
 
@@ -276,31 +275,17 @@ def save_path(EID, graphList):
         * Use exploit.json file in output directory
         * Save the result in the same json file in output directory
     """
-    path  = []
-    found = False
+    path = dict()
     for G in graphList:
-        if G.funcNm == 'main':
-            path = G.newlibpath
+        path[G.funcNm] = G.newlibpath
+        log.debug(f"Final {G.funcNm} merged path # - {len(G.newlibpath)}")
+    
+    jsonPath = json.dumps(path)
 
-    log.debug(f"Final 'main' merged path- {path}")
-    print(path)
+    with open(f'{PERM_OUTPUT_PATH}path/{EID}.json','w') as f:
+        f.write(jsonPath)
+    log.info(f"wrote {EID} path on {PERM_OUTPUT_PATH}path/{EID}.json")
 
-    with open(f'{PERM_OUTPUT_PATH}exploit.json','r') as f:
-        jsonList = json.load(f)
-        jsonList.pop(-1)
-
-    for exploitJson in jsonList:
-        if exploitJson['EID'] == EID:
-            found  = True
-            exploitJson["path"] = path
-            break
-    if found == True:
-        with open(f'{PERM_OUTPUT_PATH}exploit.json','w') as f:
-            jsonStr = json.dumps(jsonList)
-            f.write(jsonStr)
-            log.info(f"wrote {EID} path on {PERM_OUTPUT_PATH}exploit.json")
-    else:
-        log.warning(f"There is no {EID} in {PERM_OUTPUT_PATH}exploit.json")
     
 if __name__ == "__main__":
 
@@ -320,4 +305,4 @@ if __name__ == "__main__":
             log.warning(f"{EID} is not created yet. Maybe compilation problem")
             continue
         graphList = search_path(EID)
-        # save_path(EID, graphList)
+        save_path(EID, graphList)
