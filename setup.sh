@@ -4,6 +4,7 @@ OUTPUT_DIR="/opt/output/"
 
 # make output directory
 mkdir -pv ${OUTPUT_DIR} ${OUTPUT_DIR}temp/ ${OUTPUT_DIR}perm/
+mkdir -pv ${OUTPUT_DIR}perm/path/
 
 # searchsploit
 sudo git clone https://github.com/offensive-security/exploitdb.git ${OUTPUT_DIR}perm/exploitdb
