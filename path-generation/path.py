@@ -12,10 +12,10 @@ Todo:
 
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-import re
 from functools import reduce
 import operator
 import copy
+import json
 
 from tool import Logging
 log = Logging.Logging("info")
@@ -25,6 +25,7 @@ from cfg import make_cfg
 from Vertex import Vertex
 from Graph import Graph
 
+PERM_OUTPUT_PATH = "/opt/output/perm/"
 TEMP_OTUPUT_PATH = "/opt/output/temp/"
 SEPARATOR = "="
 
@@ -83,8 +84,8 @@ def find_loop(loop_info, G):
         G(class Graph): Graph class instance of function
     """
 
-    start = loop_info.split()[2]     # end = line.split()[4]
-    G.add_loop(start)
+    for v in loop_info.split()[2:]:
+        G.add_loop(int(v))
 
 
 def make_graph(EID):
@@ -123,7 +124,7 @@ def make_graph(EID):
         # find loop
         if ";; Loop" in line and not ";; Loop 0" in line:
             G = graphList[len(graphList)-1]
-            find_loop(content[i+1], G)
+            find_loop(content[i+3], G)
 
         # find basic block
         if "<bb" in line and not "goto <bb" in line:
@@ -134,7 +135,7 @@ def make_graph(EID):
     log.info(f"made Graph for {EID}.c exploit code")
     log.debug(f"Graph Number: {len(graphList)}")
     for G in graphList:
-        log.debug(f"Function Name: {G.funcNm} \n\tVertex: {G.V} \n\tVertex Number: {G.vNum} \n\tEdge: {G.E}")
+        log.debug(f"Function Name: {G.funcNm} \n\tVertex: {G.V} \n\tVertex Number: {G.vNum} \n\tEdge: {G.E} \n\tLoop: {G.loop}")
 
     return graphList
 
@@ -148,7 +149,11 @@ def search_graph(G):
     """
 
     log.info(f"Searching the execution pathes of function {G.funcNm}...")
-    G.DFS()
+    G.prepare_DFS()
+
+    print(f"Vertex: {G.V}\nVisit: {G.visit}\nEdge: {G.E}\nLoop:{G.loop}")
+
+    G.DFS(0)
     log.info(f"Finished Searching the execution pathes of function {G.funcNm} - path #: {len(G.path)}")
     log.debug(f"path list: {G.path}")
 
@@ -228,7 +233,11 @@ def merge_graph(graphList):
     log.debug(f"order - {order}")
 
     for i in order:
+        # if name[i] == "main":
+        #     continue    # pass main merging
+        log.info(f"Start Merging - {name[i]}")
         merge(i, (0,0), [], '', result, graph, name)
+        log.info(f"Finish Merging - {name[i]}")
     for G in graphList:   
         result[G.funcNm] = list(filter(None, result[G.funcNm]))  # delete empty element
         G.newlibpath = result[G.funcNm]
@@ -241,13 +250,12 @@ def search_path(EID):
         EID(str): Exploit ID
     """
     
-    path = []
     # make graph for EID
     graphList = make_graph(EID)
     # search graph for EID
     for G in graphList:
         search_graph(G)
-    # # merge graph into main function
+    # merge graph into main function
     log.info(f"Merging the execution pathes of EID {EID}...")
     if len(graphList) == 1:
         graphList[0].newlibpath = graphList[0].libpath
@@ -255,7 +263,10 @@ def search_path(EID):
         merge_graph(graphList)
     log.info(f"Finished Merging the execution pathes of EID {EID} - total path #: {len(graphList[-1].newlibpath)}")
 
-def save_path(EID):
+    return graphList
+
+
+def save_path(EID, graphList):
     """save path into json file
 
     Args:
@@ -265,26 +276,48 @@ def save_path(EID):
         * Use exploit.json file in output directory
         * Save the result in the same json file in output directory
     """
+    path  = []
+    found = False
+    for G in graphList:
+        if G.funcNm == 'main':
+            path = G.newlibpath
 
-    # with open(f'{PERM_OUTPUT_PATH}exploit.json','r') as f:
-    #     jsonList = json.load(f)
-    #     jsonList.pop(-1)
-    # with open(f'{PERM_OUTPUT_PATH}exploit.json','w') as f:
-    #     for exploitJson in jsonList:
-    #         exploitJson["path"] = find_path(EID)
-    #     jsonStr = json.dumps(jsonList)
-    #     f.write(jsonStr)
+    log.debug(f"Final 'main' merged path- {path}")
+    print(path)
 
+    with open(f'{PERM_OUTPUT_PATH}exploit.json','r') as f:
+        jsonList = json.load(f)
+        jsonList.pop(-1)
+
+    for exploitJson in jsonList:
+        if exploitJson['EID'] == EID:
+            found  = True
+            exploitJson["path"] = path
+            break
+    if found == True:
+        with open(f'{PERM_OUTPUT_PATH}exploit.json','w') as f:
+            jsonStr = json.dumps(jsonList)
+            f.write(jsonStr)
+            log.info(f"wrote {EID} path on {PERM_OUTPUT_PATH}exploit.json")
+    else:
+        log.warning(f"There is no {EID} in {PERM_OUTPUT_PATH}exploit.json")
+    
 if __name__ == "__main__":
 
     # CFG
     eList = get_exploits()
-    ############## [START]DEBUG #################
-    eList = [('test','exploitdb')]  
-    ############## [END]DEBUG ###################
+
+    ###############
+    # eList = [['1397','exploitdb']]
+    ###############
+
     make_cfg(eList)
     
     # Path
     for EID, src in eList:
-        search_path(EID)
-        save_path(EID)
+        # check if exist CFG file for EID
+        if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
+            log.warning(f"{EID} is not created yet. Maybe compilation problem")
+            continue
+        graphList = search_path(EID)
+        # save_path(EID, graphList)

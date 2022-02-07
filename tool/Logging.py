@@ -25,4 +25,4 @@ class Logging:
         logging.warning(f"{msg}")
 
     def error(self, msg):
-        logging.warning(f"{msg}")
+        logging.error(f"{msg}")
