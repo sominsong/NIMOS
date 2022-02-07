@@ -1,117 +1,116 @@
 
-from Graph import Graph
-from Vertex import Vertex
+class Graph:
+
+    def __init__(self, funcNm):
+        self.funcNm = funcNm
+        self.V = []
+        self.E = [(0,2)]
+        self.loop = dict()  # for DFS
+
+    def add_loop(self, v):
+        if not v in self.loop:
+            self.loop[v] = False
+
 
 # Initialization #
-vList = [Vertex(1,["print"])]
-G = Graph("test",vList)
-G.V.extend([0,2,3,4])
-G.E.append((2,3))
+G = Graph("test_main")
+#-----CASE 1------#
+# G.V.extend([0,2,3,4,5,6,7,1])
+# G.E.append((2,3))
+# G.E.append((3,5))
+# G.E.append((5,3))
+# G.E.append((2,4))
+# G.E.append((4,6))
+# G.E.append((4,7))
+# G.E.append((7,4))
+# G.add_loop(3)
+# G.add_loop(5)
+# G.add_loop(4)
+# G.add_loop(7)
+
+#-----CASE 2------#
+# G.V.extend([0,2,3,4,5,6])
+# G.E.append((2,3))
+# G.E.append((2,4))
+# G.E.append((3,5))
+# G.E.append((5,6))
+# G.E.append((5,3))
+# G.E.append((6,3))
+# G.add_loop(3)
+# G.add_loop(5)
+# G.add_loop(6)
+
+
+#-----CASE 3------#
+# G.V.extend([0,2,3,4,5,1])
+# G.E.append((2,3))
+# G.E.append((3,4))
+# G.E.append((4,5))
+# G.E.append((5,3))
+# G.add_loop(3)
+# G.add_loop(4)
+# G.add_loop(5)
+
+#-----CASE 'fixint'------#
+G.V.extend([0,2,3,4,5,1])
 G.E.append((2,4))
-G.E.append((4,2))
-G.loop.append(2)
-loop_check = dict()
+G.E.append((3,4))
+G.E.append((4,3))
+G.E.append((4,5))
+G.E.append((5,1))
+G.add_loop(3)
+G.add_loop(4)
 
-for v in G.loop:
-    loop_check[v] = False
-
-print(f"===============Graph Info===============")
-print(f"Vertex: {G.V}\nEdge: {G.E}\nLoop: {G.loop}\nLoop Check:{loop_check}")
-print(f"========================================\n")
+print(f"=============== Graph Info ===============")
+print(f"Vertex: {G.V}\nEdge: {G.E}\nLoop Check:{G.loop}")
+print(f"==========================================\n")
 
 
-stack = []
 visit = dict()
 for v in G.V:
     visit[v] = False
 path = []
 
-# def find_next(Vfrom, done):
-#     print("\nvvvvvvvvvvvvvvvvvvvvv find next vvvvvvvvvvvvvvvvvvvvv")
-#     nxt = []
-#     for frm, to in G.E:
-#         print(f"Vfrom: {Vfrom} | frm: {frm} | to: {to}")
-#         if frm == Vfrom:
-#             if to in done and not to in G.loop: # loop가 아닌데 이미 방문한 경우, pass
-#                 continue
-#             if to in G.loop and loop_check[G.loop.index(to)] == True: # loop인데 이미 반복한 경우, pass
-#                 continue
-#             if to in done and to in G.loop: # loop인데 또 방문하려는 경우, loop check
-#                 loop_check[G.loop.index(to)] = True
-#                 print(f"loop_check: {loop_check}")         
-#             nxt.append(to)
-#             print(f"nxt: {nxt}")
-    
-#     print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n")
-#     return nxt
+edge = dict()
+for e in G.E:
+    if not e[0] in edge:
+        edge[e[0]] = []
+    edge[e[0]].append(e[1])
 
+print(f"visit: {visit}\npath: {path}\nedge: {edge}")
 
-
-# def dfs(to, done, path):
-#     while to:
-#         Vfrom = to.pop()
-#         print(f"Vfrom: {Vfrom} | to: {to}")
-#         done.append(Vfrom)
-#         print(f"done: {done}")
-#         path.append(Vfrom)
-#         print(f"path: {path}")
-#         Vto = find_next(Vfrom, done)
-#         print(f"Vto: {Vto}")
-#         if Vto: # 다음 방문할 Vertex가 있다면
-#             to.extend(Vto)  # to에 Vertex 리스트 추가
-#             print(f"to: {to}")
-#             dfs(to, done, path)
-
-#         else:   # 마지막 Vertex라면
-#             if not to:  # 방문 예정 Vertex가 없다면
-#                 print(f"<<<< PATH: {path}>>>>")
-#                 G.path.append(path.copy())  # path 등록 후 종료
-#                 break
-#             else:   # 방문 예정 Vertex가 있다면
-#                 print(f"<<<< PATH: {path}>>>>")
-#                 G.path.append(path.copy())  # path 등록 후 이전 상태로 되돌리기
-
-
-def find_next(v, visit):
-    nxt = []
-    for frm, to in G.E:
-        if frm == v:
-            if to in G.loop:    # loop 시작점인 경우
-                if not visit[to]:   # 방문한 적이 없으면
-                    nxt.append(to)
-                elif loop_check[to] == False:   # 두 번째 방문일 경우
-                    loop_check[to] = True
-                    nxt.append[to]
-                else:   # 세 번째 이상 방문일 경우
-                    break
-            else:   # loop가 아닌 경우
-                if not visit[to]:   # 방문한 적이 없으면
-                    nxt.append(to)
-
-    return nxt
-
-
-def dfs(V):
+def dfs(v):
     visit[v] = True
-    stack.append(v)
+    path.append(v)
+    print(path)
 
-    if not find_next(v, visit): # 마지막 노드 일 경우
-        path.append(stack) # path 완성
-        print(f"path: {stack}")
-        stack.pop()
+    if not v in edge: # if END
+        print(f"path: {path}")
+        path.pop()
         return
 
-    for frm, to in G.E:
-        if not visit[to]:
-            dfs(to)
-            visit[to]=False
+    for vertex in edge[v]:  # edge로 이어져있고
+        if not visit[vertex]:  # 방문하지 않았으면
+            dfs(vertex)
+            visit[vertex] = False
+        elif G.loop.get(vertex) == False:   # 방문했는데 loop이고 첫 방문일 경우
+            G.loop[vertex] = True
+            dfs(vertex)
+            G.loop[vertex] = False
 
-    stack.pop()
+    loop_count = 0
+    next_count = 0
+    for vertex in edge[v]:
+        next_count += 1
+        if G.loop.get(vertex) == True:  # loop이고 방문했을 경우
+            loop_count += 1
+    if loop_count == next_count:
+        print(f"loop end path:{path}")
 
-
-
-
+    path.pop()
 
 #----------------< START >------------------#
 
+print(f"=============== DFS START ===============")
 dfs(0)
+print(f"=========================================\n")

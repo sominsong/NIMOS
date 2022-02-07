@@ -17,3 +17,4 @@ sudo apt install -y libfuse-dev
 sudo apt install -y gcc-multilib g++-multilib
 sudo apt install -y libkeyutils-dev
 sudo apt install -y libseccomp-dev
+sudo apt install -y kernel-package

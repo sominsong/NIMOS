@@ -25,7 +25,10 @@ class Graph:
         self.E = [(0,2)]
         self.vList = vList.copy()
         self.vNum = 2
-        self.loop = []
+        self.loop = dict()  # for DFS
+        self.visit = {0:False, 1:False, 2:False}   # for DFS
+        self.edge = dict()  # for DFS
+        self.stack = []     # for DFS
         self.path = []  # bb path
         self.libpath = []
         self.newlibpath = []
@@ -34,76 +37,54 @@ class Graph:
         self.V.append(v.bbNum)
         self.vList.append(v)
         self.vNum += 1
+        self.visit[v.bbNum] = False
     
     def add_edge(self, e):
         self.E.append(e)
 
-    def add_loop(self, start):
-        self.loop.append(start)
+    def add_loop(self, v):
+        if not v in self.loop:
+            self.loop[v] = False
+ 
+    def prepare_DFS(self):
+        # make edge dictionary {e: [connected edge list], ...}
+        for e in self.E:
+            if not e[0] in self.edge:
+                self.edge[e[0]] = []
+            self.edge[e[0]].append(e[1])
 
-    def find_edge(self, Vfrom, done):
-        eList = []
     
-        for frm, to in self.E:
-            if frm == Vfrom:
-                eList.append(to)
-        eList.sort()
-        if len(eList) == 1:
-            return eList
-        else:            
-            for E in eList:
-                if E in done and not E in self.loop:
-                    eList.remove(E)
-                else:
-                    continue
-            return eList
+    def DFS(self, v):
+        self.visit[v] = True
+        self.stack.append(v)
 
-        return []
+        if not v in self.edge:  # if END
+            self.path.append(self.stack.copy())
+            print(self.stack)
+            self.stack.pop()
+            return
+        
+        for vertex in self.edge[v]: # connected with v
+            if not self.visit[vertex]:  # not visited
+                self.DFS(vertex)
+                self.visit[vertex] = False
+            elif self.loop.get(vertex) == False:    # visited, but first loop
+                self.loop[vertex] = True
+                self.DFS(vertex)
+                self.loop[vertex] = False
 
-    def DFS(self):
-        to = []      # vertex list to visit
-        done = []    # vertex list already visited
-        path = []    # vertex path
+        # Loop End Path
+        loop_count, next_vertex_count = 0, 0
+        for vertex in self.edge[v]: # connected with v
+            next_vertex_count += 1
+            if self.loop.get(vertex) == True:   # twice visited loop
+                loop_count += 1
+        if loop_count == next_vertex_count:
+            self.path.append(self.stack.copy())
+            print(self.stack)
 
-        to.append(0)
-
-        while to:
-            Vfrom = to.pop()
-            done.append(Vfrom)
-            path.append(Vfrom)
-            Vto = self.find_edge(Vfrom, done)
-            log.debug(f"Vfrom: {Vfrom}\n\tVto: {Vto}\n\tdone: {done}\n\tto: {to}\n\tpath: {path}\n")
-            if Vto:
-                to.extend(Vto)
-            else:
-                if Vfrom == 1:  # finish with reaching the exit node
-                    self.path.append(path.copy())
-                    log.debug(f"PATH : {path}")
-                    if not to:
-                        return
-                    else:
-                        while path:
-                            V = path.pop()
-                            if to[-1] in self.find_edge(V, done):
-                                path.append(V)
-                                break
-                            else:
-                                done.remove(V)
-                else:   # finish without reaching the exit node
-                    if not to:
-                        self.path.append(path.copy())
-                        log.debug(f"PATH : {path}")
-                        return
-                    else:
-                        self.path.append(path.copy())
-                        log.debug(f"PATH : {path}")
-                        while path:
-                            V = path.pop()
-                            if to[-1] in self.find_edge(V, done):
-                                path.append(V)
-                                break
-                            else:
-                                done.remove(V)
+        self.stack.pop()
+        
 
     def make_libpath(self):
         libpath = []

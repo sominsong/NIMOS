@@ -84,8 +84,8 @@ def find_loop(loop_info, G):
         G(class Graph): Graph class instance of function
     """
 
-    start = int(loop_info.replace(',','').split()[2])     # end = line.split()[4]
-    G.add_loop(start)
+    for v in loop_info.split()[2:]:
+        G.add_loop(int(v))
 
 
 def make_graph(EID):
@@ -124,7 +124,7 @@ def make_graph(EID):
         # find loop
         if ";; Loop" in line and not ";; Loop 0" in line:
             G = graphList[len(graphList)-1]
-            find_loop(content[i+1], G)
+            find_loop(content[i+3], G)
 
         # find basic block
         if "<bb" in line and not "goto <bb" in line:
@@ -149,7 +149,11 @@ def search_graph(G):
     """
 
     log.info(f"Searching the execution pathes of function {G.funcNm}...")
-    G.DFS()
+    G.prepare_DFS()
+
+    print(f"Vertex: {G.V}\nVisit: {G.visit}\nEdge: {G.E}\nLoop:{G.loop}")
+
+    G.DFS(0)
     log.info(f"Finished Searching the execution pathes of function {G.funcNm} - path #: {len(G.path)}")
     log.debug(f"path list: {G.path}")
 
@@ -229,6 +233,8 @@ def merge_graph(graphList):
     log.debug(f"order - {order}")
 
     for i in order:
+        # if name[i] == "main":
+        #     continue    # pass main merging
         log.info(f"Start Merging - {name[i]}")
         merge(i, (0,0), [], '', result, graph, name)
         log.info(f"Finish Merging - {name[i]}")
@@ -244,7 +250,6 @@ def search_path(EID):
         EID(str): Exploit ID
     """
     
-    path = []
     # make graph for EID
     graphList = make_graph(EID)
     # search graph for EID
@@ -303,7 +308,7 @@ if __name__ == "__main__":
     eList = get_exploits()
     ###############
 
-    eList = [['test','exploitdb']]
+    eList = [['1397','exploitdb']]
     ###############
     make_cfg(eList)
     
@@ -314,4 +319,4 @@ if __name__ == "__main__":
             log.warning(f"{EID} is not created yet. Maybe compilation problem")
             continue
         graphList = search_path(EID)
-        save_path(EID, graphList)
+        # save_path(EID, graphList)
