@@ -231,10 +231,11 @@ def merge_graph(graphList):
 
     for i in order:
         if name[i] == "main":
+            result[name[i]] = graph[name[i]]
             continue    # pass main merging
-        log.info(f"Start Merging - {name[i]}")
+        log.info(f"Start Merging - {name[i]} - {len(graph[name[i]])}")
         merge(i, (0,0), [], '', result, graph, name)
-        log.info(f"Finish Merging - {name[i]}")
+        log.info(f"Finish Merging - {name[i]} - {len(result[name[i]])}")
     for G in graphList:   
         result[G.funcNm] = list(filter(None, result[G.funcNm]))  # delete empty element
         G.newlibpath = result[G.funcNm]
@@ -277,7 +278,6 @@ def save_path(EID, graphList):
     path = dict()
     for G in graphList:
         path[G.funcNm] = G.newlibpath
-        print(G.funcNm, len(G.libpath), len(G.newlibpath))
         log.debug(f"Final {G.funcNm} merged path # - {len(G.newlibpath)}")
     
     jsonPath = json.dumps(path)
