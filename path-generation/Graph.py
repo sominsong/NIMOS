@@ -92,6 +92,8 @@ class Graph:
                     if v.bbNum == bb:
                         libpath.extend(v.funcList.copy())
             
-            libpath = list(filter(None, libpath)) # empty list delete
-            self.libpath.append(libpath.copy())
+            libpath = tuple(filter(None, libpath)) # empty path delete
+            self.libpath.append(libpath)
             libpath = []
+        # Deduplication
+        self.libpath = list(set(self.libpath))
