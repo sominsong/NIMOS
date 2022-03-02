@@ -55,7 +55,7 @@ def make_cfg(eList):
         eList(list): List of EID
 
     Note:
-        * Save only *.013t.cfg file in temp output directory
+        * Save only *.c.013t.cfg file and *.c.004t.original in temp output directory
     """
 
     cwd = os.getcwd()

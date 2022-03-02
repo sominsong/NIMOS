@@ -1,3 +1,14 @@
+""" 
+
+usecase.py
+====================
+
+Thie module is for getting use case of API function
+used in exploit codes.
+
+Todo:
+  * 
+"""
 import subprocess
 import csv
 import re
@@ -15,6 +26,11 @@ EXPLOITDB_PATH = "/exploit/exploit-db/"
 
 
 def get_original():
+    """get original file list in output dictionary
+
+    Returns:
+        orgList(list): original file list
+    """
     orgList = list()
 
     find_result = subprocess.check_output(f"find {TEMP_OTUPUT_PATH}*.c.004t.original",shell=True).decode().split("\n")
@@ -27,11 +43,18 @@ def get_original():
 
 
 def get_funUseCase(EID):
+    """getting use case of API function used in exploit codes.
+
+    Args:
+        eList(list): List of EID
+
+    Returns:
+        funcUseCase(dict): dictionary with key(= function name), value(= list of API function use case)
+    """
     funcUseCase = dict()
     key = ""
     with open(f"{EID}", "r") as f:
         for line in f.readlines():
-            # print(line.strip())
             if ";; Function" in line:
                 key = line.split()[2]
                 funcUseCase[key] = list()
@@ -46,6 +69,12 @@ def get_funUseCase(EID):
 
 
 def save_funcUseCase(funcUseCase, EID):
+    """save use case of API function used in exploit codes into csv file(column: EID, func, API use case).
+
+    Args:
+        funcUseCase(dict): dictionary with key(= function name), value(= list of API function use case)
+        EID(str): exploit ID
+    """
     EID = EID.split("/")[-1].replace(".c.004t.original","")
     with open(f"{PERM_OUTPUT_PATH}usecase.csv", "a", encoding="utf-8") as f:
         wr = csv.writer(f)
