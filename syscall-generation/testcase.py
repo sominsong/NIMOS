@@ -13,6 +13,7 @@ import os
 import csv
 import json
 import requests
+import subprocess
 from bs4 import BeautifulSoup
 
 
@@ -214,7 +215,30 @@ def make_testcase(libFuncDict, API, usecase, EID, funcname):
         print(f"no {API} in checker")
 
 
+def run_testcase():
+    # get all testcase files
+    cmd = f"find {TEST_PATH}*-*-*.c" 
+    find_result = subprocess.check_output(cmd,shell=True).decode().strip().split('\n')
+    # move location to output folder
+    pwd = subprocess.check_output("pwd",shell=True).decode().strip()
+    os.chdir(TEST_PATH)
+    # compile tm.c
+    os.system("gcc -c tm.c")
+
+    # compile all testcase files
+    for floc in find_result:
+        fnm = floc.replace(TEST_PATH,"")
+        print(f"function name : {fnm}")
+        try:
+            subprocess.check_call(f"gcc -c {fnm} -o target.o",shell=True)
+            subprocess.check_call(f"gcc target.o tm.o -o target -lutil -lrt -lcrypt",shell=True)
+            subprocess.check_call(f"bash {pwd}/syscall-generation/ftrace.sh target",shell=True)
+        except subprocess.SubprocessError as e:
+            print(f"COMPILE ERROR or RUNTIME ERROR : {e}")
+            continue
+
 if __name__ == "__main__":
+
     usecase = get_usecase()
     libFuncDict = get_checker()  
  
@@ -223,7 +247,10 @@ if __name__ == "__main__":
         for func, APIList in funcAPI.items():
             for API in APIList:
                 print(EID, func, API)
-                make_testcase(libFuncDict, API.split()[0], API, EID, func)  # make testcase for a API function
+                try:
+                    make_testcase(libFuncDict, API.split()[0], API, EID, func)  # make testcase for a API function
+                except Exception as e:
+                    print(f"MAKE TESTCASE ERROR - {EID}-{func}-{API}")
+                    continue
 
-
-        
+    run_testcase()
