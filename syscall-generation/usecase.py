@@ -60,6 +60,14 @@ def get_funUseCase(EID):
                 funcUseCase[key] = list()
             if re.search("\w \([\w\W\(\)]*\);$", line):
                 funcUseCase[key].append(re.findall("\w+ \([\w\W\(\)]*\);$", line.strip())[0])
+            if "if (" in line:
+                line = line.replace("if (","")[:-2]
+                if re.search("\w \([\w\W\(\)]*\)", line):
+                    funcUseCase[key].append(re.findall("\w+ \([\w\W\(\)]*\)", line.strip())[0])
+            if  "while (" in line:
+                line = line.replace("while (","")[:-2]
+                if re.search("\w \([\w\W\(\)]*\)", line):
+                    funcUseCase[key].append(re.findall("\w+ \([\w\W\(\)]*\)", line.strip())[0])
 
     for func in skip_list:
         if func in funcUseCase:
@@ -86,13 +94,12 @@ def save_funcUseCase(funcUseCase, EID):
 if __name__ == "__main__":
     orgList = get_original()
 
-    # orgList = ["/opt/output/temp/12.c.004t.original"]
+    # orgList = ["/opt/output/temp/9545.c.004t.original"]
 
     # Initialization
     with open(f"{PERM_OUTPUT_PATH}usecase.csv","w",encoding="utf-8") as f:
         wr = csv.writer(f)
         wr.writerow(["EID","func","API use case"])
-
 
     for EID in orgList:
         funcUseCase = get_funUseCase(EID)
