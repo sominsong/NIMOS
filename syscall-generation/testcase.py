@@ -279,18 +279,18 @@ def run_testcase():
 
 if __name__ == "__main__":
 
-    # usecase = get_usecase()
-    # libFuncDict = get_checker()  
+    usecase = get_usecase()
+    libFuncDict = get_checker()  
  
-    # # get EID, function, API usecase
-    # for EID, funcAPI in usecase.items():
-    #     for func, APIList in funcAPI.items():
-    #         for API in APIList:
-    #             log.info(f"{EID} {func} {API}")
-    #             try:
-    #                 make_testcase(libFuncDict, API.split()[0], API, EID, func)  # make testcase for a API function
-    #             except Exception as e:
-    #                 log.info(f"MAKE TESTCASE ERROR - {EID}-{func}-{API}")
-    #                 continue
+    # get EID, function, API usecase
+    for EID, funcAPI in usecase.items():
+        for func, APIList in funcAPI.items():
+            for API in APIList:
+                log.info(f"{EID} {func} {API}")
+                try:
+                    make_testcase(libFuncDict, API.split()[0], API, EID, func)  # make testcase for a API function
+                except Exception as e:
+                    log.info(f"MAKE TESTCASE ERROR - {EID}-{func}-{API}")
+                    continue
 
     run_testcase()
