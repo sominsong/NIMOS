@@ -67,5 +67,5 @@ print(f"function_start:  {function_start}, function_end:  {function_end}")
 with open(f"./result/{TESTCODENAME}.txt","w") as wf:
     for f in function_logs:
         if "sys_enter:" in f:
-            wf.write(syscall_num_tbl[f[3]] + "\n")
-            print(TESTCODENAME,":",syscall_num_tbl[f[3]])
+            wf.write(f[3] + "\n")
+            print(TESTCODENAME,":",syscall_num_tbl[f[3]],"(",f[3],")")

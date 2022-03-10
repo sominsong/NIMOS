@@ -16,6 +16,11 @@ import requests
 import subprocess
 from bs4 import BeautifulSoup
 
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from tool import Logging
+log = Logging.Logging("info")
+
 
 
 API_sysseq = dict() # {API usecase: [syscall sequence]}
@@ -93,11 +98,16 @@ def find_header(libFuncDict, API):
     return libHeader
 
 
-def insert_mark(API, testcase, EID, funcname, args):
+def insert_mark(API, testcase, EID, funcname, args, type):
     # mark
     OPEN_MARK = f'tm_fd = open_tm();'
-    START_MARK = f'tm_write_start(tm_fd, "{API}-{EID}-{funcname}", "{args}");'
-    END_MARK = f'tm_write_end(tm_fd, "{API}-{EID}-{funcname}");'
+    
+    if type == "default":
+        START_MARK = f'tm_write_start(tm_fd, "{API}-default-default", "default args");'
+        END_MARK = f'tm_write_end(tm_fd, "{API}-default-default");'
+    else:
+        START_MARK = f'tm_write_start(tm_fd, "{API}-{EID}-{funcname}", "{args}");'
+        END_MARK = f'tm_write_end(tm_fd, "{API}-{EID}-{funcname}");'
 
     # is target function in one line?
     oneline = False
@@ -196,7 +206,11 @@ def insert_argument(API, usecase, testcase):
 def custom_testcase(testcase, API, usecase, EID, funcname):
     args = usecase.replace(f"{API} (", "").replace(");","").replace('"','\\"')
 
-    testcase = insert_mark(API, testcase, EID, funcname, args)
+    # save original
+    testcase = insert_mark(API, testcase, EID, funcname, args, "default")
+    save_original_testcase(API, testcase)
+
+    testcase = insert_mark(API, testcase, EID, funcname, args, "custom")
     # save original
     save_original_testcase(API, testcase)
     # argument custom
@@ -212,7 +226,7 @@ def make_testcase(libFuncDict, API, usecase, EID, funcname):
         # print(f"{libHeader}.h : {API}")
         custom_testcase(testcase, API, usecase, EID, funcname)
     else:   # there is no API in checker
-        print(f"no {API} in checker")
+        log.info(f"no {API} in checker")
 
 
 def run_testcase():
@@ -222,20 +236,32 @@ def run_testcase():
     # move location to output folder
     pwd = subprocess.check_output("pwd",shell=True).decode().strip()
     os.chdir(TEST_PATH)
+    # get result files
+    txts = subprocess.check_output("find ./result/*.txt",shell=True).decode().strip().split('\n')
+    txts = [t.replace("./result/","") for t in txts]
     # compile tm.c
     os.system("gcc -c tm.c")
-
     # compile all testcase files
     for floc in find_result:
         fnm = floc.replace(TEST_PATH,"")
-        print(f"function name : {fnm}")
-        try:
-            subprocess.check_call(f"gcc -c {fnm} -o target.o",shell=True)
-            subprocess.check_call(f"gcc target.o tm.o -o target -lutil -lrt -lcrypt",shell=True)
-            subprocess.check_call(f"bash {pwd}/syscall-generation/ftrace.sh target",shell=True)
-        except subprocess.SubprocessError as e:
-            print(f"COMPILE ERROR or RUNTIME ERROR : {e}")
+
+        log.info(f"function name : {fnm}")
+        # if shutdown, kill, abort etc, pass
+        if fnm.split('-')[0] == "kill" or fnm.split('-')[0] == "shutdown":
+            log.info("Manual Testing is needed")
             continue
+        # if there is ftrace result, pass
+        if not fnm.replace(".c",".txt") in txts:      
+            try:
+                subprocess.check_call(f"gcc -c {fnm} -o target.o",shell=True)
+                subprocess.check_call(f"gcc target.o tm.o -o target -lutil -lrt -lcrypt",shell=True)
+                subprocess.check_call(f"bash {pwd}/syscall-generation/ftrace.sh target",shell=True)
+                subprocess.check_call(f"rm target.o target")
+            except subprocess.SubprocessError as e:
+                log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
+                continue
+
+    os.chdir(pwd)
 
 if __name__ == "__main__":
 
@@ -246,11 +272,11 @@ if __name__ == "__main__":
     for EID, funcAPI in usecase.items():
         for func, APIList in funcAPI.items():
             for API in APIList:
-                print(EID, func, API)
+                log.info(f"{EID} {func} {API}")
                 try:
                     make_testcase(libFuncDict, API.split()[0], API, EID, func)  # make testcase for a API function
                 except Exception as e:
-                    print(f"MAKE TESTCASE ERROR - {EID}-{func}-{API}")
+                    log.info(f"MAKE TESTCASE ERROR - {EID}-{func}-{API}")
                     continue
 
     run_testcase()
