@@ -7,7 +7,7 @@ echo "reset trace log"
 echo 1 > /sys/kernel/debug/tracing/tracing_on
 echo "tracing on"
 
-timeout -s 9 10s ./$1
+timeout -s 9 10s ./$1 2> /tmp/error.txt
 
 echo 0 > /sys/kernel/debug/tracing/tracing_on
 echo "tracing off"

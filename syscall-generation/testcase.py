@@ -206,13 +206,12 @@ def insert_argument(API, usecase, testcase):
 def custom_testcase(testcase, API, usecase, EID, funcname):
     args = usecase.replace(f"{API} (", "").replace(");","").replace('"','\\"')
 
-    # save original
-    testcase = insert_mark(API, testcase, EID, funcname, args, "default")
-    save_original_testcase(API, testcase)
+    if not os.path.isfile(f"{TEST_PATH}{API}-default-default.c"):
+        # save original
+        testcase = insert_mark(API, testcase, EID, funcname, args, "default")
+        save_original_testcase(API, testcase)
 
     testcase = insert_mark(API, testcase, EID, funcname, args, "custom")
-    # save original
-    save_original_testcase(API, testcase)
     # argument custom
     testcase = insert_argument(API, usecase, testcase)
     # save custom testcase
@@ -261,16 +260,14 @@ def run_testcase():
                     subprocess.check_call(f"gcc -c {fnm} -o {fnm}.o",shell=True)
                     subprocess.check_call(f"gcc {fnm}.o tm.o -o {fnm} -lutil -lrt -lcrypt",shell=True)
                     subprocess.check_call(f"bash {pwd}/syscall-generation/ftrace.sh {fnm}",shell=True)
-                    subprocess.check_call(f"rm {fnm}.o {fnm}",shell=True)
                 except subprocess.SubprocessError as e:
                     log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
                     continue
         else:
             try:
-                subprocess.check_call(f"gcc -c {fnm} -o target.o",shell=True)
-                subprocess.check_call(f"gcc target.o tm.o -o target -lutil -lrt -lcrypt",shell=True)
-                subprocess.check_call(f"bash {pwd}/syscall-generation/ftrace.sh target",shell=True)
-                subprocess.check_call(f"rm target.o target")
+                subprocess.check_call(f"gcc -c {fnm} -o {fnm}.o",shell=True)
+                subprocess.check_call(f"gcc {fnm}.o tm.o -o {fnm} -lutil -lrt -lcrypt",shell=True)
+                subprocess.check_call(f"bash {pwd}/syscall-generation/ftrace.sh {fnm}",shell=True)
             except subprocess.SubprocessError as e:
                 log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
                 continue
