@@ -1,6 +1,10 @@
 import os
+import argparse
 import subprocess
 
+parser = argparse.ArgumentParser()
+parser.add_argument('--target', required=True, help='target ftrace log file')
+args = parser.parse_args()  # args.target
 
 # make syscall table
 if not os.path.isfile('/tmp/x86_64.syscall'):
@@ -16,7 +20,7 @@ with open('/tmp/x86_64.syscall','r') as f:
             syscall_num_tbl[sys_num[1]] = sys_num[0]
 
 # get ftrace log
-cmd = "awk '{print $1, $5, $6, $7, $8}' ./result/ftrace_log.txt"
+cmd = "awk '{print $1, $5, $6, $7, $8}'"+ f" ./result/{args.target}.txt"
 logs = subprocess.check_output(cmd,shell=True).decode().split('\n')
 logs = [l.split(" ") for l in logs]
 del logs[-1]
@@ -64,8 +68,8 @@ print(f"function_start:  {function_start}, function_end:  {function_end}")
 
 
 # get system calls
-with open(f"./result/{TESTCODENAME}.txt","w") as wf:
+with open(f"./result/{args.target}.txt","w") as wf:
     for f in function_logs:
         if "sys_enter:" in f:
             wf.write(f[3] + "\n")
-            print(TESTCODENAME,":",syscall_num_tbl[f[3]],"(",f[3],")")
+            print(args.target,":",syscall_num_tbl[f[3]],"(",f[3],")")

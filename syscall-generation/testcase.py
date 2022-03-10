@@ -237,8 +237,12 @@ def run_testcase():
     pwd = subprocess.check_output("pwd",shell=True).decode().strip()
     os.chdir(TEST_PATH)
     # get result files
-    txts = subprocess.check_output("find ./result/*.txt",shell=True).decode().strip().split('\n')
-    txts = [t.replace("./result/","") for t in txts]
+    txts = list()
+    try:
+        txts = subprocess.check_output("find ./result/*.txt",shell=True).decode().strip().split('\n')
+        txts = [t.replace("./result/","") for t in txts]
+    except subprocess.SubprocessError as e:
+        log.info("There is no result txt file.")
     # compile tm.c
     os.system("gcc -c tm.c")
     # compile all testcase files
@@ -251,7 +255,17 @@ def run_testcase():
             log.info("Manual Testing is needed")
             continue
         # if there is ftrace result, pass
-        if not fnm.replace(".c",".txt") in txts:      
+        if txts:
+            if not fnm.replace(".c",".txt") in txts:      
+                try:
+                    subprocess.check_call(f"gcc -c {fnm} -o {fnm}.o",shell=True)
+                    subprocess.check_call(f"gcc {fnm}.o tm.o -o {fnm} -lutil -lrt -lcrypt",shell=True)
+                    subprocess.check_call(f"bash {pwd}/syscall-generation/ftrace.sh {fnm}",shell=True)
+                    subprocess.check_call(f"rm {fnm}.o {fnm}",shell=True)
+                except subprocess.SubprocessError as e:
+                    log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
+                    continue
+        else:
             try:
                 subprocess.check_call(f"gcc -c {fnm} -o target.o",shell=True)
                 subprocess.check_call(f"gcc target.o tm.o -o target -lutil -lrt -lcrypt",shell=True)
@@ -265,18 +279,18 @@ def run_testcase():
 
 if __name__ == "__main__":
 
-    usecase = get_usecase()
-    libFuncDict = get_checker()  
+    # usecase = get_usecase()
+    # libFuncDict = get_checker()  
  
-    # get EID, function, API usecase
-    for EID, funcAPI in usecase.items():
-        for func, APIList in funcAPI.items():
-            for API in APIList:
-                log.info(f"{EID} {func} {API}")
-                try:
-                    make_testcase(libFuncDict, API.split()[0], API, EID, func)  # make testcase for a API function
-                except Exception as e:
-                    log.info(f"MAKE TESTCASE ERROR - {EID}-{func}-{API}")
-                    continue
+    # # get EID, function, API usecase
+    # for EID, funcAPI in usecase.items():
+    #     for func, APIList in funcAPI.items():
+    #         for API in APIList:
+    #             log.info(f"{EID} {func} {API}")
+    #             try:
+    #                 make_testcase(libFuncDict, API.split()[0], API, EID, func)  # make testcase for a API function
+    #             except Exception as e:
+    #                 log.info(f"MAKE TESTCASE ERROR - {EID}-{func}-{API}")
+    #                 continue
 
     run_testcase()
