@@ -16,6 +16,7 @@ from functools import reduce
 import operator
 import copy
 import json
+import re
 
 from tool import Logging
 log = Logging.Logging("info")
@@ -29,7 +30,7 @@ PERM_OUTPUT_PATH = "/opt/output/perm/"
 TEMP_OTUPUT_PATH = "/opt/output/temp/"
 SEPARATOR = "="
 
-def make_vertex(backContent, G, bbNum):
+def make_vertex(backContent, G, bbNum, EID):
     """make vertex with library function call statements and
        add vertex to Graph instance 
 
@@ -37,17 +38,28 @@ def make_vertex(backContent, G, bbNum):
         backContent(list): content string list after bbNum declaration statement.
         G(class Graph): Graph class instance to which bbNum belongs
         bbNum(int): basic block number
+        EID(str): exploit code id
     """
 
     funcList = []
     for line in backContent:
         if "<bb" in line and not "goto <bb" in line:    
-            break;
+            break
         if "(" in line and ");" in line:
-            funcList.append(line.replace(" ","").replace(";",""))
+            if re.search("\w+ = \w+ \([\w\W\(\)]*\);", line):
+                line = line[line.index("=")+1:]
+            line = line.replace(" ","").replace(";","")
+            if not line.count("(") == 1:
+                line = line[:line.index("(")]
+            if "(" in line:
+                line = line[:line.index("(")]
+            if "__builtin_" in line:
+                line = line.replace("__builtin_","")
+            funcList.append(line)
     
     # make Vertex
     V = Vertex(bbNum, funcList)
+    V.make_syscallList(EID, G.funcNm)
     # add Vertex
     G.add_vertex(V)
 
@@ -130,7 +142,7 @@ def make_graph(EID):
         if "<bb" in line and not "goto <bb" in line:
             bbNum = int(line.split()[1].replace(">",""))
             G = graphList[len(graphList)-1]
-            make_vertex(content[i+1:], G, bbNum)
+            make_vertex(content[i+1:], G, bbNum, EID)
     
     log.info(f"made Graph for {EID}.c exploit code")
     log.debug(f"Graph Number: {len(graphList)}")
@@ -155,8 +167,8 @@ def search_graph(G):
     log.debug(f"path list: {G.path}")
 
     log.info(f"making the library function execution pathes of function {G.funcNm}...")
-    G.make_libpath()
-    log.debug(f"libpath list: {G.libpath}")
+    G.make_syspath()
+    log.debug(f"syscall path list: {G.syscallpath}")
     log.info(f"Finished making the library function execution pathes of function {G.funcNm}")
 
 
@@ -220,7 +232,7 @@ def merge_graph(graphList):
     order = []
     for i, G in enumerate(graphList):
         result[G.funcNm] = []
-        graph[G.funcNm] = G.libpath
+        graph[G.funcNm] = G.syscallpath
         name.append(G.funcNm)
         order.append(i+1)
 
@@ -238,8 +250,8 @@ def merge_graph(graphList):
         log.info(f"Finish Merging - {name[i]} - {len(result[name[i]])}")
     for G in graphList:   
         result[G.funcNm] = list(filter(None, result[G.funcNm]))  # delete empty element
-        G.newlibpath = result[G.funcNm]
-        log.debug(f"{G.funcNm}:\t{G.newlibpath}")
+        G.newsyspath = result[G.funcNm]
+        log.debug(f"{G.funcNm}:\t{G.newsyspath}")
 
 def search_path(EID):
     """search execution path of exploit code(EID)
@@ -256,7 +268,7 @@ def search_path(EID):
     # merge graph into main function
     log.info(f"Merging the execution pathes of EID {EID}...")
     if len(graphList) == 1: # only main
-        graphList[0].newlibpath = graphList[0].libpath
+        graphList[0].newsyspath = graphList[0].syscallpath
     else:
         merge_graph(graphList)
     # log.info(f"Finished Merging the execution pathes of EID {EID} - total path #: {len(graphList[-1].newlibpath)}")
@@ -277,8 +289,8 @@ def save_path(EID, graphList):
     """
     path = dict()
     for G in graphList:
-        path[G.funcNm] = G.newlibpath
-        log.debug(f"Final {G.funcNm} merged path # - {len(G.newlibpath)}")
+        path[G.funcNm] = G.newsyspath
+        log.debug(f"Final {G.funcNm} merged path # - {len(G.newsyspath)}")
     
     jsonPath = json.dumps(path)
 
@@ -293,7 +305,7 @@ if __name__ == "__main__":
     eList = get_exploits()
 
     ###############
-    # eList = [['1397','exploitdb']]
+    # eList = [['9575','exploitdb']]
     ###############
 
     make_cfg(eList)

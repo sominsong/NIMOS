@@ -30,8 +30,8 @@ class Graph:
         self.edge = dict()  # for DFS
         self.stack = []     # for DFS
         self.path = []  # bb path
-        self.libpath = []
-        self.newlibpath = []
+        self.syscallpath = []
+        self.newsyspath = []
 
     def add_vertex(self, v):
         self.V.append(v.bbNum)
@@ -84,14 +84,14 @@ class Graph:
         self.stack.pop()
         
 
-    def make_libpath(self):
-        libpath = []
+    def make_syspath(self):
+        syscallpath = []
         for path in self.path:
             for bb in path:
                 for v in self.vList:
                     if v.bbNum == bb:
-                        libpath.extend(v.funcList.copy())
+                        syscallpath.extend(v.syscallList.copy())
             
-            libpath = list(filter(None, libpath)) # empty list delete
-            self.libpath.append(libpath.copy())
-            libpath = []
+            syscallpath = list(filter(None, syscallpath)) # empty list delete
+            self.syscallpath.append(syscallpath.copy())
+            syscallpath = []
