@@ -7,7 +7,7 @@ Thie module is for generating path list
 with using control flow graph from collected exploit codes.
 
 Todo:
-  * merge main function with user-defined function
+  * fix infinite loop in 42275.c 
 """
 
 import sys, os
@@ -22,8 +22,6 @@ from tool import Logging
 log = Logging.Logging("info")
 
 from cfg import get_exploits
-from cfg import make_cfg
-from cfg import delete_unrelated_function
 from Vertex import Vertex
 from Graph import Graph
 
@@ -304,19 +302,17 @@ if __name__ == "__main__":
 
     
     eList = get_exploits()
-    delete_unrelated_function(eList)
     ###############
     # eList = [['9575','exploitdb']]
     ###############
     
-    # # CFG
-    # make_cfg(eList)
-    
-    # # Path
-    # for EID, src in eList:
-    #     # check if exist CFG file for EID
-    #     if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
-    #         log.warning(f"{EID} is not created yet. Maybe compilation problem")
-    #         continue
-    #     graphList = search_path(EID)
-    #     save_path(EID, graphList)
+    # Path
+    for EID, src in eList:
+        # check if exist CFG file for EID
+        if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
+            log.warning(f"{EID} is not created yet. Maybe compilation problem")
+            continue
+        if EID == "42275":  # infinite loop in main !!!!!!
+            continue
+        graphList = search_path(EID)
+        save_path(EID, graphList)

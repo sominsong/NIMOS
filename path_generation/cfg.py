@@ -21,7 +21,6 @@ from tool import Logging
 log = Logging.Logging("info")
 
 from compile_option import coption
-from unrelated_function import unrelated
 
 PERM_OUTPUT_PATH = "/opt/output/perm/"
 TEMP_OTUPUT_PATH = "/opt/output/temp/"
@@ -48,37 +47,6 @@ def get_exploits():
     eList = list(map(lambda x: [x['EID'],x['src']], jsonList))
 
     return eList
-
-
-def delete_unrelated_function(eList):
-    """delete attack-unrelated library functions in exploit codes
-    
-    Args:
-    eList(list): List of EID
-    """
-    cwd = os.getcwd()
-    for EID, src in eList:
-        if src == "exploitdb":
-            if os.path.isfile(f"{cwd}{EXPLOITDB_PATH}{EID}.c"):
-                with open(f"{cwd}{EXPLOITDB_PATH}{EID}.c","r") as f:
-                    code = f.readlines()
-                new_code = list()
-                for i, line in enumerate(code):
-                    new_code.append(line)
-                    line = line.replace(" ","")
-                    if re.search("\w+\([\w\W\(\)]*\);", line):
-                        for f in unrelated:
-                            if f in line:
-                                print(line.strip())
-                                line = "//" + new_code.pop(-1)
-                                new_code.append(line)
-
-                        
-                with open(f"{cwd}{EXPLOITDB_PATH}{EID}_new.c","w") as f:
-                    f.writelines(new_code)
-
-                    
-
 
 
 def make_cfg(eList):
@@ -130,3 +98,8 @@ def make_cfg(eList):
     
     os.chdir(cwd)
     os.system('rm -r /tmp/cfg/')
+
+if __name__ == "__main__":
+    
+    eList = get_exploits()
+    make_cfg(eList)

@@ -34,9 +34,9 @@ while getopts "hCAPSM" opt; do
             help
             exit 0
             ;;
-        A)
+        A)  
+            bash ${SYSCALL_DIR}syscall-generation.sh
             bash ${PATH_DIR}path-generation.sh
-            echo ${SYSCALL_DIR}syscall-generation.sh
             echo CVE-syscall mapping
             ;;
         C)
@@ -45,10 +45,11 @@ while getopts "hCAPSM" opt; do
             ;;
         P)
             echo Path Generation
-            bash ${PATH_DIR}path-generation.sh
+            bash ${PATH_DIR}path_generation.sh
             ;;
         S)
             echo Syscall Generation
+            bash ${PATH_DIR}syscall-generation.sh
             ;;
         M)
             echo CVE-syscall mapping
