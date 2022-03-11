@@ -23,8 +23,6 @@ log = Logging.Logging("info")
 
 
 
-API_sysseq = dict() # {API usecase: [syscall sequence]}
-
 PERM_OUTPUT_PATH = "/opt/output/perm/"
 TEMP_OTUPUT_PATH = "/opt/output/temp/"
 EXPLOITDB_PATH = "/exploit/exploit-db/"
@@ -257,17 +255,17 @@ def run_testcase():
         if txts:
             if not fnm.replace(".c",".txt") in txts:      
                 try:
-                    subprocess.check_call(f"gcc -c {fnm} -o {fnm}.o",shell=True)
-                    subprocess.check_call(f"gcc {fnm}.o tm.o -o {fnm} -lutil -lrt -lcrypt",shell=True)
-                    subprocess.check_call(f"bash {pwd}/syscall-generation/ftrace.sh {fnm}",shell=True)
+                    subprocess.check_call(f'gcc -c {fnm} -o {fnm.replace(".c","")}.o',shell=True)
+                    subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt',shell=True)
+                    subprocess.check_call(f'bash {pwd}/syscall-generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
                 except subprocess.SubprocessError as e:
                     log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
                     continue
         else:
             try:
-                subprocess.check_call(f"gcc -c {fnm} -o {fnm}.o",shell=True)
-                subprocess.check_call(f"gcc {fnm}.o tm.o -o {fnm} -lutil -lrt -lcrypt",shell=True)
-                subprocess.check_call(f"bash {pwd}/syscall-generation/ftrace.sh {fnm}",shell=True)
+                subprocess.check_call(f'gcc -c {fnm} -o {fnm.replace(".c","")}.o',shell=True)
+                subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt',shell=True)
+                subprocess.check_call(f'bash {pwd}/syscall-generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
             except subprocess.SubprocessError as e:
                 log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
                 continue
