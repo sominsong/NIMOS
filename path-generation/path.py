@@ -23,6 +23,7 @@ log = Logging.Logging("info")
 
 from cfg import get_exploits
 from cfg import make_cfg
+from cfg import delete_unrelated_function
 from Vertex import Vertex
 from Graph import Graph
 
@@ -301,20 +302,21 @@ def save_path(EID, graphList):
     
 if __name__ == "__main__":
 
-    # CFG
+    
     eList = get_exploits()
-
+    delete_unrelated_function(eList)
     ###############
     # eList = [['9575','exploitdb']]
     ###############
-
-    make_cfg(eList)
     
-    # Path
-    for EID, src in eList:
-        # check if exist CFG file for EID
-        if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
-            log.warning(f"{EID} is not created yet. Maybe compilation problem")
-            continue
-        graphList = search_path(EID)
-        save_path(EID, graphList)
+    # # CFG
+    # make_cfg(eList)
+    
+    # # Path
+    # for EID, src in eList:
+    #     # check if exist CFG file for EID
+    #     if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
+    #         log.warning(f"{EID} is not created yet. Maybe compilation problem")
+    #         continue
+    #     graphList = search_path(EID)
+    #     save_path(EID, graphList)
