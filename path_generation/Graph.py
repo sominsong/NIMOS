@@ -93,5 +93,6 @@ class Graph:
                         syscallpath.extend(v.syscallList.copy())
             
             syscallpath = list(filter(None, syscallpath)) # empty list delete
-            self.syscallpath.append(syscallpath.copy())
+            if syscallpath not in self.syscallpath:
+                self.syscallpath.append(syscallpath.copy())
             syscallpath = []

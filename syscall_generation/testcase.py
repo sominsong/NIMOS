@@ -257,7 +257,7 @@ def run_testcase():
                 try:
                     subprocess.check_call(f'gcc -c {fnm} -o {fnm.replace(".c","")}.o',shell=True)
                     subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt',shell=True)
-                    subprocess.check_call(f'bash {pwd}/syscall-generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
+                    subprocess.check_call(f'bash {pwd}/syscall_generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
                 except subprocess.SubprocessError as e:
                     log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
                     continue
@@ -265,7 +265,7 @@ def run_testcase():
             try:
                 subprocess.check_call(f'gcc -c {fnm} -o {fnm.replace(".c","")}.o',shell=True)
                 subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt',shell=True)
-                subprocess.check_call(f'bash {pwd}/syscall-generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
+                subprocess.check_call(f'bash {pwd}/syscall_generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
             except subprocess.SubprocessError as e:
                 log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
                 continue
