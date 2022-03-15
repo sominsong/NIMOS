@@ -316,7 +316,7 @@ if __name__ == "__main__":
         if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
             log.warning(f"{EID} is not created yet. Maybe compilation problem")
             continue
-        if EID == "42275":  # infinite loop in main !!!!!!
+        if EID == "42275" or EID == "41458":  # infinite loop in main !!!!!!
             continue
         graphList = search_path(EID)
         save_path(EID, graphList)
