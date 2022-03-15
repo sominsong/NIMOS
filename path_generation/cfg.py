@@ -11,6 +11,7 @@ Todo:
   * extract only basic block with library function
 """
 
+import re
 import json
 import subprocess
 
@@ -97,3 +98,8 @@ def make_cfg(eList):
     
     os.chdir(cwd)
     os.system('rm -r /tmp/cfg/')
+
+if __name__ == "__main__":
+    
+    eList = get_exploits()
+    make_cfg(eList)

@@ -9,5 +9,5 @@ coption = {
     '15024': '-m32', '9575': '-m32 -mtune=i686', '9542': '-m32', '9083': '-lsctp', '5093': '-m32',
     '2013': '-m32', '1397': '-m32', '926': '-m32', '39277': '-lkeyutils', '40616': '-lpthread',
     '40871': '-lpthread', '41995': '-lpthread', '43127': '-lpthread', '43345': '-lpthread',
-    '44302': '-lpthread', '45553': '-lpthread'
+    '44302': '-lpthread', '45553': '-lpthread', '160': '-fomit-frame-pointer'
     }
