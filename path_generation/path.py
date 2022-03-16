@@ -164,6 +164,8 @@ def search_graph(G):
 
     log.info(f"Searching the execution pathes of function {G.funcNm}...")
     G.prepare_DFS()
+    if G.funcNm == "do_child":
+        G.print_member("all","")
     G.DFS(0)
     log.info(f"Finished Searching the execution pathes of function {G.funcNm} - path #: {len(G.path)}")
     log.debug(f"path list: {G.path}")
@@ -307,7 +309,7 @@ if __name__ == "__main__":
     
     eList = get_exploits()
     ###############
-    # eList = [['9575','exploitdb']]
+    eList = [['3','exploitdb']]
     ###############
     
     # Path
@@ -319,4 +321,4 @@ if __name__ == "__main__":
         if EID == "42275" or EID == "41458":  # infinite loop in main !!!!!!
             continue
         graphList = search_path(EID)
-        save_path(EID, graphList)
+        # save_path(EID, graphList)

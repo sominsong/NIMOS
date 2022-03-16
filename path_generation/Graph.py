@@ -45,6 +45,41 @@ class Graph:
     def add_loop(self, v):
         if not v in self.loop:
             self.loop[v] = False
+    
+    def print_member(self, who, v):
+        if not self.funcNm == "do_child":
+            return
+        if who == "all":
+            print(v," - ", "funcNm: ", self.funcNm)
+            print(v," - ", "V: ", self.V)
+            print(v," - ", "E: ", self.E)
+            print(v," - ", "vList: ", self.vList)
+            print(v," - ", "vNum: ", self.vNum)
+            print(v," - ", "loop: ", self.loop)
+            print(v," - ", "visit: ", self.visit)
+            print(v," - ", "edge: ", self.edge)
+            print(v," - ", "stack: ", self.stack)
+            print(v," - ", "path: ", self.path)
+            print(v," - ", "syscallpath: ", self.syscallpath)
+            print(v," - ", "newsyspath: ", self.newsyspath)
+        if who == "V":
+            print(v," - ", "V: ", self.V)
+        if who == "E":
+            print(v," - ", "E: ", self.E)
+        if who == "loop":
+            print(v," - ", "loop: ", self.loop)
+        if who == "visit":
+            print(v," - ", "visit: ", self.visit)
+        if who == "edge":
+            print(v," - ", "edge: ", self.edge)
+        if who == "stack":
+            print(v," - ", "stack: ", self.stack)
+        if who == "path":
+            print(v," - ", "path: ", self.path)
+        if who == "syscallpath":
+            print(v," - ", "syscallpath: ", self.syscallpath)
+        if who == "newsyspath":
+            print(v," - ", "newsyspath: ", self.newsyspath)
  
     def prepare_DFS(self):
         # make edge dictionary {e: [connected edge list], ...}
@@ -57,6 +92,7 @@ class Graph:
     def DFS(self, v):
         self.visit[v] = True
         self.stack.append(v)
+        self.print_member("stack", v)
 
         if not v in self.edge:  # if END
             self.path.append(self.stack.copy())
