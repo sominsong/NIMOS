@@ -26,6 +26,7 @@ class Graph:
         self.vList = vList.copy()
         self.vNum = 2
         self.loop = dict()  # for DFS
+        self.MAX_LOOP = 3
         self.visit = {0:False, 1:False, 2:False}   # for DFS
         self.edge = dict()  # for DFS
         self.stack = []     # for DFS
@@ -44,42 +45,8 @@ class Graph:
 
     def add_loop(self, v):
         if not v in self.loop:
-            self.loop[v] = False
-    
-    def print_member(self, who, v):
-        if not self.funcNm == "do_child":
-            return
-        if who == "all":
-            print(v," - ", "funcNm: ", self.funcNm)
-            print(v," - ", "V: ", self.V)
-            print(v," - ", "E: ", self.E)
-            print(v," - ", "vList: ", self.vList)
-            print(v," - ", "vNum: ", self.vNum)
-            print(v," - ", "loop: ", self.loop)
-            print(v," - ", "visit: ", self.visit)
-            print(v," - ", "edge: ", self.edge)
-            print(v," - ", "stack: ", self.stack)
-            print(v," - ", "path: ", self.path)
-            print(v," - ", "syscallpath: ", self.syscallpath)
-            print(v," - ", "newsyspath: ", self.newsyspath)
-        if who == "V":
-            print(v," - ", "V: ", self.V)
-        if who == "E":
-            print(v," - ", "E: ", self.E)
-        if who == "loop":
-            print(v," - ", "loop: ", self.loop)
-        if who == "visit":
-            print(v," - ", "visit: ", self.visit)
-        if who == "edge":
-            print(v," - ", "edge: ", self.edge)
-        if who == "stack":
-            print(v," - ", "stack: ", self.stack)
-        if who == "path":
-            print(v," - ", "path: ", self.path)
-        if who == "syscallpath":
-            print(v," - ", "syscallpath: ", self.syscallpath)
-        if who == "newsyspath":
-            print(v," - ", "newsyspath: ", self.newsyspath)
+            # self.loop[v] = False
+            self.loop[v] = 0
  
     def prepare_DFS(self):
         # make edge dictionary {e: [connected edge list], ...}
@@ -92,34 +59,58 @@ class Graph:
     def DFS(self, v):
         self.visit[v] = True
         self.stack.append(v)
-        self.print_member("stack", v)
+        # if self.funcNm == "putcode":  print(self.stack)
 
         if not v in self.edge:  # if END
             self.path.append(self.stack.copy())
             self.stack.pop()
+            # if self.funcNm == "putcode":  print(self.stack)
             return
         
         for vertex in self.edge[v]: # connected with v
             if not self.visit[vertex]:  # not visited
                 self.DFS(vertex)
                 self.visit[vertex] = False
-            elif self.loop.get(vertex) == False:    # visited, but first loop
-                self.loop[vertex] = True
-                self.DFS(vertex)
-                self.loop[vertex] = False
+            elif not self.loop.get(vertex) == None:
+                if self.loop.get(vertex) < self.MAX_LOOP -1:    # visited, but not MAX_LOOP loop
+                    self.loop[vertex] += 1
+                    self.DFS(vertex)
+                    self.loop[vertex] -= 1
+ 
 
         # Loop End Path
         loop_count, next_vertex_count = 0, 0
-        for vertex in self.edge[v]: # connected with v
+        for next_vertex in self.edge[v]: # connected with v
             next_vertex_count += 1
-            if self.loop.get(vertex) == True:   # twice visited loop
+            if self.loop.get(next_vertex) == self.MAX_LOOP -1:   # MAX_LOOP times visited loop
                 loop_count += 1
         if loop_count == next_vertex_count:
-            self.path.append(self.stack.copy())
+            exist_next_next_path = False
+            for next_vertex in self.edge[v]: # connected with v
+                for next_next_vertex in self.edge[next_vertex]:
+                    if not self.loop.get(next_next_vertex):
+                        exist_next_next_path = True
+            if exist_next_next_path:
+                self.DFS(vertex)
+                self.visit[vertex] = False   
+            else:          
+                self.path.append(self.stack.copy())
 
         self.stack.pop()
-        
+        # if self.funcNm == "putcode":  print(self.stack)
 
+
+    def optimize(self):
+        path = []
+        for p in self.path:
+            for l in self.loop.keys():
+                self.loop[l] = p.count(l)
+            diff = set(self.loop.values()) - {0,self.MAX_LOOP,self.MAX_LOOP+1}
+            if not diff:
+                path.append(p)
+        self.path = path.copy()
+
+        
     def make_syspath(self):
         syscallpath = []
         for path in self.path:

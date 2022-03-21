@@ -9,6 +9,9 @@ with using control flow graph from collected exploit codes.
 Todo:
   * fix infinite loop in 42275.c 
   * fix infinite loop in "kernel_exec_irq" in 41458.c
+  * fix infinite loop in "unseccomp" in 43127.c
+  * fix infinite loop in "main" in 45516.c
+  * fix infinite loop in "main"  in 50135.c
 """
 
 import sys, os
@@ -164,9 +167,13 @@ def search_graph(G):
 
     log.info(f"Searching the execution pathes of function {G.funcNm}...")
     G.prepare_DFS()
-    if G.funcNm == "do_child":
-        G.print_member("all","")
     G.DFS(0)
+    G.optimize()
+    if G.funcNm == "putcode":
+        for g in G.path:
+            print(g)
+
+
     log.info(f"Finished Searching the execution pathes of function {G.funcNm} - path #: {len(G.path)}")
     log.debug(f"path list: {G.path}")
 
@@ -309,7 +316,7 @@ if __name__ == "__main__":
     
     eList = get_exploits()
     ###############
-    eList = [['3','exploitdb']]
+    eList = [['40871', 'exploitdb'], ['43418', 'exploitdb']]
     ###############
     
     # Path
@@ -318,7 +325,7 @@ if __name__ == "__main__":
         if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
             log.warning(f"{EID} is not created yet. Maybe compilation problem")
             continue
-        if EID == "42275" or EID == "41458":  # infinite loop in main !!!!!!
+        if EID == "42275" or EID == "41458" or EID == "43127" or EID == "45516" or EID == "50135":  # infinite loop in main !!!!!!
             continue
         graphList = search_path(EID)
-        # save_path(EID, graphList)
+        save_path(EID, graphList)

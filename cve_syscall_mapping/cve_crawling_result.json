@@ -1,0 +1,1578 @@
+{
+	"CVE-ID": "2003-0127",
+	"current_description": "The kernel module loader in Linux kernel 2.2.x before 2.2.25, and 2.4.x before 2.4.21, allows local users to gain root privileges by using ptrace to attach to a child process that is spawned by the kernel.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://rhn.redhat.com/errata/RHSA-2003-098.html"
+		}
+	}
+}{
+	"CVE-ID": "2003-0127",
+	"current_description": "The kernel module loader in Linux kernel 2.2.x before 2.2.25, and 2.4.x before 2.4.21, allows local users to gain root privileges by using ptrace to attach to a child process that is spawned by the kernel.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://rhn.redhat.com/errata/RHSA-2003-098.html"
+		}
+	}
+}{
+	"CVE-ID": "2003-0961",
+	"current_description": "Integer overflow in the do_brk function for the brk system call in Linux kernel 2.4.22 and earlier allows local users to gain root privileges.",
+	"file": "None",
+	"function": "do_brk",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.debian.org/security/2003/dsa-403"
+		},
+		"patch_2": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2003-389.html"
+		}
+	}
+}{
+	"CVE-ID": "2003-0985",
+	"current_description": "The mremap system call (do_mremap) in Linux kernel 2.4.x before 2.4.21, and possibly other versions before 2.4.24, does not properly perform bounds checks, which allows local users to cause a denial of service and possibly gain privileges by causing a remapping of a virtual memory area (VMA) to create a zero length VMA, a different vulnerability than CAN-2004-0077.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.linuxsecurity.com/advisories/engarde_advisory-3904.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2003-417.html"
+		},
+		"patch_3": {
+			"patch_url": "http://www.securityfocus.com/bid/9356"
+		}
+	}
+}{
+	"CVE-ID": "2004-0077",
+	"current_description": "The do_mremap function for the mremap system call in Linux 2.2 to 2.2.25, 2.4 to 2.4.24, and 2.6 to 2.6.2, does not properly check the return value from the do_munmap function when the maximum number of VMA descriptors is exceeded, which allows local users to gain root privileges, a different vulnerability than CAN-2003-0985.",
+	"file": "None",
+	"function": "do_munmap",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://security.gentoo.org/glsa/glsa-200403-02.xml"
+		},
+		"patch_2": {
+			"patch_url": "http://www.debian.org/security/2004/dsa-439"
+		},
+		"patch_3": {
+			"patch_url": "http://www.securityfocus.com/bid/9686"
+		}
+	}
+}{
+	"CVE-ID": "2004-0497",
+	"current_description": "Unknown vulnerability in Linux kernel 2.x may allow local users to modify the group ID of files, such as NFS exported files in kernel 2.4.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://distro.conectiva.com.br/atualizacoes/?id=a&anuncio=000852"
+		},
+		"patch_2": {
+			"patch_url": "http://www.mandrakesecure.net/en/advisories/advisory.php?name=MDKSA-2004:066"
+		},
+		"patch_3": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2004-354.html"
+		}
+	}
+}{
+	"CVE-ID": "2004-1235",
+	"current_description": "Race condition in the (1) load_elf_library and (2) binfmt_aout function calls for uselib in Linux kernel 2.4 through 2.429-rc2 and 2.6 through 2.6.10 allows local users to execute arbitrary code by manipulating the VMA descriptor.",
+	"file": "None",
+	"function": "binfmt_aout",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2005-043.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.securityfocus.com/bid/12190"
+		}
+	}
+}{
+	"CVE-ID": "2004-1235",
+	"current_description": "Race condition in the (1) load_elf_library and (2) binfmt_aout function calls for uselib in Linux kernel 2.4 through 2.429-rc2 and 2.6 through 2.6.10 allows local users to execute arbitrary code by manipulating the VMA descriptor.",
+	"file": "None",
+	"function": "binfmt_aout",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2005-043.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.securityfocus.com/bid/12190"
+		}
+	}
+}{
+	"CVE-ID": "2004-1235",
+	"current_description": "Race condition in the (1) load_elf_library and (2) binfmt_aout function calls for uselib in Linux kernel 2.4 through 2.429-rc2 and 2.6 through 2.6.10 allows local users to execute arbitrary code by manipulating the VMA descriptor.",
+	"file": "None",
+	"function": "binfmt_aout",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2005-043.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.securityfocus.com/bid/12190"
+		}
+	}
+}{
+	"CVE-ID": "2005-1294",
+	"current_description": "The affix_sock_register in the Affix Bluetooth Protocol Stack for Linux might allow local users to gain privileges via a socket call with a negative protocol value, which is used as an array index.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://affix.sourceforge.net/patch_hci_3_2_0"
+		}
+	}
+}{
+	"CVE-ID": "2005-0750",
+	"current_description": "The bluez_sock_create function in the Bluetooth stack for Linux kernel 2.4.6 through 2.4.30-rc1 and 2.6 through 2.6.11.5 allows local users to gain privileges via (1) socket or (2) socketpair call with a negative protocol value.",
+	"file": "None",
+	"function": "bluez_sock_create",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2005-283.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2005-284.html"
+		}
+	}
+}{
+	"CVE-ID": "2005-0736",
+	"current_description": "Integer overflow in sys_epoll_wait in eventpoll.c for Linux kernel 2.6 to 2.6.11 allows local users to overwrite kernel memory via a large number of events.",
+	"file": "eventpoll.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://lists.grok.org.uk/pipermail/full-disclosure/2005-March/032314.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.securityfocus.com/bid/12763"
+		}
+	}
+}{
+	"CVE-ID": "2006-2451",
+	"current_description": "The suid_dumpable support in Linux kernel 2.6.13 up to versions before 2.6.17.4, and 2.6.16 before 2.6.16.24, allows a local user to cause a denial of service (disk consumption) and possibly gain privileges via the PR_SET_DUMPABLE argument of the prctl function and a program that causes a core dump file to be created in a directory for which the user does not have permissions.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2006-2451",
+	"current_description": "The suid_dumpable support in Linux kernel 2.6.13 up to versions before 2.6.17.4, and 2.6.16 before 2.6.16.24, allows a local user to cause a denial of service (disk consumption) and possibly gain privileges via the PR_SET_DUMPABLE argument of the prctl function and a program that causes a core dump file to be created in a directory for which the user does not have permissions.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2006-2451",
+	"current_description": "The suid_dumpable support in Linux kernel 2.6.13 up to versions before 2.6.17.4, and 2.6.16 before 2.6.16.24, allows a local user to cause a denial of service (disk consumption) and possibly gain privileges via the PR_SET_DUMPABLE argument of the prctl function and a program that causes a core dump file to be created in a directory for which the user does not have permissions.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2006-2451",
+	"current_description": "The suid_dumpable support in Linux kernel 2.6.13 up to versions before 2.6.17.4, and 2.6.16 before 2.6.16.24, allows a local user to cause a denial of service (disk consumption) and possibly gain privileges via the PR_SET_DUMPABLE argument of the prctl function and a program that causes a core dump file to be created in a directory for which the user does not have permissions.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2007-4573",
+	"current_description": "The IA32 system call emulation functionality in Linux kernel 2.4.x and 2.6.x before 2.6.22.7, when running on the x86_64 architecture, does not zero extend the eax register after the 32bit entry path to ptrace is used, which might allow local users to gain privileges by triggering an out-of-bounds access to the system call table using the %RAX register.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://lkml.org/lkml/2007/9/21/512"
+		}
+	}
+}{
+	"CVE-ID": "2008-0600",
+	"current_description": "The vmsplice_to_pipe function in Linux kernel 2.6.17 through 2.6.24.1 does not validate a certain userspace pointer before dereference, which allows local users to gain root privileges via crafted arguments in a vmsplice system call, a different vulnerability than CVE-2008-0009 and CVE-2008-0010.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2008-0010",
+	"current_description": "The copy_from_user_mmap_sem function in fs/splice.c in the Linux kernel 2.6.22 through 2.6.24 does not validate a certain userspace pointer before dereference, which allow local users to read from arbitrary kernel memory locations.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2008-0009",
+	"current_description": "The vmsplice_to_user function in fs/splice.c in the Linux kernel 2.6.22 through 2.6.24 does not validate a certain userspace pointer before dereference, which might allow local users to access arbitrary kernel memory locations.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2008-0600",
+	"current_description": "The vmsplice_to_pipe function in Linux kernel 2.6.17 through 2.6.24.1 does not validate a certain userspace pointer before dereference, which allows local users to gain root privileges via crafted arguments in a vmsplice system call, a different vulnerability than CVE-2008-0009 and CVE-2008-0010.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2008-0010",
+	"current_description": "The copy_from_user_mmap_sem function in fs/splice.c in the Linux kernel 2.6.22 through 2.6.24 does not validate a certain userspace pointer before dereference, which allow local users to read from arbitrary kernel memory locations.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2008-0009",
+	"current_description": "The vmsplice_to_user function in fs/splice.c in the Linux kernel 2.6.22 through 2.6.24 does not validate a certain userspace pointer before dereference, which might allow local users to access arbitrary kernel memory locations.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2008-4210",
+	"current_description": "fs/open.c in the Linux kernel before 2.6.22 does not properly strip setuid and setgid bits when there is a write to a file, which allows local users to gain the privileges of a different group, and obtain sensitive information or possibly have unspecified other impact, by creating an executable file in a setgid directory through the (1) truncate or (2) ftruncate function in conjunction with memory-mapped I/O.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2009-1185",
+	"current_description": "udev before 1.4.1 does not verify whether a NETLINK message originates from kernel space, which allows local users to gain privileges by sending a NETLINK message from user space.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.debian.org/security/2009/dsa-1772"
+		},
+		"patch_2": {
+			"patch_url": "http://www.securityfocus.com/bid/34536"
+		}
+	}
+}{
+	"CVE-ID": "2009-1527",
+	"current_description": "Race condition in the ptrace_attach function in kernel/ptrace.c in the Linux kernel before 2.6.30-rc4 allows local users to gain privileges via a PTRACE_ATTACH ptrace call during an exec system call that is launching a setuid application, related to locking an incorrect cred_exec_mutex object.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=cad81bc2529ab8c62b6fdc83a1c0c7f4a87209eb",
+			"patch_file": "kernel/ptrace.c",
+			"patch_function": [
+				" repeat:",
+				" int ptrace_attach(struct task_struct *task)"
+			]
+		}
+	}
+}{
+	"CVE-ID": "2009-1046",
+	"current_description": "The console selection feature in the Linux kernel 2.6.28 before 2.6.28.4, 2.6.25, and possibly earlier versions, when the UTF-8 console is used, allows physically proximate attackers to cause a denial of service (memory corruption) by selecting a small number of 3-byte UTF-8 characters, which triggers an \"off-by-two memory error.\" NOTE: it is not clear whether this issue crosses privilege boundaries.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://lists.openwall.net/linux-kernel/2009/01/30/333"
+		},
+		"patch_2": {
+			"patch_url": "http://lists.openwall.net/linux-kernel/2009/02/02/364"
+		},
+		"patch_3": {
+			"patch_url": "http://www.securityfocus.com/bid/33672"
+		}
+	}
+}{
+	"CVE-ID": "2009-2692",
+	"current_description": "The Linux kernel 2.6.0 through 2.6.30.4, and 2.4.4 through 2.4.37.4, does not initialize all function pointers for socket operations in proto_ops structures, which allows local users to trigger a NULL pointer dereference and gain privileges by using mmap to map page zero, placing arbitrary code on this page, and then invoking an unavailable operation, as demonstrated by the sendpage operation (sock_sendpage function) on a PF_PPPOX socket.",
+	"file": "None",
+	"function": "all",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.vupen.com/english/advisories/2009/2272"
+		}
+	}
+}{
+	"CVE-ID": "2009-2698",
+	"current_description": "The udp_sendmsg function in the UDP implementation in (1) net/ipv4/udp.c and (2) net/ipv6/udp.c in the Linux kernel before 2.6.19 allows local users to gain privileges or cause a denial of service (NULL pointer dereference and system crash) via vectors involving the MSG_MORE flag and a UDP socket.",
+	"file": "net/ipv6/udp.c",
+	"function": "udp_sendmsg",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.securityfocus.com/bid/36108"
+		}
+	}
+}{
+	"CVE-ID": "2009-2692",
+	"current_description": "The Linux kernel 2.6.0 through 2.6.30.4, and 2.4.4 through 2.4.37.4, does not initialize all function pointers for socket operations in proto_ops structures, which allows local users to trigger a NULL pointer dereference and gain privileges by using mmap to map page zero, placing arbitrary code on this page, and then invoking an unavailable operation, as demonstrated by the sendpage operation (sock_sendpage function) on a PF_PPPOX socket.",
+	"file": "None",
+	"function": "all",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.vupen.com/english/advisories/2009/2272"
+		}
+	}
+}{
+	"CVE-ID": "2009-2698",
+	"current_description": "The udp_sendmsg function in the UDP implementation in (1) net/ipv4/udp.c and (2) net/ipv6/udp.c in the Linux kernel before 2.6.19 allows local users to gain privileges or cause a denial of service (NULL pointer dereference and system crash) via vectors involving the MSG_MORE flag and a UDP socket.",
+	"file": "net/ipv6/udp.c",
+	"function": "udp_sendmsg",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.securityfocus.com/bid/36108"
+		}
+	}
+}{
+	"CVE-ID": "2010-2959",
+	"current_description": "Integer overflow in net/can/bcm.c in the Controller Area Network (CAN) implementation in the Linux kernel before 2.6.27.53, 2.6.32.x before 2.6.32.21, 2.6.34.x before 2.6.34.6, and 2.6.35.x before 2.6.35.4 allows attackers to execute arbitrary code or cause a denial of service (system crash) via crafted CAN traffic.",
+	"file": "net/can/bcm.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=5b75c4973ce779520b9d1e392483207d6f842cde",
+			"patch_file": "net/can/bcm.c",
+			"patch_function": [
+				"",
+				" static int bcm_rx_setup(struct bcm_msg_head *msg_head, struct msghdr *msg,",
+				" static int bcm_proc_show(struct seq_file *m, void *v)",
+				" static void bcm_rx_handler(struct sk_buff *skb, void *data)",
+				" static int bcm_tx_setup(struct bcm_msg_head *msg_head, struct msghdr *msg,",
+				" struct bcm_op {",
+				" static void bcm_send_to_user(struct bcm_op *op, struct bcm_msg_head *head,",
+				" static enum hrtimer_restart bcm_rx_timeout_handler(struct hrtimer *hrtimer)",
+				" static int bcm_rx_thr_flush(struct bcm_op *op, int update)",
+				" rx_changed_settime:"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=625699"
+		}
+	}
+}{
+	"CVE-ID": "2010-3301",
+	"current_description": "The IA32 system call emulation functionality in arch/x86/ia32/ia32entry.S in the Linux kernel before 2.6.36-rc4-git2 on the x86_64 platform does not zero extend the %eax register after the 32-bit entry path to ptrace is used, which allows local users to gain privileges by triggering an out-of-bounds access to the system call table using the %rax register.  NOTE: this vulnerability exists because of a CVE-2007-4573 regression.",
+	"file": "arch/x86/ia32/ia32entry.S",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=36d001c70d8a0144ac1d038f6876c484849a74de",
+			"patch_file": "arch/x86/ia32/ia32entry.S",
+			"patch_function": [
+				" sysenter_tracesys:",
+				" ENTRY(ia32_sysenter_target)",
+				" ENTRY(ia32_syscall)",
+				" sysexit_from_sys_call:",
+				" ENTRY(ia32_cstar_target)",
+				" ia32_tracesys:",
+				" cstar_tracesys:"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=eefdca043e8391dcd719711716492063030b55ac",
+			"patch_file": "arch/x86/ia32/ia32entry.S",
+			"patch_function": [
+				""
+			]
+		},
+		"patch_3": {
+			"patch_url": "http://www.openwall.com/lists/oss-security/2010/09/16/1"
+		},
+		"patch_4": {
+			"patch_url": "http://www.openwall.com/lists/oss-security/2010/09/16/3"
+		}
+	}
+}{
+	"CVE-ID": "2010-3081",
+	"current_description": "The compat_alloc_user_space functions in include/asm/compat.h files in the Linux kernel before 2.6.36-rc4-git2 on 64-bit platforms do not properly allocate the userspace memory required for the 32-bit compatibility layer, which allows local users to gain privileges by leveraging the ability of the compat_mc_getsockopt function (aka the MCAST_MSFILTER getsockopt support) to control a certain length value, related to a \"stack pointer underflow\" issue, as exploited in the wild in September 2010.",
+	"file": "include/asm/compat.h",
+	"function": "compat_mc_getsockopt",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c41d68a513c71e35a14f66d71782d27a79a81ea6",
+			"patch_file": "arch/ia64/include/asm/compat.h",
+			"patch_function": [
+				" static inline unsigned long ptr_to_compat_reg(void __user *uptr)",
+				" extern ssize_t compat_rw_copy_check_uvector(int type,",
+				" ptr_to_compat(void __user *uptr)",
+				" static inline int is_compat_task(void)",
+				" static inline compat_uptr_t ptr_to_compat(void __user *uptr)",
+				" compat_sys_sysinfo(struct compat_sysinfo __user *info)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://isc.sans.edu/diary.html?storyid=9574"
+		},
+		"patch_3": {
+			"patch_url": "http://marc.info/?l=oss-security&m=128461522230211&w=2"
+		},
+		"patch_4": {
+			"patch_url": "https://access.redhat.com/kb/docs/DOC-40265"
+		},
+		"patch_5": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=634457"
+		}
+	}
+}{
+	"CVE-ID": "2010-3904",
+	"current_description": "The rds_page_copy_user function in net/rds/page.c in the Reliable Datagram Sockets (RDS) protocol implementation in the Linux kernel before 2.6.36 does not properly validate addresses obtained from user space, which allows local users to gain privileges via crafted use of the sendmsg and recvmsg system calls.",
+	"file": "net/rds/page.c",
+	"function": "rds_page_copy_user",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=799c10559d60f159ab2232203f222f18fa3c4a5f",
+			"patch_file": "net/rds/page.c",
+			"patch_function": [
+				" int rds_page_copy_user(struct page *page, unsigned long offset,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=642896"
+		}
+	}
+}{
+	"CVE-ID": "2010-4258",
+	"current_description": "The do_exit function in kernel/exit.c in the Linux kernel before 2.6.36.2 does not properly handle a KERNEL_DS get_fs value, which allows local users to bypass intended access_ok restrictions, overwrite arbitrary kernel memory locations, and gain privileges by leveraging a (1) BUG, (2) NULL pointer dereference, or (3) page fault, as demonstrated by vectors involving the clear_child_tid feature and the splice system call.",
+	"file": "kernel/exit.c",
+	"function": "do_exit",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=33dd94ae1ccbfb7bf0fb6c692bc3d1c4269e6177",
+			"patch_file": "kernel/exit.c",
+			"patch_function": [
+				" NORET_TYPE void do_exit(long code)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://marc.info/?l=linux-kernel&m=129117048916957&w=2"
+		},
+		"patch_3": {
+			"patch_url": "https://lkml.org/lkml/2010/12/1/543"
+		}
+	}
+}{
+	"CVE-ID": "2010-3850",
+	"current_description": "The ec_dev_ioctl function in net/econet/af_econet.c in the Linux kernel before 2.6.36.2 does not require the CAP_NET_ADMIN capability, which allows local users to bypass intended access restrictions and configure econet addresses via an SIOCSIFADDR ioctl call.",
+	"file": "net/econet/af_econet.c",
+	"function": "ec_dev_ioctl",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=16c41745c7b92a243d0874f534c1655196c64b74",
+			"patch_file": "net/econet/af_econet.c",
+			"patch_function": [
+				" static int ec_dev_ioctl(struct socket *sock, unsigned int cmd, void __user *arg)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://openwall.com/lists/oss-security/2010/11/30/1"
+		},
+		"patch_3": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=644156"
+		}
+	}
+}{
+	"CVE-ID": "2010-3849",
+	"current_description": "The econet_sendmsg function in net/econet/af_econet.c in the Linux kernel before 2.6.36.2, when an econet address is configured, allows local users to cause a denial of service (NULL pointer dereference and OOPS) via a sendmsg call that specifies a NULL value for the remote address field.",
+	"file": "net/econet/af_econet.c",
+	"function": "econet_sendmsg",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=fa0e846494792e722d817b9d3d625a4ef4896c96",
+			"patch_file": "net/econet/af_econet.c",
+			"patch_function": [
+				" static int econet_sendmsg(struct kiocb *iocb, struct socket *sock,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://openwall.com/lists/oss-security/2010/11/30/1"
+		},
+		"patch_3": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=644156"
+		}
+	}
+}{
+	"CVE-ID": "2011-1021",
+	"current_description": "drivers/acpi/debugfs.c in the Linux kernel before 3.0 allows local users to modify arbitrary kernel memory locations by leveraging root privileges to write to the /sys/kernel/debug/acpi/custom_method file. NOTE: this vulnerability exists because of an incomplete fix for CVE-2010-4347.",
+	"file": "drivers/acpi/debugfs.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://github.com/torvalds/linux/commit/526b4af47f44148c9d665e57723ed9f86634c6e3"
+		}
+	}
+}{
+	"CVE-ID": "2010-4347",
+	"current_description": "The ACPI subsystem in the Linux kernel before 2.6.36.2 uses 0222 permissions for the debugfs custom_method file, which allows local users to gain privileges by placing a custom ACPI method in the ACPI interpreter tables, related to the acpi_debugfs_init function in drivers/acpi/debugfs.c.",
+	"file": "drivers/acpi/debugfs.c.",
+	"function": "acpi_debugfs_init",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ed3aada1bf34c5a9e98af167f125f8a740fc726a",
+			"patch_file": "drivers/acpi/debugfs.c",
+			"patch_function": [
+				" int __init acpi_debugfs_init(void)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://openwall.com/lists/oss-security/2010/12/15/3"
+		},
+		"patch_3": {
+			"patch_url": "http://openwall.com/lists/oss-security/2010/12/15/7"
+		},
+		"patch_4": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=663542"
+		}
+	}
+}{
+	"CVE-ID": "2008-5689",
+	"current_description": "tun in IP Tunnel in Solaris 10 and OpenSolaris snv_01 through snv_76 allows local users to cause a denial of service (panic) and possibly execute arbitrary code via a crafted SIOCGTUNPARAM IOCTL request, which triggers a NULL pointer dereference.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://sunsolve.sun.com/search/document.do?assetkey=1-26-242266-1"
+		}
+	}
+}{
+	"CVE-ID": "2010-4073",
+	"current_description": "The ipc subsystem in the Linux kernel before 2.6.37-rc1 does not initialize certain structures, which allows local users to obtain potentially sensitive information from kernel stack memory via vectors related to the (1) compat_sys_semctl, (2) compat_sys_msgctl, and (3) compat_sys_shmctl functions in ipc/compat.c; and the (4) compat_sys_mq_open and (5) compat_sys_mq_getsetattr functions in ipc/compat_mq.c.",
+	"file": "ipc/compat_mq.c.",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=03145beb455cf5c20a761e8451e30b8a74ba58d9",
+			"patch_file": "ipc/compat.c",
+			"patch_function": [
+				" asmlinkage long compat_sys_mq_getsetattr(mqd_t mqdes,",
+				" long compat_sys_msgctl(int first, int second, void __user *uptr)",
+				" long compat_sys_shmctl(int first, int second, void __user *uptr)",
+				" asmlinkage long compat_sys_mq_open(const char __user *u_name,",
+				" long compat_sys_semctl(int first, int second, int third, void __user *uptr)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://lkml.org/lkml/2010/10/6/492"
+		},
+		"patch_3": {
+			"patch_url": "http://www.openwall.com/lists/oss-security/2010/10/07/1"
+		},
+		"patch_4": {
+			"patch_url": "http://www.openwall.com/lists/oss-security/2010/10/25/3"
+		},
+		"patch_5": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=648658"
+		}
+	}
+}{
+	"CVE-ID": "2010-3850",
+	"current_description": "The ec_dev_ioctl function in net/econet/af_econet.c in the Linux kernel before 2.6.36.2 does not require the CAP_NET_ADMIN capability, which allows local users to bypass intended access restrictions and configure econet addresses via an SIOCSIFADDR ioctl call.",
+	"file": "net/econet/af_econet.c",
+	"function": "ec_dev_ioctl",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=16c41745c7b92a243d0874f534c1655196c64b74",
+			"patch_file": "net/econet/af_econet.c",
+			"patch_function": [
+				" static int ec_dev_ioctl(struct socket *sock, unsigned int cmd, void __user *arg)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://openwall.com/lists/oss-security/2010/11/30/1"
+		},
+		"patch_3": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=644156"
+		}
+	}
+}{
+	"CVE-ID": "2010-3848",
+	"current_description": "Stack-based buffer overflow in the econet_sendmsg function in net/econet/af_econet.c in the Linux kernel before 2.6.36.2, when an econet address is configured, allows local users to gain privileges by providing a large number of iovec structures.",
+	"file": "net/econet/af_econet.c",
+	"function": "econet_sendmsg",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=a27e13d370415add3487949c60810e36069a23a6",
+			"patch_file": "net/econet/af_econet.c",
+			"patch_function": [
+				"",
+				" static int econet_sendmsg(struct kiocb *iocb, struct socket *sock,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://openwall.com/lists/oss-security/2010/11/30/1"
+		},
+		"patch_3": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=644156"
+		}
+	}
+}{
+	"CVE-ID": "2012-0056",
+	"current_description": "The mem_write function in the Linux kernel before 3.2.2, when ASLR is disabled, does not properly check permissions when writing to /proc/<pid>/mem, which allows local users to gain privileges by modifying process memory, as demonstrated by Mempodipper.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "1999-1166",
+	"current_description": "Linux 2.0.37 does not properly encode the Custom segment limit, which allows local users to gain root privileges by accessing and modifying kernel memory.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.securityfocus.com/archive/1/18156"
+		},
+		"patch_2": {
+			"patch_url": "http://www.securityfocus.com/bid/523"
+		}
+	}
+}{
+	"CVE-ID": "2000-0506",
+	"current_description": "The \"capabilities\" feature in Linux before 2.2.16 allows local users to cause a denial of service or gain privileges by setting the capabilities to prevent a setuid program from dropping privileges, aka the \"Linux kernel setuid/setcap vulnerability.\"",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2001-0317",
+	"current_description": "Race condition in ptrace in Linux kernel 2.4 and 2.2 allows local users to gain privileges by using ptrace to track and modify a running setuid process.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://archives.neohapsis.com/archives/bugtraq/2001-02/0267.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.caldera.com/support/security/advisories/CSSA-2001-009.0.txt"
+		}
+	}
+}{
+	"CVE-ID": "2001-0317",
+	"current_description": "Race condition in ptrace in Linux kernel 2.4 and 2.2 allows local users to gain privileges by using ptrace to track and modify a running setuid process.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://archives.neohapsis.com/archives/bugtraq/2001-02/0267.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.caldera.com/support/security/advisories/CSSA-2001-009.0.txt"
+		}
+	}
+}{
+	"CVE-ID": "2003-0127",
+	"current_description": "The kernel module loader in Linux kernel 2.2.x before 2.2.25, and 2.4.x before 2.4.21, allows local users to gain root privileges by using ptrace to attach to a child process that is spawned by the kernel.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://rhn.redhat.com/errata/RHSA-2003-098.html"
+		}
+	}
+}{
+	"CVE-ID": "2003-0127",
+	"current_description": "The kernel module loader in Linux kernel 2.2.x before 2.2.25, and 2.4.x before 2.4.21, allows local users to gain root privileges by using ptrace to attach to a child process that is spawned by the kernel.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://rhn.redhat.com/errata/RHSA-2003-098.html"
+		}
+	}
+}{
+	"CVE-ID": "2013-1763",
+	"current_description": "Array index error in the __sock_diag_rcv_msg function in net/core/sock_diag.c in the Linux kernel before 3.7.10 allows local users to gain privileges via a large family value in a Netlink message.",
+	"file": "net/core/sock_diag.c",
+	"function": "__sock_diag_rcv_msg",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6e601a53566d84e1ffd25e7b6fe0b6894ffd79c0",
+			"patch_file": "net/core/sock_diag.c",
+			"patch_function": [
+				" static int __sock_diag_rcv_msg(struct sk_buff *skb, struct nlmsghdr *nlh)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://github.com/torvalds/linux/commit/6e601a53566d84e1ffd25e7b6fe0b6894ffd79c0"
+		}
+	}
+}{
+	"CVE-ID": "2013-1763",
+	"current_description": "Array index error in the __sock_diag_rcv_msg function in net/core/sock_diag.c in the Linux kernel before 3.7.10 allows local users to gain privileges via a large family value in a Netlink message.",
+	"file": "net/core/sock_diag.c",
+	"function": "__sock_diag_rcv_msg",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6e601a53566d84e1ffd25e7b6fe0b6894ffd79c0",
+			"patch_file": "net/core/sock_diag.c",
+			"patch_function": [
+				" static int __sock_diag_rcv_msg(struct sk_buff *skb, struct nlmsghdr *nlh)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://github.com/torvalds/linux/commit/6e601a53566d84e1ffd25e7b6fe0b6894ffd79c0"
+		}
+	}
+}{
+	"CVE-ID": "2005-0736",
+	"current_description": "Integer overflow in sys_epoll_wait in eventpoll.c for Linux kernel 2.6 to 2.6.11 allows local users to overwrite kernel memory via a large number of events.",
+	"file": "eventpoll.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://lists.grok.org.uk/pipermail/full-disclosure/2005-March/032314.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.securityfocus.com/bid/12763"
+		}
+	}
+}{
+	"CVE-ID": "2005-0750",
+	"current_description": "The bluez_sock_create function in the Bluetooth stack for Linux kernel 2.4.6 through 2.4.30-rc1 and 2.6 through 2.6.11.5 allows local users to gain privileges via (1) socket or (2) socketpair call with a negative protocol value.",
+	"file": "None",
+	"function": "bluez_sock_create",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2005-283.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2005-284.html"
+		}
+	}
+}{
+	"CVE-ID": "2005-0750",
+	"current_description": "The bluez_sock_create function in the Bluetooth stack for Linux kernel 2.4.6 through 2.4.30-rc1 and 2.6 through 2.6.11.5 allows local users to gain privileges via (1) socket or (2) socketpair call with a negative protocol value.",
+	"file": "None",
+	"function": "bluez_sock_create",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2005-283.html"
+		},
+		"patch_2": {
+			"patch_url": "http://www.redhat.com/support/errata/RHSA-2005-284.html"
+		}
+	}
+}{
+	"CVE-ID": "2013-2094",
+	"current_description": "The perf_swevent_init function in kernel/events/core.c in the Linux kernel before 3.8.9 uses an incorrect integer data type, which allows local users to gain privileges via a crafted perf_event_open system call.",
+	"file": "kernel/events/core.c",
+	"function": "perf_swevent_init",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8176cced706b5e5d15887584150764894e94e02f",
+			"patch_file": "kernel/events/core.c",
+			"patch_function": [
+				" static void sw_perf_event_destroy(struct perf_event *event)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://twitter.com/djrbliss/statuses/334301992648331267"
+		}
+	}
+}{
+	"CVE-ID": "2013-1959",
+	"current_description": "kernel/user_namespace.c in the Linux kernel before 3.8.9 does not have appropriate capability requirements for the uid_map and gid_map files, which allows local users to gain privileges by opening a file within an unprivileged process and then modifying the file within a privileged process.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2013-2094",
+	"current_description": "The perf_swevent_init function in kernel/events/core.c in the Linux kernel before 3.8.9 uses an incorrect integer data type, which allows local users to gain privileges via a crafted perf_event_open system call.",
+	"file": "kernel/events/core.c",
+	"function": "perf_swevent_init",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8176cced706b5e5d15887584150764894e94e02f",
+			"patch_file": "kernel/events/core.c",
+			"patch_function": [
+				" static void sw_perf_event_destroy(struct perf_event *event)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://twitter.com/djrbliss/statuses/334301992648331267"
+		}
+	}
+}{
+	"CVE-ID": "2013-0268",
+	"current_description": "The msr_open function in arch/x86/kernel/msr.c in the Linux kernel before 3.7.6 allows local users to bypass intended capability restrictions by executing a crafted application as root, as demonstrated by msr32.c.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=c903f0456bc69176912dee6dd25c6a66ee1aed00",
+			"patch_file": "arch/x86/kernel/msr.c",
+			"patch_function": [
+				" static int msr_open(struct inode *inode, struct file *file)"
+			]
+		}
+	}
+}{
+	"CVE-ID": "2007-4573",
+	"current_description": "The IA32 system call emulation functionality in Linux kernel 2.4.x and 2.6.x before 2.6.22.7, when running on the x86_64 architecture, does not zero extend the eax register after the 32bit entry path to ptrace is used, which might allow local users to gain privileges by triggering an out-of-bounds access to the system call table using the %RAX register.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://lkml.org/lkml/2007/9/21/512"
+		}
+	}
+}{
+	"CVE-ID": "2014-0038",
+	"current_description": "The compat_sys_recvmmsg function in net/compat.c in the Linux kernel before 3.13.2, when CONFIG_X86_X32 is enabled, allows local users to gain privileges via a recvmmsg system call with a crafted timeout pointer parameter.",
+	"file": "net/compat.c",
+	"function": "compat_sys_recvmmsg",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=2def2ef2ae5f3990aabdbe8a755911902707d268",
+			"patch_file": "net/compat.c",
+			"patch_function": [
+				" asmlinkage long compat_sys_recvmmsg(int fd, struct compat_mmsghdr __user *mmsg,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://github.com/torvalds/linux/commit/2def2ef2ae5f3990aabdbe8a755911902707d268"
+		}
+	}
+}{
+	"CVE-ID": "2013-6282",
+	"current_description": "The (1) get_user and (2) put_user API functions in the Linux kernel before 3.5.5 on the v6k and v7 ARM platforms do not validate certain addresses, which allows attackers to read or modify the contents of arbitrary kernel memory locations via a crafted application, as exploited in the wild against Android devices in October and November 2013.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8404663f81d212918ff85f493649a7991209fa04",
+			"patch_file": "arch/arm/include/asm/assembler.h",
+			"patch_function": [
+				"",
+				" extern int __put_user_2(void *, unsigned int);",
+				" ENTRY(__put_user_2)",
+				" extern int __get_user_1(void *);"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://www.codeaurora.org/projects/security-advisories/missing-access-checks-putusergetuser-kernel-api-cve-2013-6282"
+		},
+		"patch_3": {
+			"patch_url": "https://github.com/torvalds/linux/commit/8404663f81d212918ff85f493649a7991209fa04"
+		}
+	}
+}{
+	"CVE-ID": "2009-0343",
+	"current_description": "Niels Provos Systrace 1.6f and earlier on the x86_64 Linux platform allows local users to bypass intended access restrictions by making a 32-bit syscall with a syscall number that corresponds to a policy-compliant 64-bit syscall, related to race conditions that occur in monitoring 64-bit processes.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2009-3547",
+	"current_description": "Multiple race conditions in fs/pipe.c in the Linux kernel before 2.6.32-rc6 allow local users to cause a denial of service (NULL pointer dereference and system crash) or gain privileges by attempting to open an anonymous pipe via a /proc/*/fd/ pathname.",
+	"file": "fs/pipe.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ad3960243e55320d74195fb85c975e0a8cc4466c",
+			"patch_file": "fs/pipe.c",
+			"patch_function": [
+				" pipe_rdwr_release(struct inode *inode, struct file *filp)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://lkml.org/lkml/2009/10/21/42"
+		},
+		"patch_3": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=530490"
+		}
+	}
+}{
+	"CVE-ID": "2009-3547",
+	"current_description": "Multiple race conditions in fs/pipe.c in the Linux kernel before 2.6.32-rc6 allow local users to cause a denial of service (NULL pointer dereference and system crash) or gain privileges by attempting to open an anonymous pipe via a /proc/*/fd/ pathname.",
+	"file": "fs/pipe.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ad3960243e55320d74195fb85c975e0a8cc4466c",
+			"patch_file": "fs/pipe.c",
+			"patch_function": [
+				" pipe_rdwr_release(struct inode *inode, struct file *filp)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://lkml.org/lkml/2009/10/21/42"
+		},
+		"patch_3": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=530490"
+		}
+	}
+}{
+	"CVE-ID": "2013-1763",
+	"current_description": "Array index error in the __sock_diag_rcv_msg function in net/core/sock_diag.c in the Linux kernel before 3.7.10 allows local users to gain privileges via a large family value in a Netlink message.",
+	"file": "net/core/sock_diag.c",
+	"function": "__sock_diag_rcv_msg",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6e601a53566d84e1ffd25e7b6fe0b6894ffd79c0",
+			"patch_file": "net/core/sock_diag.c",
+			"patch_function": [
+				" static int __sock_diag_rcv_msg(struct sk_buff *skb, struct nlmsghdr *nlh)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://github.com/torvalds/linux/commit/6e601a53566d84e1ffd25e7b6fe0b6894ffd79c0"
+		}
+	}
+}{
+	"CVE-ID": "2014-0196",
+	"current_description": "The n_tty_write function in drivers/tty/n_tty.c in the Linux kernel through 3.14.3 does not properly manage tty driver access in the \"LECHO & !OPOST\" case, which allows local users to cause a denial of service (memory corruption and system crash) or gain privileges by triggering a race condition involving read and write operations with long strings.",
+	"file": "drivers/tty/n_tty.c",
+	"function": "n_tty_write",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=4291086b1f081b869c6d79e5b7441633dc3ace00",
+			"patch_file": "drivers/tty/n_tty.c",
+			"patch_function": [
+				" static ssize_t n_tty_write(struct tty_struct *tty, struct file *file,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=1094232"
+		},
+		"patch_3": {
+			"patch_url": "https://github.com/torvalds/linux/commit/4291086b1f081b869c6d79e5b7441633dc3ace00"
+		}
+	}
+}{
+	"CVE-ID": "2013-2094",
+	"current_description": "The perf_swevent_init function in kernel/events/core.c in the Linux kernel before 3.8.9 uses an incorrect integer data type, which allows local users to gain privileges via a crafted perf_event_open system call.",
+	"file": "kernel/events/core.c",
+	"function": "perf_swevent_init",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=8176cced706b5e5d15887584150764894e94e02f",
+			"patch_file": "kernel/events/core.c",
+			"patch_function": [
+				" static void sw_perf_event_destroy(struct perf_event *event)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://twitter.com/djrbliss/statuses/334301992648331267"
+		}
+	}
+}{
+	"CVE-ID": "2009-4141",
+	"current_description": "Use-after-free vulnerability in the fasync_helper function in fs/fcntl.c in the Linux kernel before 2.6.33-rc4-git1 allows local users to gain privileges via vectors that include enabling O_ASYNC (aka FASYNC or FIOASYNC) on a locked file, and then closing this file.",
+	"file": "fs/fcntl.c",
+	"function": "fasync_helper",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=53281b6d34d44308372d16acb7fb5327609f68b6",
+			"patch_file": "fs/fcntl.c",
+			"patch_function": [
+				" static DEFINE_RWLOCK(fasync_lock);"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://twitter.com/taviso/statuses/7744108017"
+		},
+		"patch_3": {
+			"patch_url": "http://www.kernel.org/pub/linux/kernel/v2.6/snapshots/patch-2.6.33-rc4-git1.bz2"
+		}
+	}
+}{
+	"CVE-ID": "2014-4014",
+	"current_description": "The capabilities implementation in the Linux kernel before 3.14.8 does not properly consider that namespaces are inapplicable to inodes, which allows local users to bypass intended chmod restrictions by first creating a user namespace, as demonstrated by setting the setgid bit on a file with group ownership of root.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2014-4699",
+	"current_description": "The Linux kernel before 3.15.4 on Intel processors does not properly restrict use of a non-canonical value for the saved RIP address in the case of a system call that does not use IRET, which allows local users to leverage a race condition and gain privileges, or cause a denial of service (double fault), via a crafted application that makes ptrace and fork system calls.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=b9cd18de4db3c9ffa7e17b0dc0ca99ed5aa4d43a",
+			"patch_file": "arch/x86/include/asm/ptrace.h",
+			"patch_function": [
+				" static inline unsigned long regs_get_kernel_stack_nth(struct pt_regs *regs,",
+				" static inline void user_single_step_siginfo(struct task_struct *tsk,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=1115927"
+		},
+		"patch_3": {
+			"patch_url": "https://github.com/torvalds/linux/commit/b9cd18de4db3c9ffa7e17b0dc0ca99ed5aa4d43a"
+		}
+	}
+}{
+	"CVE-ID": "2014-5207",
+	"current_description": "fs/namespace.c in the Linux kernel through 3.16.1 does not properly restrict clearing MNT_NODEV, MNT_NOSUID, and MNT_NOEXEC and changing MNT_ATIME_MASK during a remount of a bind mount, which allows local users to gain privileges, interfere with backups and auditing on systems that had atime enabled, or cause a denial of service (excessive filesystem updating) on systems that had atime disabled via a \"mount -o remount\" command within a user namespace.",
+	"file": "fs/namespace.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=9566d6742852c527bf5af38af5cbb878dad75705",
+			"patch_file": "fs/namespace.c",
+			"patch_function": [
+				" static int do_remount(struct path *path, int flags, int mnt_flags,",
+				" static int do_new_mount(struct path *path, const char *fstype, int flags,",
+				" struct mnt_namespace;",
+				" static struct mount *clone_mnt(struct mount *old, struct dentry *root,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=1129662"
+		},
+		"patch_3": {
+			"patch_url": "https://github.com/torvalds/linux/commit/9566d6742852c527bf5af38af5cbb878dad75705"
+		}
+	}
+}{
+	"CVE-ID": "2012-0056",
+	"current_description": "The mem_write function in the Linux kernel before 3.2.2, when ASLR is disabled, does not properly check permissions when writing to /proc/<pid>/mem, which allows local users to gain privileges by modifying process memory, as demonstrated by Mempodipper.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2014-3153",
+	"current_description": "The futex_requeue function in kernel/futex.c in the Linux kernel through 3.14.5 does not ensure that calls have two different futex addresses, which allows local users to gain privileges via a crafted FUTEX_REQUEUE command that facilitates unsafe waiter modification.",
+	"file": "kernel/futex.c",
+	"function": "futex_requeue",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=e9c243a5a6de0be8e584c604d353412584b592f8",
+			"patch_file": "kernel/futex.c",
+			"patch_function": [
+				" static int futex_requeue(u32 __user *uaddr1, unsigned int flags,",
+				" retry:",
+				" static int futex_wait_requeue_pi(u32 __user *uaddr, unsigned int flags,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=1103626"
+		},
+		"patch_3": {
+			"patch_url": "https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=13fbca4c6ecd96ec1a1cfa2e4f2ce191fe928a5e",
+			"patch_file": "kernel/futex.c",
+			"patch_function": [
+				" static int wake_futex_pi(u32 __user *uaddr, u32 uval, struct futex_q *this)",
+				" retry:"
+			]
+		},
+		"patch_4": {
+			"patch_url": "https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=54a217887a7b658e2650c3feff22756ab80c7339",
+			"patch_file": "kernel/futex.c",
+			"patch_function": [
+				" retry:",
+				" lookup_pi_state(u32 uval, struct futex_hash_bucket *hb,",
+				" retry_private:",
+				" void exit_pi_state_list(struct task_struct *curr)"
+			]
+		},
+		"patch_5": {
+			"patch_url": "https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=b3eaa9fc5cd0a4d74b18f6b8dc617aeaf1873270",
+			"patch_file": "kernel/futex.c",
+			"patch_function": [
+				" retry:"
+			]
+		},
+		"patch_6": {
+			"patch_url": "https://github.com/torvalds/linux/commit/e9c243a5a6de0be8e584c604d353412584b592f8"
+		}
+	}
+}{
+	"CVE-ID": "2015-1328",
+	"current_description": "The overlayfs implementation in the linux (aka Linux kernel) package before 3.19.0-21.21 in Ubuntu through 15.04 does not properly check permissions for file creation in the upper filesystem directory, which allows local users to obtain root access by leveraging a configuration in which overlayfs is permitted in an arbitrary mount namespace.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2015-3290",
+	"current_description": "arch/x86/entry/entry_64.S in the Linux kernel before 4.1.6 on the x86_64 platform improperly relies on espfix64 during nested NMI processing, which allows local users to gain privileges by triggering an NMI within a certain instruction window.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2015-8660",
+	"current_description": "The ovl_setattr function in fs/overlayfs/inode.c in the Linux kernel through 4.3.3 attempts to merge distinct setattr operations, which allows local users to bypass intended access restrictions and modify the attributes of arbitrary overlay files via a crafted application.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2015-8660",
+	"current_description": "The ovl_setattr function in fs/overlayfs/inode.c in the Linux kernel through 4.3.3 attempts to merge distinct setattr operations, which allows local users to bypass intended access restrictions and modify the attributes of arbitrary overlay files via a crafted application.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2016-0728",
+	"current_description": "The join_session_keyring function in security/keys/process_keys.c in the Linux kernel before 4.4.1 mishandles object references in a certain error case, which allows local users to gain privileges or cause a denial of service (integer overflow and use-after-free) via crafted keyctl commands.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2016-0728",
+	"current_description": "The join_session_keyring function in security/keys/process_keys.c in the Linux kernel before 4.4.1 mishandles object references in a certain error case, which allows local users to gain privileges or cause a denial of service (integer overflow and use-after-free) via crafted keyctl commands.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2016-5195",
+	"current_description": "Race condition in mm/gup.c in the Linux kernel 2.x through 4.x before 4.8.3 allows local users to gain privileges by leveraging incorrect handling of a copy-on-write (COW) feature to write to a read-only memory mapping, as exploited in the wild in October 2016, aka \"Dirty COW.\"",
+	"file": "mm/gup.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=19be0eaffa3ac7d8eb6784ad9bdbc7d67ed8e619",
+			"patch_file": "include/linux/mm.h",
+			"patch_function": [
+				" static int follow_pfn_pte(struct vm_area_struct *vma, unsigned long address,",
+				" retry:",
+				" static inline struct page *follow_page(struct vm_area_struct *vma,",
+				" static int faultin_page(struct task_struct *tsk, struct vm_area_struct *vma,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html"
+		},
+		"patch_3": {
+			"patch_url": "https://github.com/torvalds/linux/commit/19be0eaffa3ac7d8eb6784ad9bdbc7d67ed8e619"
+		}
+	}
+}{
+	"CVE-ID": "2009-3547",
+	"current_description": "Multiple race conditions in fs/pipe.c in the Linux kernel before 2.6.32-rc6 allow local users to cause a denial of service (NULL pointer dereference and system crash) or gain privileges by attempting to open an anonymous pipe via a /proc/*/fd/ pathname.",
+	"file": "fs/pipe.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=ad3960243e55320d74195fb85c975e0a8cc4466c",
+			"patch_file": "fs/pipe.c",
+			"patch_function": [
+				" pipe_rdwr_release(struct inode *inode, struct file *filp)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://lkml.org/lkml/2009/10/21/42"
+		},
+		"patch_3": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=530490"
+		}
+	}
+}{
+	"CVE-ID": "2016-5195",
+	"current_description": "Race condition in mm/gup.c in the Linux kernel 2.x through 4.x before 4.8.3 allows local users to gain privileges by leveraging incorrect handling of a copy-on-write (COW) feature to write to a read-only memory mapping, as exploited in the wild in October 2016, aka \"Dirty COW.\"",
+	"file": "mm/gup.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=19be0eaffa3ac7d8eb6784ad9bdbc7d67ed8e619",
+			"patch_file": "include/linux/mm.h",
+			"patch_function": [
+				" static int follow_pfn_pte(struct vm_area_struct *vma, unsigned long address,",
+				" retry:",
+				" static inline struct page *follow_page(struct vm_area_struct *vma,",
+				" static int faultin_page(struct task_struct *tsk, struct vm_area_struct *vma,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html"
+		},
+		"patch_3": {
+			"patch_url": "https://github.com/torvalds/linux/commit/19be0eaffa3ac7d8eb6784ad9bdbc7d67ed8e619"
+		}
+	}
+}{
+	"CVE-ID": "2016-5195",
+	"current_description": "Race condition in mm/gup.c in the Linux kernel 2.x through 4.x before 4.8.3 allows local users to gain privileges by leveraging incorrect handling of a copy-on-write (COW) feature to write to a read-only memory mapping, as exploited in the wild in October 2016, aka \"Dirty COW.\"",
+	"file": "mm/gup.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=19be0eaffa3ac7d8eb6784ad9bdbc7d67ed8e619",
+			"patch_file": "include/linux/mm.h",
+			"patch_function": [
+				" static int follow_pfn_pte(struct vm_area_struct *vma, unsigned long address,",
+				" retry:",
+				" static inline struct page *follow_page(struct vm_area_struct *vma,",
+				" static int faultin_page(struct task_struct *tsk, struct vm_area_struct *vma,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html"
+		},
+		"patch_3": {
+			"patch_url": "https://github.com/torvalds/linux/commit/19be0eaffa3ac7d8eb6784ad9bdbc7d67ed8e619"
+		}
+	}
+}{
+	"CVE-ID": "2016-8655",
+	"current_description": "Race condition in net/packet/af_packet.c in the Linux kernel through 4.8.12 allows local users to gain privileges or cause a denial of service (use-after-free) by leveraging the CAP_NET_RAW capability to change a socket version, related to the packet_set_ring and packet_setsockopt functions.",
+	"file": "net/packet/af_packet.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=84ac7260236a49c79eede91617700174c2c19b0c",
+			"patch_file": "net/packet/af_packet.c",
+			"patch_function": [
+				" static int packet_set_ring(struct sock *sk, union tpacket_req_u *req_u,",
+				" packet_setsockopt(struct socket *sock, int level, int optname, char __user *optv"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://github.com/torvalds/linux/commit/84ac7260236a49c79eede91617700174c2c19b0c"
+		}
+	}
+}{
+	"CVE-ID": "2017-6074",
+	"current_description": "The dccp_rcv_state_process function in net/dccp/input.c in the Linux kernel through 4.9.11 mishandles DCCP_PKT_REQUEST packet data structures in the LISTEN state, which allows local users to obtain root privileges or cause a denial of service (double free) via an application that makes an IPV6_RECVPKTINFO setsockopt system call.",
+	"file": "net/dccp/input.c",
+	"function": "dccp_rcv_state_process",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://github.com/torvalds/linux/commit/5edabca9d4cff7f1f2b68f0bac55ef99d9798ba4"
+		}
+	}
+}{
+	"CVE-ID": "2017-1000112",
+	"current_description": "Linux kernel: Exploitable memory corruption due to UFO to non-UFO path switch. When building a UFO packet with MSG_MORE __ip_append_data() calls ip_ufo_append_data() to append. However in between two send() calls, the append path can be switched from UFO to non-UFO one, which leads to a memory corruption. In case UFO packet lengths exceeds MTU, copy = maxfraglen - skb->len becomes negative on the non-UFO path and the branch to allocate new skb is taken. This triggers fragmentation and computation of fraggap = skb_prev->len - maxfraglen. Fraggap can exceed MTU, causing copy = datalen - transhdrlen - fraggap to become negative. Subsequently skb_copy_and_csum_bits() writes out-of-bounds. A similar issue is present in IPv6 code. The bug was introduced in e89e9cf539a2 (\"[IPv4/IPv6]: UFO Scatter-gather approach\") on Oct 18 2005.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://seclists.org/oss-sec/2017/q3/277"
+		}
+	}
+}{
+	"CVE-ID": "2017-7874",
+	"current_description": "** REJECT **  DO NOT USE THIS CANDIDATE NUMBER.  ConsultIDs: none.  Reason: This candidate was withdrawn by its CNA.  Further investigation showed that it was not a security issue.  Notes: none.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2017-7308",
+	"current_description": "The packet_set_ring function in net/packet/af_packet.c in the Linux kernel through 4.10.6 does not properly validate certain block-size data, which allows local users to cause a denial of service (integer signedness error and out-of-bounds write), or gain privileges (if the CAP_NET_RAW capability is held), via crafted system calls.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2016-9793",
+	"current_description": "The sock_setsockopt function in net/core/sock.c in the Linux kernel before 4.8.14 mishandles negative values of sk_sndbuf and sk_rcvbuf, which allows local users to cause a denial of service (memory corruption and system crash) or possibly have unspecified other impact by leveraging the CAP_NET_ADMIN capability for a crafted setsockopt system call with the (1) SO_SNDBUFFORCE or (2) SO_RCVBUFFORCE option.",
+	"file": "net/core/sock.c",
+	"function": "sock_setsockopt",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=b98b0bc8c431e3ceb4b26b0dfc8db509518fb290",
+			"patch_file": "net/core/sock.c",
+			"patch_function": [
+				" set_rcvbuf:",
+				" int sock_setsockopt(struct socket *sock, int level, int optname,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://www.openwall.com/lists/oss-security/2016/12/03/1"
+		},
+		"patch_3": {
+			"patch_url": "https://github.com/torvalds/linux/commit/b98b0bc8c431e3ceb4b26b0dfc8db509518fb290"
+		}
+	}
+}{
+	"CVE-ID": "2017-1000370",
+	"current_description": "The offset2lib patch as used in the Linux Kernel contains a vulnerability that allows a PIE binary to be execve()'ed with 1GB of arguments or environmental strings then the stack occupies the address 0x80000000 and the PIE binary is mapped above 0x40000000 nullifying the protection of the offset2lib patch. This affects Linux Kernel version 4.11.5 and earlier. This is a different issue than CVE-2017-1000371. This issue appears to be limited to i386 based systems.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2017-1000366",
+	"current_description": "glibc contains a vulnerability that allows specially crafted LD_LIBRARY_PATH values to manipulate the heap/stack, causing them to alias, potentially resulting in arbitrary code execution. Please note that additional hardening changes have been made to glibc to prevent manipulation of stack and heap memory but these issues are not directly exploitable, as such they have not been given a CVE. This affects glibc 2.25 and earlier.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://kc.mcafee.com/corporate/index?page=content&id=SB10205"
+		}
+	}
+}{
+	"CVE-ID": "2017-1000379",
+	"current_description": "The Linux Kernel running on AMD64 systems will sometimes map the contents of PIE executable, the heap or ld.so to where the stack is mapped allowing attackers to more easily manipulate the stack. Linux Kernel version 4.11.5 is affected.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2017-1000366",
+	"current_description": "glibc contains a vulnerability that allows specially crafted LD_LIBRARY_PATH values to manipulate the heap/stack, causing them to alias, potentially resulting in arbitrary code execution. Please note that additional hardening changes have been made to glibc to prevent manipulation of stack and heap memory but these issues are not directly exploitable, as such they have not been given a CVE. This affects glibc 2.25 and earlier.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://kc.mcafee.com/corporate/index?page=content&id=SB10205"
+		}
+	}
+}{
+	"CVE-ID": "2017-1000371",
+	"current_description": "The offset2lib patch as used by the Linux Kernel contains a vulnerability, if RLIMIT_STACK is set to RLIM_INFINITY and 1 Gigabyte of memory is allocated (the maximum under the 1/4 restriction) then the stack will be grown down to 0x80000000, and as the PIE binary is mapped above 0x80000000 the minimum distance between the end of the PIE binary's read-write segment and the start of the stack becomes small enough that the stack guard page can be jumped over by an attacker. This affects Linux Kernel version 4.11.5. This is a different issue than CVE-2017-1000370 and CVE-2017-1000365. This issue appears to be limited to i386 based systems.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2017-1000366",
+	"current_description": "glibc contains a vulnerability that allows specially crafted LD_LIBRARY_PATH values to manipulate the heap/stack, causing them to alias, potentially resulting in arbitrary code execution. Please note that additional hardening changes have been made to glibc to prevent manipulation of stack and heap memory but these issues are not directly exploitable, as such they have not been given a CVE. This affects glibc 2.25 and earlier.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://kc.mcafee.com/corporate/index?page=content&id=SB10205"
+		}
+	}
+}{
+	"CVE-ID": "2017-1000253",
+	"current_description": "Linux distributions that have not patched their long-term kernels with https://git.kernel.org/linus/a87938b2e246b81b4fb713edb371a9fa3c5c3c86 (committed on April 14, 2015). This kernel vulnerability was fixed in April 2015 by commit a87938b2e246b81b4fb713edb371a9fa3c5c3c86 (backported to Linux 3.10.77 in May 2015), but it was not recognized as a security threat. With CONFIG_ARCH_BINFMT_ELF_RANDOMIZE_PIE enabled, and a normal top-down address allocation strategy, load_elf_binary() will attempt to map a PIE binary into an address range immediately below mm->mmap_base. Unfortunately, load_elf_ binary() does not take account of the need to allocate sufficient space for the entire binary which means that, while the first PT_LOAD segment is mapped below mm->mmap_base, the subsequent PT_LOAD segment(s) end up being mapped above mm->mmap_base into the are that is supposed to be the \"gap\" between the stack and the binary.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://www.qualys.com/2017/09/26/cve-2017-1000253/cve-2017-1000253.txt"
+		}
+	}
+}{
+	"CVE-ID": "2017-5123",
+	"current_description": "Insufficient data validation in waitid allowed an user to escape sandboxes on Linux.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=96ca579a1ecc943b75beba58bebb0356f6cc4b51",
+			"patch_file": "kernel/exit.c",
+			"patch_function": [
+				" SYSCALL_DEFINE5(waitid, int, which, pid_t, upid, struct siginfo __user *,",
+				" COMPAT_SYSCALL_DEFINE5(waitid,"
+			]
+		}
+	}
+}{
+	"CVE-ID": "2017-5123",
+	"current_description": "Insufficient data validation in waitid allowed an user to escape sandboxes on Linux.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=96ca579a1ecc943b75beba58bebb0356f6cc4b51",
+			"patch_file": "kernel/exit.c",
+			"patch_function": [
+				" SYSCALL_DEFINE5(waitid, int, which, pid_t, upid, struct siginfo __user *,",
+				" COMPAT_SYSCALL_DEFINE5(waitid,"
+			]
+		}
+	}
+}{
+	"CVE-ID": "2017-10661",
+	"current_description": "Race condition in fs/timerfd.c in the Linux kernel before 4.10.15 allows local users to gain privileges or cause a denial of service (list corruption or use-after-free) via simultaneous file-descriptor operations that leverage improper might_cancel queueing.",
+	"file": "fs/timerfd.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=1e38da300e1e395a15048b0af1e5305bd91402f6",
+			"patch_file": "fs/timerfd.c",
+			"patch_function": [
+				" void timerfd_clock_was_set(void)",
+				" static bool timerfd_canceled(struct timerfd_ctx *ctx)",
+				" static void timerfd_setup_cancel(struct timerfd_ctx *ctx, int flags)",
+				" static void timerfd_remove_cancel(struct timerfd_ctx *ctx)",
+				" SYSCALL_DEFINE2(timerfd_create, int, clockid, int, flags)",
+				" struct timerfd_ctx {"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://github.com/torvalds/linux/commit/1e38da300e1e395a15048b0af1e5305bd91402f6"
+		},
+		"patch_3": {
+			"patch_url": "https://source.android.com/security/bulletin/2017-08-01"
+		}
+	}
+}{
+	"CVE-ID": "2017-16995",
+	"current_description": "The check_alu_op function in kernel/bpf/verifier.c in the Linux kernel through 4.4 allows local users to cause a denial of service (memory corruption) or possibly have unspecified other impact by leveraging incorrect sign extension.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2013-1763",
+	"current_description": "Array index error in the __sock_diag_rcv_msg function in net/core/sock_diag.c in the Linux kernel before 3.7.10 allows local users to gain privileges via a large family value in a Netlink message.",
+	"file": "net/core/sock_diag.c",
+	"function": "__sock_diag_rcv_msg",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commit;h=6e601a53566d84e1ffd25e7b6fe0b6894ffd79c0",
+			"patch_file": "net/core/sock_diag.c",
+			"patch_function": [
+				" static int __sock_diag_rcv_msg(struct sk_buff *skb, struct nlmsghdr *nlh)"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://github.com/torvalds/linux/commit/6e601a53566d84e1ffd25e7b6fe0b6894ffd79c0"
+		}
+	}
+}{
+	"CVE-ID": "2017-7533",
+	"current_description": "Race condition in the fsnotify implementation in the Linux kernel through 4.12.4 allows local users to gain privileges or cause a denial of service (memory corruption) via a crafted application that leverages simultaneous execution of the inotify_handle_event and vfs_rename functions.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=49d31c2f389acfe83417083e1208422b4091cd9e",
+			"patch_file": "fs/dcache.c",
+			"patch_function": [
+				" static inline int dname_external(const struct dentry *dentry)",
+				" static inline struct inode *d_real_inode(const struct dentry *dentry)",
+				" int __fsnotify_parent(const struct path *path, struct dentry *dentry, __u32 mask",
+				" out:",
+				" struct dentry *debugfs_rename(struct dentry *old_dir, struct dentry *old_dentry,",
+				" static inline void fsnotify_change(struct dentry *dentry, unsigned int ia_valid)",
+				" int vfs_rename(struct inode *old_dir, struct dentry *old_dentry,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "http://openwall.com/lists/oss-security/2017/08/03/2"
+		},
+		"patch_3": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=1468283"
+		},
+		"patch_4": {
+			"patch_url": "https://github.com/torvalds/linux/commit/49d31c2f389acfe83417083e1208422b4091cd9e"
+		},
+		"patch_5": {
+			"patch_url": "https://patchwork.kernel.org/patch/9755753/"
+		},
+		"patch_6": {
+			"patch_url": "https://patchwork.kernel.org/patch/9755757/"
+		},
+		"patch_7": {
+			"patch_url": "https://www.mail-archive.com/linux-kernel@vger.kernel.org/msg1408967.html"
+		}
+	}
+}{
+	"CVE-ID": "2017-16994",
+	"current_description": "The walk_hugetlb_range function in mm/pagewalk.c in the Linux kernel before 4.14.2 mishandles holes in hugetlb ranges, which allows local users to obtain sensitive information from uninitialized kernel memory via crafted use of the mincore() system call.",
+	"file": "mm/pagewalk.c",
+	"function": "walk_hugetlb_range",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=373c4557d2aa362702c4c2d41288fb1e54990b7c",
+			"patch_file": "mm/pagewalk.c",
+			"patch_function": [
+				" static int walk_hugetlb_range(unsigned long addr, unsigned long end,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://bugs.chromium.org/p/project-zero/issues/detail?id=1431"
+		},
+		"patch_3": {
+			"patch_url": "https://github.com/torvalds/linux/commit/373c4557d2aa362702c4c2d41288fb1e54990b7c"
+		}
+	}
+}{
+	"CVE-ID": "2017-16995",
+	"current_description": "The check_alu_op function in kernel/bpf/verifier.c in the Linux kernel through 4.4 allows local users to cause a denial of service (memory corruption) or possibly have unspecified other impact by leveraging incorrect sign extension.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2018-14634",
+	"current_description": "An integer overflow flaw was found in the Linux kernel's create_elf_tables() function. An unprivileged local user with access to SUID (or otherwise privileged) binary could use this flaw to escalate their privileges on the system. Kernel versions 2.6.x, 3.10.x and 4.14.x are believed to be vulnerable.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://security.netapp.com/advisory/ntap-20190204-0002/"
+		}
+	}
+}{
+	"CVE-ID": "2017-11176",
+	"current_description": "The mq_notify function in the Linux kernel through 4.11.9 does not set the sock pointer to NULL upon entry into the retry logic. During a user-space close of a Netlink socket, it allows attackers to cause a denial of service (use-after-free) or possibly have unspecified other impact.",
+	"file": "None",
+	"function": "mq_notify",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=f991af3daabaecff34684fd51fac80319d1baad1",
+			"patch_file": "ipc/mqueue.c",
+			"patch_function": [
+				" retry:"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://github.com/torvalds/linux/commit/f991af3daabaecff34684fd51fac80319d1baad1"
+		}
+	}
+}{
+	"CVE-ID": "2019-13272",
+	"current_description": "In the Linux kernel before 5.1.17, ptrace_link in kernel/ptrace.c mishandles the recording of the credentials of a process that wants to create a ptrace relationship, which allows local users to obtain root access by leveraging certain scenarios with a parent-child process relationship, where a parent drops privileges and calls execve (potentially allowing control by an attacker). One contributing factor is an object lifetime issue (which can also cause a panic). Another contributing factor is incorrect marking of a ptrace relationship as privileged, which is exploitable through (for example) Polkit's pkexec helper with PTRACE_TRACEME. NOTE: SELinux deny_ptrace might be a usable workaround in some environments.",
+	"file": "kernel/ptrace.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://bugs.chromium.org/p/project-zero/issues/detail?id=1903"
+		},
+		"patch_2": {
+			"patch_url": "https://bugzilla.redhat.com/show_bug.cgi?id=1730895"
+		},
+		"patch_3": {
+			"patch_url": "https://bugzilla.suse.com/show_bug.cgi?id=1140671"
+		},
+		"patch_4": {
+			"patch_url": "https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.1.17"
+		},
+		"patch_5": {
+			"patch_url": "https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=6994eefb0053799d2e07cd140df6c2ea106c41ee",
+			"patch_file": "kernel/ptrace.c",
+			"patch_function": [
+				" void __ptrace_link(struct task_struct *child, struct task_struct *new_parent,"
+			]
+		},
+		"patch_6": {
+			"patch_url": "https://github.com/torvalds/linux/commit/6994eefb0053799d2e07cd140df6c2ea106c41ee"
+		}
+	}
+}{
+	"CVE-ID": "2017-7308",
+	"current_description": "The packet_set_ring function in net/packet/af_packet.c in the Linux kernel through 4.10.6 does not properly validate certain block-size data, which allows local users to cause a denial of service (integer signedness error and out-of-bounds write), or gain privileges (if the CAP_NET_RAW capability is held), via crafted system calls.",
+	"file": "None",
+	"function": "None",
+	"patch_url": "None"
+}{
+	"CVE-ID": "2017-1000112",
+	"current_description": "Linux kernel: Exploitable memory corruption due to UFO to non-UFO path switch. When building a UFO packet with MSG_MORE __ip_append_data() calls ip_ufo_append_data() to append. However in between two send() calls, the append path can be switched from UFO to non-UFO one, which leads to a memory corruption. In case UFO packet lengths exceeds MTU, copy = maxfraglen - skb->len becomes negative on the non-UFO path and the branch to allocate new skb is taken. This triggers fragmentation and computation of fraggap = skb_prev->len - maxfraglen. Fraggap can exceed MTU, causing copy = datalen - transhdrlen - fraggap to become negative. Subsequently skb_copy_and_csum_bits() writes out-of-bounds. A similar issue is present in IPv6 code. The bug was introduced in e89e9cf539a2 (\"[IPv4/IPv6]: UFO Scatter-gather approach\") on Oct 18 2005.",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://seclists.org/oss-sec/2017/q3/277"
+		}
+	}
+}{
+	"CVE-ID": "2016-8655",
+	"current_description": "Race condition in net/packet/af_packet.c in the Linux kernel through 4.8.12 allows local users to gain privileges or cause a denial of service (use-after-free) by leveraging the CAP_NET_RAW capability to change a socket version, related to the packet_set_ring and packet_setsockopt functions.",
+	"file": "net/packet/af_packet.c",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=84ac7260236a49c79eede91617700174c2c19b0c",
+			"patch_file": "net/packet/af_packet.c",
+			"patch_function": [
+				" static int packet_set_ring(struct sock *sk, union tpacket_req_u *req_u,",
+				" packet_setsockopt(struct socket *sock, int level, int optname, char __user *optv"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://github.com/torvalds/linux/commit/84ac7260236a49c79eede91617700174c2c19b0c"
+		}
+	}
+}{
+	"CVE-ID": "2021-22555",
+	"current_description": "A heap out-of-bounds write affecting Linux since v2.6.19-rc1 was discovered in net/netfilter/x_tables.c. This allows an attacker to gain privileges or cause a DoS (via heap memory corruption) through user name space",
+	"file": "None",
+	"function": "None",
+	"patch": {
+		"patch_1": {
+			"patch_url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/net/netfilter/x_tables.c?id=9fa492cdc160cd27ce1046cb36f47d3b2b1efa21",
+			"patch_file": "net/netfilter/x_tables.c",
+			"patch_function": [
+				" int xt_check_match(const struct xt_match *match, unsigned short family,",
+				" int xt_check_target(const struct xt_target *target, unsigned short family,"
+			]
+		},
+		"patch_2": {
+			"patch_url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/net/netfilter/x_tables.c?id=b29c457a6511435960115c0f548c4360d5f4801d",
+			"patch_file": "net/netfilter/x_tables.c",
+			"patch_function": [
+				" void xt_compat_match_from_user(struct xt_entry_match *m, void **dstptr,",
+				" void xt_compat_target_from_user(struct xt_entry_target *t, void **dstptr,"
+			]
+		}
+	}
+}

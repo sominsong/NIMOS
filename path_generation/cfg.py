@@ -73,7 +73,7 @@ def make_cfg(eList):
         # get gcc compile option
         if coption.get(EID): opt = coption.get(EID) 
         # gcc -fdump-tree-cfg-all <target.c>
-        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} 2>/tmp/error.txt'
+        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} '
         elif src == "git":      cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{PROJZ_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         elif src == "projz":    cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{GIT_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         opt = ""
@@ -102,4 +102,8 @@ def make_cfg(eList):
 if __name__ == "__main__":
     
     eList = get_exploits()
+
+    #####
+    eList = [['40871', 'exploitdb'], ['43418', 'exploitdb']]
+    #####
     make_cfg(eList)

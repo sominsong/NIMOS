@@ -9,7 +9,7 @@ import concurrent.futures
 
 PERM_OUTPUT_PATH = "/opt/output/perm/"
 
-MIN_SUPPORT = 2
+MIN_SUPPORT = 5
 
 
 def check_ngram_for_L1(jsonDict, item):
@@ -35,8 +35,11 @@ def make_C(pre_L):
     items = set()
     for seqx in pre_L.keys():
         for seqy in pre_L.keys():
-            if seqx.split(",")[-1] == seqy.split(",")[0]:
+            if seqx.split(",")[1:] == seqy.split(",")[:-1]:
                 item = seqx + "," + seqy.split(",")[-1]
+                items.add(item)
+            if seqy.split(",")[1:] == seqx.split(",")[:-1]:
+                item = seqy + "," + seqx.split(",")[-1]
                 items.add(item)
     return items
 

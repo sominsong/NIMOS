@@ -1,0 +1,57 @@
+{
+    "check_zombie_child": [
+        [
+            "61",
+            "1",
+            "exit"
+        ],
+        [
+            "61",
+            "1"
+        ]
+    ],
+    "brute_socket_create": [
+        [
+            "41",
+            "107",
+            "exit"
+        ],
+        [
+            "41",
+            "107",
+            "59",
+            "exit"
+        ]
+    ],
+    "main": [
+        [
+            "12",
+            "12",
+            "56",
+            "1",
+            "brute_socket_create",
+            "check_zombie_child",
+            "56",
+            "1",
+            "brute_socket_create",
+            "check_zombie_child",
+            "56",
+            "1",
+            "brute_socket_create",
+            "check_zombie_child"
+        ],
+        [
+            "12",
+            "12",
+            "56",
+            "1",
+            "check_zombie_child",
+            "56",
+            "1",
+            "check_zombie_child",
+            "56",
+            "1",
+            "check_zombie_child"
+        ]
+    ]
+}
