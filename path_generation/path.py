@@ -23,6 +23,10 @@ from tool import Logging
 log = Logging.Logging("info")
 
 from cfg import get_exploits
+<<<<<<< HEAD:path-generation/path.py
+from cfg import make_cfg
+=======
+>>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/path.py
 from Vertex import Vertex
 from Graph import Graph
 
@@ -307,16 +311,25 @@ if __name__ == "__main__":
     
     eList = get_exploits()
     ###############
-    # eList = [['9575','exploitdb']]
+    # eList = [['160_new','exploitdb']]
     ###############
     
+<<<<<<< HEAD:path-generation/path.py
+    # CFG
+    make_cfg(eList)
+    
+=======
+>>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/path.py
     # Path
     for EID, src in eList:
         # check if exist CFG file for EID
         if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
             log.warning(f"{EID} is not created yet. Maybe compilation problem")
             continue
+<<<<<<< HEAD:path-generation/path.py
+=======
         if EID == "42275":  # infinite loop in main !!!!!!
             continue
+>>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/path.py
         graphList = search_path(EID)
         save_path(EID, graphList)

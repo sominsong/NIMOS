@@ -46,7 +46,12 @@ def get_exploits():
 
     eList = list(map(lambda x: [x['EID'],x['src']], jsonList))
 
+<<<<<<< HEAD:path-generation/cfg.py
+    return eList        
+
+=======
     return eList
+>>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/cfg.py
 
 
 def make_cfg(eList):
@@ -73,7 +78,7 @@ def make_cfg(eList):
         # get gcc compile option
         if coption.get(EID): opt = coption.get(EID) 
         # gcc -fdump-tree-cfg-all <target.c>
-        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} 2>/tmp/error.txt'
+        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} -O3 2>/tmp/error.txt'
         elif src == "git":      cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{PROJZ_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         elif src == "projz":    cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{GIT_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         opt = ""

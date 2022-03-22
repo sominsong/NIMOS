@@ -18,3 +18,8 @@ sudo apt install -y gcc-multilib g++-multilib
 sudo apt install -y libkeyutils-dev
 sudo apt install -y libseccomp-dev
 sudo apt install -y kernel-package
+sudo apt-get install -y linux-headers-generic
+
+sudo git clone https://github.com/thradams/conio.git
+sudo /opt/conio/make
+cp /opt/conio/conio.h $(pwd)/exploit/exploit-db/
