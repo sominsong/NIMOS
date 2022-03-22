@@ -47,37 +47,7 @@ def get_exploits():
 
     eList = list(map(lambda x: [x['EID'],x['src']], jsonList))
 
-    return eList
-
-
-def delete_unrelated_function(eList):
-    """delete attack-unrelated library functions in exploit codes
-    
-    Args:
-    eList(list): List of EID
-    """
-    cwd = os.getcwd()
-    for EID, src in eList:
-        if src == "exploitdb":
-            if os.path.isfile(f"{cwd}{EXPLOITDB_PATH}{EID}.c"):
-                with open(f"{cwd}{EXPLOITDB_PATH}{EID}.c","r") as f:
-                    code = f.readlines()
-                new_code = list()
-                for i, line in enumerate(code):
-                    new_code.append(line)
-                    line = line.replace(" ","")
-                    if re.search("\w+\([\w\W\(\)]*\);", line):
-                        for f in unrelated:
-                            if f in line:
-                                print(line.strip())
-                                line = "//" + new_code.pop(-1)
-                                new_code.append(line)
-
-                        
-                with open(f"{cwd}{EXPLOITDB_PATH}{EID}_new.c","w") as f:
-                    f.writelines(new_code)
-
-                    
+    return eList        
 
 
 
@@ -105,7 +75,7 @@ def make_cfg(eList):
         # get gcc compile option
         if coption.get(EID): opt = coption.get(EID) 
         # gcc -fdump-tree-cfg-all <target.c>
-        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} 2>/tmp/error.txt'
+        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} -O3 2>/tmp/error.txt'
         elif src == "git":      cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{PROJZ_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         elif src == "projz":    cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{GIT_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         opt = ""
