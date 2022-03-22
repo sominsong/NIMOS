@@ -7,7 +7,8 @@ Thie module is for generating path list
 with using control flow graph from collected exploit codes.
 
 Todo:
-  * merge main function with user-defined function
+  * fix infinite loop in 42275.c 
+  * fix infinite loop in "kernel_exec_irq" in 41458.c
 """
 
 import sys, os
@@ -22,7 +23,10 @@ from tool import Logging
 log = Logging.Logging("info")
 
 from cfg import get_exploits
+<<<<<<< HEAD:path-generation/path.py
 from cfg import make_cfg
+=======
+>>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/path.py
 from Vertex import Vertex
 from Graph import Graph
 
@@ -53,6 +57,8 @@ def make_vertex(backContent, G, bbNum, EID):
                 line = line[:line.index("(")]
             if "(" in line:
                 line = line[:line.index("(")]
+            if line in ["__builtin_stack_save", "__builtin_stack_restore","__builtin_alloca_with_align"]:
+                continue
             if "__builtin_" in line:
                 line = line.replace("__builtin_","")
             funcList.append(line)
@@ -176,8 +182,7 @@ def existInName(line, name):
     for n in name:
         if n == '':
             continue
-        nm = n + '('
-        if nm in line:
+        if n in line:
             return n
     return False
 
@@ -250,7 +255,9 @@ def merge_graph(graphList):
         log.info(f"Finish Merging - {name[i]} - {len(result[name[i]])}")
     for G in graphList:   
         result[G.funcNm] = list(filter(None, result[G.funcNm]))  # delete empty element
-        G.newsyspath = result[G.funcNm]
+        for path in result[G.funcNm]:   # dedpulication
+            if path not in G.newsyspath:
+                G.newsyspath.append(path)
         log.debug(f"{G.funcNm}:\t{G.newsyspath}")
 
 def search_path(EID):
@@ -307,14 +314,22 @@ if __name__ == "__main__":
     # eList = [['160_new','exploitdb']]
     ###############
     
+<<<<<<< HEAD:path-generation/path.py
     # CFG
     make_cfg(eList)
     
+=======
+>>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/path.py
     # Path
     for EID, src in eList:
         # check if exist CFG file for EID
         if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
             log.warning(f"{EID} is not created yet. Maybe compilation problem")
             continue
+<<<<<<< HEAD:path-generation/path.py
+=======
+        if EID == "42275":  # infinite loop in main !!!!!!
+            continue
+>>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/path.py
         graphList = search_path(EID)
         save_path(EID, graphList)

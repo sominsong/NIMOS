@@ -21,7 +21,6 @@ from tool import Logging
 log = Logging.Logging("info")
 
 from compile_option import coption
-from unrelated_function import unrelated
 
 PERM_OUTPUT_PATH = "/opt/output/perm/"
 TEMP_OTUPUT_PATH = "/opt/output/temp/"
@@ -47,8 +46,12 @@ def get_exploits():
 
     eList = list(map(lambda x: [x['EID'],x['src']], jsonList))
 
+<<<<<<< HEAD:path-generation/cfg.py
     return eList        
 
+=======
+    return eList
+>>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/cfg.py
 
 
 def make_cfg(eList):
@@ -100,3 +103,8 @@ def make_cfg(eList):
     
     os.chdir(cwd)
     os.system('rm -r /tmp/cfg/')
+
+if __name__ == "__main__":
+    
+    eList = get_exploits()
+    make_cfg(eList)
