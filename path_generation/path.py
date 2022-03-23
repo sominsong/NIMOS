@@ -9,11 +9,15 @@ with using control flow graph from collected exploit codes.
 Todo:
   * fix infinite loop in 42275.c 
   * fix infinite loop in "kernel_exec_irq" in 41458.c
+  * fix infinite loop in "unseccomp" in 43127.c
+  * fix infinite loop in "main" in 45516.c
+  * fix infinite loop in "main"  in 50135.c
 """
 
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from functools import reduce
+import subprocess
 import operator
 import copy
 import json
@@ -23,16 +27,96 @@ from tool import Logging
 log = Logging.Logging("info")
 
 from cfg import get_exploits
-<<<<<<< HEAD:path-generation/path.py
 from cfg import make_cfg
-=======
->>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/path.py
 from Vertex import Vertex
 from Graph import Graph
+
+from compile_option import coption
 
 PERM_OUTPUT_PATH = "/opt/output/perm/"
 TEMP_OTUPUT_PATH = "/opt/output/temp/"
 SEPARATOR = "="
+
+def convert_asm(asmContent, EID):
+    """convert asm code into systemc all number
+
+    Args:
+        asmContent(list): content string list within asm code
+        EID(str): exploit code id
+    """
+    # check 32bit / 64bit first
+    m32 = False
+    if coption.get(EID):
+        if "-m32" in coption.get(EID):
+            m32 = True
+
+    asmResultList = list()
+    if len(asmContent) == 1:
+        # syscall
+        if "$0x80" in asmContent[0]:
+            if "$0x80" in asmContent[0].split()[-1]:    return asmResultList
+            sysnum = asmContent[0].split()[8].replace(",","")
+            if m32: # 32bit
+                try:
+                    m32SysName = subprocess.check_output(f'grep " {sysnum}$" /tmp/x86_32.syscall',shell=True).decode().split()[1]
+                except Exception as e:
+                    log.error(f"There is no {sysnum} in syscall table - {EID}")
+                    return asmResultList
+                try:
+                    m64SysNum = subprocess.check_output(f'grep "{m32SysName}" /tmp/x86_64.syscall',shell=True).decode().split()[2]
+                    # print(m64SysNum)
+                    asmResultList.append(str(m64SysNum))
+                except Exception as e:
+                    log.error(f"There is no {m32SysName} in 64 bit - {EID}")
+                    asmResultList.append(str(m32SysName))
+        # user-defined function call
+        if "call" in asmContent[0].split():
+            callIdx = asmContent[0].split().index("call")
+            calledFuncNm = asmContent[0].split()[callIdx+1].replace(";","")
+            # print(calledFuncNm)
+            if "%" in calledFuncNm: return asmResultList
+            asmResultList.append(calledFuncNm)
+        return asmResultList
+    else:
+        syscallExist = False
+        for i, line in enumerate(reversed(asmContent)):
+            # system call
+            if "int $0x80" in line:
+                syscallExist = True
+            if syscallExist and "mov" in line:
+                if "rax" in line or "eax" in line:
+                    sysline = line.split()
+                    if "__asm__" in sysline[0]:
+                        if "%" in sysline[2]: continue
+                        sysnum = sysline[2].replace(",","").replace("$","")
+                    elif "mov" in sysline[0]:
+                        if "%" in sysline[1]: continue
+                        sysnum = sysline[1].replace(",","").replace("$","")
+                    if "0x" in sysnum:
+                        sysnum = int(sysnum,16)
+                    if m32: # 32bit
+                        try:
+                            m32SysName = subprocess.check_output(f'grep " {sysnum}$" /tmp/x86_32.syscall',shell=True).decode().split()[1]
+                        except Exception as e:
+                            log.error(f"There is no {sysnum} in syscall table - {EID}")
+                            continue
+                        try:
+                            m64SysNum = subprocess.check_output(f'grep "{m32SysName}" /tmp/x86_64.syscall',shell=True).decode().split()[2]
+                            # print(m32Ret.split())
+                            asmResultList.append(str(m64SysNum))
+                        except Exception as e:
+                            log.error(f"There is no {m32SysName} in 64 bit - {EID}")
+                            asmResultList.append(str(m32SysName))
+                    else: # 64bit
+                        asmResultList.append(str(sysnum))
+            # user-defined function call
+            if "call" in line:
+                calledFuncNm = line.split()[-1].replace(";","")
+                if "%" in calledFuncNm: continue
+                # print(calledFuncNm)
+                asmResultList.append(calledFuncNm)
+        return asmResultList
+
 
 def make_vertex(backContent, G, bbNum, EID):
     """make vertex with library function call statements and
@@ -46,22 +130,61 @@ def make_vertex(backContent, G, bbNum, EID):
     """
 
     funcList = []
-    for line in backContent:
+    for i, line in enumerate(backContent):
         if "<bb" in line and not "goto <bb" in line:    
             break
+        if "__asm__ __volatile__" in line or "__asm__" in line:
+            asmContent = []
+            for l in backContent.copy()[i:]:
+                if ");" in l:
+                    asmContent.append(l)
+                    break
+                else:
+                    asmContent.append(l)
+            asmResultList = convert_asm(asmContent, EID)
+            if not len(asmResultList) == 0:
+                funcList.extend(asmResultList)
+            continue
+
         if "(" in line and ");" in line:
             if re.search("\w+ = \w+ \([\w\W\(\)]*\);", line):
                 line = line[line.index("=")+1:]
             line = line.replace(" ","").replace(";","")
             if not line.count("(") == 1:
                 line = line[:line.index("(")]
+            if "syscall" in line:   # syscall () function 
+                print(line)
+                sysnum = line.replace("syscall(","").split(",")[0]
+                if coption.get(EID):
+                    if "-m32" in coption.get(EID):
+                        try:
+                            m32SysName = subprocess.check_output(f'grep " {sysnum}$" /tmp/x86_32.syscall',shell=True).decode().split()[1]
+                        except Exception as e:
+                            log.error(f"There is no {sysnum} in syscall table - {EID}")
+                            continue
+                        try:
+                            m64SysNum = subprocess.check_output(f'grep "{m32SysName}" /tmp/x86_64.syscall',shell=True).decode().split()[2]
+                            line = m64SysNum
+                        except Exception as e:
+                            log.error(f"There is no {m32SysName} in 64 bit - {EID}")
+                            line = m32SysName
+                    else:
+                        line = sysnum
+                else:
+                    line = sysnum
+                print(line)
             if "(" in line:
                 line = line[:line.index("(")]
             if line in ["__builtin_stack_save", "__builtin_stack_restore","__builtin_alloca_with_align"]:
                 continue
             if "__builtin_" in line:
                 line = line.replace("__builtin_","")
+            if "commit_creds" in line:
+                line = "commit_cred"
+            if "prepare_kernel_cred" in line:
+                line = "prepare_kernel_cred"
             funcList.append(line)
+        
     
     # make Vertex
     V = Vertex(bbNum, funcList)
@@ -168,7 +291,13 @@ def search_graph(G):
 
     log.info(f"Searching the execution pathes of function {G.funcNm}...")
     G.prepare_DFS()
+    G.start_count_time()
     G.DFS(0)
+    if G.timeOver == True:
+        log.info(f"TIME OVER!! - function {G.funcNm}")
+        return False
+    G.optimize()
+
     log.info(f"Finished Searching the execution pathes of function {G.funcNm} - path #: {len(G.path)}")
     log.debug(f"path list: {G.path}")
 
@@ -176,6 +305,7 @@ def search_graph(G):
     G.make_syspath()
     log.debug(f"syscall path list: {G.syscallpath}")
     log.info(f"Finished making the library function execution pathes of function {G.funcNm}")
+    return True
 
 
 def existInName(line, name):
@@ -271,7 +401,9 @@ def search_path(EID):
     graphList = make_graph(EID)
     # search graph for EID
     for G in graphList:
-        search_graph(G)
+        ret = search_graph(G)
+        if ret == False:    # ABORT!!!!! (infinite loop)
+            return None
     # merge graph into main function
     log.info(f"Merging the execution pathes of EID {EID}...")
     if len(graphList) == 1: # only main
@@ -311,25 +443,19 @@ if __name__ == "__main__":
     
     eList = get_exploits()
     ###############
-    # eList = [['160_new','exploitdb']]
+    # eList = [['50808','exploitdb']]
     ###############
     
-<<<<<<< HEAD:path-generation/path.py
     # CFG
     make_cfg(eList)
     
-=======
->>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/path.py
     # Path
     for EID, src in eList:
         # check if exist CFG file for EID
         if not os.path.isfile(f"{TEMP_OTUPUT_PATH}{EID}.c.012t.cfg"):
             log.warning(f"{EID} is not created yet. Maybe compilation problem")
             continue
-<<<<<<< HEAD:path-generation/path.py
-=======
-        if EID == "42275":  # infinite loop in main !!!!!!
-            continue
->>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/path.py
+
         graphList = search_path(EID)
-        save_path(EID, graphList)
+        if not graphList == None:
+            save_path(EID, graphList)

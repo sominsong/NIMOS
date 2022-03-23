@@ -46,12 +46,7 @@ def get_exploits():
 
     eList = list(map(lambda x: [x['EID'],x['src']], jsonList))
 
-<<<<<<< HEAD:path-generation/cfg.py
-    return eList        
-
-=======
     return eList
->>>>>>> ba2792eff59deea85212ad90cd7b49c345f6cb24:path_generation/cfg.py
 
 
 def make_cfg(eList):
@@ -78,15 +73,18 @@ def make_cfg(eList):
         # get gcc compile option
         if coption.get(EID): opt = coption.get(EID) 
         # gcc -fdump-tree-cfg-all <target.c>
-        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} -O3 2>/tmp/error.txt'
+        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         elif src == "git":      cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{PROJZ_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         elif src == "projz":    cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{GIT_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         opt = ""
         try:
             fdump_result = subprocess.check_output(cmd,shell=True).decode()
         except Exception as e:
-            log.error(f"Compile Error - {EID}")
-            continue
+            if not os.path.isfile(f"{EID}.c.012t.cfg") and os.path.isfile(f"{EID}.c.004t.original"):
+                log.error(f"Compile Error - {EID}")
+                continue
+            else:
+                log.warning(f"Some problems - {EID}")
         # copy cfg and original
         cmd = f'cp {EID}.c.012t.cfg {EID}.c.004t.original {TEMP_OTUPUT_PATH}'
         mv_result = subprocess.check_output(cmd,shell=True).decode().strip("\n")
@@ -107,4 +105,8 @@ def make_cfg(eList):
 if __name__ == "__main__":
     
     eList = get_exploits()
+
+    #####
+    # eList = [['4460', 'exploitdb']]
+    #####
     make_cfg(eList)
