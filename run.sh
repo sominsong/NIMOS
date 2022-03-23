@@ -15,7 +15,7 @@ function help() {
 /bin/cat << EOF
 
 Usage : 
-    ./run.sh [-h -A -C -P -S -M]
+    ./run.sh [-h -A -C -P -S -N]
 
 Options :
     -h,     print help message
@@ -23,12 +23,12 @@ Options :
     -C,     crawling exploit codes
     -P,     path generation
     -S,     syscall generation
-    -M,     CVE-syscall mapping
+    -N,     N-gram analysis
 EOF
 }
 
 
-while getopts "hCAPSM" opt; do
+while getopts "hCAPSMN" opt; do
     case $opt in
         h)
             help
@@ -51,8 +51,9 @@ while getopts "hCAPSM" opt; do
             echo Path Generation
             bash ${PATH_DIR}path-generation.sh
             ;;
-        M)
-            echo CVE-syscall mapping
+        N)
+            echo N-gram analysis
+            python3 -B ${ANALYSIS_DIR}ngram.py
             ;;
         
     esac
