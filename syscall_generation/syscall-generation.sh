@@ -3,6 +3,11 @@
 set -ex
 
 CUR_PATH=$(pwd)
+. $(pwd)/common.conf
+
+# clear
+rm -fv ${OUT_TMP_DIR}testcase/result/*
+rm -fv ${OUT_TMP_DIR}testcase/*-*-*
 
 # run in turn
 sudo python3 -B ${CUR_PATH}/path_generation/cfg.py

@@ -256,7 +256,7 @@ def run_testcase():
             if not fnm.replace(".c",".txt") in txts:      
                 try:
                     subprocess.check_call(f'gcc -c {fnm} -o {fnm.replace(".c","")}.o',shell=True)
-                    subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt',shell=True)
+                    subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt -lpthread',shell=True)
                     subprocess.check_call(f'bash {pwd}/syscall_generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
                 except subprocess.SubprocessError as e:
                     log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
@@ -264,7 +264,7 @@ def run_testcase():
         else:
             try:
                 subprocess.check_call(f'gcc -c {fnm} -o {fnm.replace(".c","")}.o',shell=True)
-                subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt',shell=True)
+                subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt -lpthread',shell=True)
                 subprocess.check_call(f'bash {pwd}/syscall_generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
             except subprocess.SubprocessError as e:
                 log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")

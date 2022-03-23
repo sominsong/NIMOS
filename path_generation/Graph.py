@@ -11,7 +11,7 @@ Todo:
 
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-
+import time
 from tool import Logging
 log = Logging.Logging("info")
 
@@ -33,6 +33,8 @@ class Graph:
         self.path = []  # bb path
         self.syscallpath = []
         self.newsyspath = []
+        self.startTime = 0.0
+        self.timeOver = False
 
     def add_vertex(self, v):
         self.V.append(v.bbNum)
@@ -55,8 +57,22 @@ class Graph:
                 self.edge[e[0]] = []
             self.edge[e[0]].append(e[1])
 
+    def start_count_time(self):
+        self.startTime = time.time()
+
+    def count_time(self):
+        cur = time.time()
+        if cur - self.startTime >= 300:
+            self.timeOver = True
+            return False
+        else:
+            return True
+
+
     
     def DFS(self, v):
+        if self.count_time() == False:
+            return
         self.visit[v] = True
         self.stack.append(v)
         # if self.funcNm == "putcode":  print(self.stack)
@@ -119,7 +135,9 @@ class Graph:
                     if v.bbNum == bb:
                         syscallpath.extend(v.syscallList.copy())
             
-            syscallpath = list(filter(None, syscallpath)) # empty list delete
+            syscallpath = tuple(filter(None, syscallpath)) # empty list delete
             if syscallpath not in self.syscallpath:
-                self.syscallpath.append(syscallpath.copy())
+                self.syscallpath.append(syscallpath)
             syscallpath = []
+        # Deduplication
+        self.syscallpath = list(set(self.syscallpath))

@@ -73,15 +73,18 @@ def make_cfg(eList):
         # get gcc compile option
         if coption.get(EID): opt = coption.get(EID) 
         # gcc -fdump-tree-cfg-all <target.c>
-        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} '
+        if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         elif src == "git":      cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{PROJZ_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         elif src == "projz":    cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{GIT_PATH}{EID}.c {opt} 2>/tmp/error.txt'
         opt = ""
         try:
             fdump_result = subprocess.check_output(cmd,shell=True).decode()
         except Exception as e:
-            log.error(f"Compile Error - {EID}")
-            continue
+            if not os.path.isfile(f"{EID}.c.012t.cfg") and os.path.isfile(f"{EID}.c.004t.original"):
+                log.error(f"Compile Error - {EID}")
+                continue
+            else:
+                log.warning(f"Some problems - {EID}")
         # copy cfg and original
         cmd = f'cp {EID}.c.012t.cfg {EID}.c.004t.original {TEMP_OTUPUT_PATH}'
         mv_result = subprocess.check_output(cmd,shell=True).decode().strip("\n")
@@ -104,6 +107,6 @@ if __name__ == "__main__":
     eList = get_exploits()
 
     #####
-    eList = [['40871', 'exploitdb'], ['43418', 'exploitdb']]
+    # eList = [['4460', 'exploitdb']]
     #####
     make_cfg(eList)
