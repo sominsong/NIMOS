@@ -190,7 +190,7 @@ if TEST == False: # 전체 N-gram
                 f.writerow([len(Ngram.split(',')), cnt, sysNameList])
 else:   # TESTN-gram
     # ngram result with system call name
-    """
+
     sysNameList = list()
     with open(f"{month}{day}_ngram_sysname_max{MAX_N}.csv", "w", newline = "", encoding='utf-8') as file:
         f = csv.writer(file)
@@ -201,4 +201,3 @@ else:   # TESTN-gram
                 for syscall in Ngram.split(","):
                     sysNameList.append(convert_num_name(syscall))
                 f.writerow([len(Ngram.split(',')), cnt, sysNameList])
-    """

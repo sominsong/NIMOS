@@ -15,6 +15,13 @@ sudo git clone https://github.com/offensive-security/exploitdb.git ${OUTPUT_DIR}
 sudo ln -sf ${OUTPUT_DIR}perm/exploitdb/searchsploit /usr/local/bin/searchsploit
 searchsploit -u
 
+
 # ftrace setting
 echo 1 > /sys/kernel/debug/tracing/events/raw_syscalls/sys_enter/enable
 echo 1 > /sys/kernel/debug/tracing/events/raw_syscalls/sys_exit/enable
+
+# docker image pull
+docker_images=("ubuntu" "tomcat" "redis" "openjdk" "node" "mysql" "mariadb" "httpd" "gcc" "busybox" "nginx" "mongodb")
+for img in $(docker_images[@]); do
+    docker pull $(img):latest
+done
