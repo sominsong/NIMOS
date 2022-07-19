@@ -1,0 +1,13 @@
+           <...>-301045  [008] .... 3665887.333598: sys_futex -> 0x0
+           <...>-301045  [008] .... 3665887.333607: sys_clock_gettime(which_clock: 1, tp: 7f6ed9ffebf0)
+           <...>-301045  [008] .... 3665887.333608: sys_clock_gettime -> 0x0
+           <...>-301045  [008] .... 3665887.333610: sys_futex(uaddr: 55ff0b5c5c30, op: 81, val: 1, utime: 0, uaddr2: 49f7b4c8, val3: 1)
+           <...>-301045  [008] .... 3665887.333611: sys_futex -> 0x0
+           <...>-301045  [008] .... 3665887.333617: sys_clock_gettime(which_clock: 1, tp: 7f6ed9ffec00)
+           <...>-301045  [008] .... 3665887.333618: sys_clock_gettime -> 0x0
+           <...>-301045  [008] .... 3665887.333622: sys_clock_gettime(which_clock: 0, tp: 7f6ed9ffec10)
+           <...>-301045  [008] .... 3665887.333623: sys_clock_gettime -> 0x0
+           <...>-301045  [008] .... 3665887.333625: sys_clock_gettime(which_clock: 1, tp: 7f6ed9ffebf0)
+           <...>-301045  [008] .... 3665887.333626: sys_clock_gettime -> 0x0
+           <...>-301045  [008] .... 3665887.333628: sys_futex(uaddr: 55ff0b5d5768, op: 89, val: 0, utime: 7f6ed9ffec30, uaddr2: 0, val3: ffffffff)
+

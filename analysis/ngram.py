@@ -2,15 +2,19 @@
 import os
 import csv
 import json
+import pickle
 import datetime
 import subprocess
 from itertools import product
 import concurrent.futures
 
 PERM_OUTPUT_PATH = "/opt/output/perm/"
+PATH_PATH = "./analysis/new_path/"
 
 MIN_SUPPORT = 2
-MAX_N = 20
+MAX_N = 200
+
+TEST = False
 
 def check_ngram_for_L1(jsonDict, item):
     existNgram = False
@@ -70,7 +74,13 @@ def convert_num_name(sysnum):
     return sys_name
 
 
-pathFile = subprocess.check_output(f"find {PERM_OUTPUT_PATH}path/*.json", shell=True).decode().strip().split()
+pathFile = subprocess.check_output(f"find {PATH_PATH}*.json", shell=True).decode().strip().split()
+
+
+######
+# pathFile = ["/opt/output/perm/path/47163.json", "/opt/output/perm/path/50541.json"]
+# TEST = True
+######
 
 DictList = list()
 for file in pathFile:
@@ -138,6 +148,8 @@ prev_L = L_2
 
 # iterate each process
 for i in range(MAX_N-2):
+    if not prev_L:
+        break
     # Make C-N
     items = set()
     items = make_C(prev_L)
@@ -148,24 +160,45 @@ for i in range(MAX_N-2):
     print(f"L-{i+3}: ", new_L.keys())
     prev_L = new_L.copy()
 
+
 month = datetime.datetime.now().month
 day = datetime.datetime.now().day
-# ngram result with system call number
-with open(f"{PERM_OUTPUT_PATH}analysis/{month}{day}_ngram_sysnum_max{MAX_N}.csv", "w", newline = "", encoding='utf-8') as file:
-    f = csv.writer(file)
-    f.writerow(["N", "N-gram", "count"])
-    for L_x in L:
-        for Ngram, cnt in L_x.items():
-            f.writerow([len(Ngram.split(',')), cnt, Ngram.split(',')])
 
-# ngram result with system call name
-sysNameList = list()
-with open(f"{PERM_OUTPUT_PATH}analysis/{month}{day}_ngram_sysname_max{MAX_N}.csv", "w", newline = "", encoding='utf-8') as file:
-    f = csv.writer(file)
-    f.writerow(["N", "N-gram", "count"])
-    for L_x in L:
-        for Ngram, cnt in L_x.items():
-            sysNameList = list()
-            for syscall in Ngram.split(","):
-                sysNameList.append(convert_num_name(syscall))
-            f.writerow([len(Ngram.split(',')), cnt, sysNameList])
+if TEST == False: # 전체 N-gram
+
+    with open(f"{PERM_OUTPUT_PATH}analysis/ngram_result.pkl", "wb") as f:
+        pickle.dump(L, f)
+
+    # ngram result with system call number
+    with open(f"{PERM_OUTPUT_PATH}analysis/{month}{day}_ngram_sysnum_max{MAX_N}.csv", "w", newline = "", encoding='utf-8') as file:
+        f = csv.writer(file)
+        f.writerow(["N", "N-gram", "count"])
+        for L_x in L:
+            for Ngram, cnt in L_x.items():
+                f.writerow([len(Ngram.split(',')), cnt, Ngram.split(',')])
+
+    # ngram result with system call name
+    sysNameList = list()
+    with open(f"{PERM_OUTPUT_PATH}analysis/{month}{day}_ngram_sysname_max{MAX_N}.csv", "w", newline = "", encoding='utf-8') as file:
+        f = csv.writer(file)
+        f.writerow(["N", "count", "N-gram"])
+        for L_x in L:
+            for Ngram, cnt in L_x.items():
+                sysNameList = list()
+                for syscall in Ngram.split(","):
+                    sysNameList.append(convert_num_name(syscall))
+                f.writerow([len(Ngram.split(',')), cnt, sysNameList])
+else:   # TESTN-gram
+    # ngram result with system call name
+    """
+    sysNameList = list()
+    with open(f"{month}{day}_ngram_sysname_max{MAX_N}.csv", "w", newline = "", encoding='utf-8') as file:
+        f = csv.writer(file)
+        f.writerow(["N", "count", "N-gram"])
+        for L_x in L:
+            for Ngram, cnt in L_x.items():
+                sysNameList = list()
+                for syscall in Ngram.split(","):
+                    sysNameList.append(convert_num_name(syscall))
+                f.writerow([len(Ngram.split(',')), cnt, sysNameList])
+    """

@@ -1,0 +1,7 @@
+           <...>-3703372 [048] .... 3581836.819537: sys_poll -> 0x1
+           <...>-3703372 [048] .... 3581836.819559: sys_accept(fd: 14, upeer_sockaddr: 7fff8ab69470, upeer_addrlen: 7fff8ab6940c)
+           <...>-3703372 [048] .... 3581836.819580: sys_accept -> 0x2d
+           <...>-3703372 [048] .... 3581836.819596: sys_futex(uaddr: 5611dc4c9428, op: 81, val: 1, utime: 0, uaddr2: 5611dc4c9420, val3: 5611dc4c9400)
+           <...>-3703372 [048] .... 3581836.819607: sys_futex -> 0x1
+           <...>-3703372 [048] .... 3581836.819609: sys_poll(ufds: 5611dd8e54b0, nfds: 2, timeout_msecs: ffffffff)
+

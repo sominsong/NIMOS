@@ -1,0 +1,13 @@
+           <...>-3699108 [041] .... 3581509.354125: sys_futex -> 0xffffffffffffff92
+           <...>-3699108 [041] .... 3581509.354134: sys_futex(uaddr: 5631c26c8308, op: 81, val: 1, utime: 0, uaddr2: 0, val3: e8)
+           <...>-3699108 [041] .... 3581509.354135: sys_futex -> 0x0
+           <...>-3699108 [041] .... 3581509.354142: sys_clock_gettime(which_clock: 1, tp: 7fce9202d8b0)
+           <...>-3699108 [041] .... 3581509.354144: sys_clock_gettime -> 0x0
+           <...>-3699108 [041] .... 3581509.354145: sys_futex(uaddr: 5631c26c8358, op: 89, val: 0, utime: 7fce9202d8b0, uaddr2: 0, val3: ffffffff)
+           <...>-3699108 [041] .... 3581510.354244: sys_futex -> 0xffffffffffffff92
+           <...>-3699108 [041] .... 3581510.354265: sys_futex(uaddr: 5631c26c8308, op: 81, val: 1, utime: 0, uaddr2: 0, val3: e9)
+           <...>-3699108 [041] .... 3581510.354267: sys_futex -> 0x0
+           <...>-3699108 [041] .... 3581510.354271: sys_clock_gettime(which_clock: 1, tp: 7fce9202d8b0)
+           <...>-3699108 [041] .... 3581510.354273: sys_clock_gettime -> 0x0
+           <...>-3699108 [041] .... 3581510.354274: sys_futex(uaddr: 5631c26c8358, op: 89, val: 0, utime: 7fce9202d8b0, uaddr2: 0, val3: ffffffff)
+

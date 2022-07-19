@@ -1,0 +1,77 @@
+           <...>-1189278 [033] .... 3762717.722294: sys_futex -> 0x0
+           <...>-1189278 [033] .... 3762717.722302: sys_futex(uaddr: 7fa514781498, op: 81, val: 1, utime: 0, uaddr2: 0, val3: 0)
+           <...>-1189278 [033] .... 3762717.722303: sys_futex -> 0x0
+           <...>-1189278 [033] .... 3762717.722395: sys_read(fd: 33, buf: 7fa418000e70, count: 2000)
+           <...>-1189278 [033] .... 3762717.722411: sys_read -> 0xb9
+           <...>-1189278 [033] .... 3762717.722434: sys_clock_gettime(which_clock: 0, tp: 7fa446b98ff0)
+           <...>-1189278 [033] .... 3762717.722435: sys_clock_gettime -> 0x0
+           <...>-1189278 [033] .... 3762717.722440: sys_clock_gettime(which_clock: 1, tp: 7fa446b991b0)
+           <...>-1189278 [033] .... 3762717.722442: sys_clock_gettime -> 0x0
+           <...>-1189278 [033] .... 3762717.722698: sys_clock_gettime(which_clock: 0, tp: 7fa446b98ce0)
+           <...>-1189278 [033] .... 3762717.722700: sys_clock_gettime -> 0x0
+           <...>-1189278 [033] .... 3762717.722745: sys_newlstat(filename: 7fa446b97a80, statbuf: 7fa446b96940)
+           <...>-1189278 [033] .... 3762717.722768: sys_newlstat -> 0x0
+           <...>-1189278 [033] .... 3762717.722770: sys_newlstat(filename: 7fa446b97a80, statbuf: 7fa446b96940)
+           <...>-1189278 [033] .... 3762717.722775: sys_newlstat -> 0x0
+           <...>-1189278 [033] .... 3762717.722776: sys_newlstat(filename: 7fa446b97a80, statbuf: 7fa446b96940)
+           <...>-1189278 [033] .... 3762717.722781: sys_newlstat -> 0x0
+           <...>-1189278 [033] .... 3762717.722782: sys_newlstat(filename: 7fa446b97a80, statbuf: 7fa446b96940)
+           <...>-1189278 [033] .... 3762717.723585: sys_newlstat -> 0x0
+           <...>-1189278 [033] .... 3762717.723588: sys_newlstat(filename: 7fa446b97a80, statbuf: 7fa446b96940)
+           <...>-1189278 [033] .... 3762717.723614: sys_newlstat -> 0x0
+           <...>-1189278 [033] .... 3762717.723616: sys_newlstat(filename: 7fa446b97a80, statbuf: 7fa446b96940)
+           <...>-1189278 [033] .... 3762717.725104: sys_newlstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725137: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98aa0)
+           <...>-1189278 [033] .... 3762717.725144: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725148: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98aa0)
+           <...>-1189278 [033] .... 3762717.725152: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725169: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98ac0)
+           <...>-1189278 [033] .... 3762717.725174: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725177: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98b70)
+           <...>-1189278 [033] .... 3762717.725181: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725186: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98b80)
+           <...>-1189278 [033] .... 3762717.725189: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725197: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98aa0)
+           <...>-1189278 [033] .... 3762717.725201: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725204: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98b10)
+           <...>-1189278 [033] .... 3762717.725208: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725211: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98b80)
+           <...>-1189278 [033] .... 3762717.725215: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725217: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98b70)
+           <...>-1189278 [033] .... 3762717.725221: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725224: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98aa0)
+           <...>-1189278 [033] .... 3762717.725227: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725230: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98b10)
+           <...>-1189278 [033] .... 3762717.725233: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725236: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98a90)
+           <...>-1189278 [033] .... 3762717.725240: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725242: sys_newstat(filename: 7fa41800cce0, statbuf: 7fa446b98b00)
+           <...>-1189278 [033] .... 3762717.725245: sys_newstat -> 0x0
+           <...>-1189278 [033] .... 3762717.725440: sys_clock_gettime(which_clock: 0, tp: 7fa446b98e10)
+           <...>-1189278 [033] .... 3762717.725442: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.645520: sys_clock_gettime(which_clock: 0, tp: 7fa446b98e10)
+           <...>-1189278 [014] .... 3762718.645524: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.645981: sys_clock_gettime(which_clock: 0, tp: 7fa446b98a60)
+           <...>-1189278 [014] .... 3762718.645983: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.646189: sys_clock_gettime(which_clock: 1, tp: 7fa446b98a50)
+           <...>-1189278 [014] .... 3762718.646191: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.646275: sys_write(fd: 33, buf: 7fa418000e70, count: 36a)
+           <...>-1189278 [014] .... 3762718.646370: sys_write -> 0x36a
+           <...>-1189278 [014] .... 3762718.646388: sys_clock_gettime(which_clock: 0, tp: 7fa446b98a00)
+           <...>-1189278 [014] .... 3762718.646390: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.646409: sys_clock_gettime(which_clock: 1, tp: 7fa446b99270)
+           <...>-1189278 [014] .... 3762718.646411: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.646423: sys_clock_gettime(which_clock: 0, tp: 7fa446b98f60)
+           <...>-1189278 [014] .... 3762718.646425: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.646426: sys_clock_gettime(which_clock: 1, tp: 7fa446b98f60)
+           <...>-1189278 [014] .... 3762718.646427: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.646540: sys_clock_gettime(which_clock: 0, tp: 7fa446b98de0)
+           <...>-1189278 [014] .... 3762718.646542: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.646655: sys_clock_gettime(which_clock: 1, tp: 7fa446b99280)
+           <...>-1189278 [014] .... 3762718.646657: sys_clock_gettime -> 0x0
+           <...>-1189278 [014] .... 3762718.646750: sys_getsockopt(fd: 33, level: 1, optname: d, optval: 7fa446b99058, optlen: 7fa446b9900c)
+           <...>-1189278 [014] .... 3762718.646754: sys_getsockopt -> 0x0
+           <...>-1189278 [014] .... 3762718.646760: sys_shutdown(fd: 33, how: 1)
+           <...>-1189278 [014] .... 3762718.646806: sys_shutdown -> 0x0
+           <...>-1189278 [014] .... 3762718.646862: sys_futex(uaddr: 7fa5147814ec, op: 80, val: 0, utime: 0, uaddr2: 0, val3: 4)
+

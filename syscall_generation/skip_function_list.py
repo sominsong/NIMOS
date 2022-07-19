@@ -7,5 +7,5 @@ skip_list = [
     "__swahb16p","__swahb32p","__swahb64p","__swab16s","__swab32s","__swab64s","__swahw16s","__swahw32s",
     "__swahw64s","__swahb16s","__swahb32s","__swahb64s","__cpu_to_be16p","__cpu_to_be32p","__cpu_to_be64p",
     "__be16_to_cpup","__be32_to_cpup","__be64_to_cpup","__cpu_to_be16p","__cpu_to_be32p","__cpu_to_be64p",
-    "__fswab16","__fswab32","__fswab64","bt_put_be16","bt_put_be32","bt_put_be64"
+    "__fswab16","__fswab32","__fswab64","bt_put_be16","bt_put_be32","bt_put_be64", "__getdelim"
 ]

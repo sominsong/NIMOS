@@ -1,0 +1,13 @@
+           <...>-3201775 [053] .... 3982003.969822: sys_poll -> 0x1
+           <...>-3201775 [053] .... 3982003.969861: sys_accept(fd: 13, upeer_sockaddr: 7ffd14833790, upeer_addrlen: 7ffd1483372c)
+           <...>-3201775 [053] .... 3982003.969914: sys_accept -> 0x2e
+           <...>-3201775 [053] .... 3982003.969930: sys_gettimeofday(tv: 7ffd14833790, tz: 0)
+           <...>-3201775 [053] .... 3982003.969933: sys_gettimeofday -> 0x0
+           <...>-3201775 [053] .... 3982003.969945: sys_mmap(addr: 0, len: 42000, prot: 0, flags: 20022, fd: ffffffff, off: 0)
+           <...>-3201775 [053] .... 3982003.969958: sys_mmap -> 0x7f3f100df000
+           <...>-3201775 [053] .... 3982003.969962: sys_mprotect(start: 7f3f100e0000, len: 41000, prot: 3)
+           <...>-3201775 [053] .... 3982003.969974: sys_mprotect -> 0x0
+           <...>-3201775 [053] .... 3982003.970002: sys_clone(clone_flags: 3d0f00, newsp: 7f3f1011ffb0, parent_tidptr: 7f3f101209d0, child_tidptr: 7f3f101209d0, tls: 7f3f10120700)
+           <...>-3201775 [053] .... 3982003.970143: sys_clone -> 0x4d
+           <...>-3201775 [053] .... 3982003.970150: sys_poll(ufds: 55596f33b4b0, nfds: 2, timeout_msecs: ffffffff)
+

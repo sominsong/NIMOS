@@ -1,0 +1,13 @@
+futex
+openat
+newfstat
+getdents64
+getdents64
+close
+openat
+newfstat
+getdents64
+getdents64
+close
+clock_gettime
+futex

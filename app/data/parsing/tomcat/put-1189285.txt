@@ -1,0 +1,11 @@
+fcntl
+getsockname
+getsockname
+clock_gettime
+clock_gettime
+fcntl
+fcntl
+setsockopt
+setsockopt
+write
+accept

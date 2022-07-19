@@ -1,0 +1,29 @@
+           <...>-1189284 [000] .... 3761145.084463: sys_epoll_wait -> 0x0
+           <...>-1189284 [000] .... 3761145.084477: sys_clock_gettime(which_clock: 0, tp: 7fa447dfc8e0)
+           <...>-1189284 [000] .... 3761145.084479: sys_clock_gettime -> 0x0
+           <...>-1189284 [000] .... 3761145.084481: sys_clock_gettime(which_clock: 0, tp: 7fa447dfc8e0)
+           <...>-1189284 [000] .... 3761145.084482: sys_clock_gettime -> 0x0
+           <...>-1189284 [000] .... 3761145.084487: sys_clock_gettime(which_clock: 1, tp: 7fa447dfc740)
+           <...>-1189284 [000] .... 3761145.084488: sys_clock_gettime -> 0x0
+           <...>-1189284 [000] .... 3761145.084490: sys_epoll_wait(epfd: 2c, events: 7fa51478c550, maxevents: 400, timeout: 3e8)
+           <...>-1189284 [001] .... 3761145.246406: sys_epoll_wait -> 0x1
+           <...>-1189284 [001] .... 3761145.246414: sys_read(fd: 2d, buf: 7fa447dfc660, count: 10)
+           <...>-1189284 [001] .... 3761145.246418: sys_read -> 0x8
+           <...>-1189284 [001] .... 3761145.246502: sys_clock_gettime(which_clock: 0, tp: 7fa447dfc8e0)
+           <...>-1189284 [001] .... 3761145.246505: sys_clock_gettime -> 0x0
+           <...>-1189284 [001] .... 3761145.246516: sys_epoll_ctl(epfd: 2c, op: 1, fd: 33, event: 7fa447dfc634)
+           <...>-1189284 [001] .... 3761145.246524: sys_epoll_ctl -> 0x0
+           <...>-1189284 [001] .... 3761145.246526: sys_clock_gettime(which_clock: 1, tp: 7fa447dfc740)
+           <...>-1189284 [001] .... 3761145.246527: sys_clock_gettime -> 0x0
+           <...>-1189284 [001] .... 3761145.246529: sys_epoll_wait(epfd: 2c, events: 7fa51478c550, maxevents: 400, timeout: 3e8)
+           <...>-1189284 [001] .... 3761145.246533: sys_epoll_wait -> 0x1
+           <...>-1189284 [001] .... 3761145.246593: sys_futex(uaddr: 7fa51477b14c, op: 81, val: 1, utime: 0, uaddr2: 7fa51477b120, val3: 7fa51477b140)
+           <...>-1189284 [001] .... 3761145.246606: sys_futex -> 0x1
+           <...>-1189284 [001] .... 3761145.246611: sys_clock_gettime(which_clock: 0, tp: 7fa447dfc8e0)
+           <...>-1189284 [001] .... 3761145.246613: sys_clock_gettime -> 0x0
+           <...>-1189284 [001] .... 3761145.246618: sys_epoll_ctl(epfd: 2c, op: 2, fd: 33, event: 7fa447dfc634)
+           <...>-1189284 [001] .... 3761145.246620: sys_epoll_ctl -> 0x0
+           <...>-1189284 [001] .... 3761145.246622: sys_clock_gettime(which_clock: 1, tp: 7fa447dfc740)
+           <...>-1189284 [001] .... 3761145.246624: sys_clock_gettime -> 0x0
+           <...>-1189284 [001] .... 3761145.246625: sys_epoll_wait(epfd: 2c, events: 7fa51478c550, maxevents: 400, timeout: 3e8)
+

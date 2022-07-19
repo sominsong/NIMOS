@@ -1,0 +1,9 @@
+           <...>-321820  [042] .... 3665852.836823: sys_futex -> 0x0
+           <...>-321820  [042] .... 3665852.836832: sys_clock_gettime(which_clock: 1, tp: 7f5390df3bf0)
+           <...>-321820  [042] .... 3665852.836834: sys_clock_gettime -> 0x0
+           <...>-321820  [042] .... 3665852.836837: sys_clock_gettime(which_clock: 1, tp: 7f5390df3bf0)
+           <...>-321820  [042] .... 3665852.836838: sys_clock_gettime -> 0x0
+           <...>-321820  [042] .... 3665852.836840: sys_futex(uaddr: 564fc780f980, op: 81, val: 1, utime: 0, uaddr2: 49f77330, val3: 0)
+           <...>-321820  [042] .... 3665852.836844: sys_futex -> 0x1
+           <...>-321820  [042] .... 3665852.836845: sys_futex(uaddr: 564fc781f53c, op: 89, val: 0, utime: 7f5390df3c30, uaddr2: 0, val3: ffffffff)
+

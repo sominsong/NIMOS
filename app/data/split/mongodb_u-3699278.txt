@@ -1,0 +1,43 @@
+           <...>-3699278 [005] .... 3581501.511293: sys_futex -> 0x0
+           <...>-3699278 [005] .... 3581501.511300: sys_clock_gettime(which_clock: 0, tp: 7fce786dd490)
+           <...>-3699278 [005] .... 3581501.511302: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581501.511304: sys_futex(uaddr: 5631c2599c50, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699278 [005] .... 3581501.511305: sys_futex -> 0x0
+           <...>-3699278 [005] .... 3581501.511347: sys_clock_gettime(which_clock: 1, tp: 7fce786dd3c0)
+           <...>-3699278 [005] .... 3581501.511349: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581501.511397: sys_futex(uaddr: 5631c81c144c, op: 81, val: 7fffffff, utime: 0, uaddr2: 5631c81c1420, val3: 5631c81c1440)
+           <...>-3699278 [005] .... 3581501.511409: sys_futex -> 0x1
+           <...>-3699278 [005] .... 3581501.511417: sys_clock_gettime(which_clock: 1, tp: 7fce786dd3c0)
+           <...>-3699278 [005] .... 3581501.511419: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581501.511429: sys_clock_gettime(which_clock: 0, tp: 7fce786dd490)
+           <...>-3699278 [005] .... 3581501.511430: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581501.511432: sys_futex(uaddr: 5631c86c2678, op: 189, val: 0, utime: 7fce786dd520, uaddr2: 0, val3: ffffffff)
+           <...>-3699278 [005] .... 3581502.424867: sys_futex -> 0x0
+           <...>-3699278 [005] .... 3581502.424873: sys_clock_gettime(which_clock: 0, tp: 7fce786dd490)
+           <...>-3699278 [005] .... 3581502.424875: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581502.424877: sys_futex(uaddr: 5631c2599c50, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699278 [005] .... 3581502.424878: sys_futex -> 0x0
+           <...>-3699278 [005] .... 3581502.424921: sys_clock_gettime(which_clock: 1, tp: 7fce786dd3c0)
+           <...>-3699278 [005] .... 3581502.424922: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581502.424973: sys_futex(uaddr: 5631c81c1448, op: 81, val: 7fffffff, utime: 0, uaddr2: 5631c81c1420, val3: 5631c81c1440)
+           <...>-3699278 [005] .... 3581502.424986: sys_futex -> 0x1
+           <...>-3699278 [005] .... 3581502.424994: sys_clock_gettime(which_clock: 1, tp: 7fce786dd3c0)
+           <...>-3699278 [005] .... 3581502.424996: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581502.425005: sys_clock_gettime(which_clock: 0, tp: 7fce786dd490)
+           <...>-3699278 [005] .... 3581502.425006: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581502.425009: sys_futex(uaddr: 5631c86c267c, op: 189, val: 0, utime: 7fce786dd520, uaddr2: 0, val3: ffffffff)
+           <...>-3699278 [005] .... 3581502.425198: sys_futex -> 0x0
+           <...>-3699278 [005] .... 3581502.425201: sys_clock_gettime(which_clock: 0, tp: 7fce786dd490)
+           <...>-3699278 [005] .... 3581502.425202: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581502.425203: sys_futex(uaddr: 5631c2599c50, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699278 [005] .... 3581502.425204: sys_futex -> 0x0
+           <...>-3699278 [005] .... 3581502.425219: sys_clock_gettime(which_clock: 1, tp: 7fce786dd3c0)
+           <...>-3699278 [005] .... 3581502.425221: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581502.425246: sys_brk(brk: 5631cb8fc000)
+           <...>-3699278 [005] .... 3581502.425257: sys_brk -> 0x5631cb8fc000
+           <...>-3699278 [005] .... 3581502.425297: sys_clock_gettime(which_clock: 1, tp: 7fce786dd3c0)
+           <...>-3699278 [005] .... 3581502.425299: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581502.425309: sys_clock_gettime(which_clock: 0, tp: 7fce786dd490)
+           <...>-3699278 [005] .... 3581502.425310: sys_clock_gettime -> 0x0
+           <...>-3699278 [005] .... 3581502.425312: sys_futex(uaddr: 5631c86c2678, op: 189, val: 0, utime: 7fce786dd520, uaddr2: 0, val3: ffffffff)
+

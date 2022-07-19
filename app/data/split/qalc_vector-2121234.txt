@@ -1,0 +1,20 @@
+2121234 clone
+2121234 set_robust_list
+2121234 set_robust_list
+2121234 fstat
+2121234 fstat
+2121234 mmap
+2121234 mmap
+2121234 munmap
+2121234 munmap
+2121234 mprotect
+2121234 mprotect
+2121234 read
+2121234 read
+2121234 read
+2121234 read
+2121234 madvise
+2121234 madvise
+2121234 exit
+2121234 procexit
+

@@ -1,0 +1,23 @@
+           <...>-1189285 [047] .... 3762284.511523: sys_accept -> 0x34
+           <...>-1189285 [047] .... 3762284.511593: sys_fcntl(fd: 34, cmd: 3, arg: 32)
+           <...>-1189285 [047] .... 3762284.511595: sys_fcntl -> 0x2
+           <...>-1189285 [047] .... 3762284.511603: sys_getsockname(fd: 34, usockaddr: 7fa4473fe5a0, usockaddr_len: 7fa4473fe598)
+           <...>-1189285 [047] .... 3762284.511607: sys_getsockname -> 0x0
+           <...>-1189285 [047] .... 3762284.511611: sys_getsockname(fd: 34, usockaddr: 7fa4473fe5a0, usockaddr_len: 7fa4473fe59c)
+           <...>-1189285 [047] .... 3762284.511612: sys_getsockname -> 0x0
+           <...>-1189285 [047] .... 3762284.511622: sys_clock_gettime(which_clock: 1, tp: 7fa4473fe820)
+           <...>-1189285 [047] .... 3762284.511624: sys_clock_gettime -> 0x0
+           <...>-1189285 [047] .... 3762284.511658: sys_clock_gettime(which_clock: 0, tp: 7fa4473fe790)
+           <...>-1189285 [047] .... 3762284.511659: sys_clock_gettime -> 0x0
+           <...>-1189285 [047] .... 3762284.511679: sys_fcntl(fd: 34, cmd: 3, arg: 32)
+           <...>-1189285 [047] .... 3762284.511679: sys_fcntl -> 0x2
+           <...>-1189285 [047] .... 3762284.511680: sys_fcntl(fd: 34, cmd: 4, arg: 802)
+           <...>-1189285 [047] .... 3762284.511681: sys_fcntl -> 0x0
+           <...>-1189285 [047] .... 3762284.511734: sys_setsockopt(fd: 34, level: 1, optname: d, optval: 7fa4473fe428, optlen: 8)
+           <...>-1189285 [047] .... 3762284.511737: sys_setsockopt -> 0x0
+           <...>-1189285 [047] .... 3762284.511746: sys_setsockopt(fd: 34, level: 6, optname: 1, optval: 7fa4473fe470, optlen: 4)
+           <...>-1189285 [047] .... 3762284.511748: sys_setsockopt -> 0x0
+           <...>-1189285 [047] .... 3762284.511758: sys_write(fd: 2d, buf: 7fa4473fe658, count: 8)
+           <...>-1189285 [047] .... 3762284.511769: sys_write -> 0x8
+           <...>-1189285 [047] .... 3762284.511823: sys_accept(fd: 29, upeer_sockaddr: 7fa4473fe6a0, upeer_addrlen: 7fa4473fe698)
+

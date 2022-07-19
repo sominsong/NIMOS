@@ -1,0 +1,7 @@
+           <...>-3699319 [026] .... 3581490.345807: sys_clock_nanosleep -> 0x0
+           <...>-3699319 [026] .... 3581490.345830: sys_clock_gettime(which_clock: 1, tp: 7f24f1648570)
+           <...>-3699319 [026] .... 3581490.345833: sys_clock_gettime -> 0x0
+           <...>-3699319 [026] .... 3581490.345844: sys_gettimeofday(tv: 7f24f1648700, tz: 0)
+           <...>-3699319 [026] .... 3581490.345846: sys_gettimeofday -> 0x0
+           <...>-3699319 [026] .... 3581490.345864: sys_clock_nanosleep(which_clock: 0, flags: 0, rqtp: 7f24f16486e0, rmtp: 7f24f16486f0)
+

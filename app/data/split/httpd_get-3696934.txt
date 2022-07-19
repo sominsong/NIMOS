@@ -1,0 +1,11 @@
+           <...>-3696934 [010] .... 3581166.457900: sys_epoll_wait -> 0x1
+           <...>-3696934 [010] .... 3581166.457923: sys_mmap(addr: 0, len: 2000, prot: 3, flags: 22, fd: ffffffff, off: 0)
+           <...>-3696934 [010] .... 3581166.457938: sys_mmap -> 0x7f12146e2000
+           <...>-3696934 [010] .... 3581166.457976: sys_accept4(fd: 3, upeer_sockaddr: 7f11b97f9ca0, upeer_addrlen: 7f11b97f9c80, flags: 80000)
+           <...>-3696934 [010] .... 3581166.458022: sys_accept4 -> 0xfffffffffffffff5
+           <...>-3696934 [010] .... 3581166.458035: sys_gettimeofday(tv: 7f11b97f9d70, tz: 0)
+           <...>-3696934 [010] .... 3581166.458037: sys_gettimeofday -> 0x0
+           <...>-3696934 [010] .... 3581166.458039: sys_gettimeofday(tv: 7f11b97f9d70, tz: 0)
+           <...>-3696934 [010] .... 3581166.458040: sys_gettimeofday -> 0x0
+           <...>-3696934 [010] .... 3581166.458043: sys_epoll_wait(epfd: 7, events: 7f1217f21620, maxevents: 34, timeout: ffffffff)
+

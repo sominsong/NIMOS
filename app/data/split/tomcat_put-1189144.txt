@@ -1,0 +1,15 @@
+           <...>-1189144 [007] .... 3762718.065266: sys_futex -> 0xffffffffffffff92
+           <...>-1189144 [007] .... 3762718.065274: sys_clock_gettime(which_clock: 1, tp: c000051eb0)
+           <...>-1189144 [007] .... 3762718.065276: sys_clock_gettime -> 0x0
+           <...>-1189144 [007] .... 3762718.065279: sys_clock_gettime(which_clock: 1, tp: c000051f10)
+           <...>-1189144 [007] .... 3762718.065280: sys_clock_gettime -> 0x0
+           <...>-1189144 [007] .... 3762718.065291: sys_futex(uaddr: c000080150, op: 81, val: 1, utime: 0, uaddr2: 0, val3: 0)
+           <...>-1189144 [007] .... 3762718.065301: sys_futex -> 0x1
+           <...>-1189144 [007] .... 3762718.065304: sys_nanosleep(rqtp: c000051f28, rmtp: 0)
+           <...>-1189144 [007] .... 3762718.075381: sys_nanosleep -> 0x0
+           <...>-1189144 [007] .... 3762718.075383: sys_clock_gettime(which_clock: 1, tp: c000051f10)
+           <...>-1189144 [007] .... 3762718.075385: sys_clock_gettime -> 0x0
+           <...>-1189144 [007] .... 3762718.075387: sys_clock_gettime(which_clock: 1, tp: c000051eb0)
+           <...>-1189144 [007] .... 3762718.075388: sys_clock_gettime -> 0x0
+           <...>-1189144 [007] .... 3762718.075389: sys_futex(uaddr: c3b518, op: 80, val: 0, utime: c000051ec8, uaddr2: 0, val3: 0)
+

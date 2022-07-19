@@ -1,0 +1,8 @@
+1446260 clock_nanosleep
+1446260 close
+1446260 close
+1446260 close
+1446260 close
+1446260 exit_group
+1446260 procexit
+

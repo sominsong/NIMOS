@@ -1,0 +1,211 @@
+           <...>-3699472 [008] .... 3581474.767350: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.767355: sys_clock_gettime(which_clock: 0, tp: 7fce755d5ec0)
+           <...>-3699472 [008] .... 3581474.767356: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.767358: sys_futex(uaddr: 5631c2599450, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.767359: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.767391: sys_clock_gettime(which_clock: 0, tp: 7fce755d54b0)
+           <...>-3699472 [008] .... 3581474.767392: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.767437: sys_gettimeofday(tv: 7fce755d4b00, tz: 0)
+           <...>-3699472 [008] .... 3581474.767438: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.767453: sys_clock_gettime(which_clock: 0, tp: 7fce755d4be0)
+           <...>-3699472 [008] .... 3581474.767454: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.767460: sys_epoll_ctl(epfd: 5a, op: 3, fd: 59, event: 7fce755d490c)
+           <...>-3699472 [008] .... 3581474.767471: sys_epoll_ctl -> 0x0
+           <...>-3699472 [008] .... 3581474.767473: sys_clock_gettime(which_clock: 0, tp: 7fce755d49f0)
+           <...>-3699472 [008] .... 3581474.767474: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.767477: sys_poll(ufds: 7fce755d4918, nfds: 1, timeout_msecs: 0)
+           <...>-3699472 [008] .... 3581474.767480: sys_poll -> 0x0
+           <...>-3699472 [008] .... 3581474.767484: sys_clock_gettime(which_clock: 0, tp: 7fce755d4ca0)
+           <...>-3699472 [008] .... 3581474.767486: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.767487: sys_clock_gettime(which_clock: 0, tp: 7fce755d4d10)
+           <...>-3699472 [008] .... 3581474.767488: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.767490: sys_clock_gettime(which_clock: 0, tp: 7fce755d4c30)
+           <...>-3699472 [008] .... 3581474.767491: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.767495: sys_gettimeofday(tv: 7fce755d44b0, tz: 0)
+           <...>-3699472 [008] .... 3581474.767496: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.767505: sys_clock_gettime(which_clock: 0, tp: 7fce755d4170)
+           <...>-3699472 [008] .... 3581474.767506: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.767511: sys_clock_gettime(which_clock: 1, tp: 7fce755d3f90)
+           <...>-3699472 [008] .... 3581474.767513: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.767531: sys_sendmsg(fd: 5c, msg: 7fce755d3a90, flags: 4000)
+           <...>-3699472 [008] .... 3581474.767605: sys_sendmsg -> 0x200
+           <...>-3699472 [008] .... 3581474.767610: sys_recvmsg(fd: 5c, msg: 7fce755d3850, flags: 0)
+           <...>-3699472 [008] .... 3581474.767613: sys_recvmsg -> 0xfffffffffffffff5
+           <...>-3699472 [008] .... 3581474.767617: sys_recvmsg(fd: 5c, msg: 7fce755d3740, flags: 0)
+           <...>-3699472 [008] .... 3581474.767618: sys_recvmsg -> 0xfffffffffffffff5
+           <...>-3699472 [008] .... 3581474.767637: sys_gettimeofday(tv: 7fce755d5eb0, tz: 0)
+           <...>-3699472 [008] .... 3581474.767639: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.767641: sys_futex(uaddr: 5631c86e7614, op: 189, val: 0, utime: 7fce755d5f70, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.768276: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.768279: sys_clock_gettime(which_clock: 0, tp: 7fce755d5ec0)
+           <...>-3699472 [008] .... 3581474.768280: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768282: sys_futex(uaddr: 5631c2599450, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.768282: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.768292: sys_clock_gettime(which_clock: 0, tp: 7fce755d58c0)
+           <...>-3699472 [008] .... 3581474.768293: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768294: sys_clock_gettime(which_clock: 0, tp: 7fce755d57e0)
+           <...>-3699472 [008] .... 3581474.768296: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768298: sys_clock_gettime(which_clock: 0, tp: 7fce755d56d0)
+           <...>-3699472 [008] .... 3581474.768299: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768309: sys_gettimeofday(tv: 7fce755d5eb0, tz: 0)
+           <...>-3699472 [008] .... 3581474.768310: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.768312: sys_futex(uaddr: 5631c86e7610, op: 189, val: 0, utime: 7fce755d5f70, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.768369: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.768371: sys_clock_gettime(which_clock: 0, tp: 7fce755d5ec0)
+           <...>-3699472 [008] .... 3581474.768373: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768374: sys_futex(uaddr: 5631c2599450, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.768374: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.768391: sys_clock_gettime(which_clock: 0, tp: 7fce755d54b0)
+           <...>-3699472 [008] .... 3581474.768393: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768405: sys_gettimeofday(tv: 7fce755d4b00, tz: 0)
+           <...>-3699472 [008] .... 3581474.768407: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.768414: sys_clock_gettime(which_clock: 0, tp: 7fce755d4be0)
+           <...>-3699472 [008] .... 3581474.768415: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768418: sys_epoll_ctl(epfd: 5a, op: 3, fd: 59, event: 7fce755d490c)
+           <...>-3699472 [008] .... 3581474.768425: sys_epoll_ctl -> 0x0
+           <...>-3699472 [008] .... 3581474.768427: sys_clock_gettime(which_clock: 0, tp: 7fce755d49f0)
+           <...>-3699472 [008] .... 3581474.768428: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768430: sys_poll(ufds: 7fce755d4918, nfds: 1, timeout_msecs: 0)
+           <...>-3699472 [008] .... 3581474.768432: sys_poll -> 0x0
+           <...>-3699472 [008] .... 3581474.768435: sys_clock_gettime(which_clock: 0, tp: 7fce755d4ca0)
+           <...>-3699472 [008] .... 3581474.768436: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768438: sys_clock_gettime(which_clock: 0, tp: 7fce755d4d10)
+           <...>-3699472 [008] .... 3581474.768439: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768440: sys_clock_gettime(which_clock: 0, tp: 7fce755d4c30)
+           <...>-3699472 [008] .... 3581474.768442: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768444: sys_futex(uaddr: 5631c86be838, op: 81, val: 1, utime: 0, uaddr2: 0, val3: 94f4)
+           <...>-3699472 [008] .... 3581474.768445: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.768447: sys_gettimeofday(tv: 7fce755d44b0, tz: 0)
+           <...>-3699472 [008] .... 3581474.768448: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.768453: sys_clock_gettime(which_clock: 0, tp: 7fce755d4170)
+           <...>-3699472 [008] .... 3581474.768455: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768458: sys_clock_gettime(which_clock: 1, tp: 7fce755d3f90)
+           <...>-3699472 [008] .... 3581474.768459: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.768472: sys_sendmsg(fd: 5c, msg: 7fce755d3a90, flags: 4000)
+           <...>-3699472 [008] .... 3581474.768519: sys_sendmsg -> 0x200
+           <...>-3699472 [008] .... 3581474.768522: sys_recvmsg(fd: 5c, msg: 7fce755d3850, flags: 0)
+           <...>-3699472 [008] .... 3581474.768525: sys_recvmsg -> 0xfffffffffffffff5
+           <...>-3699472 [008] .... 3581474.768529: sys_recvmsg(fd: 5c, msg: 7fce755d3740, flags: 0)
+           <...>-3699472 [008] .... 3581474.768530: sys_recvmsg -> 0xfffffffffffffff5
+           <...>-3699472 [008] .... 3581474.768544: sys_gettimeofday(tv: 7fce755d5eb0, tz: 0)
+           <...>-3699472 [008] .... 3581474.768545: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.768548: sys_futex(uaddr: 5631c86e7614, op: 189, val: 0, utime: 7fce755d5f70, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.769144: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.769147: sys_clock_gettime(which_clock: 0, tp: 7fce755d5ec0)
+           <...>-3699472 [008] .... 3581474.769148: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.769150: sys_futex(uaddr: 5631c2599450, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.769150: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.769158: sys_clock_gettime(which_clock: 0, tp: 7fce755d58c0)
+           <...>-3699472 [008] .... 3581474.769159: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.769160: sys_clock_gettime(which_clock: 0, tp: 7fce755d57e0)
+           <...>-3699472 [008] .... 3581474.769162: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.769164: sys_clock_gettime(which_clock: 0, tp: 7fce755d56d0)
+           <...>-3699472 [008] .... 3581474.769165: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.769173: sys_gettimeofday(tv: 7fce755d5eb0, tz: 0)
+           <...>-3699472 [008] .... 3581474.769174: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.769176: sys_futex(uaddr: 5631c86e7610, op: 189, val: 0, utime: 7fce755d5f70, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.778427: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.778431: sys_clock_gettime(which_clock: 0, tp: 7fce755d5ec0)
+           <...>-3699472 [008] .... 3581474.778433: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.778434: sys_futex(uaddr: 5631c2599450, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.778435: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.778454: sys_clock_gettime(which_clock: 0, tp: 7fce755d54b0)
+           <...>-3699472 [008] .... 3581474.778455: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.778472: sys_gettimeofday(tv: 7fce755d4b00, tz: 0)
+           <...>-3699472 [008] .... 3581474.778473: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.778481: sys_clock_gettime(which_clock: 0, tp: 7fce755d4be0)
+           <...>-3699472 [008] .... 3581474.778482: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.778485: sys_epoll_ctl(epfd: 5a, op: 3, fd: 59, event: 7fce755d490c)
+           <...>-3699472 [008] .... 3581474.778493: sys_epoll_ctl -> 0x0
+           <...>-3699472 [008] .... 3581474.778495: sys_clock_gettime(which_clock: 0, tp: 7fce755d49f0)
+           <...>-3699472 [008] .... 3581474.778496: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.778498: sys_poll(ufds: 7fce755d4918, nfds: 1, timeout_msecs: 0)
+           <...>-3699472 [008] .... 3581474.778500: sys_poll -> 0x0
+           <...>-3699472 [008] .... 3581474.778503: sys_clock_gettime(which_clock: 0, tp: 7fce755d4ca0)
+           <...>-3699472 [008] .... 3581474.778504: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.778505: sys_clock_gettime(which_clock: 0, tp: 7fce755d4d10)
+           <...>-3699472 [008] .... 3581474.778507: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.778508: sys_clock_gettime(which_clock: 0, tp: 7fce755d4c30)
+           <...>-3699472 [008] .... 3581474.778509: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.778512: sys_gettimeofday(tv: 7fce755d44b0, tz: 0)
+           <...>-3699472 [008] .... 3581474.778513: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.778519: sys_clock_gettime(which_clock: 0, tp: 7fce755d4170)
+           <...>-3699472 [008] .... 3581474.778520: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.778524: sys_clock_gettime(which_clock: 1, tp: 7fce755d3f90)
+           <...>-3699472 [008] .... 3581474.778526: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.778537: sys_sendmsg(fd: 5c, msg: 7fce755d3a90, flags: 4000)
+           <...>-3699472 [008] .N.. 3581474.778611: sys_sendmsg -> 0x200
+           <...>-3699472 [008] .... 3581474.778650: sys_recvmsg(fd: 5c, msg: 7fce755d3850, flags: 0)
+           <...>-3699472 [008] .... 3581474.778653: sys_recvmsg -> 0xfffffffffffffff5
+           <...>-3699472 [008] .... 3581474.778655: sys_recvmsg(fd: 5c, msg: 7fce755d3740, flags: 0)
+           <...>-3699472 [008] .... 3581474.778656: sys_recvmsg -> 0xfffffffffffffff5
+           <...>-3699472 [008] .... 3581474.778670: sys_gettimeofday(tv: 7fce755d5eb0, tz: 0)
+           <...>-3699472 [008] .... 3581474.778672: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.778674: sys_futex(uaddr: 5631c86e7614, op: 189, val: 0, utime: 7fce755d5f70, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.779112: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.779114: sys_clock_gettime(which_clock: 0, tp: 7fce755d5ec0)
+           <...>-3699472 [008] .... 3581474.779116: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779118: sys_futex(uaddr: 5631c2599450, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.779119: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.779127: sys_clock_gettime(which_clock: 0, tp: 7fce755d58c0)
+           <...>-3699472 [008] .... 3581474.779129: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779131: sys_clock_gettime(which_clock: 0, tp: 7fce755d57e0)
+           <...>-3699472 [008] .... 3581474.779132: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779135: sys_clock_gettime(which_clock: 0, tp: 7fce755d56d0)
+           <...>-3699472 [008] .... 3581474.779136: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779144: sys_gettimeofday(tv: 7fce755d5eb0, tz: 0)
+           <...>-3699472 [008] .... 3581474.779145: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.779147: sys_futex(uaddr: 5631c86e7610, op: 189, val: 0, utime: 7fce755d5f70, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.779270: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.779272: sys_clock_gettime(which_clock: 0, tp: 7fce755d5ec0)
+           <...>-3699472 [008] .... 3581474.779273: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779275: sys_futex(uaddr: 5631c2599450, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.779275: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.779290: sys_clock_gettime(which_clock: 0, tp: 7fce755d54b0)
+           <...>-3699472 [008] .... 3581474.779292: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779303: sys_gettimeofday(tv: 7fce755d4b00, tz: 0)
+           <...>-3699472 [008] .... 3581474.779305: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.779311: sys_clock_gettime(which_clock: 0, tp: 7fce755d4be0)
+           <...>-3699472 [008] .... 3581474.779312: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779315: sys_epoll_ctl(epfd: 5a, op: 3, fd: 59, event: 7fce755d490c)
+           <...>-3699472 [008] .... 3581474.779321: sys_epoll_ctl -> 0x0
+           <...>-3699472 [008] .... 3581474.779323: sys_clock_gettime(which_clock: 0, tp: 7fce755d49f0)
+           <...>-3699472 [008] .... 3581474.779324: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779326: sys_clock_gettime(which_clock: 0, tp: 7fce755d4ca0)
+           <...>-3699472 [008] .... 3581474.779327: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779328: sys_clock_gettime(which_clock: 0, tp: 7fce755d4d10)
+           <...>-3699472 [008] .... 3581474.779329: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779331: sys_clock_gettime(which_clock: 0, tp: 7fce755d4c30)
+           <...>-3699472 [008] .... 3581474.779332: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779333: sys_futex(uaddr: 5631c86be838, op: 81, val: 1, utime: 0, uaddr2: 0, val3: 1)
+           <...>-3699472 [008] .... 3581474.779334: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.779336: sys_gettimeofday(tv: 7fce755d44b0, tz: 0)
+           <...>-3699472 [008] .... 3581474.779337: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.779342: sys_clock_gettime(which_clock: 0, tp: 7fce755d4170)
+           <...>-3699472 [008] .... 3581474.779343: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779346: sys_clock_gettime(which_clock: 1, tp: 7fce755d3f90)
+           <...>-3699472 [008] .... 3581474.779348: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779358: sys_sendmsg(fd: 5c, msg: 7fce755d3a90, flags: 4000)
+           <...>-3699472 [008] .... 3581474.779403: sys_sendmsg -> 0x1fe
+           <...>-3699472 [008] .... 3581474.779406: sys_recvmsg(fd: 5c, msg: 7fce755d3850, flags: 0)
+           <...>-3699472 [008] .... 3581474.779408: sys_recvmsg -> 0xfffffffffffffff5
+           <...>-3699472 [008] .... 3581474.779410: sys_recvmsg(fd: 5c, msg: 7fce755d3740, flags: 0)
+           <...>-3699472 [008] .... 3581474.779411: sys_recvmsg -> 0xfffffffffffffff5
+           <...>-3699472 [008] .... 3581474.779422: sys_gettimeofday(tv: 7fce755d5eb0, tz: 0)
+           <...>-3699472 [008] .... 3581474.779424: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.779426: sys_futex(uaddr: 5631c86e7614, op: 189, val: 0, utime: 7fce755d5f70, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.779800: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.779802: sys_clock_gettime(which_clock: 0, tp: 7fce755d5ec0)
+           <...>-3699472 [008] .... 3581474.779803: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779806: sys_futex(uaddr: 5631c2599450, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3699472 [008] .... 3581474.779807: sys_futex -> 0x0
+           <...>-3699472 [008] .... 3581474.779813: sys_clock_gettime(which_clock: 0, tp: 7fce755d58c0)
+           <...>-3699472 [008] .... 3581474.779814: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779815: sys_clock_gettime(which_clock: 0, tp: 7fce755d57e0)
+           <...>-3699472 [008] .... 3581474.779816: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779818: sys_clock_gettime(which_clock: 0, tp: 7fce755d56d0)
+           <...>-3699472 [008] .... 3581474.779819: sys_clock_gettime -> 0x0
+           <...>-3699472 [008] .... 3581474.779826: sys_gettimeofday(tv: 7fce755d5eb0, tz: 0)
+           <...>-3699472 [008] .... 3581474.779827: sys_gettimeofday -> 0x0
+           <...>-3699472 [008] .... 3581474.779828: sys_futex(uaddr: 5631c86e7610, op: 189, val: 0, utime: 7fce755d5f70, uaddr2: 0, val3: ffffffff)
+

@@ -1,0 +1,11 @@
+           <...>-3703535 [016] .... 3581836.075247: sys_nanosleep -> 0x0
+           <...>-3703535 [016] .... 3581836.075253: sys_clock_gettime(which_clock: 1, tp: 7f1ef8ce0e20)
+           <...>-3703535 [016] .... 3581836.075255: sys_clock_gettime -> 0x0
+           <...>-3703535 [016] .... 3581836.075258: sys_clock_gettime(which_clock: 1, tp: 7f1ef8ce0e20)
+           <...>-3703535 [016] .... 3581836.075259: sys_clock_gettime -> 0x0
+           <...>-3703535 [016] .... 3581836.075264: sys_futex(uaddr: 5611dd971c88, op: 81, val: 7fffffff, utime: 0, uaddr2: 5611dd971c60, val3: 5611dd971c80)
+           <...>-3703535 [016] .... 3581836.075275: sys_futex -> 0x1
+           <...>-3703535 [016] .... 3581836.075281: sys_clock_gettime(which_clock: 1, tp: 7f1ef8ce0e20)
+           <...>-3703535 [016] .... 3581836.075282: sys_clock_gettime -> 0x0
+           <...>-3703535 [016] .... 3581836.075299: sys_nanosleep(rqtp: 7f1ef8ce0e20, rmtp: 0)
+

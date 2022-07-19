@@ -1,0 +1,415 @@
+           <...>-218409  [025] .... 3658809.905736: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658809.905744: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658809.905747: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658809.905749: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .... 3658809.905751: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905754: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658809.905756: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905757: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658809.905759: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905760: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658809.905762: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905763: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658809.905765: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905766: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658809.905768: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905769: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658809.905771: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905773: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658809.905795: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658809.905797: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658809.905810: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658809.905812: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658809.905813: sys_close -> 0x0
+           <...>-218409  [025] .... 3658809.905867: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658809.905869: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905870: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658809.905872: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905874: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658809.905876: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905879: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658809.905881: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658809.905883: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658809.905884: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658809.905886: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658809.905888: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658809.905890: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.006029: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658810.006037: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.006040: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.006043: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .N.. 3658810.006088: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006109: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.006111: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006112: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.006113: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006115: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.006116: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006118: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.006119: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006121: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.006122: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006124: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.006125: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006128: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658810.006155: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658810.006157: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658810.006172: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658810.006174: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.006175: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.006232: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658810.006234: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006236: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.006237: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006239: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.006241: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006248: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.006250: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.006252: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.006253: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.006255: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.006257: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.006259: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.106396: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658810.106404: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.106407: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.106409: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .... 3658810.106411: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106414: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.106416: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106417: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.106419: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106420: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.106422: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106423: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.106425: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106426: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.106428: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106429: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.106431: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106433: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658810.106458: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658810.106460: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658810.106475: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658810.106477: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.106478: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.106533: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658810.106535: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106537: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.106538: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106540: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.106542: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106546: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.106548: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.106550: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.106551: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.106553: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.106555: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.106558: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.206685: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658810.206693: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.206695: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.206697: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .... 3658810.206699: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206702: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.206704: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206705: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.206707: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206708: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.206709: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206711: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.206712: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206714: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.206715: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206716: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.206718: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206721: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658810.206744: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658810.206746: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658810.206761: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658810.206762: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.206763: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.206817: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658810.206819: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206821: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.206822: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206824: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.206826: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206830: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.206832: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.206834: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.206835: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.206837: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.206839: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.206841: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.306990: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658810.306998: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.307000: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.307002: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .... 3658810.307005: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307009: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.307010: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307012: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.307013: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307015: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.307017: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307018: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.307019: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307021: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.307022: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307024: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.307026: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307029: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658810.307053: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658810.307055: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658810.307070: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658810.307072: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.307073: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.307128: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658810.307130: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307132: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.307133: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307136: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.307138: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307142: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.307144: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.307146: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.307148: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.307150: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.307152: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.307178: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.407322: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658810.407328: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.407330: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.407332: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .... 3658810.407334: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407337: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.407339: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407340: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.407342: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407343: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.407344: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407346: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.407347: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407349: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.407350: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407352: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.407353: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407356: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658810.407379: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658810.407381: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658810.407395: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658810.407397: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.407398: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.407459: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658810.407461: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407463: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.407464: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407467: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.407468: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407472: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.407474: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.407476: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.407478: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.407480: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.407481: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.407484: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.507615: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658810.507621: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.507623: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.507625: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .... 3658810.507627: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507630: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.507632: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507633: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.507634: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507636: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.507637: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507639: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.507640: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507642: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.507643: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507645: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.507646: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507649: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658810.507671: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658810.507673: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658810.507687: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658810.507689: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.507690: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.507743: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658810.507745: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507747: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.507749: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507751: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.507753: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507762: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.507764: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.507766: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.507770: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.507772: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.507774: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.507777: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.607902: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658810.607906: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.607908: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.607910: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .... 3658810.607912: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.607915: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.607916: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.607918: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.607919: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.607920: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.607922: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.607923: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.607925: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.607926: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.607928: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.607929: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.607931: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.607933: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658810.607949: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658810.607951: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658810.607961: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658810.607963: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.607964: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.608014: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658810.608016: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.608018: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.608019: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.608021: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.608023: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.608026: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.608028: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.608029: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.608031: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.608033: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.608034: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.608036: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.708187: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658810.708192: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.708195: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.708196: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .... 3658810.708198: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708202: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.708203: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708204: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.708206: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708207: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.708209: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708210: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.708212: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708213: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.708214: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708216: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.708217: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708220: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658810.708239: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658810.708241: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658810.708254: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658810.708255: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.708257: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.708309: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658810.708311: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708312: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.708314: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708316: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.708317: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708321: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.708323: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.708325: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.708326: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.708328: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.708330: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.708332: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.808470: sys_epoll_wait -> 0x0
+           <...>-218409  [025] .... 3658810.808473: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.808475: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.808477: sys_gettimeofday(tv: 7ffee14c3600, tz: 0)
+           <...>-218409  [025] .... 3658810.808479: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808481: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.808483: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808484: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.808486: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808487: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.808488: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808490: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.808491: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808493: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.808494: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808496: sys_gettimeofday(tv: 7ffee14c3630, tz: 0)
+           <...>-218409  [025] .... 3658810.808497: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808499: sys_openat(dfd: ffffff9c, filename: 55d73a312765, flags: 0, mode: 0)
+           <...>-218409  [025] .... 3658810.808513: sys_openat -> 0x8
+           <...>-218409  [025] .... 3658810.808514: sys_read(fd: 8, buf: 7ffee14c2600, count: fff)
+           <...>-218409  [025] .... 3658810.808524: sys_read -> 0x13c
+           <...>-218409  [025] .... 3658810.808525: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.808526: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.808576: sys_gettimeofday(tv: 7ffee14c3620, tz: 0)
+           <...>-218409  [025] .... 3658810.808578: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808579: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.808581: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808583: sys_gettimeofday(tv: 7ffee14c3570, tz: 0)
+           <...>-218409  [025] .... 3658810.808584: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808587: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.808589: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.808591: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.808592: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.808594: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.808595: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.808598: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 64)
+           <...>-218409  [025] .... 3658810.892983: sys_epoll_wait -> 0x1
+           <...>-218409  [025] .... 3658810.892988: sys_accept4(fd: 6, upeer_sockaddr: 7ffee14c3590, upeer_addrlen: 7ffee14c358c, flags: 80800)
+           <...>-218409  [025] .... 3658810.893003: sys_accept4 -> 0x8
+           <...>-218409  [025] .... 3658810.893019: sys_setsockopt(fd: 8, level: 6, optname: 1, optval: 7ffee14c357c, optlen: 4)
+           <...>-218409  [025] .... 3658810.893023: sys_setsockopt -> 0x0
+           <...>-218409  [025] .... 3658810.893024: sys_setsockopt(fd: 8, level: 1, optname: 9, optval: 7ffee14c356c, optlen: 4)
+           <...>-218409  [025] .... 3658810.893028: sys_setsockopt -> 0x0
+           <...>-218409  [025] .... 3658810.893029: sys_setsockopt(fd: 8, level: 6, optname: 4, optval: 7ffee14c356c, optlen: 4)
+           <...>-218409  [025] .... 3658810.893031: sys_setsockopt -> 0x0
+           <...>-218409  [025] .... 3658810.893033: sys_setsockopt(fd: 8, level: 6, optname: 5, optval: 7ffee14c356c, optlen: 4)
+           <...>-218409  [025] .... 3658810.893035: sys_setsockopt -> 0x0
+           <...>-218409  [025] .... 3658810.893036: sys_setsockopt(fd: 8, level: 6, optname: 6, optval: 7ffee14c356c, optlen: 4)
+           <...>-218409  [025] .... 3658810.893037: sys_setsockopt -> 0x0
+           <...>-218409  [025] .... 3658810.893041: sys_epoll_ctl(epfd: 5, op: 1, fd: 8, event: 7ffee14c3544)
+           <...>-218409  [025] .... 3658810.893048: sys_epoll_ctl -> 0x0
+           <...>-218409  [025] .... 3658810.893068: sys_accept4(fd: 6, upeer_sockaddr: 7ffee14c3590, upeer_addrlen: 7ffee14c358c, flags: 80800)
+           <...>-218409  [025] .... 3658810.893073: sys_accept4 -> 0xfffffffffffffff5
+           <...>-218409  [025] .... 3658810.893091: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.893093: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.893094: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.893096: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.893098: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.893100: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.893102: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 10)
+           <...>-218409  [025] .... 3658810.893153: sys_epoll_wait -> 0x1
+           <...>-218409  [025] .... 3658810.893159: sys_read(fd: 8, buf: 7f1207131f85, count: 4000)
+           <...>-218409  [025] .... 3658810.893169: sys_read -> 0x2d
+           <...>-218409  [025] .... 3658810.893187: sys_gettimeofday(tv: 7ffee14c3590, tz: 0)
+           <...>-218409  [025] .... 3658810.893189: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.893202: sys_gettimeofday(tv: 7ffee14c3590, tz: 0)
+           <...>-218409  [025] .... 3658810.893203: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.893214: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.893216: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.893217: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.893219: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.893220: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.893222: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.893225: sys_write(fd: 8, buf: 7f120712c5c0, count: 18)
+           <...>-218409  [025] .... 3658810.893312: sys_write -> 0x18
+           <...>-218409  [025] .... 3658810.893316: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: 10)
+           <...>-218409  [025] .... 3658810.895231: sys_epoll_wait -> 0x1
+           <...>-218409  [025] .... 3658810.895238: sys_read(fd: 8, buf: 7f1207131f85, count: 4ffa)
+           <...>-218409  [025] .... 3658810.895244: sys_read -> 0x0
+           <...>-218409  [025] .... 3658810.895260: sys_epoll_ctl(epfd: 5, op: 2, fd: 8, event: 7ffee14c35f4)
+           <...>-218409  [025] .... 3658810.895263: sys_epoll_ctl -> 0x0
+           <...>-218409  [025] .... 3658810.895265: sys_close(fd: 8)
+           <...>-218409  [025] .... 3658810.895266: sys_close -> 0x0
+           <...>-218409  [025] .... 3658810.895362: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.895365: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.895367: sys_clock_gettime(which_clock: 1, tp: 7ffee14c36b0)
+           <...>-218409  [025] .... 3658810.895368: sys_clock_gettime -> 0x0
+           <...>-218409  [025] .... 3658810.895371: sys_gettimeofday(tv: 7ffee14c35c0, tz: 0)
+           <...>-218409  [025] .... 3658810.895373: sys_gettimeofday -> 0x0
+           <...>-218409  [025] .... 3658810.895375: sys_epoll_wait(epfd: 5, events: 7f12070f4dc0, maxevents: 2790, timeout: e)
+

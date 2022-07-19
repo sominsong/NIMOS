@@ -1,0 +1,39 @@
+           <...>-3698892 [016] .... 3581511.063283: sys_epoll_wait -> 0x1
+           <...>-3698892 [016] .... 3581511.063323: sys_accept(fd: b, upeer_sockaddr: 0, upeer_addrlen: 0)
+           <...>-3698892 [016] .... 3581511.063339: sys_accept -> 0x43
+           <...>-3698892 [016] .... 3581511.063346: sys_epoll_ctl(epfd: 3e, op: 1, fd: 43, event: 7f82c209bd5c)
+           <...>-3698892 [016] .... 3581511.063352: sys_epoll_ctl -> 0x0
+           <...>-3698892 [016] .... 3581511.063370: sys_getsockopt(fd: 43, level: 6, optname: b, optval: 7f82c209ba20, optlen: 7f82c209b98c)
+           <...>-3698892 [016] .... 3581511.063375: sys_getsockopt -> 0x0
+           <...>-3698892 [016] .... 3581511.063397: sys_getsockname(fd: 43, usockaddr: 7f82c209a8a0, usockaddr_len: 7f82c209a834)
+           <...>-3698892 [016] .... 3581511.063419: sys_getsockname -> 0x0
+           <...>-3698892 [016] .... 3581511.063465: sys_setsockopt(fd: 43, level: 6, optname: 1, optval: 7f82c209aa10, optlen: 4)
+           <...>-3698892 [016] .... 3581511.063467: sys_setsockopt -> 0x0
+           <...>-3698892 [016] .... 3581511.063469: sys_setsockopt(fd: 43, level: 1, optname: 9, optval: 7f82c209aa10, optlen: 4)
+           <...>-3698892 [016] .... 3581511.063471: sys_setsockopt -> 0x0
+           <...>-3698892 [016] .... 3581511.063473: sys_getsockopt(fd: 43, level: 6, optname: 4, optval: 7f82c209a890, optlen: 7f82c209a894)
+           <...>-3698892 [016] .... 3581511.063474: sys_getsockopt -> 0x0
+           <...>-3698892 [016] .... 3581511.063475: sys_getsockopt(fd: 43, level: 6, optname: 5, optval: 7f82c209a890, optlen: 7f82c209a894)
+           <...>-3698892 [016] .... 3581511.063476: sys_getsockopt -> 0x0
+           <...>-3698892 [016] .... 3581511.063478: sys_getsockname(fd: 43, usockaddr: 7f82c209a8a0, usockaddr_len: 7f82c209a834)
+           <...>-3698892 [016] .... 3581511.063479: sys_getsockname -> 0x0
+           <...>-3698892 [016] .... 3581511.063483: sys_getpeername(fd: 43, usockaddr: 7f82c209ac00, usockaddr_len: 7f82c209a924)
+           <...>-3698892 [016] .... 3581511.063485: sys_getpeername -> 0x0
+           <...>-3698892 [016] .... 3581511.063503: sys_gettimeofday(tv: 7f82c209b040, tz: 0)
+           <...>-3698892 [016] .... 3581511.063505: sys_gettimeofday -> 0x0
+           <...>-3698892 [016] .... 3581511.063512: sys_eventfd2(count: 0, flags: 80000)
+           <...>-3698892 [016] .... 3581511.063519: sys_eventfd2 -> 0x57
+           <...>-3698892 [016] .... 3581511.063521: sys_gettimeofday(tv: 7f82c209b290, tz: 0)
+           <...>-3698892 [016] .... 3581511.063522: sys_gettimeofday -> 0x0
+           <...>-3698892 [016] .... 3581511.063547: sys_gettimeofday(tv: 7f82c209b120, tz: 0)
+           <...>-3698892 [016] .... 3581511.063549: sys_gettimeofday -> 0x0
+           <...>-3698892 [016] .... 3581511.063595: sys_write(fd: 1, buf: 55ad8035e000, count: fe)
+           <...>-3698892 [016] .... 3581511.063607: sys_write -> 0xfe
+           <...>-3698892 [016] .... 3581511.063622: sys_prlimit64(pid: 0, resource: 3, new_rlim: 0, old_rlim: 7f82c209a920)
+           <...>-3698892 [016] .... 3581511.063624: sys_prlimit64 -> 0x0
+           <...>-3698892 [016] .... 3581511.063737: sys_clone(clone_flags: 3d0f00, newsp: 7f82ca0c8a70, parent_tidptr: 7f82ca0c99d0, child_tidptr: 7f82ca0c99d0, tls: 7f82ca0c9700)
+           <...>-3698892 [016] .... 3581511.063803: sys_clone -> 0x7e
+           <...>-3698892 [016] .... 3581511.063810: sys_accept(fd: b, upeer_sockaddr: 0, upeer_addrlen: 0)
+           <...>-3698892 [016] .... 3581511.063818: sys_accept -> 0xfffffffffffffff5
+           <...>-3698892 [016] .... 3581511.063828: sys_epoll_wait(epfd: 8, events: 7f82c209bab0, maxevents: 80, timeout: ffffffff)
+

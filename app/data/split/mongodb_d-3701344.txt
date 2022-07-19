@@ -1,0 +1,45 @@
+           <...>-3701344 [050] .... 3581511.082709: sys_futex -> 0x0
+           <...>-3701344 [050] .... 3581511.082765: sys_clock_gettime(which_clock: 0, tp: 7fce7c6e4ec0)
+           <...>-3701344 [050] .... 3581511.082767: sys_clock_gettime -> 0x0
+           <...>-3701344 [050] .... 3581511.082769: sys_futex(uaddr: 5631c2599b50, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3701344 [050] .... 3581511.082771: sys_futex -> 0x0
+           <...>-3701344 [050] .... 3581511.082792: sys_clock_gettime(which_clock: 1, tp: 7fce7c6e4a20)
+           <...>-3701344 [050] .... 3581511.082794: sys_clock_gettime -> 0x0
+           <...>-3701344 [050] .... 3581511.082819: sys_gettimeofday(tv: 7fce7c6e4630, tz: 0)
+           <...>-3701344 [050] .... 3581511.082821: sys_gettimeofday -> 0x0
+           <...>-3701344 [050] .... 3581511.082946: sys_futex(uaddr: 5631c7457138, op: 81, val: 7fffffff, utime: 0, uaddr2: 5631c7457110, val3: 5631c7457130)
+           <...>-3701344 [050] .... 3581511.082959: sys_futex -> 0x1
+           <...>-3701344 [050] .... 3581511.082992: sys_futex(uaddr: 5631c86e7a18, op: 81, val: 7fffffff, utime: 0, uaddr2: 5631c86e79f0, val3: 5631c86e7a10)
+           <...>-3701344 [050] .... 3581511.082996: sys_futex -> 0x1
+           <...>-3701344 [050] .... 3581511.082999: sys_gettimeofday(tv: 7fce7c6e4eb0, tz: 0)
+           <...>-3701344 [050] .... 3581511.083000: sys_gettimeofday -> 0x0
+           <...>-3701344 [050] .... 3581511.083003: sys_futex(uaddr: 5631c86e7994, op: 189, val: 0, utime: 7fce7c6e4f70, uaddr2: 0, val3: ffffffff)
+           <...>-3701344 [050] .... 3581511.084556: sys_futex -> 0x0
+           <...>-3701344 [050] .... 3581511.084560: sys_clock_gettime(which_clock: 0, tp: 7fce7c6e4ec0)
+           <...>-3701344 [050] .... 3581511.084562: sys_clock_gettime -> 0x0
+           <...>-3701344 [050] .... 3581511.084563: sys_futex(uaddr: 5631c2599b50, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3701344 [050] .... 3581511.084564: sys_futex -> 0x0
+           <...>-3701344 [050] .... 3581511.084577: sys_clock_gettime(which_clock: 1, tp: 7fce7c6e4a20)
+           <...>-3701344 [050] .... 3581511.084579: sys_clock_gettime -> 0x0
+           <...>-3701344 [050] .... 3581511.084591: sys_gettimeofday(tv: 7fce7c6e4630, tz: 0)
+           <...>-3701344 [050] .... 3581511.084593: sys_gettimeofday -> 0x0
+           <...>-3701344 [050] .... 3581511.084671: sys_futex(uaddr: 5631c86e7a18, op: 81, val: 7fffffff, utime: 0, uaddr2: 5631c86e79f0, val3: 5631c86e7a10)
+           <...>-3701344 [050] .... 3581511.084676: sys_futex -> 0x1
+           <...>-3701344 [050] .... 3581511.084678: sys_gettimeofday(tv: 7fce7c6e4eb0, tz: 0)
+           <...>-3701344 [050] .... 3581511.084679: sys_gettimeofday -> 0x0
+           <...>-3701344 [050] .... 3581511.084681: sys_futex(uaddr: 5631c86e7990, op: 189, val: 0, utime: 7fce7c6e4f70, uaddr2: 0, val3: ffffffff)
+           <...>-3701344 [050] .... 3581511.085724: sys_futex -> 0x0
+           <...>-3701344 [050] .... 3581511.085727: sys_clock_gettime(which_clock: 0, tp: 7fce7c6e4ec0)
+           <...>-3701344 [050] .... 3581511.085728: sys_clock_gettime -> 0x0
+           <...>-3701344 [050] .... 3581511.085729: sys_futex(uaddr: 5631c2599b50, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
+           <...>-3701344 [050] .... 3581511.085730: sys_futex -> 0x0
+           <...>-3701344 [050] .... 3581511.085739: sys_clock_gettime(which_clock: 1, tp: 7fce7c6e4a20)
+           <...>-3701344 [050] .... 3581511.085740: sys_clock_gettime -> 0x0
+           <...>-3701344 [050] .... 3581511.085749: sys_gettimeofday(tv: 7fce7c6e4630, tz: 0)
+           <...>-3701344 [050] .... 3581511.085750: sys_gettimeofday -> 0x0
+           <...>-3701344 [050] .... 3581511.085811: sys_futex(uaddr: 5631c86e7a18, op: 81, val: 7fffffff, utime: 0, uaddr2: 5631c86e79f0, val3: 5631c86e7a10)
+           <...>-3701344 [050] .... 3581511.085815: sys_futex -> 0x1
+           <...>-3701344 [050] .... 3581511.085816: sys_gettimeofday(tv: 7fce7c6e4eb0, tz: 0)
+           <...>-3701344 [050] .... 3581511.085818: sys_gettimeofday -> 0x0
+           <...>-3701344 [050] .... 3581511.085820: sys_futex(uaddr: 5631c86e7994, op: 189, val: 0, utime: 7fce7c6e4f70, uaddr2: 0, val3: ffffffff)
+

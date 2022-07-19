@@ -1,0 +1,8 @@
+1382990 nanosleep
+1382990 close
+1382990 close
+1382990 close
+1382990 close
+1382990 exit_group
+1382990 procexit
+

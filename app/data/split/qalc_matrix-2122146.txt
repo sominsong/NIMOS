@@ -1,0 +1,22 @@
+2122146 clone
+2122146 set_robust_list
+2122146 set_robust_list
+2122146 fstat
+2122146 fstat
+2122146 mmap
+2122146 mmap
+2122146 munmap
+2122146 munmap
+2122146 munmap
+2122146 munmap
+2122146 mprotect
+2122146 mprotect
+2122146 read
+2122146 read
+2122146 read
+2122146 read
+2122146 madvise
+2122146 madvise
+2122146 exit
+2122146 procexit
+

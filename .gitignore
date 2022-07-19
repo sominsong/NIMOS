@@ -2,4 +2,6 @@
 
 .git/
 
+.analysis/
+
 .gitlab-ci.yml

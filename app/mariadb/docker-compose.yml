@@ -1,0 +1,44 @@
+version: "3.3"
+
+services:
+  db_master:
+    image: mariadb:latest
+    container_name: mariadb_master
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'test'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    volumes:
+      - /data/mariadb/db-01:/var/lib/mysql
+      - ./master/config/:/etc/mysql/conf.d
+      - ./master/mysql-init-files/:/docker-entrypoint-initdb.d/
+    ports:
+      - "33306:3306"
+    networks:
+      - mariadb-net
+
+  db_slave:
+    image: mariadb:latest
+    container_name: mariadb_slave
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'test'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    volumes:
+      - /data/mariadb/db-02:/var/lib/mysql
+      - ./slave/config/:/etc/mysql/conf.d
+      - ./slave/mysql-init-files/:/docker-entrypoint-initdb.d/
+    ports:
+      - "43306:3306"
+    depends_on:
+      - db_master
+    networks:
+      - mariadb-net
+
+networks: 
+  mariadb-net:
+    driver: bridge

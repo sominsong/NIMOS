@@ -1,0 +1,12 @@
+accept4
+futex
+accept4
+accept4
+accept4
+accept4
+accept4
+accept4
+accept4
+accept4
+accept4
+poll

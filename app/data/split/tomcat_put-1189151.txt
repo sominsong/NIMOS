@@ -1,0 +1,9 @@
+           <...>-1189151 [005] .... 3762718.094635: sys_epoll_pwait -> 0x0
+           <...>-1189151 [005] .... 3762718.094640: sys_clock_gettime(which_clock: 1, tp: c0001a7de0)
+           <...>-1189151 [005] .... 3762718.094643: sys_clock_gettime -> 0x0
+           <...>-1189151 [005] .... 3762718.094646: sys_epoll_pwait(epfd: 5, events: c0001a7800, maxevents: 80, timeout: 0, sigmask: 0, sigsetsize: 0)
+           <...>-1189151 [005] .... 3762718.094648: sys_epoll_pwait -> 0x0
+           <...>-1189151 [005] .... 3762718.094650: sys_clock_gettime(which_clock: 1, tp: c0001a7d90)
+           <...>-1189151 [005] .... 3762718.094651: sys_clock_gettime -> 0x0
+           <...>-1189151 [005] .... 3762718.094654: sys_epoll_pwait(epfd: 5, events: c0001a7800, maxevents: 80, timeout: 7512, sigmask: 0, sigsetsize: 3)
+

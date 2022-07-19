@@ -1,0 +1,25 @@
+           <...>-300641  [054] .... 3665874.758503: sys_poll -> 0x1
+           <...>-300641  [054] .... 3665874.758516: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758535: sys_accept4 -> 0x29
+           <...>-300641  [054] .... 3665874.758546: sys_futex(uaddr: 564fc5cc76cc, op: 81, val: 1, utime: 0, uaddr2: 564fc5cc76a0, val3: 564fc5cc76c0)
+           <...>-300641  [054] .... 3665874.758560: sys_futex -> 0x1
+           <...>-300641  [054] .... 3665874.758561: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758566: sys_accept4 -> 0xfffffffffffffff5
+           <...>-300641  [054] .... 3665874.758575: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758579: sys_accept4 -> 0xfffffffffffffff5
+           <...>-300641  [054] .... 3665874.758582: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758586: sys_accept4 -> 0xfffffffffffffff5
+           <...>-300641  [054] .... 3665874.758589: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758593: sys_accept4 -> 0xfffffffffffffff5
+           <...>-300641  [054] .... 3665874.758595: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758599: sys_accept4 -> 0xfffffffffffffff5
+           <...>-300641  [054] .... 3665874.758602: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758605: sys_accept4 -> 0xfffffffffffffff5
+           <...>-300641  [054] .... 3665874.758608: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758612: sys_accept4 -> 0xfffffffffffffff5
+           <...>-300641  [054] .... 3665874.758615: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758618: sys_accept4 -> 0xfffffffffffffff5
+           <...>-300641  [054] .... 3665874.758621: sys_accept4(fd: 15, upeer_sockaddr: 7ffe2c027950, upeer_addrlen: 7ffe2c0278ac, flags: 80000)
+           <...>-300641  [054] .... 3665874.758624: sys_accept4 -> 0xfffffffffffffff5
+           <...>-300641  [054] .... 3665874.758628: sys_poll(ufds: 564fc7cd2078, nfds: 3, timeout_msecs: ffffffff)
+

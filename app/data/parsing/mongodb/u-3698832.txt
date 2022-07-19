@@ -1,0 +1,10 @@
+clock_gettime
+futex
+gettimeofday
+clock_gettime
+futex
+clock_gettime
+futex
+gettimeofday
+clock_gettime
+futex
