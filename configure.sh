@@ -24,5 +24,10 @@ apt install -y libasm-dev
 apt-get install -y linux-headers-generic
 
 git clone https://github.com/thradams/conio.git
-/opt/conio/make
-cp /opt/conio/conio.h $(pwd)/exploit/exploit-db/
+mv conio/ /opt/
+cd /opt/conio
+make
+
+cp conio.h ${CUR_DIR}/exploit/exploit-db/
+
+cd ${CUR_DIR}
