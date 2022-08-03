@@ -16,8 +16,8 @@ sudo su
 apt update
 apt install -y git-all
 
-git clone https://gitlab.com/sominsong97/syscall-attack-sequence.git
-cd syscall-attack-sequence
+git clone https://gitlab.com/sominsong97/hyper-seccomp.git
+cd hyper-seccomp
 make build
 ```
 if you meet `make:execvp *.sh: Permission denied` error, please enter below command first.
