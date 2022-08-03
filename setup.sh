@@ -11,8 +11,8 @@ cp -r ./syscall-generation/testcase/* ${OUTPUT_DIR}temp/testcase/
 mkdir -pv ${OUTPUT_DIR}temp/testcase/result
 
 # searchsploit
-sudo git clone https://github.com/offensive-security/exploitdb.git ${OUTPUT_DIR}perm/exploitdb
-sudo ln -sf ${OUTPUT_DIR}perm/exploitdb/searchsploit /usr/local/bin/searchsploit
+git clone https://github.com/offensive-security/exploitdb.git ${OUTPUT_DIR}perm/exploitdb
+ln -sf ${OUTPUT_DIR}perm/exploitdb/searchsploit /usr/local/bin/searchsploit
 searchsploit -u
 
 
@@ -21,7 +21,14 @@ echo 1 > /sys/kernel/debug/tracing/events/raw_syscalls/sys_enter/enable
 echo 1 > /sys/kernel/debug/tracing/events/raw_syscalls/sys_exit/enable
 
 # docker image pull
-docker_images=("ubuntu" "tomcat" "redis" "openjdk" "node" "mysql" "mariadb" "httpd" "gcc" "busybox" "nginx" "mongodb")
+# Official Image
+# docker_images=("ubuntu" "tomcat" "redis" "openjdk" "node" "mysql" "mariadb" "httpd" "gcc" "busybox" "nginx" "mongodb")
+# for img in $(docker_images[@]); do
+#     docker pull $(img):latest
+# done
+
+# Local Registry Image
+docker_images=("myqalc" "mypdf2ps" "mylowriter" "myzip" "mygcc" "mygzip" "myopenjdk" "myhttpd" "mysql_slave" "mysql_master" "myredis" "mytomcat" "mymariadb" "mymongo")
 for img in $(docker_images[@]); do
-    docker pull $(img):latest
+    docker pull sominsong97/hyper-seccomp:$(img)
 done
