@@ -11,6 +11,9 @@
 
 set -x
 
+docker build -t myapache .
+docker run -d --name apache-container -p 8009:80 myapache
+
 
 
 set +x
