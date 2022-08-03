@@ -38,7 +38,7 @@ while getopts "hCAPSMN" opt; do
         A)  
             bash ${SYSCALL_DIR}syscall-generation.sh
             bash ${PATH_DIR}path-generation.sh
-            echo CVE-syscall mapping
+            python3 -B ${ANALYSIS_DIR}ngram.py
             ;;
         C)
             echo Crawling Exploit Codes

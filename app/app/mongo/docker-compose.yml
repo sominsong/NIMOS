@@ -1,0 +1,42 @@
+version: '3'
+services:
+  mongo1:
+    image: mongo-rep:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /home/mini/hyper-seccomp/app/app/mongo/data/mongo1:/data/db
+    ports:
+      - "27021:27017"
+    networks:
+      - mongo-networks
+    command: mongod --replSet replication
+
+  mongo2:
+    image: "mongo"
+    ports:
+      - "27022:27017"
+    volumes:
+      - /home/mini/hyper-seccomp/app/app/mongo/data/mongo2:/data/db
+    networks:
+      - mongo-networks
+    command: mongod --replSet replication
+    depends_on:
+      - mongo1
+
+  mongo3:
+    image: "mongo"
+    ports:
+      - "27023:27017"
+    volumes:
+      - /home/mini/hyper-seccomp/app/app/mongo/data/mongo3:/data/db
+    networks:
+      - mongo-networks
+    command: mongod --replSet replication
+    depends_on:
+      - mongo2
+
+networks:
+  mongo-networks:
+    driver: bridge
