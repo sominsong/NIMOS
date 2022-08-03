@@ -12,6 +12,7 @@ Also, the progress of the project can be checked on the [Milestones](https://git
 ## Getting started
 
 ```
+sudo su
 apt update
 apt install -y git-all
 
@@ -21,12 +22,12 @@ make build
 ```
 if you meet `make:execvp *.sh: Permission denied` error, please enter below command first.
 ```
-chmod 777 -R configure.sh && chmod 777 -R setup.sh
+chmod 755 configure.sh setup.sh
 ```
 
 ## How to run
 
-You should be a sudo-privileged user or run it with sudo privileges.
+You should be a **sudo-privileged user** or run it with **sudo privileges**.
 There is help option(-h) for providing short explanations for all options.
 Except for the help option, the remaining options are executed in the following order.
 
