@@ -7,8 +7,10 @@ sudo apt update
 sudo apt install -y openssh-server
 sudo apt install -y build-essential vim gcc git
 sudo apt install -y python3-pip
+sudo apt install -y mysql-client-core-8.0 mysql-common
 
 sudo pip install beautifulsoup4
+
 
 # Install prerequisites for compiling exploit codes
 sudo apt install -y libsctp-dev

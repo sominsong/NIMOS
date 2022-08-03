@@ -56,8 +56,7 @@ def get_save_syscall_sequence_strace(file, app, filename):
 
 # get all tracing output
 # 1) using ftrace
-# imgnames = ["mongodb", "mysql", "httpd", "nginx", "redis", "mariadb", "node", "tomcat"]
-imgnames = ["mongodb", "mysql", "mariadb", "redis", "httpd", "tomcat"]
+imgnames = ["mongodb", "mysql", "mariadb", "redis", "httpd", "tomcat", "nginx", "node"]
 for img in imgnames:
     cmd = f"find /opt/output/tracing -type f -name '{img}_*.txt'"
     files=subprocess.check_output(cmd, shell=True).decode().split('\n')

@@ -15,7 +15,7 @@ function help() {
 /bin/cat << EOF
 
 Usage : 
-    ./run.sh [-h -A -C -P -S -N]
+    ./run.sh [-h -A -C -P -S -N -B]
 
 Options :
     -h,     print help message
@@ -24,6 +24,7 @@ Options :
     -P,     path generation
     -S,     syscall generation
     -N,     N-gram analysis
+    -B,     Benign application test
 EOF
 }
 
@@ -52,9 +53,12 @@ while getopts "hCAPSMN" opt; do
             bash ${PATH_DIR}path-generation.sh
             ;;
         N)
-            echo N-gram analysis
+            echo N-gram Analysis
             python3 -B ${ANALYSIS_DIR}ngram.py
             ;;
+        B)
+            echo Benign Application Test
+            bash ${APP_DIR}app.sh
         
     esac
 done
