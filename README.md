@@ -12,8 +12,8 @@ Also, the progress of the project can be checked on the [Milestones](https://git
 ## Getting started
 
 ```
-apt install udpate
-apt install make
+apt update
+apt install -y git-all
 
 git clone https://gitlab.com/sominsong97/syscall-attack-sequence.git
 cd syscall-attack-sequence
