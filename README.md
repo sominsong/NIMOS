@@ -14,7 +14,7 @@ Also, the progress of the project can be checked on the [Milestones](https://git
 ```
 sudo su
 apt update
-apt install -y git-all
+apt install -y make git-all
 
 git clone https://gitlab.com/sominsong97/hyper-seccomp.git
 cd hyper-seccomp
