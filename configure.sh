@@ -5,7 +5,7 @@ CUR_DIR=$(pwd)
 # Install prerequisites
 apt update
 apt install -y openssh-server
-apt install -y build-essential vim gcc git
+apt install -y build-essential vim gcc git-all
 apt install -y python3-pip
 apt install -y mysql-client-core-8.0 mysql-common
 

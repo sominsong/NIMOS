@@ -7,7 +7,7 @@ mkdir -pv ${OUTPUT_DIR} ${OUTPUT_DIR}temp/ ${OUTPUT_DIR}perm/
 mkdir -pv ${OUTPUT_DIR}perm/path/
 mkdir -pv ${OUTPUT_DIR}perm/analysis/
 mkdir -pv ${OUTPUT_DIR}temp/testcase/
-cp -r ./syscall-generation/testcase/* ${OUTPUT_DIR}temp/testcase/
+cp -r ./syscall_generation/testcase/* ${OUTPUT_DIR}temp/testcase/
 mkdir -pv ${OUTPUT_DIR}temp/testcase/result
 
 # searchsploit
@@ -29,6 +29,6 @@ echo 1 > /sys/kernel/debug/tracing/events/raw_syscalls/sys_exit/enable
 
 # Local Registry Image
 docker_images=("myqalc" "mypdf2ps" "mylowriter" "myzip" "mygcc" "mygzip" "myopenjdk" "myhttpd" "mysql_slave" "mysql_master" "myredis" "mytomcat" "mymariadb" "mymongo")
-for img in $(docker_images[@]); do
-    docker pull sominsong97/hyper-seccomp:$(img)
+for img in ${docker_images[@]} do
+    docker pull sominsong97/hyper-seccomp:${img}
 done
