@@ -82,14 +82,14 @@ $ docker run -it -d -p 8000:8000 --name=node-container node:15.12.0-alpine3.12
 $ docker cp nodejs_test.js node-container:/nodejs_test.js
 
 7-4) node 서버 실행 for GET test
-$ docker exec -it node-container /bin/sh -c "node nodejs_test.js"
+$ docker exec -d node-container /bin/sh -c "node nodejs_test.js"
 
 <POST test>
 7-3) 소스 코드 컨테이너 내부로 복사
 $ docker cp POST_test.js node-container:/nodejs_test.js
 
 7-4) node 서버 실행 for POST test
-$ docker exec -it node-container /bin/sh -c "node nodejs_test.js"
+$ docker exec -d node-container /bin/sh -c "node nodejs_test.js"
 
 8) tomcat
 

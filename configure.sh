@@ -11,14 +11,14 @@ apt install -y mysql-client-core-8.0 mysql-common
 
 pip install beautifulsoup4
 
-# Install Docker Engine
+# Install Docker
 apt-get install -y ca-certificates curl gnupg lsb-release
 ## Add Docker's official GPC Key
 mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-## 
+## Install Docker Engine
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 VERSION_STRING=$(apt-cache madison docker-ce | awk '{print $3}' | sed -n '1p')
@@ -38,10 +38,14 @@ apt-get install -y linux-headers-generic
 
 git clone https://github.com/thradams/conio.git
 mv conio/ /opt/
-rm -r conio/
 cd /opt/conio
 make
 
 cp conio.h ${CUR_DIR}/exploit/exploit-db/
 
 cd ${CUR_DIR}
+
+# Install strace-docker for tracing container
+git clone https://github.com/amrabed/strace-docker && sudo ./strace-docker/install
+mv strace-docker/ /opt/
+service strace-docker status

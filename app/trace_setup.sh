@@ -7,7 +7,7 @@ if [ $# -ne 1 ] ; then
 fi
 
 # mongod (mongodb) / httpd (httpd) / nginx (nginx)
-echo "Test ${IMAGE}..."
+echo "Setting ftrace for ${IMAGE}..."
 case ${IMAGE} in
     "mongodb")
         echo "Traced process name is 'mongod'"

@@ -29,22 +29,22 @@ sleep 1
 # run test
 case ${CRUD} in
     "C")
-        echo "Create Test"
+        echo "[MongoDB] Create Testing ..."
         FILENAME="c"
         mongo 127.0.0.1:30001/test --quiet --eval "db.test.insertMany([{ item: 'pants', won: 5000, tags:['blue', 'white'], size:{h:14, w: 21, uom:'cm'}, 'status':'A'}, { item: 'mat', won: 2000, tags:['blank', 'red'], size:{h:27.9, w: 35.5, uom:'cm'}, 'status':'A'},{ item: 'mousepad', won: 3000, tags:['gel', 'green'], size:{h:19, w: 22.85, uom:'cm'}, 'status':'B'}]);" &
         ;;
     "R")
-        echo "Read Test"
+        echo "[MongoDB] Read Testing ..."
         FILENAME="r"
         mongo 127.0.0.1:30001/test --quiet --eval "db.test.find({});" &
         ;;
     "U")
-        echo "Update Test"
+        echo "[MongoDB] Update Testing ..."
         FILENAME="u"
         mongo 127.0.0.1:30001/test --quiet --eval "db.test.updateMany({'status':'A'},{\$set: {'size.uom':'in'}});" &
         ;;
     "D")
-        echo "Delete Test"
+        echo "[MongoDB] Delete Testing ..."
         FILENAME="d"
         mongo 127.0.0.1:30001/test --quiet --eval "db.test.deleteMany({});" &
         ;;

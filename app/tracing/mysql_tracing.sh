@@ -29,23 +29,23 @@ sleep 1
 # run test
 case ${CRUD} in
     "C")
-        echo "Create Test"
+        echo "[MySQL] Create Testing ..."
         FILENAME="c"
         mysql -h127.0.0.1 -P3306 -uroot -ppasword -Dtest -e"INSERT INTO test (name, phone) VALUES ('Andy', '010-1234-5678');INSERT INTO test (name, phone) VALUES ('Brian', '010-4321-8765');INSERT INTO test (name, phone) VALUES ('Emily', '011-4321-5678');" &
         ;;
     "R")
-        echo "Read Test"
+        echo "[MySQL] Read Testing ..."
         FILENAME="r"
         mysql -h127.0.0.1 -P3306 -uroot -ppasword -Dtest -e"select * from test;" &
         ;;
     "U")
-        echo "Update Test"
+        echo "[MySQL] Update Testing ..."
         FILENAME="u"
         mysql -h127.0.0.1 -P3306 -uroot -ppasword -Dtest -e"UPDATE test SET name='Tom'
 WHERE name='Brian';" &
         ;;
     "D")
-        echo "Delete Test"
+        echo "[MySQL] Delete Testing ..."
         FILENAME="d"
         mysql -h127.0.0.1 -P3306 -uroot -ppasword -Dtest -e"DELETE FROM test;" &
         ;;

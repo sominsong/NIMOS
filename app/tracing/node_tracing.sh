@@ -30,11 +30,13 @@ case ${RESTAPI} in
 	"GET")
 		echo "GET Test"
 		FILENAME="get"
+		docker exec -d node-container /bin/sh -c "node nodejs_GET_test.js"
 		curl localhost:8000/?var1=newData &
 		;;
 	"POST")
 		echo "POST Test"
 		FILENAME="post"
+		docker exec -d node-test /bin/sh -c "node nodejs_POST_test.js"
 		curl -X POST localhost:8000/ -H 'Content-Type: application/json' -d 'var1=newData' &
 		;;
 esac

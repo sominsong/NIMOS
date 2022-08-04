@@ -57,8 +57,9 @@ while getopts "hCAPSMN" opt; do
             python3 -B ${ANALYSIS_DIR}ngram.py
             ;;
         B)
-            echo Benign Application Test
-            bash ${APP_DIR}app.sh
+            echo How to Run Application Test
+            bash ${APP_DIR}app.sh -S
+            bash ${APP_DIR}app.sh -h
         
     esac
 done
