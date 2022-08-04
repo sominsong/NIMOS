@@ -34,24 +34,26 @@ Each execution command and process are as follows.
 
 1. Crawl exploit codes and information related to the exploit codes collected.
 
-```
-sudo bash run.sh -C
-```
+    ```
+    sudo bash run.sh -C
+    ```
 
-After this process, The exploit code for each source is collected in each source folder under the 'exploit' folder of the project folder. 
-Also, 'exploit.json' with information about the exploit collected under the '/opt/output/perm/' folder is created.
+    After this process, The exploit code for each source is collected in each source folder under the 'exploit' folder of the project folder. 
+    Also, 'exploit.json' with information about the exploit collected under the '/opt/output/perm/' folder is created.
 
 2. Analyze the exploit code and generate mapping the library functions used in the exploit codes and the syscall sequences invoked by the library functions.
 
-```
-sudo bash run.sh -S
-```
+    ```
+    sudo bash run.sh -S
+    ```
 
-3. Generate library function execution paths by analyzing the control flow graph(CFG) of the exploit codes, and Generate the syscall execution paths (sequences) of the exploit codes by combining it with the result of step 2 ("library function-syscall sequnece" mapping).
+    After this process, Unit test codes for the usecases of the library functions used in each exploit code are created under the `/opt/output/temp/testcase` folder.
 
-```
-sudo bash run.sh -P
-```
+3. Generate library function execution paths by analyzing the control flow graph (CFG) of the exploit codes, and Generate the syscall execution paths (sequences) of the exploit codes by combining it with the result of step 2 ("library function-syscall sequnece" mapping).
+
+    ```
+    sudo bash run.sh -P
+    ```
 
 
 4. Generate N-gram sequences from the "exploit-syscall sequence" mapping obtained as a result of step 3.
