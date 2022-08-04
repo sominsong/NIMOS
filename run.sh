@@ -1,5 +1,13 @@
 #!/bin/bash
 
+####################### <run.sh> #######################
+# 
+# This shell script is for controling the overall system operation.
+# The system can be operated through the options that can be seen 
+# through the -h option.
+# 
+########################################################
+
 set -e
 
 # option error handling
@@ -19,26 +27,32 @@ Usage :
 
 Options :
     -h,     print help message
-    -A,     run all
+    -A,     run all [Default Option]
     -C,     crawling exploit codes
     -P,     path generation
     -S,     syscall generation
     -N,     N-gram analysis
-    -B,     Benign application test
+    -B,     Benign application test (You have to manually test the application.)
 EOF
 }
 
 
-while getopts "hCAPSMN" opt; do
+while getopts "hACSPNB" opt; do
     case $opt in
         h)
             help
             exit 0
             ;;
         A)  
+            echo Crawling Exploit Codes
+            bash ${EXPLOIT_DIR}exploit.sh
+            echo Syscall Generation
             bash ${SYSCALL_DIR}syscall-generation.sh
+            echo Path Generation
             bash ${PATH_DIR}path-generation.sh
+            echo N-gram Analysis
             python3 -B ${ANALYSIS_DIR}ngram.py
+            echo "Finished Exploit N-gram Analysis.\n You have to manually test the application.\n Options can be executed with -B."
             ;;
         C)
             echo Crawling Exploit Codes

@@ -259,7 +259,7 @@ def run_testcase():
                     subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt -lpthread',shell=True)
                     subprocess.check_call(f'bash {pwd}/syscall_generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
                 except subprocess.SubprocessError as e:
-                    log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
+                    log.error(f"COMPILE ERROR or RUNTIME ERROR : {e}")
                     continue
         else:
             try:
@@ -267,7 +267,7 @@ def run_testcase():
                 subprocess.check_call(f'gcc {fnm.replace(".c","")}.o tm.o -o {fnm.replace(".c","")} -lutil -lrt -lcrypt -lpthread',shell=True)
                 subprocess.check_call(f'bash {pwd}/syscall_generation/ftrace.sh {fnm.replace(".c","")}',shell=True)
             except subprocess.SubprocessError as e:
-                log.info(f"COMPILE ERROR or RUNTIME ERROR : {e}")
+                log.error(f"COMPILE ERROR or RUNTIME ERROR : {e}")
                 continue
 
     os.chdir(pwd)
@@ -285,7 +285,7 @@ if __name__ == "__main__":
                 try:
                     make_testcase(libFuncDict, API.split()[0], API, EID, func)  # make testcase for a API function
                 except Exception as e:
-                    log.info(f"MAKE TESTCASE ERROR - {EID}-{func}-{API}")
+                    log.error(f"MAKE TESTCASE ERROR - {EID}-{func}-{API}")
                     continue
 
     run_testcase()

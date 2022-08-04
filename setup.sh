@@ -27,8 +27,8 @@ echo 1 > /sys/kernel/debug/tracing/events/raw_syscalls/sys_exit/enable
 #     docker pull $(img):latest
 # done
 
-# Local Registry Image
-docker_images=("myqalc" "mypdf2ps" "mylowriter" "myzip" "mygcc" "mygzip" "myopenjdk" "myhttpd" "mysql_slave" "mysql_master" "myredis" "mytomcat" "mymariadb" "mymongo")
+# Let's pull Sominsong97 registry images
+docker_images=("myqalc" "mypdf2ps" "mylowriter" "myzip" "mygcc" "mygzip" "myopenjdk" "myhttpd" "mysql_slave" "mysql_master" "myredis" "mytomcat" "mymariadb" "mymongo" "newnode"
 for img in ${docker_images[@]} do
     docker pull sominsong97/hyper-seccomp:${img}
 done
