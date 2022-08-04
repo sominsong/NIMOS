@@ -84,3 +84,16 @@ Each execution command and process are as follows:
     ```
     ./run.sh -B
     ```
+
+    After this process, folders for docker bind mount are created under the `/data/` folder. Also, several docker networks and docker volumes are created.
+
+    - You can test the application with the following command (The options that can be tested vary from application to application):
+
+        ```
+        ./run.sh -B -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
+        or
+        ./run,sh -B -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]
+
+        ```
+
+        After this process, 

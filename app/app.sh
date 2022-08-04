@@ -19,20 +19,18 @@ function help() {
 /bin/cat << EOF
 
 Help :
-    Before running the test, you MUST set it up through the -S option.
     You can run tests on one application at a time.
     You can test the application through the following options described in Usage and Options.
 
 Usage : 
-    ./run.sh [-h -S -A -B]
+    ./run.sh -B [-h/-e/-d]
 
-Options :
+Suboptions :
     -h,                 print help message
-    -A [app name],      You can test one of the applications below with this -A option :
+    -e [app name],      You can test one of the applications below with this -e option :
                             [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
-    -B [app name],      You can test one of the applications below with this -B option :
+    -d [app name],      You can test one of the applications below with this -d option :
                             [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]
-    -S,                 Setup for testing
 EOF
 }
 
@@ -46,7 +44,7 @@ function shutdown_all() {
 }
 
 
-while getopts "hASB" opt; do
+while getopts "hSed" opt; do
     case $opt in
         h)
             help
@@ -74,9 +72,9 @@ while getopts "hASB" opt; do
             mkdir -p /data/redis/db-01 /data/redis/db-02 1> /dev/null
             mkdir -p /data/gcc 1> /dev/null
             ;;
-        A)
+        e)
             if [ $# -ne 2 ] ; then
-            	echo "Usage: $0 -A [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]"
+            	echo "Usage: $0 -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]"
                 exit 0
             fi
             # shutdow all running containers
@@ -178,14 +176,14 @@ while getopts "hASB" opt; do
                     ;;
                 *)
                     echo "Invalid argument"
-                    echo "Usage: $0 -A [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]"
+                    echo "Usage: $0 -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]"
                     exit 1
                     ;;
             esac
             ;;
-        B)
+        d)
             if [ $# -ne 2 ] ; then
-            	echo "Usage: $0 -B [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]"
+            	echo "Usage: $0 -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]"
                 exit 0
             fi
             echo "Testing $2 ..."
@@ -223,7 +221,7 @@ while getopts "hASB" opt; do
                     ;;
                 *)
                     echo "Invalid argument"
-                    echo "Usage: $0 -B [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]"
+                    echo "Usage: $0 -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]"
                     exit 1
                     ;;
             esac
