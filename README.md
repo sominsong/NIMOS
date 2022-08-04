@@ -41,24 +41,20 @@ sudo bash run.sh -C
 After this process, The exploit code for each source is collected in each source folder under the 'exploit' folder of the project folder. 
 Also, 'exploit.json' with information about the exploit collected under the '/opt/output/perm/' folder is created.
 
-2. Generate library function path from each exploit codes collected (in progress)
+2. Generate library function path from each exploit codes collected
 
 ```
 sudo bash run.sh -P
 ```
 
-3. Generate system call sequences for library functions included in the exploit code's path (in progress)
+3. Generate system call sequences for library functions included in the exploit code's path
 
 ```
 sudo bash run.sh -S
 ```
 
-4. System call path creation for each exploit code by integrating library function path information for each exploit code and system call sequence information for each library function (in progress)
+4. System call path creation for each exploit code by integrating library function path information for each exploit code and system call sequence information for each library function
 
 ```
 sudo bash run.sh -M
 ```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:9d8f5800ac35c2b50894260a4b1ebd9e?https://gitlab.com/sominsong97/syscall-attack-sequence/-/settings/integrations)

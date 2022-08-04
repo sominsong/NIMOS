@@ -46,10 +46,10 @@ while getopts "hACSPNB" opt; do
         A)  
             echo Crawling Exploit Codes
             bash ${EXPLOIT_DIR}exploit.sh
-            echo Syscall Generation
-            bash ${SYSCALL_DIR}syscall-generation.sh
             echo Path Generation
             bash ${PATH_DIR}path-generation.sh
+            echo Syscall Generation
+            bash ${SYSCALL_DIR}syscall-generation.sh
             echo N-gram Analysis
             python3 -B ${ANALYSIS_DIR}ngram.py
             echo "Finished Exploit N-gram Analysis.\n You have to manually test the application.\n Options can be executed with -B."
@@ -58,13 +58,13 @@ while getopts "hACSPNB" opt; do
             echo Crawling Exploit Codes
             bash ${EXPLOIT_DIR}exploit.sh
             ;;
-        S)
-            echo Syscall Generation
-            bash ${SYSCALL_DIR}syscall-generation.sh
-            ;;
         P)
             echo Path Generation
             bash ${PATH_DIR}path-generation.sh
+            ;;
+        S)
+            echo Syscall Generation
+            bash ${SYSCALL_DIR}syscall-generation.sh
             ;;
         N)
             echo N-gram Analysis
