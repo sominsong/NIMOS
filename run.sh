@@ -58,7 +58,11 @@ while getopts "hACSPNB" opt; do
             
             echo N-gram Analysis
             python3 -B ${ANALYSIS_DIR}ngram.py
-            echo "Finished Exploit N-gram Analysis.\n You have to manually test the application.\n Options can be executed with -B."
+            echo Finished N-gram Analysis
+
+            echo Benign pplication Test
+            bash ${APP_DIR}app.sh -h
+            echo "You have to manually test the application.\n Options can be executed with -B."
             ;;
         C)
             echo Crawling Exploit Codes
