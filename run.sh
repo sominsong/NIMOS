@@ -81,9 +81,13 @@ while getopts "hACSPNB" opt; do
             python3 -B ${ANALYSIS_DIR}ngram.py
             ;;
         B)
-            echo How to Run Application Test
-            bash ${APP_DIR}app.sh -S
-            bash ${APP_DIR}app.sh -h
+            if [ $# -ne 2 ] ; then
+                echo How to Run Application Test
+                # bash ${APP_DIR}app.sh -S
+                # bash ${APP_DIR}app.sh -h
+                exit 0
+            fi
+            echo hello
         
     esac
 done

@@ -114,7 +114,7 @@ for item in items:
     if L_1[item] < MIN_SUPPORT:
         del L_1[item]
     
-print(L_1.keys())
+# print(L_1.keys())
     
 # Make C-2 (2-items sequences)
 items = L_1.keys()
@@ -140,7 +140,7 @@ for item in items:
     if L_2[item] < MIN_SUPPORT:
         del L_2[item]
 
-print("L-2: ", L_2.keys())
+# print("L-2: ", L_2.keys())
 
 
 L = [L_2]
@@ -153,11 +153,11 @@ for i in range(MAX_N-2):
     # Make C-N
     items = set()
     items = make_C(prev_L)
-    print(f"\n# of C-{i+3}: ",len(items))
+    # print(f"\n# of C-{i+3}: ",len(items))
     # Make L-N
     new_L = make_L(items, DictList)
     L.append(new_L.copy())
-    print(f"L-{i+3}: ", new_L.keys())
+    # print(f"L-{i+3}: ", new_L.keys())
     prev_L = new_L.copy()
 
 
@@ -188,7 +188,7 @@ if TEST == False: # 전체 N-gram
                 for syscall in Ngram.split(","):
                     sysNameList.append(convert_num_name(syscall))
                 f.writerow([len(Ngram.split(',')), cnt, sysNameList])
-else:   # TESTN-gram
+else:   # TEST N-gram
     # ngram result with system call name
 
     sysNameList = list()

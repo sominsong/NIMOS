@@ -55,24 +55,24 @@ while getopts "hASB" opt; do
         S)    
             # Make network
             ## MongoDB
-            docker network create mongo_mongo-networks
+            docker network create mongo_mongo-networks 1> /dev/null
             ## MariaDB
-            docker network create mariadb_mariadb-net
+            docker network create mariadb_mariadb-net 1> /dev/null
             ## MySQL
-            docker network create mysql_net-mysql
+            docker network create mysql_net-mysql 1> /dev/null
             ## Redis
-            docker network create redis_redis-net
+            docker network create redis_redis-net 1> /dev/null
 
             # Make docker volume
             ## MySQL
-            docker volume create mysql_my-db-master
-            docker volume create mysql_my-db-slave
+            docker volume create mysql_my-db-master 1> /dev/null
+            docker volume create mysql_my-db-slave 1> /dev/null
 
             # Make local folders for bind mounts
-            mkdir -p /data/mongo/db-01 /data/mongo/db-02 /data/mongo/db-03
-            mkdir -p /data/mariadb/db-01 /data/mariadb/db-02
-            mkdir -p /data/redis/db-01 /data/redis/db-02
-            mkdir -p /data/gcc
+            mkdir -p /data/mongo/db-01 /data/mongo/db-02 /data/mongo/db-03 1> /dev/null
+            mkdir -p /data/mariadb/db-01 /data/mariadb/db-02 1> /dev/null
+            mkdir -p /data/redis/db-01 /data/redis/db-02 1> /dev/null
+            mkdir -p /data/gcc 1> /dev/null
             ;;
         A)
             if [ $# -ne 2 ] ; then
