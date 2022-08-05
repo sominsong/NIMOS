@@ -196,9 +196,11 @@ while getopts "hSed" opt; do
             fi
             # shutdow all running containers
             shutdown_all
+            # remove previous log files
+            rm -f /var/log/strace-docker/*-*-*
             echo "Testing $2 ..."
+           
             case $2 in
-                rm /var/log/strace-docker/*-*-*
                 "gcc")
                     service strace-docker start
                     docker run --rm sominsong97/hyper-seccomp:mygcc bash -c "sleep 5; gcc -o myapp main.c;"&&
