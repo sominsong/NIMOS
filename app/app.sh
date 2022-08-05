@@ -40,6 +40,7 @@ function shutdown_all() {
     running_containers=$(docker ps -a  | awk '{print $1}' |  tail -n+2)
     for i in ${running_containers}; do
         docker rm -f $i &
+        echo shutdown $i container
     done
     wait
 }

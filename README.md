@@ -183,8 +183,9 @@ Each execution command and process are as follows:
     ```
 
     After this process, folders for docker bind mount are created under the `/data/` folder. Also, several docker networks and docker volumes are created.
+    You can check `docker network ls` and `docker volume ls` command.
 
-    1. You can test the application with the following command (The options that can be tested vary from application to application):
+    - You can test the application with the following command (The options that can be tested vary from application to application):
 
         ```
         ./run.sh -B -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
@@ -197,8 +198,12 @@ Each execution command and process are as follows:
         A description of the file name format follows:
         `{application name}_{execution action type}.txt`
 
-    2. The follow option is to parse the syscall sequence for each application from the trace results of all 15 applications.
+6. Parse the syscall sequence for each application from the trace results (stop 5) of all 15 applications.
 
-        ```
-        ./run.sh -R
-        ```
+    ```
+    ./run.sh -R
+    ```
+
+    After this process, The results of the system call sequence parsed for each thread of the application are created under the `/opt/output/tracing/split/` folder.
+    A description of the file name format follows:
+    `{}`
