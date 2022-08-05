@@ -41,7 +41,8 @@ def split_threads_for_strace(img, filename):
                 for line in trace_readlines:
                     wf.write(line+"\n")
 
-
+# make directory for parsed data
+os.system("mkdir -p /opt/output/tracing/split/")
 
 # nignx/node - single
 imgnames = ["redis", "tomcat", "httpd", "mongodb", "mysql", "mariadb"]
