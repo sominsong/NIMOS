@@ -202,34 +202,73 @@ while getopts "hSed" opt; do
            
             case $2 in
                 "gcc")
-                    service strace-docker start
+                    service strace-docker restart
                     docker run --rm sominsong97/hyper-seccomp:mygcc bash -c "sleep 5; gcc -o myapp main.c;"&&
                     service strace-docker stop
                     ;;
                 "openjdk")
-                    service strace-docker start
+                    service strace-docker restart
                     service strace-docker stop
                     ;;
                 "gzip")
                     # zip testcase
-                    service strace-docker start
+                    service strace-docker restart
                     docker run --rm -it -w /home/ sominsong97/hyper-seccomp:myzip sh -c "sleep 2; bzip2 -k test.txt"
                     service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_zip.txt && sleep 2
+                    # unzip testcase
                     service strace-docker start
                     docker run --rm -it -w /home/ myzip sh -c "sleep 2; bzip2 -kd test.txt.bz2"
                     service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_unzip.txt && sleep 2           
+                    exit 1
                     ;;
                 "qalc")
-                    service strace-docker start
+                    # cross product (vector) testcase
+                    service strace-docker restart
+                    docker run --rm myqalc bash -c "sleep 1; qalc 'cross((1; 2; 3); (4; 5; 6))'"
                     service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_vector.txt && sleep 2
+                    # hadamard product (matrix) testcase
+                    service strace-docker restart
+                    docker run --rm myqalc bash -c "sleep 1; qalc 'hadamard([[1; 2; 3]; [4; 5; 6]]; [[7; 8; 9]; [10; 11; 12]])'"
+                    service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_metrix.txt && sleep 2
+                    exit 1
                     ;;
                 "ghostscript")
-                    service strace-docker start
+                    service strace-docker restart
+                    # convert eps to png
+                    docker run --rm -v "$PWD":/home/ -w /home/ mypdf2ps bash -c "sleep 1; gs  -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -dGraphicsAlphaBits=4 -sOutputFile=testimage_eps2png.png testimage.eps;"
                     service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_eps2png.txt && sleep 2
+                    # render at 300 dpi
+                    service strace-docker restart
+                    docker run --rm -v "$PWD":/home/ -w /home/ mypdf2ps bash -c "sleep 1; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r300 -sOutputFile=testimage_300dpi.png testimage.eps;"
+                    service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_renderdpi.txt && sleep 2
+                    # render a figure in grayscale
+                    service strace-docker restart
+                    docker run --rm -v "$PWD":/home/ -w /home/ mypdf2ps bash -c "sleep 1; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pnggray -sOutputFile=testimage_grayscale.png testimage.pdf;"
+                    service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_rendergray.txt && sleep 2
                     ;;
                 "lowriter")
-                    service strace-docker start
+                    # convert pdf to doc
+                    service strace-docker restart
+                    docker run --rm -v "$PWD":/home/ -w /home/ mylowriter bash -c "sleep 1; lowriter --convert-to pdf *.doc;"
                     service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_pdf2doc.txt && sleep 2
+                    # convert pdf to odt
+                    service strace-docker restart
+                    docker run --rm -v "$PWD":/home/ -w /home/ mylowriter bash -c "sleep 1; lowriter --convert-to pdf *.odt;"
+                    service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_pdf2odt.txt && sleep 2
+                    # convert txt to doc
+                    service strace-docker restart
+                    docker run --rm -v "$PWD":/home/ -w /home/ mylowriter bash -c "sleep 1; lowriter --convert-to 'txt:Text (encoded):UTF8' *.doc;"
+                    service strace-docker stop
+                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_txt2doc.txt && sleep 2
                     ;;
                 *)
                     echo "Invalid argument"
