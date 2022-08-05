@@ -213,13 +213,12 @@ while getopts "hSed" opt; do
                 "gzip")
                     # zip testcase
                     service strace-docker restart
-                    docker run --rm -it -w /home/ sominsong97/hyper-seccomp:myzip sh -c "sleep 2; bzip2 -k test.txt"
+                    docker run --rm --name gzip-container -it -w /home/ sominsong97/hyper-seccomp:mygzip sh -c "sleep 2; bzip2 -k test.txt"
                     service strace-docker stop
                     cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_zip.txt && sleep 2
                     # unzip testcase
                     service strace-docker start
-                    docker run --rm -it -w /home/ myzip sh -c "sleep 2; bzip2 -kd test.txt.bz2"
-                    service strace-docker stop
+                    docker run --rm --name gzip-container -w /home/ sominsong97/hyper-seccomp:mygzip sh -c "sleep 2; gzip -d *.gz"
                     cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_unzip.txt && sleep 2           
                     exit 1
                     ;;
