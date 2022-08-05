@@ -25,7 +25,7 @@ Analysis of Syscall Attack Sequence from Exploit Codes
 
 
 - Implementation
-<img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png" width="800">
+<img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png" width="600">
 
 
 
