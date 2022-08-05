@@ -1,6 +1,18 @@
-# Syscall Attack Sequence (Hyper-Seccomp)
+# Hyper-Seccomp
 
-Analysis of Syscall Attack Sequence from Exploit Codes
+- One line description of the project
+
+"Analysis of syscall sequence from exploit codes for system call sequence filtering"
+
+- Detailed description of the project
+
+This project attempts to speculate and verify that focusing on the sequence of syscall invocations can lead to more effective defenses against container attacks, as opposed to traditional filtering mechanisms (such as Seccomp) handling the syscalls individually.
+
+In this project, the primary objective is instead to investigate the existence of system call sequence patterns that are shared across different attacks.
+Additionally, the goal is to investigate what syscall sequence patterns shared by different attacks do not interfere with the behavior of a normally functioning application.
+
+So, this project consists of two main phases of action: 1) Malicious N-gram pattern analysis for exploit codes, 2) benign system call sequence analysis for 15 normal application.
+The goal of the first step is extracting system call sequence patterns across exploit codes and the goal of the second step is extracing system call sequence from benign applciations
 
 ## Architecture
 
