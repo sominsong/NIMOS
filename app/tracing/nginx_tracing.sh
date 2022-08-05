@@ -31,17 +31,17 @@ case ${RESTAPI} in
 	"GET")
 		echo "GET Test"
 		FILENAME="get"
-		ab -l -c 1 -n 1 http://127.0.0.1:8009/ &&
+		ab -l -c 1 -n 1 http://127.0.0.1:8009/ &
 		;;
 	"POST")
 		echo "POST Test"
 		FILENAME="post"
-		ab -l -p plain.txt -T application/octet-stream -c 1 -n 1 http://127.0.0.1:8009/ &&
+		ab -l -p plain.txt -T application/octet-stream -c 1 -n 1 http://127.0.0.1:8009/ &
 		;;
 	"PUT")
 		echo "PUT Test"
 		FILENAME="put"
-		ab -l -u plain.txt -T application/octet-stream -c 1 -n 1 http://127.0.0.1:8009/ &&
+		ab -l -u plain.txt -T application/octet-stream -c 1 -n 1 http://127.0.0.1:8009/ &
 		;;
 esac
 wait

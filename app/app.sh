@@ -140,7 +140,8 @@ while getopts "hSed" opt; do
                     ;;
                 "httpd")
                     # run httpd container
-                    docker run -d --name httpd-container -p 8009:80 sominsong97/hyper-seccomp:myhttpd && sleep 1
+                    docker run -d --name httpd-container -p 8009:80 sominsong97/hyper-seccomp:myhttpd &
+                    wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh httpd && sleep 1
                     # test
@@ -150,7 +151,8 @@ while getopts "hSed" opt; do
                     ;;
                 "nginx")
                     # run nginx container
-                    docker run --name nginx-container -d -p 8009:80 sominsong97/hyper-seccomp:mynginx && sleep 1
+                    docker run --name nginx-container -d -p 8009:80 sominsong97/hyper-seccomp:mynginx &
+                    wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh nginx && sleep 1
                     # test
@@ -160,7 +162,8 @@ while getopts "hSed" opt; do
                     ;;
                 "node")
                     # run node container
-                    docker run -it -d -p 8000:8000 --name=node-container sominsong97/hyper-seccomp:newnode && sleep 1
+                    docker run -it -d -p 8000:8000 --name=node-container sominsong97/hyper-seccomp:newnode &
+                    wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh node && sleep 1
                     # test
@@ -169,7 +172,8 @@ while getopts "hSed" opt; do
                     ;;
                 "tomcat")
                     # run tomcat container
-                    docker run -d --name tomcat-test -p 8080:8080 sominsong97/hyper-seccomp:mytomcat && sleep 1
+                    docker run -d --name tomcat-test -p 8080:8080 sominsong97/hyper-seccomp:mytomcat &
+                    wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh tomcat && sleep 1
                     # test
