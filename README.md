@@ -15,7 +15,7 @@ Analysis of Syscall Attack Sequence from Exploit Codes
 2. Benign System Call Sequence Analysis for 15 Normal Applications
 
 - Research Architecture
-<img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png">
+<img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png" width="500>
 
 - Implementation
 <img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png">
