@@ -7,7 +7,6 @@ apt update
 apt install -y openssh-server
 apt install -y build-essential vim gcc git-all make
 apt install -y python3-pip
-apt install -y mysql-client-core-8.0 mysql-common
 apt install -y trace-cmd
 
 pip install beautifulsoup4
@@ -27,7 +26,7 @@ apt-get install -y docker-ce=${VERSION_STRING} docker-ce-cli=${VERSION_STRING} c
 docker run hello-world
 
 # Install prerequisities for testing docker applciations
-apt install -y mongodb-client mysql-client-core-8.0 mysql-common
+apt install -y mongodb-clients mysql-client-core-8.0 mysql-common
 apt install -y apache2-utils redis-tools
 
 

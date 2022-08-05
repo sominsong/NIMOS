@@ -177,7 +177,11 @@ Each execution command and process are as follows:
 
         ```
 
-        After this process, 
+        After this process, syscall sequence trace results for each test operation in each application are created under the `/opt/output/tracing/` folder.
+        
+        A description of the file name format follows:
+        
+        `{application name}_{execution action type}.txt`
 
     5-2. The follow option is to parse the syscall sequence for each application from the trace results of all 15 applications.
 
