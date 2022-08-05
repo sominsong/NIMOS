@@ -18,7 +18,7 @@ Analysis of Syscall Attack Sequence from Exploit Codes
 <img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png" width="500">
 
 - Implementation
-<img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png">
+<img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png" width="800>
 
 ## Getting started
 
