@@ -8,6 +8,7 @@ apt install -y openssh-server
 apt install -y build-essential vim gcc git-all make
 apt install -y python3-pip
 apt install -y mysql-client-core-8.0 mysql-common
+apt install -y trace-cmd
 
 pip install beautifulsoup4
 
@@ -24,6 +25,11 @@ apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 VERSION_STRING=$(apt-cache madison docker-ce | awk '{print $3}' | sed -n '1p')
 apt-get install -y docker-ce=${VERSION_STRING} docker-ce-cli=${VERSION_STRING} containerd.io docker-compose-plugin
 docker run hello-world
+
+# Install prerequisities for testing docker applciations
+apt install -y mongodb-client mysql-client-core-8.0 mysql-common
+apt install -y apache2-utils redis-tools
+
 
 # Install prerequisites for compiling exploit codes
 apt install -y libsctp-dev

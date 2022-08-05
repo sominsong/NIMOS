@@ -26,8 +26,6 @@ PERM_OUTPUT_PATH = "/opt/output/perm/"
 TEMP_OTUPUT_PATH = "/opt/output/temp/"
 
 EXPLOITDB_PATH = "/exploit/exploit-db/"
-PROJZ_PATH = "/exploit/project-zero/"
-GIT_PATH = "/exploit/git/"
 
 def get_exploits():
     """get exploit code names and make list.
@@ -74,9 +72,6 @@ def make_cfg(eList):
         if coption.get(EID): opt = coption.get(EID) 
         # gcc -fdump-tree-cfg-all <target.c>
         if src == "exploitdb":  cmd = f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{EXPLOITDB_PATH}{EID}.c {opt} 2>/tmp/error.txt'
-        elif src == "git":      cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{PROJZ_PATH}{EID}.c {opt} 2>/tmp/error.txt'
-        elif src == "projz":    cmd =  f'gcc -static -fno-builtin -fdump-tree-all -w {cwd}{GIT_PATH}{EID}.c {opt} 2>/tmp/error.txt'
-        opt = ""
         try:
             fdump_result = subprocess.check_output(cmd,shell=True).decode()
         except Exception as e:
@@ -105,8 +100,4 @@ def make_cfg(eList):
 if __name__ == "__main__":
     
     eList = get_exploits()
-
-    #####
-    # eList = [['4460', 'exploitdb']]
-    #####
     make_cfg(eList)

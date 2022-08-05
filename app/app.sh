@@ -36,7 +36,7 @@ EOF
 
 # The function is for shutting down all running containers
 function shutdown_all() {
-    # 
+    echo shutdown all containers ...
     running_containers=$(docker ps  | grep 'Up' |awk '{print $1}')
     for i in ${running_containers}; do
         docker rm -f $i
@@ -50,7 +50,9 @@ while getopts "hSed" opt; do
             help
             exit 0
             ;;
-        S)    
+        S)  
+            # Make tracing folder
+            mkdir -p /opt/output/tracing/split
             # Make network
             ## MongoDB
             docker network create mongo_mongo-networks 1> /dev/null
@@ -186,6 +188,8 @@ while getopts "hSed" opt; do
             	echo "Usage: $0 -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]"
                 exit 0
             fi
+            # shutdow all running containers
+            shutdown_all
             echo "Testing $2 ..."
             case $2 in
                 "gcc")
