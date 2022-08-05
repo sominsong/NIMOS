@@ -39,8 +39,9 @@ function shutdown_all() {
     echo shutdown all containers ...
     running_containers=$(docker ps  | grep 'Up' |awk '{print $1}')
     for i in ${running_containers}; do
-        docker rm -f $i
+        docker rm -f $i &
     done
+    wait
 }
 
 
