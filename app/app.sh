@@ -198,7 +198,7 @@ while getopts "hSed" opt; do
             shutdown_all
             echo "Testing $2 ..."
             case $2 in
-                rm -f /var/log/strace-docker/*-*-*
+                rm /var/log/strace-docker/*-*-*
                 "gcc")
                     service strace-docker start
                     docker run --rm sominsong97/hyper-seccomp:mygcc bash -c "sleep 5; gcc -o myapp main.c;"&&
