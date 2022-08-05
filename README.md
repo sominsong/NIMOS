@@ -122,7 +122,7 @@ Each execution command and process are as follows:
 
 2. Analyze the exploit code and generate mapping the library functions used in the exploit codes and the syscall sequences invoked by the library functions.
 
-    <span style="color:red">Do not panic if the `[ERROR]` output statement is printed during this process! This project handles errors by itself..</span>
+    > **Do not panic if the `[ERROR]` output statement is printed during this process! This project handles errors by itself..**
 
     ```
     ./run.sh -S
