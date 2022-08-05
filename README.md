@@ -20,8 +20,7 @@
 
 - Resaerch Architecture
 
-<img src="/uploads/32eacad6c27239523454463f4b7adbdf/research_archi.png">
-
+    <img src="/uploads/32eacad6c27239523454463f4b7adbdf/research_archi.png">
     
     Above figure shows the overall design ofour methodology for extracting system call sequence patterns across exploit codes. It consists of three stages:
         1) Input data collection: collects exploit codes, their vulnerability metadata, and C-library unit tests from publicly available sources.
