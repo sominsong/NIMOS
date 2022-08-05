@@ -218,7 +218,6 @@ while getopts "hSed" opt; do
                     service strace-docker start
                     docker run --rm -it -w /home/ myzip sh -c "sleep 2; bzip2 -kd test.txt.bz2"
                     service strace-docker stop
-                    ###옮기는 거 코드 짜야함!
                     ;;
                 "qalc")
                     service strace-docker start
@@ -238,6 +237,8 @@ while getopts "hSed" opt; do
                     exit 1
                     ;;
             esac
+            # 결과 옮기기
+            cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_default.txt
             ;;
     esac
 done
