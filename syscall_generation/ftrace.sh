@@ -1,4 +1,11 @@
 #!/bin/bash
+
+####################### <run.sh> #######################
+# 
+# This shell script is for traing with ftrace.
+# 
+########################################################
+
 set -e
 
 echo > /sys/kernel/debug/tracing/trace
