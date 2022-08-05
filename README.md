@@ -33,7 +33,7 @@
 
     1. Input data collection: collects exploit codes, their vulnerability metadata, and C-library unit tests from publicly available sources.
 
-    2. System call sequence analysis: employs a hybrid approach, utilizing (i) static analysis atop exploit codes, to extract library function sequences on all possible control flows where the exploits can be successfully triggered, and (ii) dynamic analysis atop C-library unit tests, to build a mapping between library functions and system call sequences. Then, it **combines both analyses** <u>*(libc sequence per exploit code from static analysis + libc-to-syscall sequence from dynamic analysis)*</u> to generate a system call sequence corresponding to each exploit code.
+    2. System call sequence analysis: employs a hybrid approach, utilizing (i) static analysis atop exploit codes, to extract library function sequences on all possible control flows where the exploits can be successfully triggered, and (ii) dynamic analysis atop C-library unit tests, to build a mapping between library functions and system call sequences. Then, it **combines both analyses** *<u>(libc sequence per exploit code from static analysis + libc-to-syscall sequence from dynamic analysis)</u>* to generate a system call sequence corresponding to each exploit code.
 
     3. Pattern extraction: discovers common system call sequence patterns of various lengths using the Generalized Sequential Pattern (GSP) mining algorithm.
 
@@ -121,6 +121,8 @@ Each execution command and process are as follows:
     Also, `exploit.json` with information about the exploit collected under the `/opt/output/perm/` folder is created.
 
 2. Analyze the exploit code and generate mapping the library functions used in the exploit codes and the syscall sequences invoked by the library functions.
+
+    <span style="color:red">Do not panic if the `[ERROR]` output statement is printed during this process! This project handles errors by itself..</span>
 
     ```
     ./run.sh -S

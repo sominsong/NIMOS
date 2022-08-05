@@ -63,7 +63,7 @@ while getopts "hACSPNBR" opt; do
 
             echo Benign pplication Test
             bash ${APP_DIR}app.sh -h
-            echo "You have to manually test the application.\n Options can be executed with -B."
+            echo "You have to manually test the application.\n Options can be executed with -B and -R."
             ;;
         C)
             echo Crawling Exploit Codes
