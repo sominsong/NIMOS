@@ -9,25 +9,16 @@ Analysis of Syscall Attack Sequence from Exploit Codes
 - Resaerch Architecture
 <img src="/uploads/32eacad6c27239523454463f4b7adbdf/research_archi.png">
 
-
-
 - Implementation
 <img src="/uploads/b1d5544e057b8a170f96c530025ddd6d/git_readme.png">
-
-
-
 
 **2. Benign System Call Sequence Analysis for 15 Normal Applications**
 
 - Research Architecture
 <img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png" width="500">
 
-
-
 - Implementation
 <img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png" width="600">
-
-
 
 
 ## Getting started
@@ -115,7 +106,7 @@ Each execution command and process are as follows:
 
     After this process, folders for docker bind mount are created under the `/data/` folder. Also, several docker networks and docker volumes are created.
 
-    - You can test the application with the following command (The options that can be tested vary from application to application):
+    5-1. You can test the application with the following command (The options that can be tested vary from application to application):
 
         ```
         ./run.sh -B -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
@@ -125,3 +116,9 @@ Each execution command and process are as follows:
         ```
 
         After this process, 
+
+    5-2. The follow option is to parse the syscall sequence for each application from the trace results of all 15 applications.
+
+        ```
+        ./run.sh -R
+        ```

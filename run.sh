@@ -32,12 +32,13 @@ Options :
     -P,     path generation
     -S,     syscall generation
     -N,     N-gram analysis
-    -B,     Benign application test (You have to manually test the application.)
+    -B,     benign application test (You must manually test the application.)
+    -R,     parsing benign application test result (You must execute it after -B option.)
 EOF
 }
 
 
-while getopts "hACSPNB" opt; do
+while getopts "hACSPNBR" opt; do
     case $opt in
         h)
             help
@@ -81,6 +82,7 @@ while getopts "hACSPNB" opt; do
             python3 -B ${ANALYSIS_DIR}ngram.py
             ;;
         B)
+             echo Benign Application Test
             if [ $# -lt 2 ] ; then
                 echo How to Run Application Test
                 bash ${APP_DIR}app.sh -S
@@ -99,5 +101,9 @@ while getopts "hACSPNB" opt; do
                 exit 0
             fi
             bash ${APP_DIR}app.sh -h
+            ;;
+        R)
+             echo "Parsing Benign Application Test Result"
+            ;;
     esac
 done
