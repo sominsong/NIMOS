@@ -37,7 +37,7 @@ EOF
 # The function is for shutting down all running containers
 function shutdown_all() {
     echo shutdown all containers ...
-    running_containers=$(docker ps  | grep 'Up' |awk '{print $1}')
+    running_containers=$(docker ps -a  | awk '{print $1}' |  tail -n+2)
     for i in ${running_containers}; do
         docker rm -f $i &
     done
@@ -127,7 +127,7 @@ while getopts "hSed" opt; do
                 "mariadb")
                     # run mariadb containers
                     docker run -d --net mariadb_mariadb-net -v /data/mariadb/db-01:/var/lib/mysql -p 33306:3306 --name mariadb-master sominsong97/hyper-seccomp:mymariadb &
-                    docker run -d --net mariadb_mariadb-net -v /data/mariadb/db-02:/var/lib/mysl -p 43306:3306 --name mariadb-slave sominsong97/hyper-seccomp:mymariadb &
+                    docker run -d --net mariadb_mariadb-net -v /data/mariadb/db-02:/var/lib/mysql -p 43306:3306 --name mariadb-slave sominsong97/hyper-seccomp:mymariadb &
                     wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh mariadb && sleep 1

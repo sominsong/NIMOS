@@ -1,4 +1,4 @@
-# Syscall Attack Sequence
+# Syscall Attack Sequence (Hyper-Seccomp)
 
 Analysis of Syscall Attack Sequence from Exploit Codes
 
@@ -28,7 +28,7 @@ sudo su
 apt update
 apt install -y make git-all
 
-git clone https://gitlab.com/sominsong97/hyper-seccomp.git
+git clone git@gitlab.com:sominsong97/hyper-seccomp.git
 cd hyper-seccomp
 make build
 ```

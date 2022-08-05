@@ -20,12 +20,6 @@ searchsploit -u
 echo 1 > /sys/kernel/debug/tracing/events/raw_syscalls/sys_enter/enable
 echo 1 > /sys/kernel/debug/tracing/events/raw_syscalls/sys_exit/enable
 
-# docker image pull
-# Official Image
-# docker_images=("ubuntu" "tomcat" "redis" "openjdk" "node" "mysql" "mariadb" "httpd" "gcc" "busybox" "nginx" "mongodb")
-# for img in $(docker_images[@]); do
-#     docker pull $(img):latest
-# done
 
 # Let's pull Sominsong97 registry images
 docker_images=("myqalc" "mypdf2ps" "mylowriter" "myzip" "mygcc" "mygzip" "myopenjdk" "myhttpd" "mysql_slave" "mysql_master" "myredis" "mytomcat" "mymariadb" "mymongo" "newnode" "mynginx")
