@@ -33,7 +33,7 @@
 
     1. Input data collection: collects exploit codes, their vulnerability metadata, and C-library unit tests from publicly available sources.
 
-    2. System call sequence analysis: employs a hybrid approach, utilizing (i) static analysis atop exploit codes, to extract library function sequences on all possible control flows where the exploits can be successfully triggered, and (ii) dynamic analysis atop C-library unit tests, to build a mapping between library functions and system call sequences. Then, it **combines both analyses (libc sequence per exploit code from static analysis + libc-to-syscall sequence from dynamic analysis)** to generate a system call sequence corresponding to each exploit code.
+    2. System call sequence analysis: employs a hybrid approach, utilizing (i) static analysis atop exploit codes, to extract library function sequences on all possible control flows where the exploits can be successfully triggered, and (ii) dynamic analysis atop C-library unit tests, to build a mapping between library functions and system call sequences. Then, it **combines both analyses** <u>*(libc sequence per exploit code from static analysis + libc-to-syscall sequence from dynamic analysis)*</u> to generate a system call sequence corresponding to each exploit code.
 
     3. Pattern extraction: discovers common system call sequence patterns of various lengths using the Generalized Sequential Pattern (GSP) mining algorithm.
 
@@ -42,15 +42,16 @@
     <img src="/uploads/b1d5544e057b8a170f96c530025ddd6d/git_readme.png">
 
     The figure above shows the implementation of the Research design.
+
     It shows the directory name in charge of the module in the research architecture figure, the file name in charge of the operation process of the module, and where the input/output files of each module are created.
 
     The `exploit/` directory is a module that crawls exploit codes and metadata about exploit code.
 
-    The `syscall-generation/` folder corresponds to the dynamic analysis module in research architecture. The files in the folder are responsible for creating the libc-to-syscall sequence mapping by analyzing the exploit codes.
+    The `syscall-generation/` folder corresponds to the dynamic analysis module in research architecture. The files in the folder are responsible for creating the *libc-to-syscall sequence mapping* by analyzing the exploit codes.
 
-    The `path-generation/` folder corresponds to the static analysis module in research architecture. The files in the folder analyze the exploit code to extract the library function sequence, and combine it with the dynamic analysis result to generate the final syscall sequence per exploit codes.
+    The `path-generation/` folder corresponds to the static analysis module in research architecture. The files in the folder analyze the exploit code to extract the library function sequence, and combine it with the dynamic analysis result to generate the final *syscall sequence per exploit codes*.
 
-    The `analysis/` folder corresponds to the sequential pattern mining module in research architecture. By analyzing the syscall sequence per exploit codes, it finds patterns of length N (N-gram pattern) shared by the exploit codes.
+    The `analysis/` folder corresponds to the sequential pattern mining module in research architecture. By analyzing the syscall sequence per exploit codes, it finds *patterns of length N (N-gram pattern)* shared by the exploit codes.
 
 **2. Benign System Call Sequence Analysis for 15 Normal Applications**
 
@@ -58,11 +59,26 @@
 
     <img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png" width="500">
 
-    The figure above shows 
+    The goal of this process is to investigate the relationship between the length of the sequence of system calls extracted from the exploit code and the likelihood of interfering with the legitimate activity of a harmless application.
+
+    The figure above shows the process of extracting the syscall sequence invoked by the benign operations of the applications.
+
+    To this end, this project tests the application behavior from 15 popular images.
+    
+    By performing diverse application-specific operations such as {GET, PUT, POST} for web servers, and {INSERT, DELETE, SELECT} for NoSQL databases, amongst others.
+
+    The result of this process is to generate *per-thread system call traces*.
 
 - Implementation
 
-<img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png" width="600">
+    <img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png" width="600">
+
+    The figure above shows the implementation of the Research design.
+
+    It shows the directory name in charge of the module in the research architecture figure, the file name in charge of the operation process of the module, and where the input/output files of each module are created.
+
+    The `app/` folder includes all of the 'container execution, container tracking, and tracking result parsing' processes shown in research architecture.
+    As a result, it creates a *syscall sequence per application*.
 
 
 ## Getting started
