@@ -2,17 +2,17 @@
 
 - One line description of the project
 
-"Analysis of syscall sequence from exploit codes for system call sequence filtering"
+    "Analysis of syscall sequence from exploit codes for system call sequence filtering"
 
 - Detailed description of the project
 
-This project attempts to speculate and verify that focusing on the sequence of syscall invocations can lead to more effective defenses against container attacks, as opposed to traditional filtering mechanisms (such as Seccomp) handling the syscalls individually.
+    This project attempts to speculate and verify that focusing on the sequence of syscall invocations can lead to more effective defenses against container attacks, as opposed to traditional filtering mechanisms (such as Seccomp) handling the syscalls individually.
 
-In this project, the primary objective is instead to investigate the existence of system call sequence patterns that are shared across different attacks.
-Additionally, the goal is to investigate what syscall sequence patterns shared by different attacks do not interfere with the behavior of a normally functioning application.
+    In this project, the primary objective is instead to investigate the existence of system call sequence patterns that are shared across different attacks.
+    Additionally, the goal is to investigate what syscall sequence patterns shared by different attacks do not interfere with the behavior of a normally functioning application.
 
-So, this project consists of two main phases of action: 1) Malicious N-gram pattern analysis for exploit codes, 2) benign system call sequence analysis for 15 normal application.
-The goal of the first step is extracting system call sequence patterns across exploit codes and the goal of the second step is extracing system call sequence from benign applciations
+    So, this project consists of two main phases of action: **1) Malicious N-gram pattern analysis for exploit codes**, **2) benign system call sequence analysis for 15 normal application**.
+    The goal of the first step is extracting system call sequence patterns across exploit codes and the goal of the second step is extracing system call sequence from benign applciations
 
 ## Architecture
 
@@ -20,6 +20,11 @@ The goal of the first step is extracting system call sequence patterns across ex
 
 - Resaerch Architecture
 <img src="/uploads/32eacad6c27239523454463f4b7adbdf/research_archi.png">
+
+    Above figure shows the overall design ofour methodology for extracting system call sequence patterns across exploit codes. It consists of three stages:
+    1) Input data collection: collects exploit codes, their vulnerability metadata, and C-library unit tests from publicly available sources.
+    2) System call sequence analysis: employs a hybrid approach, utilizing (i) static analysis atop exploit codes, to extract library function sequences on all possible control flows where the exploits can be successfully triggered, and (ii) dynamic analysis atop C-library unit tests, to build a mapping between library functions and system call sequences. Then, it combines both analyses to generate a system call sequence corresponding to each exploit code.
+    3) Pattern extraction: discovers common system call sequence patterns of various lengths using the Generalized Sequential Pattern (GSP) mining algorithm.
 
 - Implementation
 <img src="/uploads/b1d5544e057b8a170f96c530025ddd6d/git_readme.png">
