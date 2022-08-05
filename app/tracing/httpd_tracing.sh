@@ -36,12 +36,12 @@ case ${RESTAPI} in
 	"POST")
 		echo "POST Test"
 		FILENAME="post"
-		ab -l -k -p plain.txt -c 1 -n 1 http://127.0.0.1:8009/ &
+		ab -l -k -p ./app/tracing/plain.txt -c 1 -n 1 http://127.0.0.1:8009/ &
 		;;
 	"PUT")
 		echo "PUT Test"
 		FILENAME="put"
-		ab -l -k -u plain.txt -c 1 -n 1 http://127.0.0.1:8009/ &
+		ab -l -k -u ./app/tracing/plain.txt -c 1 -n 1 http://127.0.0.1:8009/ &
 		;;
 esac
 wait

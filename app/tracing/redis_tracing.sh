@@ -49,7 +49,6 @@ case ${CRUD} in
         redis-cli -h localhost -p 6379 flushall &
         ;;
 esac
-
 wait
 
 # ftrace off
