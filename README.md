@@ -24,11 +24,11 @@
     
     Above figure shows the overall design ofour methodology for extracting system call sequence patterns across exploit codes. It consists of three stages:
 
-        - 1) Input data collection: collects exploit codes, their vulnerability metadata, and C-library unit tests from publicly available sources.
+        1) Input data collection: collects exploit codes, their vulnerability metadata, and C-library unit tests from publicly available sources.
 
-        - 2) System call sequence analysis: employs a hybrid approach, utilizing (i) static analysis atop exploit codes, to extract library function sequences on all possible control flows where the exploits can be successfully triggered, and (ii) dynamic analysis atop C-library unit tests, to build a mapping between library functions and system call sequences. Then, it combines both analyses to generate a system call sequence corresponding to each exploit code.
-        
-        - 3) Pattern extraction: discovers common system call sequence patterns of various lengths using the Generalized Sequential Pattern (GSP) mining algorithm.
+        2) System call sequence analysis: employs a hybrid approach, utilizing (i) static analysis atop exploit codes, to extract library function sequences on all possible control flows where the exploits can be successfully triggered, and (ii) dynamic analysis atop C-library unit tests, to build a mapping between library functions and system call sequences. Then, it combines both analyses to generate a system call sequence corresponding to each exploit code.
+
+        3) Pattern extraction: discovers common system call sequence patterns of various lengths using the Generalized Sequential Pattern (GSP) mining algorithm.
 
 - Implementation
 
