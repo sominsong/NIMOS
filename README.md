@@ -1,4 +1,4 @@
-# Hyper-Seccomp
+# What is "Hyper-Seccomp"
 
 - One line description of the project
 
@@ -16,7 +16,9 @@
 
 ## Index
 [1.Architecture](#architecture)
+
 [2.Getting Started](#getting-started)
+
 [3.How to Run](#how-to-run)
 
 ## Architecture
@@ -25,13 +27,13 @@
 
 - Resaerch Architecture
 
-    <img src="/uploads/32eacad6c27239523454463f4b7adbdf/research_archi.png">
+    <img src="/uploads/c830c5d57eaa7886497b27b1fb68e763/research_archi.png">
     
     The figure above shows the overall design ofour methodology for extracting system call sequence patterns across exploit codes. It consists of three stages:
 
     1. Input data collection: collects exploit codes, their vulnerability metadata, and C-library unit tests from publicly available sources.
 
-    2. System call sequence analysis: employs a hybrid approach, utilizing (i) static analysis atop exploit codes, to extract library function sequences on all possible control flows where the exploits can be successfully triggered, and (ii) dynamic analysis atop C-library unit tests, to build a mapping between library functions and system call sequences. Then, it combines both analyses to generate a system call sequence corresponding to each exploit code.
+    2. System call sequence analysis: employs a hybrid approach, utilizing (i) static analysis atop exploit codes, to extract library function sequences on all possible control flows where the exploits can be successfully triggered, and (ii) dynamic analysis atop C-library unit tests, to build a mapping between library functions and system call sequences. Then, it **combines both analyses (libc sequence per exploit code from static analysis + libc-to-syscall sequence from dynamic analysis)** to generate a system call sequence corresponding to each exploit code.
 
     3. Pattern extraction: discovers common system call sequence patterns of various lengths using the Generalized Sequential Pattern (GSP) mining algorithm.
 
