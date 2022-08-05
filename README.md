@@ -22,7 +22,7 @@
 
     <img src="/uploads/32eacad6c27239523454463f4b7adbdf/research_archi.png">
     
-    Above figure shows the overall design ofour methodology for extracting system call sequence patterns across exploit codes. It consists of three stages:
+    The figure above shows the overall design ofour methodology for extracting system call sequence patterns across exploit codes. It consists of three stages:
 
     1. Input data collection: collects exploit codes, their vulnerability metadata, and C-library unit tests from publicly available sources.
 
@@ -32,7 +32,15 @@
 
 - Implementation
 
-<img src="/uploads/b1d5544e057b8a170f96c530025ddd6d/git_readme.png">
+    <img src="/uploads/b1d5544e057b8a170f96c530025ddd6d/git_readme.png">
+
+    The figure above shows the implementation of the Research design.
+    It shows the directory name in charge of the module in the research architecture figure, the file name in charge of the operation process of the module, and where the input/output files of each module are created.
+
+    The `exploit/` directory is a module that crawls exploit codes and metadata about exploit code.
+    The `syscall-generation/` folder corresponds to the dynamic analysis module in research architecture. The files in the folder are responsible for creating the libc-to-syscall sequence mapping by analyzing the exploit codes.
+    The `path-generation/` folder corresponds to the static analysis module in research architecture. The files in the folder analyze the exploit code to extract the library function sequence, and combine it with the dynamic analysis result to generate the final syscall sequence per exploit codes.
+    The `analysis/` folder corresponds to the sequential pattern mining module in research architecture. By analyzing the syscall sequence per exploit codes, it finds patterns of length N (N-gram pattern) shared by the exploit codes.
 
 **2. Benign System Call Sequence Analysis for 15 Normal Applications**
 
