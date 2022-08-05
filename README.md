@@ -19,6 +19,7 @@
 **1. Malicious N-gram Pattern Analysis for Exploit Codes**
 
 - Resaerch Architecture
+
 <img src="/uploads/32eacad6c27239523454463f4b7adbdf/research_archi.png">
 
     
@@ -28,14 +29,17 @@
         3) Pattern extraction: discovers common system call sequence patterns of various lengths using the Generalized Sequential Pattern (GSP) mining algorithm.
 
 - Implementation
+
 <img src="/uploads/b1d5544e057b8a170f96c530025ddd6d/git_readme.png">
 
 **2. Benign System Call Sequence Analysis for 15 Normal Applications**
 
 - Research Architecture
+
 <img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png" width="500">
 
 - Implementation
+
 <img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png" width="600">
 
 
