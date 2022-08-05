@@ -2,7 +2,7 @@
 
 - One line description of the project
 
-    "Analysis of syscall sequence from exploit codes for system call sequence filtering"
+    > "Analysis of syscall sequence from exploit codes for system call sequence filtering"
 
 - Detailed description of the project
 
