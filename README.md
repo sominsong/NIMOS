@@ -2,69 +2,123 @@
 
 Analysis of Syscall Attack Sequence from Exploit Codes
 
-## Notion
+## Architecture
 
-This project is managed on the [Notion](https://flame-appeal-2c5.notion.site/064b5204333944b7bcbcf6da2aa50c92?v=562fac4f80634990a9aed0fde193c9fe).
+**1. Malicious N-gram Pattern Analysis for Exploit Codes**
 
-Also, the progress of the project can be checked on the [Milestones](https://gitlab.com/sominsong97/syscall-attack-sequence/-/issues).
+- Resaerch Architecture
+<img src="/uploads/32eacad6c27239523454463f4b7adbdf/research_archi.png">
+
+- Implementation
+<img src="/uploads/b1d5544e057b8a170f96c530025ddd6d/git_readme.png">
+
+**2. Benign System Call Sequence Analysis for 15 Normal Applications**
+
+- Research Architecture
+<img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png" width="500">
+
+- Implementation
+<img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png" width="600">
 
 
 ## Getting started
 
 ```
-apt install udpate
-apt install make
+sudo su
+apt update
+apt install -y make git-all
 
-git clone https://gitlab.com/sominsong97/syscall-attack-sequence.git
-cd syscall-attack-sequence
+git clone https://gitlab.com/sominsong97/hyper-seccomp.git
+cd hyper-seccomp
 make build
 ```
 if you meet `make:execvp *.sh: Permission denied` error, please enter below command first.
 ```
-chmod 777 -R configure.sh && chmod 777 -R setup.sh
+chmod 755 configure.sh setup.sh
 ```
 
 ## How to run
 
-You should be a sudo-privileged user or run it with sudo privileges.
+You should be a **sudo-privileged user** or run it with **sudo privileges**.
 There is help option(-h) for providing short explanations for all options.
 Except for the help option, the remaining options are executed in the following order.
 
 You can run all options in sequence at once with following -a option (in progress) 
 
 ```
-sudo bash run.sh -A
+./run.sh -A
 ```
 
-Each execution command and process are as follows.
+Each execution command and process are as follows:
 
-1. Crawling exploit codes and information related to the exploit codes collected.
+1. Crawl exploit codes and information related to the exploit codes collected.
 
-```
-sudo bash run.sh -C
-```
+    ```
+    ./run.sh -C
+    ```
 
-After this process, The exploit code for each source is collected in each source folder under the 'exploit' folder of the project folder. 
-Also, 'exploit.json' with information about the exploit collected under the '/opt/output/perm/' folder is created.
+    After this process, The exploit code for each source is collected in each source folder under the `exploit` folder of the project folder. 
+    Also, `exploit.json` with information about the exploit collected under the `/opt/output/perm/` folder is created.
 
-2. Generate library function path from each exploit codes collected (in progress)
+2. Analyze the exploit code and generate mapping the library functions used in the exploit codes and the syscall sequences invoked by the library functions.
 
-```
-sudo bash run.sh -P
-```
+    ```
+    ./run.sh -S
+    ```
 
-3. Generate system call sequences for library functions included in the exploit code's path (in progress)
+    After this process, GCC GIMPLE files (`*.original` files) for each exploit code are created under `/opt/output/temp/` folder.
+    
+    And unit test codes for the usecases of the library functions used in each exploit code are created under the `/opt/output/temp/testcase` folder.
+    The name of the test code of the library function is in the following format:
+    `{library function name}-{exploit-ID}-{function name in the code where the library function is used}-{(optional) delimiter number when used multiple times in the same function}`
+    of
+    `{library function name}-default-default`
 
-```
-sudo bash run.sh -S
-```
+    Also, the execution results of the unit test codes of each library functions are parsed and saved in the form of a system call sequence (sequence consisting of system call numbers) under the `/opt/output/temp/testcase/result/` folder.
 
-4. System call path creation for each exploit code by integrating library function path information for each exploit code and system call sequence information for each library function (in progress)
+3. Generate library function execution paths by analyzing the control flow graph (CFG) of the exploit codes, and Generate the syscall execution paths (sequences) of the exploit codes by combining it with the result of step 2 ('library function-syscall sequnece' mapping).
 
-```
-sudo bash run.sh -M
-```
+    ```
+    ./run.sh -P
+    ```
 
-## Integrate with your tools
+    After this process, control flow graphs (`*.cfg` files) for each exploit code are created under `/opt/output/temp/` folder.
+    Also, the sets of all possible paths consisting of a sequence of system calls for each exploit code are created under the path `/opt/output/perm/path/`. It is saved in a json file format, and the file name means the ID of each exploit code as follow: `{exploit-ID}.json`. The file shows the sequence of system call numbers for each user-defined function.
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:9d8f5800ac35c2b50894260a4b1ebd9e?https://gitlab.com/sominsong97/syscall-attack-sequence/-/settings/integrations)
+
+4. Generate N-gram patterns from the 'exploit-syscall sequence' mapping obtained as a result of step 3.
+
+    ```
+    ./run.sh -N
+    ```
+
+    After this process, 3 files (`{date}_ngram_sysname_max200.csv`, `{date}_ngram_sysnum_max200.csv`, `ngram_result.pkl`) are created under the `/opt/output/perm/analysis/` folder.
+    Each file is as follows:
+    - `{date}_ngram_sysname_max200.csv`: It is a csv file consisting of the 'N-gram pattern length, the number of exploit codes from which the N-gram pattern is extracted, and the N-gram pattern consisting of syscall names' columns.
+    - `{date}_ngram_sysnum_max200.csv`: It is a csv file consisting of the 'N-gram pattern length, the number of exploit codes from which the N-gram pattern is extracted, and the N-gram pattern consisting of syscall numbers' columns.
+    - `ngram_result.pkl`: It is a file that saves a dictionary in the form of `{'N-gram pattern':'Number of exploits with N-gram pattern found'}` in binary format.
+
+5. By testing 15 applications, Extract benign syscall sequence that is invoked when each application opereates normally. This option is only for settings for application testing. Application tests need to be manually executed through individual commands because of the ftrace setting.
+
+    ```
+    ./run.sh -B
+    ```
+
+    After this process, folders for docker bind mount are created under the `/data/` folder. Also, several docker networks and docker volumes are created.
+
+    5-1. You can test the application with the following command (The options that can be tested vary from application to application):
+
+        ```
+        ./run.sh -B -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
+        or
+        ./run,sh -B -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]
+
+        ```
+
+        After this process, 
+
+    5-2. The follow option is to parse the syscall sequence for each application from the trace results of all 15 applications.
+
+        ```
+        ./run.sh -R
+        ```

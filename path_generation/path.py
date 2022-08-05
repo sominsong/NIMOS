@@ -442,9 +442,6 @@ if __name__ == "__main__":
 
     
     eList = get_exploits()
-    ###############
-    # eList = [['50808','exploitdb']]
-    ###############
     
     # CFG
     make_cfg(eList)

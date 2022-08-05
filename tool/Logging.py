@@ -1,3 +1,11 @@
+""" 
+
+Logging.py
+====================
+
+Thie module is for logging
+
+"""
 import logging
 
 class Logging:
