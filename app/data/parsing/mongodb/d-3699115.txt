@@ -1,7 +1,0 @@
-clock_gettime
-futex
-gettimeofday
-gettimeofday
-futex
-clock_gettime
-futex

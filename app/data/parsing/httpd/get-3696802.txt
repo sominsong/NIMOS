@@ -1,3 +1,0 @@
-wait4
-times
-select

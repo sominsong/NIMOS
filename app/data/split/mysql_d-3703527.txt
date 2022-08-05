@@ -1,5 +1,0 @@
-           <...>-3703527 [037] .... 3581835.939050: sys_io_getevents -> 0x0
-           <...>-3703527 [037] .... 3581835.939059: sys_io_getevents(ctx_id: 7f1f0ee07000, min_nr: 1, nr: 100, events: 5611ddc58890, timeout: 7f1efc4e7980)
-           <...>-3703527 [037] .... 3581836.439139: sys_io_getevents -> 0x0
-           <...>-3703527 [037] .... 3581836.439143: sys_io_getevents(ctx_id: 7f1f0ee07000, min_nr: 1, nr: 100, events: 5611ddc58890, timeout: 7f1efc4e7980)
-

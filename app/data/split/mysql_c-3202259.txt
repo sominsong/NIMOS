@@ -1,9 +1,0 @@
-           <...>-3202259 [038] .... 3982003.591082: sys_nanosleep -> 0x0
-           <...>-3202259 [038] .... 3982003.591092: sys_clock_gettime(which_clock: 1, tp: 7fd256ffce20)
-           <...>-3202259 [038] .... 3982003.591096: sys_clock_gettime -> 0x0
-           <...>-3202259 [038] .... 3982003.591104: sys_clock_gettime(which_clock: 1, tp: 7fd256ffce20)
-           <...>-3202259 [038] .... 3982003.591106: sys_clock_gettime -> 0x0
-           <...>-3202259 [038] .... 3982003.591115: sys_clock_gettime(which_clock: 1, tp: 7fd256ffce20)
-           <...>-3202259 [038] .... 3982003.591118: sys_clock_gettime -> 0x0
-           <...>-3202259 [038] .... 3982003.591137: sys_nanosleep(rqtp: 7fd256ffce20, rmtp: 0)
-

@@ -1,3 +1,0 @@
-           <...>-3699328 [030] .... 3581490.626770: sys_epoll_wait -> 0x1
-           <...>-3699328 [030] .... 3581490.626778: sys_epoll_wait(epfd: 3e, events: 7f24ece22570, maxevents: 80, timeout: ffffffff)
-

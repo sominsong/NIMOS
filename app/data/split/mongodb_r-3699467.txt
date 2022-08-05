@@ -1,9 +1,0 @@
-           <...>-3699467 [035] .... 3581490.131975: sys_futex -> 0x0
-           <...>-3699467 [035] .... 3581490.131978: sys_clock_gettime(which_clock: 0, tp: 7f24e5c12ec0)
-           <...>-3699467 [035] .... 3581490.131980: sys_clock_gettime -> 0x0
-           <...>-3699467 [035] .... 3581490.131982: sys_futex(uaddr: 5607322cdf90, op: 81, val: 1, utime: 0, uaddr2: 0, val3: ffffffff)
-           <...>-3699467 [035] .... 3581490.131983: sys_futex -> 0x0
-           <...>-3699467 [035] .... 3581490.131997: sys_gettimeofday(tv: 7f24e5c12eb0, tz: 0)
-           <...>-3699467 [035] .... 3581490.131998: sys_gettimeofday -> 0x0
-           <...>-3699467 [035] .... 3581490.132000: sys_futex(uaddr: 56073239d110, op: 189, val: 0, utime: 7f24e5c12f70, uaddr2: 0, val3: ffffffff)
-

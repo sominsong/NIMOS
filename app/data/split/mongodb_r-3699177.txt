@@ -1,7 +1,0 @@
-           <...>-3699177 [005] .... 3581491.514805: sys_epoll_wait -> 0x1
-           <...>-3699177 [005] .... 3581491.514811: sys_epoll_wait(epfd: 3e, events: 7fce7dfe8570, maxevents: 80, timeout: ffffffff)
-           <...>-3699177 [005] .... 3581491.515708: sys_epoll_wait -> 0x1
-           <...>-3699177 [005] .... 3581491.515710: sys_epoll_wait(epfd: 3e, events: 7fce7dfe8570, maxevents: 80, timeout: ffffffff)
-           <...>-3699177 [005] .... 3581491.540964: sys_epoll_wait -> 0x1
-           <...>-3699177 [005] .... 3581491.540966: sys_epoll_wait(epfd: 3e, events: 7fce7dfe8570, maxevents: 80, timeout: ffffffff)
-

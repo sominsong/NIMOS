@@ -1,5 +1,0 @@
-futex
-futex
-futex
-clock_gettime
-futex
