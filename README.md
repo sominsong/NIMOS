@@ -14,6 +14,11 @@
     So, this project consists of two main phases of action: **1) Malicious N-gram pattern analysis for exploit codes**, **2) benign system call sequence analysis for 15 normal application**.
     The goal of the first step is extracting system call sequence patterns across exploit codes and the goal of the second step is extracing system call sequence from benign applciations
 
+## Index
+[1.Architecture](#architecture)
+[2.Getting Started](#getting-started)
+[3.How to Run](#how-to-run)
+
 ## Architecture
 
 **1. Malicious N-gram Pattern Analysis for Exploit Codes**
@@ -42,14 +47,16 @@
     The `syscall-generation/` folder corresponds to the dynamic analysis module in research architecture. The files in the folder are responsible for creating the libc-to-syscall sequence mapping by analyzing the exploit codes.
 
     The `path-generation/` folder corresponds to the static analysis module in research architecture. The files in the folder analyze the exploit code to extract the library function sequence, and combine it with the dynamic analysis result to generate the final syscall sequence per exploit codes.
-    
+
     The `analysis/` folder corresponds to the sequential pattern mining module in research architecture. By analyzing the syscall sequence per exploit codes, it finds patterns of length N (N-gram pattern) shared by the exploit codes.
 
 **2. Benign System Call Sequence Analysis for 15 Normal Applications**
 
 - Research Architecture
 
-<img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png" width="500">
+    <img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png" width="500">
+
+    The figure above shows 
 
 - Implementation
 
