@@ -95,10 +95,6 @@ if __name__ == "__main__":
 
     orgList = get_original()
 
-    ###########
-    # orgList = ["/opt/output/temp/9545.c.004t.original"]
-    ###########
-
     # Initialization
     with open(f"{PERM_OUTPUT_PATH}usecase.csv","w",encoding="utf-8") as f:
         wr = csv.writer(f)

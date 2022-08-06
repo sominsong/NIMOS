@@ -36,7 +36,7 @@ case ${RESTAPI} in
 	"POST")
 		echo "POST Test"
 		FILENAME="post"
-		docker exec -d node-test /bin/sh -c "node nodejs_POST_test.js"
+		docker exec -d node-container /bin/sh -c "node nodejs_POST_test.js"
 		curl -X POST localhost:8000/ -H 'Content-Type: application/json' -d 'var1=newData' &
 		;;
 esac
