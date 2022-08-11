@@ -153,7 +153,7 @@ def make_vertex(backContent, G, bbNum, EID):
             if not line.count("(") == 1:
                 line = line[:line.index("(")]
             if "syscall" in line:   # syscall () function 
-                print(line)
+                # print(line)
                 sysnum = line.replace("syscall(","").split(",")[0]
                 if coption.get(EID):
                     if "-m32" in coption.get(EID):
@@ -172,7 +172,7 @@ def make_vertex(backContent, G, bbNum, EID):
                         line = sysnum
                 else:
                     line = sysnum
-                print(line)
+                # print(line)
             if "(" in line:
                 line = line[:line.index("(")]
             if line in ["__builtin_stack_save", "__builtin_stack_restore","__builtin_alloca_with_align"]:

@@ -52,7 +52,8 @@ def get_save_syscall_sequence_strace(file, app, filename):
         for syscall in syscall_seq:
             f.write(f"{syscall}\n")
 
-
+# make parsing output directory
+os.system("mkdir -p /opt/output/parsing/")
 
 # get all tracing output
 # 1) using ftrace

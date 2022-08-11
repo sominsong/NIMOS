@@ -2,7 +2,7 @@
 
 - One line description of this project
 
-    > "Analysis of syscall sequence pattern from exploit codes for advanced system call sequence filtering"
+    > "Analysis of syscall sequence pattern from exploit codes for advanced system call sequence filtering for enhanced container security"
 
 - Detailed description of the project
 
