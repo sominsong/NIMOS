@@ -1,9 +1,20 @@
+""" 
+
+parsingPerThread.py
+====================
+
+Thie module is for spliting the traced results of
+Docker images per thread.
+The splited files save under '/opt/output/tracing/split' directory.
+
+"""
+
 import os
 import subprocess
 
 
 # ftrace parsing
-def split_threads(img, filename):
+def split_threads_for_ftrace(img, filename):
     threads = set()
     # img_filename.txt
     with open(f"/opt/output/tracing/{img}_{filename}.txt","r") as rf:
@@ -19,7 +30,7 @@ def split_threads(img, filename):
         for pid in threads:
             trace_readlines = subprocess.check_output(f'grep "{pid}" /opt/output/tracing/{img}_{filename}.txt', shell=True).decode().split("\n")
             print(f"{img}_{filename}-{pid}.txt")
-            with open(f"/opt/output/tracing/{img}_{filename}-{pid}.txt","w") as wf:
+            with open(f"/opt/output/tracing/split/{img}_{filename}-{pid}.txt","w") as wf:
                 for line in trace_readlines:              
                     wf.write(line+"\n")
 
@@ -41,44 +52,48 @@ def split_threads_for_strace(img, filename):
                 for line in trace_readlines:
                     wf.write(line+"\n")
 
-# make directory for parsed data
-os.system("mkdir -p /opt/output/tracing/split/")
 
-# nignx/node - single
-imgnames = ["redis", "tomcat", "httpd", "mongodb", "mysql", "mariadb"]
+if __name__ == "__main__":
+    # make directory for parsed data
+    os.system("mkdir -p /opt/output/tracing/split/")
 
-for img in imgnames:
-    cmd = f"find /opt/output/tracing -type f -name '{img}_*.txt'"
-    files=subprocess.check_output(cmd, shell=True).decode().split('\n')
-    files.pop(-1)
-    tmp_files = list()
-    for file in files:
-        if "/old/" in file:
-            continue
-        else:
-            tmp_files.append(file)
-    print(f"{img} output file #: {len(tmp_files)}")
-    
-    for file in tmp_files:
-        filename = file.replace(f"/opt/output/tracing/{img}_","").replace(".txt","")
-        split_threads(img, filename)
+    # except nignx/node - single
+    imgnames = ["redis", "tomcat", "httpd", "mongodb", "mysql", "mariadb"]
+
+    # make parsed files for ftrace output files
+    for img in imgnames:
+        cmd = f"find /opt/output/tracing -type f -name '{img}_*.txt'"
+        files=subprocess.check_output(cmd, shell=True).decode().split('\n')
+        files.pop(-1)
+        tmp_files = list()
+        for file in files:
+            if "/old/" in file:
+                continue
+            else:
+                tmp_files.append(file)
+        print(f"{img} output file #: {len(tmp_files)}")
+        
+        for file in tmp_files:
+            filename = file.replace(f"/opt/output/tracing/{img}_","").replace(".txt","")
+            split_threads_for_ftrace(img, filename)
 
 
 
-imgnames = ["gcc", "openjdk", "qalc", "lowriter", "bzip2", "gzip", "ghostscript"]
+    imgnames = ["gcc", "openjdk", "qalc", "lowriter", "bzip2", "gzip", "ghostscript"]
 
-for img in imgnames:
-    cmd = f"find /opt/output/tracing -type f -name '{img}_*.txt'"
-    files=subprocess.check_output(cmd, shell=True).decode().split('\n')
-    files.pop(-1)
-    tmp_files = list()
-    for file in files:
-        if "/old/" in file:
-            continue
-        else:
-            tmp_files.append(file)
-    print(f"{img} output file #: {len(tmp_files)}")
-    
-    for file in tmp_files:
-        filename = file.replace(f"/opt/output/tracing/{img}_","").replace(".txt","")
-        split_threads_for_strace(img, filename)
+    # make parsed files for strace otuput files
+    for img in imgnames:
+        cmd = f"find /opt/output/tracing -type f -name '{img}_*.txt'"
+        files=subprocess.check_output(cmd, shell=True).decode().split('\n')
+        files.pop(-1)
+        tmp_files = list()
+        for file in files:
+            if "/old/" in file:
+                continue
+            else:
+                tmp_files.append(file)
+        print(f"{img} output file #: {len(tmp_files)}")
+        
+        for file in tmp_files:
+            filename = file.replace(f"/opt/output/tracing/{img}_","").replace(".txt","")
+            split_threads_for_strace(img, filename)
