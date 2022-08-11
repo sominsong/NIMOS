@@ -1,4 +1,14 @@
-# Docker Image 실험해서 tracing한 결과들을 parsing해서 data에 저장
+""" 
+
+parsing.py
+====================
+
+Thie module is for parsing the traced results of
+Docker images.
+The Parsed files save under '/opt/output/parsing' directory.
+
+"""
+
 import os
 import subprocess
 
