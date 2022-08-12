@@ -24,6 +24,7 @@ def split_threads_for_ftrace(img, filename):
                 continue
             else:
                 # pid = line.strip().split()[0].replace("<...>-","")
+                print(line.strip().split()[0].split("-"))
                 pid = line.strip().split()[0].split("-")[1]
                 threads.add(pid)
         
