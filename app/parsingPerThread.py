@@ -24,8 +24,8 @@ def split_threads_for_ftrace(img, filename):
                 continue
             else:
                 # pid = line.strip().split()[0].replace("<...>-","")
-                print(line.strip().split("-")[1].split("")[0])
-                pid = line.strip().split("-")[1].split("")[0]
+                print(line.strip().split("-")[1].split()[0])
+                pid = line.strip().split("-")[1].split()[0]
                 threads.add(pid)
         
         # split syscall tracing per pid
