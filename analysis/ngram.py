@@ -21,6 +21,11 @@ import subprocess
 from itertools import product
 import concurrent.futures
 
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from tool import Logging
+log = Logging.Logging("info")
+
 PERM_OUTPUT_PATH = "/opt/output/perm/"
 PATH_PATH = "./analysis/new_path/"
 
@@ -183,8 +188,11 @@ if __name__ == "__main__":
 
         with open(f"{PERM_OUTPUT_PATH}analysis/ngram_result.pkl", "wb") as f:
             pickle.dump(L, f)
+        log.info("finished making N-gram patterns")
+
 
         # ngram result with system call number
+        log.info("writing result with syscall number on csv file... (check under '/opt/output/perm/analysis/'")
         with open(f"{PERM_OUTPUT_PATH}analysis/{month}{day}_ngram_sysnum_max{MAX_N}.csv", "w", newline = "", encoding='utf-8') as file:
             f = csv.writer(file)
             f.writerow(["N", "N-gram", "count"])
@@ -193,6 +201,7 @@ if __name__ == "__main__":
                     f.writerow([len(Ngram.split(',')), cnt, Ngram.split(',')])
 
         # ngram result with system call name
+        log.info("writing result with syscall name on csv file... (check under '/opt/output/perm/analysis/'")
         sysNameList = list()
         with open(f"{PERM_OUTPUT_PATH}analysis/{month}{day}_ngram_sysname_max{MAX_N}.csv", "w", newline = "", encoding='utf-8') as file:
             f = csv.writer(file)
@@ -207,6 +216,7 @@ if __name__ == "__main__":
         # ngram result with system call name
 
         sysNameList = list()
+        log.info("writing result with syscall name on csv file... (check under '/opt/output/perm/analysis/'")
         with open(f"{month}{day}_ngram_sysname_max{MAX_N}.csv", "w", newline = "", encoding='utf-8') as file:
             f = csv.writer(file)
             f.writerow(["N", "count", "N-gram"])

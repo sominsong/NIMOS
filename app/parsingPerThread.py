@@ -23,7 +23,8 @@ def split_threads_for_ftrace(img, filename):
             if "#" in line:
                 continue
             else:
-                pid = line.strip().split()[0].replace("<...>-","")
+                # pid = line.strip().split()[0].replace("<...>-","")
+                pid = line.strip().split()[0].split("-")[1]
                 threads.add(pid)
         
         # split syscall tracing per pid
@@ -58,7 +59,8 @@ if __name__ == "__main__":
     os.system("mkdir -p /opt/output/tracing/split/")
 
     # except nignx/node - single
-    imgnames = ["redis", "tomcat", "httpd", "mongodb", "mysql", "mariadb"]
+    # imgnames = ["redis", "tomcat", "httpd", "mongodb", "mysql", "mariadb"]
+    imgnames = ["httpd", "redis", "tomcat" ]
 
     # make parsed files for ftrace output files
     for img in imgnames:
@@ -79,7 +81,8 @@ if __name__ == "__main__":
 
 
 
-    imgnames = ["gcc", "openjdk", "qalc", "lowriter", "bzip2", "gzip", "ghostscript"]
+    # imgnames = ["gcc", "openjdk", "qalc", "lowriter", "bzip2", "gzip", "ghostscript"]
+    imgnames = ["gcc", "gzip"]
 
     # make parsed files for strace otuput files
     for img in imgnames:
