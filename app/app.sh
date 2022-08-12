@@ -101,8 +101,8 @@ while getopts "hSed" opt; do
                     ;;
                 "mysql")
                     # run mysql containers
-                    docker run -d -p 3306:3306 -v mysql_my-db-master:/var/lib/mysql --name mysql_db-master --net mysql_net-mysql sominsong97/hyper-seccomp:mysql_master &
-                    docker run -d -p 3307:3306 -v mysql_my-db-slave:/var/lib/mysql --name mysql_db-slave --net mysql_net-mysql sominsong97/hyper-seccomp:mysql_slave &
+                    docker run -d -p 3306:3306 -v /data/mysql/db-01:/var/lib/mysql --name mysql_db-master --net mysql_net-mysql sominsong97/hyper-seccomp:mysql_master &
+                    docker run -d -p 3307:3306 -v /data/mysql/db-02:/var/lib/mysql --name mysql_db-slave --net mysql_net-mysql sominsong97/hyper-seccomp:mysql_slave &
                     wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh mysql && sleep 1
