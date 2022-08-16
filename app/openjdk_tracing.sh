@@ -8,7 +8,7 @@ rm /var/log/strace-docker/*-*-*
 # zip testcase
 echo "Tracing Start - compile case"
 service strace-docker restart
-docker run --rm -w /home/ sominsong97/hyper-seccomp:gcc bash -c "sleep 5; gcc -o myapp main.c;"
+docker run --rm --name openjdk-container -w /usr/src/myapp/ sominsong97/hyper-seccomp:openjdk sh -c "sleep 2; javac Main.java"
 service strace-docker stop
 
 # copy tracing log

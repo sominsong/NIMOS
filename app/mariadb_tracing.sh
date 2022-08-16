@@ -31,28 +31,28 @@ case ${CRUD} in
     "C")
         echo "Create Test"
         FILENAME="c"
-        mysql -h127.0.0.1 -P33306 -uroot -ppassword -Dtest -e"CREATE TABLE test (id int NOT NULL auto_increment primary key, name VARCHAR(15) NOT NULL, phone VARCHAR(15) NOT NULL);" &
+        mysql -h127.0.0.1 -P33306 -uroot -padmin -Dtest -e"CREATE TABLE test (id int NOT NULL auto_increment primary key, name VARCHAR(15) NOT NULL, phone VARCHAR(15) NOT NULL);" &
         ;;
     "I")
         echo "Insert Test"
         FILENAME="i"
-        mysql -h127.0.0.1 -P33306 -uroot -ppassword -Dtest -e"INSERT INTO test (name, phone) VALUES ('Andy', '010-1234-5678');INSERT INTO test (name, phone) VALUES ('Brian', '010-4321-8765');INSERT INTO test (name, phone) VALUES ('Emily', '011-4321-5678');" &
+        mysql -h127.0.0.1 -P33306 -uroot -padmin -Dtest -e"INSERT INTO test (name, phone) VALUES ('Andy', '010-1234-5678');INSERT INTO test (name, phone) VALUES ('Brian', '010-4321-8765');INSERT INTO test (name, phone) VALUES ('Emily', '011-4321-5678');" &
         ;;
     "R")
         echo "Read Test"
         FILENAME="r"
-        mysql -h127.0.0.1 -P33306 -uroot -ppassword -Dtest -e"select * from test;" &
+        mysql -h127.0.0.1 -P33306 -uroot -padmin -Dtest -e"select * from test;" &
         ;;
     "U")
         echo "Update Test"
         FILENAME="u"
-        mysql -h127.0.0.1 -P33306 -uroot -ppassword -Dtest -e"UPDATE test SET name='Tom'
+        mysql -h127.0.0.1 -P33306 -uroot -padmin -Dtest -e"UPDATE test SET name='Tom'
 WHERE name='Brian';" &
         ;;
     "D")
         echo "Delete Test"
         FILENAME="d"
-        mysql -h127.0.0.1 -P33306 -uroot -ppassword -Dtest -e"DROP TABLE test;" &
+        mysql -h127.0.0.1 -P33306 -uroot -padmin -Dtest -e"DROP TABLE test;" &
         ;;
 esac
 
