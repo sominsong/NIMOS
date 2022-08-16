@@ -1,7 +1,0 @@
-futex
-gettimeofday
-futex
-futex
-futex
-gettimeofday
-futex

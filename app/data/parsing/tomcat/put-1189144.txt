@@ -1,7 +1,0 @@
-clock_gettime
-clock_gettime
-futex
-nanosleep
-clock_gettime
-clock_gettime
-futex

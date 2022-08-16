@@ -1,9 +1,0 @@
-futex
-read
-gettimeofday
-shutdown
-gettimeofday
-read
-close
-gettimeofday
-futex

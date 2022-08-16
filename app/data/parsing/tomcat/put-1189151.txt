@@ -1,4 +1,0 @@
-clock_gettime
-epoll_pwait
-clock_gettime
-epoll_pwait

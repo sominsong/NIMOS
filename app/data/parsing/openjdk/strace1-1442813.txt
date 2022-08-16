@@ -1,6 +1,0 @@
-clock_nanosleep
-close
-close
-close
-close
-exit_group

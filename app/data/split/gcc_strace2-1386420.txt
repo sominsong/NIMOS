@@ -1,8 +1,0 @@
-1386420 nanosleep
-1386420 close
-1386420 close
-1386420 close
-1386420 close
-1386420 exit_group
-1386420 procexit
-

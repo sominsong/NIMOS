@@ -1,3 +1,0 @@
-futex
-clock_gettime
-futex

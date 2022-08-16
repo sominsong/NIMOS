@@ -1,8 +1,0 @@
-1442813 clock_nanosleep
-1442813 close
-1442813 close
-1442813 close
-1442813 close
-1442813 exit_group
-1442813 procexit
-

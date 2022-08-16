@@ -1,7 +1,0 @@
-           <...>-3202252 [004] .... 3982003.911268: sys_io_getevents -> 0x0
-           <...>-3202252 [004] .... 3982003.911277: sys_io_getevents(ctx_id: 7fd271331000, min_nr: 1, nr: 100, events: 55c330258890, timeout: 7fd25e4e6980)
-           <...>-3202252 [004] .... 3982004.411389: sys_io_getevents -> 0x0
-           <...>-3202252 [004] .... 3982004.411394: sys_io_getevents(ctx_id: 7fd271331000, min_nr: 1, nr: 100, events: 55c330258890, timeout: 7fd25e4e6980)
-           <...>-3202252 [000] .... 3982004.911469: sys_io_getevents -> 0x0
-           <...>-3202252 [000] .... 3982004.911479: sys_io_getevents(ctx_id: 7fd271331000, min_nr: 1, nr: 100, events: 55c330258890, timeout: 7fd25e4e6980)
-

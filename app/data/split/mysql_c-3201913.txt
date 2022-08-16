@@ -1,5 +1,0 @@
-           <...>-3201913 [010] .... 3982004.318129: sys_io_getevents -> 0x0
-           <...>-3201913 [010] .... 3982004.318135: sys_io_getevents(ctx_id: 7f3f1222a000, min_nr: 1, nr: 100, events: 55596f686050, timeout: 7f3f00ceb980)
-           <...>-3201913 [010] .... 3982004.818242: sys_io_getevents -> 0x0
-           <...>-3201913 [010] .... 3982004.818247: sys_io_getevents(ctx_id: 7f3f1222a000, min_nr: 1, nr: 100, events: 55596f686050, timeout: 7f3f00ceb980)
-
