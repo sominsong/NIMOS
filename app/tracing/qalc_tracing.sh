@@ -13,7 +13,7 @@ service strace-docker stop
 
 # copy tracing log
 echo "Copy tracing results"
-cp /var/log/strace-docker/*-*-* /opt/output/tracing/
+cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_vector.txt && sleep 2
 
 # delete cache
 echo "delete cache and lagacy datas"
@@ -28,7 +28,7 @@ service strace-docker stop
 
 # copy tracing log
 echo "Copy tracing results"
-cp /var/log/strace-docker/*-*-* /opt/output/tracing/
+cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_matrix.txt && sleep 2
 
 # delete cache
 echo "delete cache and lagacy datas"

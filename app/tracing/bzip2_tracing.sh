@@ -7,12 +7,12 @@ echo 3 > /proc/sys/vm/drop_caches
 # zip testcase
 echo "Tracing Start - zip case"
 service strace-docker restart
-docker run --rm -it -w /home/ mybzip2 sh -c "sleep 2; bzip2 -k test.txt"
+docker run --rm -it -w /home/ --name bzip2-container sominsong97/hyper-seccomp:bzip2 sh -c "sleep 2; bzip2 -k test.txt"
 service strace-docker stop
 
 # copy ftrace log
 echo "Copy tracing results"
-cp /var/log/strace-docker/*-*-* /opt/output/tracing/
+cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_zip.txt && sleep 2
 
 # delete cache
 echo "delete cache and lagacy datas"
@@ -23,12 +23,12 @@ rm /var/log/strace-docker/*-*-*
 echo "Tracing Start - unzip case"
 mv ../data/test.txt ../data/test.txt.bak
 service strace-docker restart
-docker run --rm -it -w /home/ myzip sh -c "sleep 2; bzip2 -kd test.txt.bz2"
+docker run --rm -it -w /home/ --name bzip2-container sominsong97/hyper-seccomp:bzip2 sh -c "sleep 2; bzip2 -kd test.txt.bz2"
 service strace-docker stop
 
 # copy ftrace log
 echo "Copy tracing results"
-cp /var/log/strace-docker/*-*-* /opt/output/tracing/
+cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_unzip.txt && sleep 2
 
 # delete cache
 echo "delete cache and lagacy datas"
