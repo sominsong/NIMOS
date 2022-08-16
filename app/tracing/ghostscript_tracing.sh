@@ -28,7 +28,7 @@ service strace-docker stop
 
 # copy tracing log
 echo "Copy tracing results"
-cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_renderdpi.txt && sleep 2
+cp /var/log/strace-docker/*-*-* /opt/output/tracing/ghostscript_renderdpi.txt && sleep 2
 
 # delete cache
 echo "delete cache and lagacy datas"
@@ -43,7 +43,7 @@ service strace-docker stop
 
 # copy tracing log
 echo "Copy tracing results"
-cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_rendergray.txt && sleep 2
+cp /var/log/strace-docker/*-*-* /opt/output/tracing/ghostscript_rendergray.txt && sleep 2
 
 # delete cache
 echo "delete cache and lagacy datas"
