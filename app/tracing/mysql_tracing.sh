@@ -31,17 +31,17 @@ case ${CRUD} in
     "C")
         echo "[MySQL] Create Testing ..."
         FILENAME="c"
-        mysql -h127.0.0.1 -P3306 -uroot -ppasword -Dtest -e"INSERT INTO test (name, phone) VALUES ('Andy', '010-1234-5678');INSERT INTO test (name, phone) VALUES ('Brian', '010-4321-8765');INSERT INTO test (name, phone) VALUES ('Emily', '011-4321-5678');" &
+        mysql -h127.0.0.1 -P3306 -uroot -padmin -Dtest -e"INSERT INTO test (name, phone) VALUES ('Andy', '010-1234-5678');INSERT INTO test (name, phone) VALUES ('Brian', '010-4321-8765');INSERT INTO test (name, phone) VALUES ('Emily', '011-4321-5678');" &
         ;;
     "R")
         echo "[MySQL] Read Testing ..."
         FILENAME="r"
-        mysql -h127.0.0.1 -P3306 -uroot -ppasword -Dtest -e"select * from test;" &
+        mysql -h127.0.0.1 -P3306 -uroot -padmin -Dtest -e"select * from test;" &
         ;;
     "U")
         echo "[MySQL] Update Testing ..."
         FILENAME="u"
-        mysql -h127.0.0.1 -P3306 -uroot -ppasword -Dtest -e"UPDATE test SET name='Tom'
+        mysql -h127.0.0.1 -P3306 -uroot -padmin -Dtest -e"UPDATE test SET name='Tom'
 WHERE name='Brian';" &
         ;;
     "D")
