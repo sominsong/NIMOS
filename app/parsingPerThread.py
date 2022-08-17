@@ -57,7 +57,10 @@ def split_threads_for_strace(img, filename):
 
 if __name__ == "__main__":
     # make directory for parsed data
-    os.system("mkdir -p /opt/output/tracing/split/")
+    if os.path.isdif("/opt/output/tracing/split"):
+        os.system("rm /opt/output/tracing/split/*")
+    else:
+        os.system("mkdir -p /opt/output/tracing/split/")
 
     # except nignx/node - single
     imgnames = ["redis", "tomcat", "httpd", "mongodb", "mysql", "mariadb"]

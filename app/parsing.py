@@ -59,36 +59,40 @@ def get_save_syscall_sequence_strace(file, app, filename):
         for syscall in syscall_seq:
             f.write(f"{syscall}\n")
 
-# make parsing output directory
-os.system("mkdir -p /opt/output/parsing/")
+if __name__ == "__main__":
+    # make parsing output directory
+    if os.path.isdir("/opt/output/parsing/"):
+        os.system("rm /opt/output/parsing/*")
+    else:
+        os.system("mkdir -p /opt/output/parsing/")
 
-# get all tracing output
-# 1) using ftrace
-imgnames = ["mongodb", "mysql", "mariadb", "redis", "httpd", "tomcat", "nginx", "node"]
-for img in imgnames:
-    cmd = f"find /opt/output/tracing/split -type f -name '{img}_*.txt'"
-    files=subprocess.check_output(cmd, shell=True).decode().split('\n')
-    files.pop(-1)
-    print(f"{img} output file #: {len(files)}")
+    # get all tracing output
+    # 1) using ftrace
+    imgnames = ["mongodb", "mysql", "mariadb", "redis", "httpd", "tomcat", "nginx", "node"]
+    for img in imgnames:
+        cmd = f"find /opt/output/tracing/split -type f -name '{img}_*.txt'"
+        files=subprocess.check_output(cmd, shell=True).decode().split('\n')
+        files.pop(-1)
+        print(f"{img} output file #: {len(files)}")
 
-    for file in files:
-        filename = file.replace(f"/opt/output/tracing/split/{img}_","").replace(".txt","")
-        print(filename)
+        for file in files:
+            filename = file.replace(f"/opt/output/tracing/split/{img}_","").replace(".txt","")
+            print(filename)
 
-        get_save_syscall_sequence_ftrace(file, img, filename)
+            get_save_syscall_sequence_ftrace(file, img, filename)
 
 
-# 2) using strace-container
-files = []
-imgnames = ["openjdk", "gcc", "bzip2", "gzip", "ghostscript", "lowriter", "qalc"]
-for img in imgnames:
-    cmd = f"find /opt/output/tracing/split -type f -name '{img}_*.txt'"
-    files=subprocess.check_output(cmd, shell=True).decode().split('\n')
-    files.pop(-1)
-    print(f"{img} output file #: {len(files)}")
+    # 2) using strace-container
+    files = []
+    imgnames = ["openjdk", "gcc", "bzip2", "gzip", "ghostscript", "lowriter", "qalc"]
+    for img in imgnames:
+        cmd = f"find /opt/output/tracing/split -type f -name '{img}_*.txt'"
+        files=subprocess.check_output(cmd, shell=True).decode().split('\n')
+        files.pop(-1)
+        print(f"{img} output file #: {len(files)}")
 
-    for file in files:
-        filename = file.replace(f"/opt/output/tracing/split/{img}_","").replace(".txt","")
-        print(filename)
+        for file in files:
+            filename = file.replace(f"/opt/output/tracing/split/{img}_","").replace(".txt","")
+            print(filename)
 
-        get_save_syscall_sequence_strace(file, img, filename)
+            get_save_syscall_sequence_strace(file, img, filename)
