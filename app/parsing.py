@@ -88,7 +88,7 @@ for img in imgnames:
     print(f"{img} output file #: {len(files)}")
 
     for file in files:
-        filename = file.replace(f"/opt/output/tracing/{img}_","").replace(".txt","")
+        filename = file.replace(f"/opt/output/tracing/split/{img}_","").replace(".txt","")
         print(filename)
 
         get_save_syscall_sequence_strace(file, img, filename)
