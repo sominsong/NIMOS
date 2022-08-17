@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
         for file in files:
             filename = file.replace(f"/opt/output/tracing/split/{img}_","").replace(".txt","")
-            print(filename)
+            # print(filename)
 
             get_save_syscall_sequence_ftrace(file, img, filename)
 
@@ -93,6 +93,6 @@ if __name__ == "__main__":
 
         for file in files:
             filename = file.replace(f"/opt/output/tracing/split/{img}_","").replace(".txt","")
-            print(filename)
+            # print(filename)
 
             get_save_syscall_sequence_strace(file, img, filename)
