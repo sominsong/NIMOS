@@ -105,6 +105,7 @@ while getopts "hACSPNBR" opt; do
         R)
             echo "Parsing Benign Application Test Result"
             python3 -B ${APP_DIR}parsingPerThread.py
+            python3 -B ${APP_DIR}parsing.py
             ;;
     esac
 done

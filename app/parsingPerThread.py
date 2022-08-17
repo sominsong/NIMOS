@@ -60,8 +60,7 @@ if __name__ == "__main__":
     os.system("mkdir -p /opt/output/tracing/split/")
 
     # except nignx/node - single
-    # imgnames = ["redis", "tomcat", "httpd", "mongodb", "mysql", "mariadb"]
-    imgnames = ["httpd", "redis", "tomcat" ]
+    imgnames = ["redis", "tomcat", "httpd", "mongodb", "mysql", "mariadb"]
 
     # make parsed files for ftrace output files
     for img in imgnames:
@@ -82,8 +81,7 @@ if __name__ == "__main__":
 
 
 
-    # imgnames = ["gcc", "openjdk", "qalc", "lowriter", "bzip2", "gzip", "ghostscript"]
-    imgnames = ["gcc", "gzip"]
+    imgnames = ["gcc", "openjdk", "qalc", "lowriter", "bzip2", "gzip", "ghostscript"]
 
     # make parsed files for strace otuput files
     for img in imgnames:
