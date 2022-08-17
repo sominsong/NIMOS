@@ -197,8 +197,9 @@ Each execution command and process are as follows:
         e.g. ./run.sh -B -d gcc
     ```
 
-        After this process, syscall sequence trace results for each test operation in each application are created under the `/opt/output/tracing/` folder.
-        A description of the file name format follows:
+    After this process, syscall sequence trace results for each test operation in each application are created under the `/opt/output/tracing/` folder.
+
+    A description of the file name format follows:
         `{application name}_{test case type}.txt`
 
 6. Parse the syscall sequence for each application from the trace results (stop 5) of all 15 applications.
