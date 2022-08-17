@@ -45,6 +45,8 @@ function shutdown_all() {
     wait
 }
 
+DIR=$(pwd)
+echo $DIR
 
 while getopts "hSed" opt; do
     case $opt in
@@ -70,11 +72,11 @@ while getopts "hSed" opt; do
             docker volume create mysql_my-db-master 1> /dev/null
             docker volume create mysql_my-db-slave 1> /dev/null
 
-            # Make local folders for bind mounts
-            mkdir -p /data/mongo/db-01 /data/mongo/db-02 /data/mongo/db-03 1> /dev/null
-            mkdir -p /data/mariadb/db-01 /data/mariadb/db-02 1> /dev/null
-            mkdir -p /data/redis/db-01 /data/redis/db-02 1> /dev/null
-            mkdir -p /data/gcc 1> /dev/null
+            # Pull folders for bind mounts
+            mkdir -p /data/
+            git clone -b 28-data-for-docker https://gitlab.com/sominsong97/hyper-seccomp.git
+            cp -r hyper-seccomp/data/* /data/
+            rm -r ./hyper-seccomp/
             ;;
         e)
             if [ $# -ne 2 ] ; then
@@ -87,9 +89,9 @@ while getopts "hSed" opt; do
             case $2 in
                 "mongodb")
                     # run mongodb containers
-                    docker run -d -p 30001:27017 -v /data/mongo/db-01:/data/db --name mongodb-container1 --net mongo_mongo-networks sominsong97/hyper-seccomp:mymongo mongod --replSet mongo-repl --dbpath /data/db &
-                    docker run -d -p 30002:27017 -v /data/mongo/db-02:/data/db --name mongodb-container2 --net mongo_mongo-networks sominsong97/hyper-seccomp:mymongo mongod --replSet mongo-repl --dbpath /data/db &
-                    docker run -d -p 30003:27017 -v /data/mongo/db-03:/data/db --name mongodb-container3 --net mongo_mongo-networks sominsong97/hyper-seccomp:mymongo mongod --replSet mongo-repl --dbpath /data/db &
+                    docker run -d -p 30001:27017 -v /data/mongo/db-01:/data/db --name mongodb-container1 --net mongo-cluster sominsong97/hyper-seccomp:mongo1 &
+                    docker run -d -p 30002:27017 -v /data/mongo/db-02:/data/db --name mongodb-container2 --net mongo-cluster sominsong97/hyper-seccomp:mongo2 &
+                    docker run -d -p 30003:27017 -v /data/mongo/db-03:/data/db --name mongodb-container3 --net mongo-cluster sominsong97/hyper-seccomp:mongo3 &
                     wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh mongodb && sleep 1
@@ -101,8 +103,7 @@ while getopts "hSed" opt; do
                     ;;
                 "mysql")
                     # run mysql containers
-                    docker run -d -p 3306:3306 -v mysql_my-db-master:/var/lib/mysql --name mysql_db-master --net mysql_net-mysql sominsong97/hyper-seccomp:mysql_master &
-                    docker run -d -p 3307:3306 -v mysql_my-db-slave:/var/lib/mysql --name mysql_db-slave --net mysql_net-mysql sominsong97/hyper-seccomp:mysql_slave &
+                    docker run -d -p 3306:3306 -v /data/mysql/db-01:/var/lib/mysql -v /data/mysql/db-01:/var/lib/mysql-files --name mysql-container --net mysql_net-mysql sominsong97/hyper-seccomp:mysql &
                     wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh mysql && sleep 1
@@ -114,8 +115,9 @@ while getopts "hSed" opt; do
                     ;;
                 "redis")
                     # run redis containers
-                    docker run -d --net redis_redis-net -v /data/redis/db-01:/data/db -p 6379:6379 --name redis-master sominsong97/hyper-seccomp:myredis &
-                    docker run -d --net redis_redis-net -v /data/redis/db-02:/data/db -p 6479:6479 --name redis-slave sominsong97/hyper-seccomp:myredis &
+                    docker run -d -p 6379:6379 --name redis-container1 --net redis_redis-net sominsong97/hyper-seccomp:redis1 &
+                    docker run -d -p 6479:6379 --name redis-container2 --net redis_redis-net sominsong97/hyper-seccomp:redis2 &
+                    docker run -d -p 6579:6379 --name redis-container3 --net redis_redis-net sominsong97/hyper-seccomp:redis3 &
                     wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh redis && sleep 1
@@ -127,8 +129,8 @@ while getopts "hSed" opt; do
                     ;;
                 "mariadb")
                     # run mariadb containers
-                    docker run -d --net mariadb_mariadb-net -v /data/mariadb/db-01:/var/lib/mysql -p 33306:3306 --name mariadb-master sominsong97/hyper-seccomp:mymariadb &
-                    docker run -d --net mariadb_mariadb-net -v /data/mariadb/db-02:/var/lib/mysql -p 43306:3306 --name mariadb-slave sominsong97/hyper-seccomp:mymariadb &
+                    docker run -d -p 33306:3306 -v /data/mariadb/db-01:/var/lib/mysql -v /data/mariadb/master/config/:/etc/mysql/conf.d -v /data/mariadb/master/mysql-init-files/:/docker-entrypoint-initdb.d/ --name mariadb-container1 --net mariadb_mariadb-net sominsong97/hyper-seccomp:mariadb1 &
+                    docker run -d -p 43306:3306 -v /data/mariadb/db-02:/var/lib/mysql -v /data/mariadb/slave/config/:/etc/mysql/conf.d -v /data/mariadb/slave/mysql-init-files/:/docker-entrypoint-initdb.d/ --name mariadb-container2 --net mariadb_mariadb-net sominsong97/hyper-seccomp:mariadb2 &
                     wait
                     # setup ftrace
                     bash $(pwd)/app/trace_setup.sh mariadb && sleep 1
@@ -202,72 +204,25 @@ while getopts "hSed" opt; do
            
             case $2 in
                 "gcc")
-                    service strace-docker restart
-                    docker run --rm sominsong97/hyper-seccomp:mygcc bash -c "sleep 5; gcc -o myapp main.c;"&&
-                    service strace-docker stop
+                    bash $(pwd)/app/tracing/gcc_tracing.sh
                     ;;
                 "openjdk")
-                    service strace-docker restart
-                    service strace-docker stop
+                    bash $(pwd)/app/tracing/openjdk_tracing.sh
                     ;;
                 "gzip")
-                    # zip testcase
-                    service strace-docker restart
-                    docker run --rm --name gzip-container -it -w /home/ sominsong97/hyper-seccomp:mygzip sh -c "sleep 2; bzip2 -k test.txt"
-                    service strace-docker stop
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_zip.txt && sleep 2
-                    # unzip testcase
-                    service strace-docker start
-                    docker run --rm --name gzip-container -w /home/ sominsong97/hyper-seccomp:mygzip sh -c "sleep 2; gzip -d *.gz"
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_unzip.txt && sleep 2           
-                    exit 1
+                    bash $(pwd)/app/tracing/gzip_tracing.sh
+                    ;;
+                "bzip2")
+                    bash $(pwd)/app/tracing/gzip_tracing.sh
                     ;;
                 "qalc")
-                    # cross product (vector) testcase
-                    service strace-docker restart
-                    docker run --rm myqalc bash -c "sleep 1; qalc 'cross((1; 2; 3); (4; 5; 6))'"
-                    service strace-docker stop
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_vector.txt && sleep 2
-                    # hadamard product (matrix) testcase
-                    service strace-docker restart
-                    docker run --rm myqalc bash -c "sleep 1; qalc 'hadamard([[1; 2; 3]; [4; 5; 6]]; [[7; 8; 9]; [10; 11; 12]])'"
-                    service strace-docker stop
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_metrix.txt && sleep 2
-                    exit 1
+                    bash $(pwd)/app/tracing/qalc_tracing.sh
                     ;;
                 "ghostscript")
-                    service strace-docker restart
-                    # convert eps to png
-                    docker run --rm -v "$PWD":/home/ -w /home/ mypdf2ps bash -c "sleep 1; gs  -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -dGraphicsAlphaBits=4 -sOutputFile=testimage_eps2png.png testimage.eps;"
-                    service strace-docker stop
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_eps2png.txt && sleep 2
-                    # render at 300 dpi
-                    service strace-docker restart
-                    docker run --rm -v "$PWD":/home/ -w /home/ mypdf2ps bash -c "sleep 1; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r300 -sOutputFile=testimage_300dpi.png testimage.eps;"
-                    service strace-docker stop
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_renderdpi.txt && sleep 2
-                    # render a figure in grayscale
-                    service strace-docker restart
-                    docker run --rm -v "$PWD":/home/ -w /home/ mypdf2ps bash -c "sleep 1; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pnggray -sOutputFile=testimage_grayscale.png testimage.pdf;"
-                    service strace-docker stop
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_rendergray.txt && sleep 2
+                    bash $(pwd)/app/tracing/ghostscript_tracing.sh
                     ;;
                 "lowriter")
-                    # convert pdf to doc
-                    service strace-docker restart
-                    docker run --rm -v "$PWD":/home/ -w /home/ mylowriter bash -c "sleep 1; lowriter --convert-to pdf *.doc;"
-                    service strace-docker stop
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_pdf2doc.txt && sleep 2
-                    # convert pdf to odt
-                    service strace-docker restart
-                    docker run --rm -v "$PWD":/home/ -w /home/ mylowriter bash -c "sleep 1; lowriter --convert-to pdf *.odt;"
-                    service strace-docker stop
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_pdf2odt.txt && sleep 2
-                    # convert txt to doc
-                    service strace-docker restart
-                    docker run --rm -v "$PWD":/home/ -w /home/ mylowriter bash -c "sleep 1; lowriter --convert-to 'txt:Text (encoded):UTF8' *.doc;"
-                    service strace-docker stop
-                    cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_txt2doc.txt && sleep 2
+                    bash $(pwd)/app/tracing/lowriter_tracing.sh
                     ;;
                 *)
                     echo "Invalid argument"
@@ -275,8 +230,6 @@ while getopts "hSed" opt; do
                     exit 1
                     ;;
             esac
-            # 결과 옮기기
-            cp /var/log/strace-docker/*-*-* /opt/output/tracing/$2_default.txt
             ;;
     esac
 done

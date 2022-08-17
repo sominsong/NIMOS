@@ -187,11 +187,14 @@ Each execution command and process are as follows:
 
     - You can test the application with the following command (The options that can be tested vary from application to application):
 
+    > **Do not panic if the `rm: cannot remove '/var/log/strace-docker/*-*-*': No such file or directory` output statement is printed during this process! This statement is added so that there is no residual log file. **
+
         ```
         ./run.sh -B -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
+           e.g. ./run.sh -B -e mongodb
         or
-        ./run,sh -B -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]
-
+        ./run.sh -B -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]
+           e.g. ./run.sh -B -d gcc
         ```
 
         After this process, syscall sequence trace results for each test operation in each application are created under the `/opt/output/tracing/` folder.

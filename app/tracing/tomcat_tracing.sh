@@ -35,12 +35,12 @@ case ${RESTAPI} in
 	"POST")
 		echo "POST Test"
 		FILENAME="post"
-		ab -l -p ./app/tracing/plain.txt -T application/octet-stream -c 1 -n 1 http://127.0.0.1:8080/sample/ &
+		ab -l -p plain.txt -T application/octet-stream -c 1 -n 1 http://127.0.0.1:8080/sample/ &
 		;;
 	"PUT")
 		echo "PUT Test"
 		FILENAME="put"
-		ab -l -u ./app/tracing/plain.txt -T application/octet-stream -c 1 -n 1 http://127.0.0.1:8080/sample/ &
+		ab -l -u plain.txt -T application/octet-stream -c 1 -n 1 http://127.0.0.1:8080/sample/ &
 		;;
 esac
 wait
