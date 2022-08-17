@@ -4,6 +4,7 @@ CUR_DIR=$(pwd)
 
 # Install prerequisites
 apt update
+apt-get update
 apt install -y openssh-server
 apt install -y build-essential vim gcc git-all make
 apt install -y python3-pip
