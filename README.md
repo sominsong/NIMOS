@@ -191,9 +191,10 @@ Each execution command and process are as follows:
 
         ```
         ./run.sh -B -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
+           e.g. ./run.sh -B -e mongodb
         or
-        ./run,sh -B -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]
-
+        ./run.sh -B -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]
+           e.g. ./run.sh -B -d gcc
         ```
 
         After this process, syscall sequence trace results for each test operation in each application are created under the `/opt/output/tracing/` folder.
