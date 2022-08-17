@@ -209,5 +209,8 @@ Each execution command and process are as follows:
     ```
 
     After this process, The results of the system call sequence parsed for each thread of the application are created under the `/opt/output/tracing/split/` folder.
+
     A description of the file name format follows:
     `{application name}-{test case type}-{process id(thread id)}`
+
+    In addition, as the tracing result is parsed, a file with a sequence of system call names is created under the `/opt/output/parsing` directory.
