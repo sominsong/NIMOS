@@ -85,17 +85,10 @@
 
 ```
 sudo su
-apt update
-apt install -y make git-all
+apt update && apt install -y make git-all
 
 git clone git@gitlab.com:sominsong97/hyper-seccomp.git
-cd hyper-seccomp
-make build
-```
-
-if you meet `make:execvp *.sh: Permission denied` error, please enter below command first.
-```
-chmod 755 configure.sh setup.sh
+cd hyper-seccomp && make build
 ```
 
 ## How to run
@@ -105,7 +98,9 @@ You should be a **sudo-privileged user** or run it with **sudo privileges**.
 There is help option(-h) for providing short explanations for all options.
 Except for the help option, the remaining options are executed in the following order.
 
-You can run all options in sequence at once with following -a option (in progress) 
+You can run almost all options (includes -C,-S, -P and -N options) in sequence at once with following -a option.
+
+But, you need to run -B option and -R option manually.
 
 ```
 ./run.sh -A
@@ -214,3 +209,5 @@ Each execution command and process are as follows:
     `{application name}-{test case type}-{process id(thread id)}`
 
     In addition, as the tracing result is parsed, a file with a sequence of system call names is created under the `/opt/output/parsing` directory.
+
+    The format of the file name is same with above: `{application name}-{test case type}-{process id(thread id)}`
