@@ -200,7 +200,7 @@ Each execution command and process are as follows:
     After this process, syscall sequence trace results for each test operation in each application are created under the `/opt/output/tracing/` folder.
 
     A description of the file name format follows:
-        `{application name}_{test case type}.txt`
+    `{application name}_{test case type}.txt`
 
 6. Parse the syscall sequence for each application from the trace results (stop 5) of all 15 applications.
 
@@ -210,4 +210,4 @@ Each execution command and process are as follows:
 
     After this process, The results of the system call sequence parsed for each thread of the application are created under the `/opt/output/tracing/split/` folder.
     A description of the file name format follows:
-    `{}`
+    `{application name}-{test case type}-{process id(thread id)}`
