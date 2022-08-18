@@ -180,9 +180,9 @@ Each execution command and process are as follows:
     After this process, folders for docker bind mount are created under the `/data/` folder. Also, several docker networks and docker volumes are created.
     You can check `docker network ls` and `docker volume ls` command.
 
-    - You can test the application with the following command (The options that can be tested vary from application to application):
+    You can see help description of option -B with `./run.sh -B -h` command.
 
-        > **Do not panic if the `rm: cannot remove '/var/log/strace-docker/*-*-*': No such file or directory` output statement is printed during this process! This statement is added so that there is no residual log file. **
+    - You can test the application with the following command (The options that can be tested vary from application to application):
 
     ```
     ./run.sh -B -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
