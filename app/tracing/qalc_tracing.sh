@@ -3,7 +3,7 @@ set -x
 # delete cache
 echo "delete cache..."
 echo 3 > /proc/sys/vm/drop_caches
-rm /var/log/strace-docker/*-*-*
+rm /var/log/strace-docker/*-*-* 2> /dev/null
 
 # cross product (vector) testcase
 echo "Tracing Start - cross product case"
@@ -18,7 +18,7 @@ cp /var/log/strace-docker/*-*-* /opt/output/tracing/qalc_vector.txt && sleep 2
 # delete cache
 echo "delete cache and lagacy datas"
 echo 3 > /proc/sys/vm/drop_caches
-rm /var/log/strace-docker/*-*-*
+rm /var/log/strace-docker/*-*-* 2> /dev/null
 
 # hadamard product (matrix) testcase
 echo "Tracing Start - hadamard product case"
@@ -33,6 +33,6 @@ cp /var/log/strace-docker/*-*-* /opt/output/tracing/qalc_matrix.txt && sleep 2
 # delete cache
 echo "delete cache and lagacy datas"
 echo 3 > /proc/sys/vm/drop_caches
-rm /var/log/strace-docker/*-*-*
+rm /var/log/strace-docker/*-*-* 2> /dev/null
 
 set +x

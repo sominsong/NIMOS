@@ -3,7 +3,7 @@ set -x
 # delete cache
 echo "delete cache..."
 echo 3 > /proc/sys/vm/drop_caches
-rm /var/log/strace-docker/*-*-*
+rm /var/log/strace-docker/*-*-* 2> /dev/null
 
 # zip testcase
 echo "Tracing Start - compile case"
@@ -18,6 +18,6 @@ cp /var/log/strace-docker/*-*-* /opt/output/tracing/openjdk_default.txt && sleep
 # delete cache
 echo "delete cache and lagacy datas"
 echo 3 > /proc/sys/vm/drop_caches
-rm /var/log/strace-docker/*-*-*
+rm /var/log/strace-docker/*-*-* 2> /dev/null
 
 set +x
