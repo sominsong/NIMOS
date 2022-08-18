@@ -55,6 +55,8 @@ while getopts "hSed" opt; do
             exit 0
             ;;
         S)  
+            # Pull images
+            bash $(pwd)/pull.sh
             # Make tracing folder
             mkdir -p /opt/output/tracing/split
             # Make network
