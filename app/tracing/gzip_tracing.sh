@@ -20,7 +20,6 @@ rm /var/log/strace-docker/*-*-*  2> /dev/null
 
 # unzip testcase
 echo "Tracing Start - unzip case"
-docker run --rm --name gzip-container -w /home/ sominsong97/hyper-seccomp:gzip sh -c "mv test*.txt test*.txt.bak"
 service strace-docker restart
 docker run --rm --name gzip-container -w /home/ sominsong97/hyper-seccomp:gzip sh -c "sleep 2; gzip -d *.gz"
 service strace-docker stop
