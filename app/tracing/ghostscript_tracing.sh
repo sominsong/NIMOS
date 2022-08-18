@@ -1,5 +1,3 @@
-set -x
-
 # delete cache
 echo "delete cache..."
 echo 3 > /proc/sys/vm/drop_caches
@@ -49,5 +47,3 @@ cp /var/log/strace-docker/*-*-* /opt/output/tracing/ghostscript_rendergray.txt &
 echo "delete cache and lagacy datas"
 echo 3 > /proc/sys/vm/drop_caches
 rm /var/log/strace-docker/*-*-*  2> /dev/null
-
-set +x
