@@ -21,7 +21,7 @@ rm /var/log/strace-docker/*-*-*  2> /dev/null
 # render at 300 dpi testcase
 echo "Tracing Start - render case"
 service strace-docker restart
-docker run --rm --name gs-container -w /home/ sominsong97/hyper-seccomp:gzip bash -c "sleep 1; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r300 -sOutputFile=testimage_300dpi.png testimage.eps;"
+docker run --rm --name gs-container -w /home/ sominsong97/hyper-seccomp:ghostscript bash -c "sleep 1; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r300 -sOutputFile=testimage_300dpi.png testimage.eps;"
 service strace-docker stop
 
 # copy tracing log
@@ -36,7 +36,7 @@ rm /var/log/strace-docker/*-*-*  2> /dev/null
 # render in grayscale testcase
 echo "Tracing Start - render in grayscale case"
 service strace-docker restart
-docker run --rm --name gs-container -w /home/ sominsong97/hyper-seccomp:gzip bash -c "sleep 1; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pnggray -sOutputFile=testimage_grayscale.png testimage.pdf;"
+docker run --rm --name gs-container -w /home/ sominsong97/hyper-seccomp:ghostscript bash -c "sleep 1; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pnggray -sOutputFile=testimage_grayscale.png testimage.pdf;"
 service strace-docker stop
 
 # copy tracing log
