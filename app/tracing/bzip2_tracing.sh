@@ -3,6 +3,8 @@ set -x
 # delete cache
 echo "delete cache..."
 echo 3 > /proc/sys/vm/drop_caches
+rm /var/log/strace-docker/*-*-* 2> /dev/null
+
 
 # zip testcase
 echo "Tracing Start - zip case"
@@ -17,7 +19,7 @@ cp /var/log/strace-docker/*-*-* /opt/output/tracing/bzip2_zip.txt && sleep 2
 # delete cache
 echo "delete cache and lagacy datas"
 echo 3 > /proc/sys/vm/drop_caches
-rm /var/log/strace-docker/*-*-*
+rm /var/log/strace-docker/*-*-* 2> /dev/null
 
 # unzip testcase
 echo "Tracing Start - unzip case"
@@ -33,6 +35,6 @@ cp /var/log/strace-docker/*-*-* /opt/output/tracing/bzip2_unzip.txt && sleep 2
 # delete cache
 echo "delete cache and lagacy datas"
 echo 3 > /proc/sys/vm/drop_caches
-rm /var/log/strace-docker/*-*-*
+rm /var/log/strace-docker/*-*-*  2> /dev/null
 
 set +x
