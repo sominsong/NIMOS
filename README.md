@@ -21,6 +21,8 @@
 
 [3.How to Run](#how-to-run)
 
+[3.1 Cralwing exploit codes](#crawling-exploit-codes)
+
 ## Architecture
 
 **1. Malicious N-gram Pattern Analysis for Exploit Codes**
@@ -108,106 +110,117 @@ But, you need to run -B option and -R option manually.
 
 Each execution command and process are as follows:
 
-1. Crawl exploit codes and information related to the exploit codes collected.
+### Step 1. Cralwing exploit codes
 
-    ```
-    ./run.sh -C
-    ```
+Crawl exploit codes and information related to the exploit codes collected.
 
-    After this process, The exploit code for each source is collected in each source folder under the `exploit` folder of the project folder. 
+```
+./run.sh -C
+```
 
-    Also, `exploit.json` with information about the exploit collected under the `/opt/output/perm/` folder is created.
+After this process, The exploit code for each source is collected in each source folder under the `exploit` folder of the project folder. 
 
-2. Analyze the exploit code and generate mapping the library functions used in the exploit codes and the syscall sequences invoked by the library functions.
+Also, `exploit.json` with information about the exploit collected under the `/opt/output/perm/` folder is created.
 
-    > **Do not panic if the `[ERROR]` output statement is printed during this process! This project handles errors by itself..**
+### Step 2. Generating ligc-to-syscall seqeunce mapping
 
-    ```
-    ./run.sh -S
-    ```
+Analyze the exploit code and generate mapping the library functions used in the exploit codes and the syscall sequences invoked by the library functions.
 
-    After this process, GCC GIMPLE files (`*.original` files) for each exploit code are created under `/opt/output/temp/` folder.
-    
-    And unit test codes for the usecases of the library functions used in each exploit code are created under the `/opt/output/temp/testcase` folder.
+> **Do not panic if the `[ERROR]` output statement is printed during this process! This project handles errors by itself..**
 
-    The name of the test code of the library function is in the following format:
-    
-    `{library function name}-{exploit-ID}-{function name in the code where the library function is used}-{(optional) delimiter number}`
-    
-    Delimiter number is created when library function is used multiple times in the same function.
+```
+./run.sh -S
+```
 
-    or
-    
-    `{library function name}-default-default`
+After this process, GCC GIMPLE files (`*.original` files) for each exploit code are created under `/opt/output/temp/` folder.
 
-    Also, the execution results of the unit test codes of each library functions are parsed and saved in the form of a system call sequence (sequence consisting of system call numbers) under the `/opt/output/temp/testcase/result/` folder.
+And unit test codes for the usecases of the library functions used in each exploit code are created under the `/opt/output/temp/testcase` folder.
 
-3. Generate library function execution paths by analyzing the control flow graph (CFG) of the exploit codes, and Generate the syscall execution paths (sequences) of the exploit codes by combining it with the result of step 2 ('library function-syscall sequnece' mapping).
+The name of the test code of the library function is in the following format:
 
-    ```
-    ./run.sh -P
-    ```
+`{library function name}-{exploit-ID}-{function name in the code where the library function is used}-{(optional) delimiter number}`
 
-    After this process, control flow graphs (`*.cfg` files) for each exploit code are created under `/opt/output/temp/` folder.
+Delimiter number is created when library function is used multiple times in the same function.
 
-    Also, the sets of all possible paths consisting of a sequence of system calls for each exploit code are created under the path `/opt/output/perm/path/`. It is saved in a json file format, and the file name means the ID of each exploit code as follow: `{exploit-ID}.json`
+or
 
-    The file shows the sequence of system call numbers for each user-defined function.
+`{library function name}-default-default`
 
+Also, the execution results of the unit test codes of each library functions are parsed and saved in the form of a system call sequence (sequence consisting of system call numbers) under the `/opt/output/temp/testcase/result/` folder.
 
-4. Generate N-gram patterns from the 'exploit-syscall sequence' mapping obtained as a result of step 3.
+### Step 3. Generating syscall sequence per exploit code
 
-    ```
-    ./run.sh -N
-    ```
+Generate library function execution paths by analyzing the control flow graph (CFG) of the exploit codes, and Generate the syscall execution paths (sequences) of the exploit codes by combining it with the result of step 2 ('library function-syscall sequnece' mapping).
 
-    After this process, 3 files (`{date}_ngram_sysname_max200.csv`, `{date}_ngram_sysnum_max200.csv`, `ngram_result.pkl`) are created under the `/opt/output/perm/analysis/` folder.
+```
+./run.sh -P
+```
 
-    Each file is as follows:
+After this process, control flow graphs (`*.cfg` files) for each exploit code are created under `/opt/output/temp/` folder.
 
-    - `{date}_ngram_sysname_max200.csv`: It is a csv file consisting of the 'N-gram pattern length, the number of exploit codes from which the N-gram pattern is extracted, and the N-gram pattern consisting of syscall names' columns.
+Also, the sets of all possible paths consisting of a sequence of system calls for each exploit code are created under the path `/opt/output/perm/path/`. It is saved in a json file format, and the file name means the ID of each exploit code as follow: `{exploit-ID}.json`
 
-    - `{date}_ngram_sysnum_max200.csv`: It is a csv file consisting of the 'N-gram pattern length, the number of exploit codes from which the N-gram pattern is extracted, and the N-gram pattern consisting of syscall numbers' columns.
+The file shows the sequence of system call numbers for each user-defined function.
 
-    - `ngram_result.pkl`: It is a file that saves a dictionary in the form of `{'N-gram pattern':'Number of exploits with N-gram pattern found'}` in binary format.
+### Step 4. Generating N-gram syscall patterns per exploit code
 
-5. By testing 15 applications, Extract benign syscall sequence that is invoked when each application opereates normally. This option is only for settings for application testing. Application tests need to be manually executed through individual commands because of the ftrace setting.
+Generate N-gram patterns from the 'exploit-syscall sequence' mapping obtained as a result of step 3.
 
-    ```
-    ./run.sh -B
-    ```
+```
+./run.sh -N
+```
 
-    After this process, folders for docker bind mount are created under the `/data/` folder. Also, several docker networks and docker volumes are created.
-    You can check `docker network ls` and `docker volume ls` command.
+After this process, 3 files (`{date}_ngram_sysname_max200.csv`, `{date}_ngram_sysnum_max200.csv`, `ngram_result.pkl`) are created under the `/opt/output/perm/analysis/` folder.
 
-    You can see help description of option -B with `./run.sh -B -h` command.
+Each file is as follows:
 
-    - You can test the application with the following command (The options that can be tested vary from application to application):
+- `{date}_ngram_sysname_max200.csv`: It is a csv file consisting of the 'N-gram pattern length, the number of exploit codes from which the N-gram pattern is extracted, and the N-gram pattern consisting of syscall names' columns.
 
-    ```
-    ./run.sh -B -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
-        e.g. ./run.sh -B -e mongodb
-    or
-    ./run.sh -B -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]
-        e.g. ./run.sh -B -d gcc
-    ```
+- `{date}_ngram_sysnum_max200.csv`: It is a csv file consisting of the 'N-gram pattern length, the number of exploit codes from which the N-gram pattern is extracted, and the N-gram pattern consisting of syscall numbers' columns.
 
-    After this process, syscall sequence trace results for each test operation in each application are created under the `/opt/output/tracing/` folder.
+- `ngram_result.pkl`: It is a file that saves a dictionary in the form of `{'N-gram pattern':'Number of exploits with N-gram pattern found'}` in binary format.
 
-    A description of the file name format follows:
-    `{application name}_{test case type}.txt`
+### Step 5. Tracing syscall sequence per application
 
-6. Parse the syscall sequence for each application from the trace results (stop 5) of all 15 applications.
+By testing 15 applications, Extract benign syscall sequence that is invoked when each application opereates normally. This option is only for settings for application testing. Application tests need to be manually executed through individual commands because of the ftrace setting.
 
-    ```
-    ./run.sh -R
-    ```
+```
+./run.sh -B
+```
 
-    After this process, The results of the system call sequence parsed for each thread of the application are created under the `/opt/output/tracing/split/` folder.
+After this process, folders for docker bind mount are created under the `/data/` folder. Also, several docker networks and docker volumes are created.
+You can check `docker network ls` and `docker volume ls` command.
 
-    A description of the file name format follows:
-    `{application name}-{test case type}-{process id(thread id)}`
+You can see help description of option -B with `./run.sh -B -h` command.
 
-    In addition, as the tracing result is parsed, a file with a sequence of system call names is created under the `/opt/output/parsing` directory.
+- You can test the application with the following command (The options that can be tested vary from application to application):
 
-    The format of the file name is same with above: `{application name}-{test case type}-{process id(thread id)}`
+```
+./run.sh -B -e [mongodb|mysql|httpd|nginx|redis|mariadb|node|tomcat]
+    e.g. ./run.sh -B -e mongodb
+or
+./run.sh -B -d [gcc|openjdk|gzip|bzip2|qalc|ghostscript|lowriter]
+    e.g. ./run.sh -B -d gcc
+```
+
+After this process, syscall sequence trace results for each test operation in each application are created under the `/opt/output/tracing/` folder.
+
+A description of the file name format follows:
+`{application name}_{test case type}.txt`
+
+### Step 6. Parsing syscall sequence per application
+
+Parse the syscall sequence for each application from the trace results (stop 5) of all 15 applications.
+
+```
+./run.sh -R
+```
+
+After this process, The results of the system call sequence parsed for each thread of the application are created under the `/opt/output/tracing/split/` folder.
+
+A description of the file name format follows:
+`{application name}-{test case type}-{process id(thread id)}`
+
+In addition, as the tracing result is parsed, a file with a sequence of system call names is created under the `/opt/output/parsing` directory.
+
+The format of the file name is same with above: `{application name}-{test case type}-{process id(thread id)}`
