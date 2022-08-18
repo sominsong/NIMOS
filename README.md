@@ -21,7 +21,17 @@
 
 [3.How to Run](#how-to-run)
 
-[3.1 Cralwing exploit codes](#crawling-exploit-codes)
+[3.1 Cralwing exploit codes](#step-1-cralwing-exploit-codes)
+
+[3.2 Generating ligc-to-syscall seqeunce mapping](#step-2-generating-ligc-to-syscall-seqeunce-mapping)
+
+[3.3 Generating syscall sequence per exploit code](#step-3-generating-syscall-sequence-per-exploit-code)
+
+[3.4 Generating N-gram syscall patterns per exploit code](#step-4-generating-n-gram-syscall-patterns-per-exploit-code)
+
+[3.5 Tracing syscall sequence per application](#step-5-tracing-syscall-sequence-per-application)
+
+[3.6 Parsing syscall sequence per application](#step-6-parsing-syscall-sequence-per-application)
 
 ## Architecture
 
