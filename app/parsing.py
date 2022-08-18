@@ -62,7 +62,7 @@ def get_save_syscall_sequence_strace(file, app, filename):
 if __name__ == "__main__":
     # make parsing output directory
     if os.path.isdir("/opt/output/parsing/"):
-        os.system("rm /opt/output/parsing/*")
+        os.system("rm /opt/output/parsing/* 2> /dev/null")
     else:
         os.system("mkdir -p /opt/output/parsing/")
 

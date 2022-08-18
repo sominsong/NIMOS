@@ -58,7 +58,7 @@ def split_threads_for_strace(img, filename):
 if __name__ == "__main__":
     # make directory for parsed data
     if os.path.isdir("/opt/output/tracing/split"):
-        os.system("rm /opt/output/tracing/split/*")
+        os.system("rm /opt/output/tracing/split/* 2> /dev/null")
     else:
         os.system("mkdir -p /opt/output/tracing/split/")
 
