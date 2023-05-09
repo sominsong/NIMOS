@@ -2,8 +2,8 @@ OUTPUT=/opt/output/
 
 ## Install dependencies and configure
 build: 
-	./configure.sh
-	./setup.sh
+	bash configure.sh
+	bash setup.sh
 
 ## Remove previous temporal output directory
 clean:
