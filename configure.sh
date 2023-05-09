@@ -52,6 +52,6 @@ cp conio.h ${CUR_DIR}/exploit/exploit-db/
 cd ${CUR_DIR}
 
 # Install strace-docker for tracing container
-git clone https://github.com/amrabed/strace-docker && sudo ./strace-docker/install
+git clone https://github.com/amrabed/strace-docker && ./strace-docker/install
 mv strace-docker/ /opt/
 service strace-docker status
