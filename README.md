@@ -51,7 +51,7 @@
 
 - Implementation
 
-    <img src="/uploads/b1d5544e057b8a170f96c530025ddd6d/git_readme.png">
+    <img src="https://github.com/sominsong/NIMOS/blob/main/fig/git_readme.png">
 
     The figure above shows the implementation of the Research design.
 
