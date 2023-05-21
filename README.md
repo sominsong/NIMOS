@@ -69,7 +69,7 @@
 
 - Research Architecture
 
-    <img src="/uploads/ac8828bdc62e0750fc41765a27d8b5aa/benign_archi.png" width="500">
+    <img src="https://github.com/sominsong/NIMOS/blob/main/fig/benign_archi.png" width="500">
 
     The goal of this process is to investigate the relationship between the length of the sequence of system calls extracted from the exploit code and the likelihood of interfering with the legitimate activity of a harmless application.
 
@@ -83,7 +83,7 @@
 
 - Implementation
 
-    <img src="/uploads/11daa597e4f45a947fd2e81df5e040c0/git_benign.png" width="600">
+    <img src="https://github.com/sominsong/NIMOS/blob/main/fig/git_benign.png" width="600">
 
     The figure above shows the implementation of the Research design.
 
