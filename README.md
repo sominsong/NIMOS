@@ -39,7 +39,7 @@
 
 - Resaerch Architecture
 
-    <img src="/uploads/c830c5d57eaa7886497b27b1fb68e763/research_archi.png">
+    <img src="https://gitlab.com/sominsong97/hyper-seccomp/uploads/c830c5d57eaa7886497b27b1fb68e763/research_archi.png">
     
     The figure above shows the overall design ofour methodology for extracting system call sequence patterns across exploit codes. It consists of three stages:
 
