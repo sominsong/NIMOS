@@ -1,4 +1,4 @@
-# What is "Hyper-Seccomp"?
+# What is "NIMOS"?
 
 - One line description of this project
 
@@ -99,8 +99,8 @@
 sudo su
 apt update && apt install -y make git-all
 
-git clone git@gitlab.com:sominsong97/hyper-seccomp.git
-cd hyper-seccomp && make build
+git clone git@github.com:sominsong/NIMOS.git
+cd NIMOS && make build
 ```
 
 ## How to run
