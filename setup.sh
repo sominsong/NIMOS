@@ -11,7 +11,7 @@ cp -r ./syscall_generation/testcase/* ${OUTPUT_DIR}temp/testcase/
 mkdir -pv ${OUTPUT_DIR}temp/testcase/result
 
 # searchsploit
-git clone https://github.com/offensive-security/exploitdb.git ${OUTPUT_DIR}perm/exploitdb
+git clone https://gitlab.com/exploit-database/exploitdb.git ${OUTPUT_DIR}perm/exploitdb
 ln -sf ${OUTPUT_DIR}perm/exploitdb/searchsploit /usr/local/bin/searchsploit
 searchsploit -u
 
