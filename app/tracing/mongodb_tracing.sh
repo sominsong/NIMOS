@@ -36,7 +36,7 @@ case ${CRUD} in
     "R")
         echo "[MongoDB] Read Testing ..."
         FILENAME="r"
-        mongo 127.0.0.1:30001/test --quiet --eval "db.test.find({});" &
+        mongosh 127.0.0.1:30001/test --quiet --eval "db.test.find({});" &
         ;;
     "U")
         echo "[MongoDB] Update Testing ..."
