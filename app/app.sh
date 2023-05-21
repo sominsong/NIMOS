@@ -76,7 +76,7 @@ while getopts "hSed" opt; do
 
             # Pull folders for bind mounts
             mkdir -p /data/
-            git clone -b 28-data-for-docker https://gitlab.com/sominsong97/hyper-seccomp.git
+            git clone -b 28-data-for-docker https://github.com/sominsong/NIMOS.git
             cp -r hyper-seccomp/data/* /data/
             rm -r ./hyper-seccomp/
             ;;
