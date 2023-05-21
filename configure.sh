@@ -11,6 +11,7 @@ apt install -y python3-pip
 apt install -y trace-cmd
 
 pip install beautifulsoup4
+pip install requests
 
 # Install Docker
 apt-get install -y ca-certificates curl gnupg lsb-release
